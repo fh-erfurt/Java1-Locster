@@ -1,0 +1,22 @@
+Wie klone ich ein Projekt?
+1. github.com link kopieren
+2. intellij -> fil -> new -> "Project from Version Control..."
+3. link in URL einfügen (gegebenenfalls einloggen)
+4. wenn ordner nicht bunt dann (rechtsklick pom.xml -> add maven)
+----
+Wie wird gearbeitet?
+1. assign issues in github.com
+2. create branch in github.com (kurzel + issue_name z.B. mga-klasse-message-anlegen)
+3. (gegebenfalls erst Projekt klonen)
+4. git fetch (in itellij -> VCS -> Project Update)
+5. (ggf. Merge -> OK)
+6. in intellij unten links auf 9: Git klicken -> rechtklick auf die branch im remote -> Checkout
+7. create class(wichtig file name = klassen name z.B. Test)
+8. create Testclass(wichtig file name = klassen name + test z.B. MessageTest)
+-----
+Wie Push ich meinen Code
+1. VCS -> Commit -> Änderungen die übernommen werden sollen auswählen -> issue nummer auf github.com herausfinden -> nummer in Commitmessage einfügen + englische message hinzufügen
+2. Commit 
+3. Push !!! branches überprüfen !!!
+4. Creat pull request
+5. Assignees hinzufügen
