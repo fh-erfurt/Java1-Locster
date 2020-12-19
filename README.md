@@ -1,2 +1,2 @@
-## Java1-ProjektMoMaDiSa
-Java-Projekt von Dirk Hofmann, Matthias Gabel, Molham Al Khodari, Saskia Wohlers
+# Java1-ProjektMoMaDiSa
+Java-Projekt von Dirk Hofmann, Matthias Gabel, Molham Al Khodari, Saskia Wohlers, Jakob Gensel
