@@ -2,7 +2,7 @@
 <h6>Ein Java-Projekt von Dirk Hofmann, Jakob Gensel, Matthias Gabel, Molham Al-Khodari, Saskia Wohlers</h6>
 
 <h2>Soziales Netzwerk mit Biss</h2>
-Im Rahmen der Veranstaltung "Java Programmierung 1 & 2" haben wir uns entschlossen, ein soziales Netzwerk mit Schwerpunkt auf chatten und "stalken" zu programmieren. Ganz ohne nervige Babybilder und Katzenvideos.
+Im Rahmen der Veranstaltung "Java Programmierung 1 & 2" haben wir uns entschlossen, ein soziales Netzwerk mit Schwerpunkt auf chatten und "stalken" zu programmieren. Ganz ohne nervige Babybilder und Katzenvideos.<br>
 <br>
 <details>
 <summary> Projekt allgemein</summary><br>
@@ -26,7 +26,7 @@ Der Grundsatz war, dass jedes uns bekannte soziale Netzwerk vollkommen überlauf
 Der Locster schreitet genau dort ein: diese Web-Anwendung wird sich nur den wirklich wichtigen News widmen, erlaubt dir Profilstatistiken anzusehen (Wer hat sich mein Profil angeschaut?), und lässt dich mit deinen Freunden entspannt chatten!
 
 <h2>Anforderungsbeschreibung</h2>
-Die groben Ziele umfassen für den jetztigen Stand:<br>
+Die groben Ziele umfassen für den jetzigen Stand:<br>
 
      - Erstellung und Implementierung eines Chatsystems
      - Erstellung und Implementierung einer User-Datenbank
