@@ -37,7 +37,6 @@ Nicht zum Projektumfang gehören:<br>
      -Erstellung eines regionalen Newsfeed
      
 </details>
-<br>
 
 <details>
 <summary>Diagramme</summary><br>
