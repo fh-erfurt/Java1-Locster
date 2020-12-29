@@ -43,11 +43,11 @@ public class Friendlist {
     ==================
     */
 
-    void sendFriendRequest(User user) {
+    /* void sendFriendRequest(User user) {
 
     }
 
     void deleteFriend(FriendlistItem friendlistItem) {
 
-    }
+    } */
 }

@@ -43,11 +43,11 @@ public class FriendRequest {
     ==================
     */
 
-    void acceptRequest(FriendRequest friendRequest) {
+    /* void acceptRequest(FriendRequest friendRequest) {
 
     }
 
     void denyRequest(FriendRequest friendRequest) {
 
-    }
+    } */
 }
