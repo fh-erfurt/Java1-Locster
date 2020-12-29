@@ -18,7 +18,7 @@ public class User
     {
         global,
         friends,
-        _private                // a _ cos private a key word in java
+        nobody
     }
 
     /*
@@ -43,7 +43,7 @@ public class User
     ===================================
     */
 
-    public User(PersonalInfo personalInfo, rofileStatistic profileStatistic, AccountDetails accountDetails,
+    public User(PersonalInfo personalInfo, ProfileStatistic profileStatistic, AccountDetails accountDetails,
                 String status, Friendlist friendlist, Guestbook guestbook, ProfileText profileText, Chat[] messenger,
                 User[] blockedUsers)
     {
