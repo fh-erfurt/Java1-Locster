@@ -61,6 +61,8 @@ Mithilfe dieses Diagrammes erarbeiteten wir uns Use Case und Aktivitätsdiagramm
 <h2>Sprache</h2>
 <br>
 Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische Bezeichner. es ist kommentiert und vermeidet unnötige Redundanzen.
+Jede Klasse besitzt einen einleitenden Kommentar -> hier vielleich ein photo vom code ?
+Jede hinreichend komplexe Methode besitzt einen Kommentar
      
 <h2>Unit-Tests</h2>
 <br>
