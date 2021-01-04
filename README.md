@@ -80,3 +80,9 @@ hier vielleicht unsere 2. PowerPoint ?
 hier vielleicht unsere letzte PowerPoint ?
 </details>
 
+<details>
+<summary>Lessons learned</summary><br>
+<br>
+hier kommt ein text ....
+</details>
+
