@@ -56,3 +56,10 @@ unser bisheriges Klassendiagramm nochmal zu überholen, mit folgendem Ergebnis:
 Mithilfe dieses Diagrammes erarbeiteten wir uns Use Case und Aktivitätsdiagramme, welche uns im weiteren Verlauf für die eigentlichen Klassen helfen werden.
 </details>
 
+<details>
+<summary>Programmcode</summary><br>
+<h2>Sprache</h2>
+<br>
+Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische Bezeichner. es ist kommentiert und vermeidet unnötige Redundanzen
+</details>
+
