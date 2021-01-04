@@ -60,6 +60,11 @@ Mithilfe dieses Diagrammes erarbeiteten wir uns Use Case und Aktivitätsdiagramm
 <summary>Programmcode</summary><br>
 <h2>Sprache</h2>
 <br>
-Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische Bezeichner. es ist kommentiert und vermeidet unnötige Redundanzen
+Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische Bezeichner. es ist kommentiert und vermeidet unnötige Redundanzen.
+     
+<h2>Unit-Tests</h2>
+<br>
+Die Unit-Tests laufen fehlerfrei durch und erlauben es, Fehler aufzudecken
+
 </details>
 
