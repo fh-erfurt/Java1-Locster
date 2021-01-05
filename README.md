@@ -56,3 +56,35 @@ unser bisheriges Klassendiagramm nochmal zu überholen, mit folgendem Ergebnis:
 Mithilfe dieses Diagrammes erarbeiteten wir uns Use Case und Aktivitätsdiagramme, welche uns im weiteren Verlauf für die eigentlichen Klassen helfen werden.
 </details>
 
+<details>
+<summary>Programmcode</summary><br>
+<h2>Sprache</h2>
+<br>
+Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische Bezeichner. es ist kommentiert und vermeidet unnötige Redundanzen.
+Jede Klasse besitzt einen einleitenden Kommentar -> hier vielleich ein photo vom code ?
+Jede hinreichend komplexe Methode besitzt einen Kommentar
+     
+<h2>Unit-Tests</h2>
+<br>
+Die Unit-Tests laufen fehlerfrei durch und erlauben es, Fehler aufzudecken
+</details>
+
+<details>
+<summary>Präsentationen</summary><br>
+<h2>Präsentationen 1</h2>
+<br>
+hier vielleicht unsere erste PowerPoint ?
+<h2>Präsentationen 2</h2>
+<br>
+hier vielleicht unsere 2. PowerPoint ?
+<h2>Präsentationen 3</h2>
+<br>
+hier vielleicht unsere letzte PowerPoint ?
+</details>
+
+<details>
+<summary>Lessons learned</summary><br>
+<br>
+hier kommt ein text ....
+</details>
+

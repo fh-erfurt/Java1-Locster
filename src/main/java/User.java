@@ -1,12 +1,13 @@
 /*
 ===================================
-== Molham Al-khodari    24.12.2020
+== Molham Al-khodari    03.01.2020
 ===================================
 */
 
+import java.util.ArrayList;     // new code
+
 // Create a User class
-public class User
-{
+public class User {
 
     /*
     =========================
@@ -14,8 +15,7 @@ public class User
     =========================
     */
 
-    enum privacyFlag
-    {
+    enum privacyFlag {
         global,
         friends,
         nobody
@@ -27,15 +27,17 @@ public class User
     =========================
     */
 
-    private PersonalInfo personalInfo;          // PersonalInfo     class still missing
-    private ProfileStatistic profileStatistic;  // ProfileStatistic class still missing
-    private AccountDetails accountDetails;      // AccountDetails   class still missing
-    private String status;
+    private PersonalInfo personalInfo;
+    private ProfileStatistic profileStatistic;
+    private AccountDetails accountDetails;
+    private String personalStatus;          // new name
+    private privacyFlag status;             // new code
     private Friendlist friendlist;
     private Guestbook guestbook;
     private ProfileText profileText;
     private Chat[] messenger;
     private User[] blockedUsers;
+    ArrayList<User> BlockUserList = new ArrayList<User>();  // create a block list ?????    // new code
 
     /*
     ===================================
@@ -43,29 +45,52 @@ public class User
     ===================================
     */
 
-    public User(PersonalInfo personalInfo, ProfileStatistic profileStatistic, AccountDetails accountDetails,
-                String status, Friendlist friendlist, Guestbook guestbook, ProfileText profileText, Chat[] messenger,
-                User[] blockedUsers)
-    {
-        this.personalInfo       = personalInfo;
-        this.profileStatistic   = profileStatistic;
-        this.accountDetails     = accountDetails;
-        this.status             = status;
-        this.friendlist         = friendlist;
-        this.guestbook          = guestbook;
-        this.profileText        = profileText;
-        this.messenger          = messenger;     // what about ENUM here?
-        this.blockedUsers       = blockedUsers;
+    public User(PersonalInfo personalInfo, AccountDetails accountDetails,
+                Friendlist friendlist, ProfileText profileText, Chat[] messenger,
+                User[] blockedUsers) {
+        this.personalInfo = personalInfo;
+        this.accountDetails = accountDetails;
+        this.messenger = messenger;
     }
 
-    public User()
-    {
+    public User() {
         // if we need a constructor without parameters
     }
 
     /*
+    ==================
+    == User functions       // new code
+    ==================
+    */
+
+    public void addBlockUser(User user) {
+        BlockUserList.add(user);
+    }
+
+    public void deleteBlockUser(User user) {
+        BlockUserList.remove(user);
+    }
+
+    public void changePrivacyFlag(privacyFlag status) {
+        switch (status) {
+            case global:
+                status = privacyFlag.global;
+                System.out.println(status);
+                break;
+            case friends:
+                status = privacyFlag.friends;
+                System.out.println(status);
+                break;
+            case nobody:
+                status = privacyFlag.nobody;
+                System.out.println(status);
+                break;
+        }
+    }
+
+     /*
     ==========================
-    == User setter und getter
+    == User setter und getter           // new code
     ==========================
     */
 
@@ -93,11 +118,19 @@ public class User
         this.accountDetails = accountDetails;
     }
 
-    public String getStatus() {
+    public String getPersonalStatus() {
+        return personalStatus;
+    }
+
+    public void setPersonalStatus(String personalStatus) {
+        this.personalStatus = personalStatus;
+    }
+
+    public privacyFlag getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(privacyFlag status) {
         this.status = status;
     }
 
@@ -141,25 +174,11 @@ public class User
         this.blockedUsers = blockedUsers;
     }
 
-    /*
-    ==================
-    == User functions
-    ==================
-    */
-
-    public void addBlockUser(User user)
-    {
-        // do something
+    public ArrayList<User> getBlockUserList() {
+        return BlockUserList;
     }
 
-    public void deleteBlockUser()
-    {
-        // do something
+    public void setBlockUserList(ArrayList<User> blockUserList) {
+        BlockUserList = blockUserList;
     }
-
-    public void changePrivacyFlag()
-    {
-        // do something
-    }
-
 }
