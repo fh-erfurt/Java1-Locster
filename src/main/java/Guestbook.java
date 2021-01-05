@@ -18,24 +18,27 @@ public class Guestbook
         book.add(guestbookEntry);
     }
 
-    public void editGuestbookEntry(GuestbookEntry oldGuestbookEntry, String message)
+    public void editGuestbookEntry(GuestbookEntry oldGuestbookEntry, String message) throws Exception
     {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        User creator = oldGuestbookEntry.getCreator();
-        GuestbookEntry newGuestbookEntry = new GuestbookEntry(creator, timestamp, message);
-        for (int Index = 0; Index < book.size(); Index++)
+        GuestbookEntry newGuestbookEntry = new GuestbookEntry(oldGuestbookEntry.getCreator(), timestamp, message);
+        for (GuestbookEntry entry : this.book)
         {
-            if (book.get(Index) == oldGuestbookEntry)
+            if (entry.equals(oldGuestbookEntry))
             {
-                book.set(Index, newGuestbookEntry);
+                entry = newGuestbookEntry;
+                return;
             }
         }
+        throw new Exception("GuestbookEntry to edit not found in Guestbook!");
+        // TODO JGE Fehler, wenn oldGuestbookEntry nicht in Guestbook
     }
 
 
-    public void deleteGuestbookEntry(GuestbookEntry toDeleteGuestbookEntry)
+    public void deleteGuestbookEntry(GuestbookEntry guestbookEntryToDelete)
     {
-        book.removeIf(GuestbookEntry -> GuestbookEntry == toDeleteGuestbookEntry);
+        book.removeIf(GuestbookEntry -> GuestbookEntry == guestbookEntryToDelete);
+        // TODO warum nicht wie bei Message und Chat?
     }
 
     /*

@@ -1,8 +1,11 @@
 /*
 ===================================
 == Molham Al-khodari    24.12.2020
+== Jakob Gensel         05.01.2020
 ===================================
 */
+
+import java.util.ArrayList;
 
 // Create a Chat class
 public class Chat
@@ -14,8 +17,8 @@ public class Chat
     */
 
     private int chatId;
-    private String chatName;
-    private Message[] chatMessages;
+    private String name;
+    private ArrayList<Message> messages = new ArrayList<Message>();
 
     /*
     ===================================
@@ -23,18 +26,16 @@ public class Chat
     ===================================
     */
 
-    public Chat(int chatId, String chatName, Message[] chatMessages)
+    public Chat(int chatId, String chatName)
     {
-        this.chatId         = chatId;
-        this.chatName       = chatName;
-        this.chatMessages   = chatMessages;       // kann das richtig sein ?
+        this.chatId = chatId;
+        this.name   = chatName;
     }
 
     public Chat()
     {
-        this.chatId             = 0;
-        this.chatName           = "";
-        // this.chatMessages    = {};
+        this.chatId = 0;
+        this.name   = "";
     }
 
     /*
@@ -51,20 +52,20 @@ public class Chat
         this.chatId = chatId;
     }
 
-    public String getChatName() {
-        return chatName;
+    public String getName() {
+        return name;
     }
 
-    public void setChatName(String chatName) {
-        this.chatName = chatName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Message[] getChatMessages() {
-        return chatMessages;
+    public ArrayList<Message> getMessages() {
+        return messages;
     }
 
-    public void setChatMessages(Message[] chatMessages) {
-        this.chatMessages = chatMessages;
+    public void setMessages(ArrayList<Message> messages) {
+        this.messages = messages;
     }
 
     /*
@@ -73,9 +74,10 @@ public class Chat
     ==================
     */
 
-    public void receiveMessage(Message message, User user)
+    public void receiveMessage(Message message)
     {
-        // do something .... was macht receiveMessage genau ?
+
+        this.messages.add(message);
     }
 
 }
