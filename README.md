@@ -84,8 +84,9 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
     5. Methoden
     6. Destruktor
     7. Getter & Setter
+    <br>
     
- - Die Sektionen werden jeweilig mit folgendem Kommentar initiiert
+ - Die Sektionen werden jeweilig mit folgendem Kommentar initiiert:
  <br>
  
     /*
@@ -93,24 +94,24 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
     == Sektionsname
     ===================================
     */
+    
  <br>
-
 3. Methoden
 
  - Methodennamen werden in **lowerCamelCase** geschrieben
  - Beispiel: methodName
-	
+<br>
 4. Variablen
 
  - Variablen werden in **lowerCamelCase** geschrieben
  - Beispiel: variabelnName
  - Der Gültigkeitsbereich der Variablen wird standartgemäß als **private** deklariert.
-Auf die Variablen wird dann folglich mit **Settern & Gettern** zugegriffen.
-Mit einem triftigen Grund kann von der Regelung abgewichen werden.
-     
+ - Auf die Variablen wird dann folglich mit **Settern & Gettern** zugegriffen.
+ - Mit einem triftigen Grund kann von der Regelung abgewichen werden.
+<br>
 <h2>Unit-Tests</h2>
 <br>
-Die Unit-Tests laufen fehlerfrei durch und erlauben es, Fehler aufzudecken
+Die Unit-Tests laufen fehlerfrei durch und helfen dabei, Fehler aufzudecken.
 </details>
 
 <details>
