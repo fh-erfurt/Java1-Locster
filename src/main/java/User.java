@@ -4,7 +4,9 @@
 ===================================
 */
 
+import java.sql.Timestamp;
 import java.util.ArrayList;     // new code
+import java.util.Date;
 
 // Create a User class
 public class User {
@@ -15,10 +17,10 @@ public class User {
     =========================
     */
 
-    enum privacyFlag {
-        global,
-        friends,
-        nobody
+    enum statusFlag {
+        online,
+        absent,
+        offline
     }
 
     /*
@@ -30,14 +32,14 @@ public class User {
     private PersonalInfo personalInfo;
     private ProfileStatistic profileStatistic;
     private AccountDetails accountDetails;
-    private String personalStatus;          // new name
-    private privacyFlag status;             // new code
+    private String personalStatus;
+    private statusFlag onlineStatus;
     private Friendlist friendlist;
     private Guestbook guestbook;
     private ProfileText profileText;
     private Chat[] messenger;
     private User[] blockedUsers;
-    ArrayList<User> BlockUserList = new ArrayList<User>();  // create a block list ?????    // new code
+    private ArrayList<User> blockUserList;
 
     /*
     ===================================
@@ -45,12 +47,19 @@ public class User {
     ===================================
     */
 
-    public User(PersonalInfo personalInfo, AccountDetails accountDetails,
-                Friendlist friendlist, ProfileText profileText, Chat[] messenger,
-                User[] blockedUsers) {
-        this.personalInfo = personalInfo;
-        this.accountDetails = accountDetails;
-        this.messenger = messenger;
+    public User(int userID, String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex)
+    {
+         this.accountDetails    = new AccountDetails(userID, userName, email, password);
+         this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
+
+         this.profileStatistic  = new ProfileStatistic();
+         this.personalStatus    = "Hey I'm using Locster";
+         this.friendlist        = new Friendlist();
+         this.guestbook         = new Guestbook();
+         this.profileText       = new ProfileText();
+         this.messenger         = null;
+         this.blockedUsers      = null;
+         this.blockUserList     = new ArrayList<User>();
     }
 
     public User() {
@@ -64,25 +73,25 @@ public class User {
     */
 
     public void addBlockUser(User user) {
-        BlockUserList.add(user);
+        blockUserList.add(user);
     }
 
     public void deleteBlockUser(User user) {
-        BlockUserList.remove(user);
+        blockUserList.remove(user);
     }
 
-    public void changePrivacyFlag(privacyFlag status) {
+    public void changePrivacyFlag(statusFlag status) {
         switch (status) {
-            case global:
-                status = privacyFlag.global;
+            case online:
+                status = statusFlag.online;
                 System.out.println(status);
                 break;
-            case friends:
-                status = privacyFlag.friends;
+            case absent:
+                status = statusFlag.absent;
                 System.out.println(status);
                 break;
-            case nobody:
-                status = privacyFlag.nobody;
+            case offline:
+                status = statusFlag.offline;
                 System.out.println(status);
                 break;
         }
@@ -126,12 +135,12 @@ public class User {
         this.personalStatus = personalStatus;
     }
 
-    public privacyFlag getStatus() {
-        return status;
+    public statusFlag getStatus() {
+        return onlineStatus;
     }
 
-    public void setStatus(privacyFlag status) {
-        this.status = status;
+    public void setStatus(statusFlag onlineStatus) {
+        this.onlineStatus = onlineStatus;
     }
 
     public Friendlist getFriendlist() {
@@ -175,10 +184,10 @@ public class User {
     }
 
     public ArrayList<User> getBlockUserList() {
-        return BlockUserList;
+        return blockUserList;
     }
 
     public void setBlockUserList(ArrayList<User> blockUserList) {
-        BlockUserList = blockUserList;
+        blockUserList = blockUserList;
     }
 }

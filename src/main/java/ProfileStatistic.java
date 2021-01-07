@@ -2,12 +2,17 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ProfileStatistic {
-    private int viewsTotal;
+    private int viewsTotal = 0;
     private List<User> lastVisitors;
     private List<User> lastVisits;
     private User latestFriend;
     private User oldestFriend;
 
+    /*
+    ===================================
+    Constructor
+    ===================================
+    */
     public ProfileStatistic()
     {
         lastVisitors = Arrays.asList(new User[10]);

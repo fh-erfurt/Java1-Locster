@@ -3,9 +3,9 @@ public class ProfileText
     static final int MAX_NUMBER_OF_CHARS = 10000;
     public String content;
 
-    public ProfileText(String content)
+    public ProfileText()
     {
-        this.content = content;
+        this.content = "";
     }
 
     /*
