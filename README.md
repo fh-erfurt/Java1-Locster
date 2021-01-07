@@ -64,6 +64,62 @@ Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische B
 Jede Klasse besitzt einen einleitenden Kommentar -> hier vielleich ein photo vom code ?
 Jede hinreichend komplexe Methode besitzt einen Kommentar
      
+<h2>Codestyle</h2>
+<br>
+1. Sprache<br>
+<br>
+<ul>
+<li>Code und Kommentare werden in englisch verfasst.</li>
+</ul>
+<br>
+2. Klassen<br>
+<br>
+<ul>
+	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
+<li>Beispiel: ClassName.java</li>
+<li>Die Strukturierungen der Klassen sehen wie folgt:</li>
+</ul>
+
+ <br>
+ 
+    1. Konstanten und Klassenvariablen 
+    2. Variablen
+    3. Konstruktor
+    4. abstrakte Methoden
+    5. Methoden
+    6. Destruktor
+    7. Getter & Setter
+    
+ - Die Sektionen werden jeweilig mit folgendem Kommentar initiiert:
+<br>
+ 
+    /*
+    ===================================
+    == Sektionsname
+    ===================================
+    */
+
+<br>
+3. Methoden<br>
+<br>
+<ul>
+	<li>Methodennamen werden in <strong>lowerCamelCase</strong> geschrieben</li>
+<li>Beispiel: methodName</li>
+</ul>
+
+ 
+<br>
+4. Variablen<br>
+<br>
+<ul>
+	<li>Variablen werden in <strong>lowerCamelCase</strong> geschrieben</li>
+<li>Beispiel: variablenName</li>
+	<li>Der Gültigkeitsbereich der Variablen wird standartgemäß als <strong>private</strong> deklariert.
+		Auf die Variablen wird dann folglich mit <strong>Settern & Gettern</strong> zugegriffen.
+Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
+</ul>
+
+<br>
 <h2>Unit-Tests</h2>
 <br>
 Die Unit-Tests laufen fehlerfrei durch und erlauben es, Fehler aufzudecken
@@ -87,4 +143,3 @@ hier vielleicht unsere letzte PowerPoint ?
 <br>
 hier kommt ein text ....
 </details>
-

@@ -5,6 +5,12 @@ public class AccountDetails
     private String mailadress;
     private String password;
 
+    /*
+       ===================================
+       Constructor
+       ===================================
+       */
+
     public AccountDetails(int userID, String username, String mailadress, String password)
     {
         this.userID = userID;
