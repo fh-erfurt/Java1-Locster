@@ -83,11 +83,11 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
  <br>
  
     1. Konstanten und Klassenvariablen 
-    2. Variablen
-    3. Konstruktor
-    4. abstrakte Methoden
-    5. Methoden
-    6. Destruktor
+    2. Enum
+    3. Variablen
+    4. Konstruktor
+    5. abstrakte Methoden
+    6. Methoden
     7. Getter & Setter
     
  - Die Sektionen werden jeweilig mit folgendem Kommentar initiiert:
@@ -115,7 +115,9 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
 	<li>Variablen werden in <strong>lowerCamelCase</strong> geschrieben</li>
 <li>Beispiel: variablenName</li>
 	<li>Der Gültigkeitsbereich der Variablen wird standartgemäß als <strong>private</strong> deklariert.
-		Auf die Variablen wird dann folglich mit <strong>Settern & Gettern</strong> zugegriffen.
+		Innerhalb der Klasse wird auf die Variablen mit <strong>this.</strong> zugegriffen.
+		Außerhalb der Klasse wird dann folglich mit <strong>Settern & Gettern</strong> auf die Variablen zugegriffen.
+		Anhand der <strong>Settern & Gettern</strong> erkennt man somit auch die Zugriffsrechte.
 Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
 </ul>
 
