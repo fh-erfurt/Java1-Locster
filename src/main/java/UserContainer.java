@@ -22,7 +22,7 @@ public class UserContainer
         ArrayList<User> usersUsers = new ArrayList<User>();
         for (User user : users) // for-each user in users
         {
-            if (user.getStatus() == 'online')
+            if (user.getStatus() == User.privacyFlag.friends)
             {
                 usersUsers.add(user);
             }

@@ -54,7 +54,7 @@ public class User {
     }
 
     public User() {
-        // if we need a constructor without parameters
+        this.friendlist = new Friendlist();
     }
 
     /*

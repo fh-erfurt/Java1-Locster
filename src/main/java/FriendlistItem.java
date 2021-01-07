@@ -15,6 +15,11 @@ public class FriendlistItem {
     ===================================
     */
 
+    public FriendlistItem(User friend) {
+        this.friend = friend;
+        this.friendSince = getUnixTime();
+    }
+
     /*
     ===================================
     ==  FriendlistItem Getter & Setter
@@ -42,4 +47,8 @@ public class FriendlistItem {
     == FriendlistItem Functions
     ==================
     */
+
+    private long getUnixTime() {
+        return System.currentTimeMillis() / 1000L;
+    }
 }

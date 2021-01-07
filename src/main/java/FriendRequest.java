@@ -15,6 +15,11 @@ public class FriendRequest {
     ===================================
     */
 
+    public FriendRequest(User receiver, User sender) {
+        this.receiver = receiver;
+        this.sender = sender;
+    }
+
     /*
     ===================================
     ==  FriendRequest Getter & Setter
@@ -36,18 +41,4 @@ public class FriendRequest {
     public void setSender(User sender) {
         this.sender = sender;
     }
-
-    /*
-    ==================
-    == FriendRequest Functions
-    ==================
-    */
-
-    /* void acceptRequest(FriendRequest friendRequest) {
-
-    }
-
-    void denyRequest(FriendRequest friendRequest) {
-
-    } */
 }
