@@ -71,29 +71,42 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
  
  <br>
 2. Klassen
-     
+
  - Klassenname sowie Dateiname werden in **UpperCamelCase** geschrieben
  - Beispiel: ClassName.java
- - Die Strukturierung der Klassen sehen wie folgt aus.
+ - Die Strukturierung der Klassen sehen wie folgt aus:
  <br>
  
-      - Konstanten und Klassenvariablen 
-      - Variablen
-      - Konstruktor
-      - abstrakte Methoden
-      - Methoden
-      - Destruktor
-      - Getter & Setter
-     
+    1. Konstanten und Klassenvariablen 
+    2. Variablen
+    3. Konstruktor
+    4. abstrakte Methoden
+    5. Methoden
+    6. Destruktor
+    7. Getter & Setter
+    
+ - Die Sektionen werden jeweilig mit folgendem Kommentar initiiert
+ <br>
+ 
+    /*
+    ===================================
+    == Sektionsname
+    ===================================
+    */
+ <br>
+
 3. Methoden
-	- Methodennamen werden in **lowerCamelCase** geschrieben
-	- Beispiel: methodName
+
+ - Methodennamen werden in **lowerCamelCase** geschrieben
+ - Beispiel: methodName
+	
 4. Variablen
-	Variablen werden in **lowerCamelCase** geschrieben
-	Beispiel: variabelnName
-	Der Gültigkeitsbereich der Variablen wird standartgemäß als **private** deklariert.
-	Auf die Variablen wird dann folglich mit **Settern & Gettern** zugegriffen.
-	Mit einem triftigen Grund 
+
+ - Variablen werden in **lowerCamelCase** geschrieben
+ - Beispiel: variabelnName
+ - Der Gültigkeitsbereich der Variablen wird standartgemäß als **private** deklariert.
+Auf die Variablen wird dann folglich mit **Settern & Gettern** zugegriffen.
+Mit einem triftigen Grund kann von der Regelung abgewichen werden.
      
 <h2>Unit-Tests</h2>
 <br>
