@@ -1,46 +1,54 @@
+/*
+===================================
+== Matthias Gabel
+===================================
+*/
 public class AccountDetails
 {
-    private int userID;
+    /*
+   ===================================
+   == Variable
+   ===================================
+   */
     private String username;
-    private String mailadress;
+    private String mailAddress;
     private String password;
-
-    public AccountDetails(int userID, String username, String mailadress, String password)
+    /*
+   ===================================
+   == Constructor
+   ===================================
+   */
+    public AccountDetails(String username, String mailaddress, String password)
     {
-        this.userID = userID;
         this.username = username;
-        this.mailadress = mailadress;
+        this.mailAddress = mailaddress;
         this.password = password;
     }
-
-    public void changeUserName(String newusername)
+    /*
+   ===================================
+   == Methods
+   ===================================
+   */
+    public void changeUserName(String newUsername)
     {
-        this.username = newusername;
+        this.username = newUsername;
     }
 
-    public void changeMailadress(String newmailadress)
+    public void changeMailaddress(String newMailAddress)
     {
-        this.mailadress = newmailadress;
+        this.mailAddress = newMailAddress;
     }
 
-    public void changePassword(String newpassword)
+    public void changePassword(String newPassword)
     {
-        this.password = newpassword;
+        this.password = newPassword;
     }
 
     /*
-       ===================================
-       Getter & Setter
-       ===================================
-       */
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
-
+   ===================================
+   == Getter & Setter
+   ===================================
+   */
     public String getUsername() {
         return username;
     }
@@ -49,12 +57,12 @@ public class AccountDetails
         this.username = username;
     }
 
-    public String getMailadress() {
-        return mailadress;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setMailadress(String mailadresse) {
-        this.mailadress = mailadresse;
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
     }
 
     public String getPassword() {

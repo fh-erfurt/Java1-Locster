@@ -1,6 +1,6 @@
 /*
 ===================================
-Matthias Gabel
+== Matthias Gabel
 ===================================
 */
 
@@ -12,35 +12,44 @@ import java.util.regex.Pattern;
 
 public class UserContainer
 {
-
+    /*
+    ===================================
+    == Variable
+    ===================================
+    */
     private ArrayList<User> users;
-    private int userID = 0;
-
+    /*
+    ===================================
+    == Constructor
+    ===================================
+    */
     public UserContainer()
     {
         users = new ArrayList<User>();
     }
-
-    public void registerUser(String firstName, String lastName, String userName, String email, String password, Date Birthdate, PersonalInfo.sex sex)
-    {
-        userID++;
+    /*
+    ===================================
+    == Methods
+    ===================================
+    */
+    public void registerUser(String firstName, String lastName, String userName, String email, String password, Date Birthdate, PersonalInfo.sex sex) {
 
         if (!this.checkEmail(email))
         {
-            //todo throw("Invalid Email");
+            //todo throw new Exception("Invalid Email!");
         }
 
         if (!this.checkPassword(password))
         {
-            //todo throw("Invalid Password.");
+            //todo throw new Exception("Invalid Password!");
         }
 
-        User user = new User(userID, firstName, lastName, userName, email, password, Birthdate, sex);
+        User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
 
-        users.add(user);
+        this.users.add(user);
     }
 
-    public ArrayList<User> getAktivUser()
+    public ArrayList<User> activeUser()
     {
         ArrayList<User> usersUsers = new ArrayList<User>();
         for (User user : users) // for-each user in users
@@ -81,7 +90,10 @@ public class UserContainer
 
     private boolean checkPassword(String password)
     {   //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        String minimum = "8";
+        String specialCharacter = "@$!%*?&";
+
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*["+specialCharacter+"])[A-Za-z\\d"+specialCharacter+"]{"+minimum+",}$";
 
         Pattern pattern = Pattern.compile(regex);
 

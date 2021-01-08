@@ -47,9 +47,9 @@ public class User {
     ===================================
     */
 
-    public User(int userID, String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex)
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex)
     {
-         this.accountDetails    = new AccountDetails(userID, userName, email, password);
+         this.accountDetails    = new AccountDetails(userName, email, password);
          this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
 
          this.profileStatistic  = new ProfileStatistic();
