@@ -58,11 +58,6 @@ Mithilfe dieses Diagrammes erarbeiteten wir uns Use Case und Aktivitätsdiagramm
 
 <details>
 <summary>Programmcode</summary><br>
-<h2>Sprache</h2>
-<br>
-Der code wird mit Englisch geschrieben, es hat Sinnvolle sprechende, englische Bezeichner. es ist kommentiert und vermeidet unnötige Redundanzen.
-Jede Klasse besitzt einen einleitenden Kommentar -> hier vielleich ein photo vom code ?
-Jede hinreichend komplexe Methode besitzt einen Kommentar
      
 <h2>Codestyle</h2>
 <br>
@@ -180,11 +175,35 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     }
 
 <br>
-<h2>Unit-Tests</h2>
+7. Enum<br>
 <br>
-Die Unit-Tests laufen fehlerfrei durch und erlauben es, Fehler aufzudecken
-</details>
+<ul>
+<li>enums bekommen den Suffix "Flag"</li>
+	<li>werden allerdings als Variable ohne Suffix initiiert.</li>
+	<li>Folgendes Beispiel sollte Klarheit verschaffen</li>
+</ul>
+<br>
 
+    /*
+    ===================================
+    == ENUM
+    ===================================
+    */
+      enum exampleFlag {
+             value1,
+             value2,
+             value3
+      }
+    /*
+    ===================================
+    == VARIABLE
+    ===================================
+    */
+    
+    private exmpleFlag example = exampleFlag.value1;
+     
+<br>
+</details>
 <details>
 <summary>Präsentationen</summary><br>
 <h2>Präsentationen 1</h2>
