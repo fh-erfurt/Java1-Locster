@@ -75,6 +75,7 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
 2. Klassen<br>
 <br>
 <ul>
+	<li>Klassen werden in der Ordnerstrukter unter src/main... angelegt.</li>
 	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
 <li>Beispiel: ClassName.java</li>
 <li>Die Strukturierungen der Klassen sehen wie folgt:</li>
@@ -114,12 +115,69 @@ Jede hinreichend komplexe Methode besitzt einen Kommentar
 <ul>
 	<li>Variablen werden in <strong>lowerCamelCase</strong> geschrieben</li>
 <li>Beispiel: variablenName</li>
-	<li>Der Gültigkeitsbereich der Variablen wird standartgemäß als <strong>private</strong> deklariert.
-		Innerhalb der Klasse wird auf die Variablen mit <strong>this.</strong> zugegriffen.
-		Außerhalb der Klasse wird dann folglich mit <strong>Settern & Gettern</strong> auf die Variablen zugegriffen.
-		Anhand der <strong>Settern & Gettern</strong> erkennt man somit auch die Zugriffsrechte.
+	<li>Der Gültigkeitsbereich der Variablen wird standartgemäß als <strong>private</strong> deklariert.<br>
+		Innerhalb der Klasse wird auf die Variablen mit <strong>this.</strong> zugegriffen.<br>
+		Außerhalb der Klasse wird dann folglich mit <strong>Settern & Gettern</strong> auf die Variablen zugegriffen.<br>
+		Anhand der <strong>Settern & Gettern</strong> erkennt man somit auch die Zugriffsrechte.<br>
 Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
 </ul>
+<br>
+5. Kommentar<br>
+<br>
+<ul>
+<li>Am Anfang einer jeder Datei Hinterlässt der bearbeiter eine Signatur die wie folgt aussieht.</li>
+</ul>
+<br>
+ 
+    /*
+    ===================================
+    == Max Mustermann
+    ===================================
+    */
+
+<br>
+<ul>
+	<li>Methoden und Klassen werden über den Bezeichner Kommentiert und wie folgt initiiert</li>
+ </ul>
+<br>
+
+    Allgemeines Beispiel
+    /**
+     *Comment
+     * @param argument explanation what the argument do
+     * @return explanation what the method do
+     */
+     
+    Konkretes Beispiel
+    /**
+     * Marks a messsage as read by the reading user and returns the message text.
+     * @param reader user, who is reading the message
+     * @return the text the message contains
+     */
+     
+<br>
+die IDE IntelliJ sollte hier den Anwender unterstützen.
+<br>
+6. Tests<br>
+<br>
+<ul>
+<li>Klassen werden in der Ordnerstrukter unter src/main... angelegt.</li>
+	<li>Test sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben und enden mit dem Suffix "Test"</li>
+<li>Beispiel: ClassNameTest.java</li>
+	<li>Die Tests sollen einen aussagekräftigne bezichner erhalten und sind wie folgt aufgebaut</li>
+</ul>
+<br>
+ 
+    @Test
+    void exact_explanation_what_the_test_should_do()
+    {
+        // Given
+	int example1 = 0;
+	// When
+	int result = example1.succ();
+	// Then
+	assertEquals(1, result);
+    }
 
 <br>
 <h2>Unit-Tests</h2>
