@@ -1,8 +1,11 @@
 /*
 ===================================
 == Molham Al-khodari    24.12.2020
+== Jakob Gensel         05.01.2020
 ===================================
 */
+
+import java.util.ArrayList;
 
 // Create a Chat class
 public class Chat
@@ -13,59 +16,27 @@ public class Chat
     =========================
     */
 
-    private int chatId;
-    private String chatName;
-    private Message[] chatMessages;
+    private String name; // TODO Überlegung: Gruppenchat / automatisch generiert / User ArrayList?
+    private ArrayList<Message> messages;
 
     /*
-    ===================================
-    == Chat Constructors & Destructors
-    ===================================
+    ===============
+    == Constructors
+    ===============
     */
 
-    public Chat(int chatId, String chatName, Message[] chatMessages)
+    public Chat(String chatName)
     {
-        this.chatId         = chatId;
-        this.chatName       = chatName;
-        this.chatMessages   = chatMessages;       // kann das richtig sein ?
+        this.name     = chatName;
+        this.messages = new ArrayList<Message>();
     }
 
     public Chat()
     {
-        this.chatId             = 0;
-        this.chatName           = "";
-        // this.chatMessages    = {};
+        this.name     = "";
+        this.messages = new ArrayList<Message>();
     }
 
-    /*
-    ==========================
-    == Chat setter und getter
-    ==========================
-    */
-
-    public int getChatId() {
-        return chatId;
-    }
-
-    public void setChatId(int chatId) {
-        this.chatId = chatId;
-    }
-
-    public String getChatName() {
-        return chatName;
-    }
-
-    public void setChatName(String chatName) {
-        this.chatName = chatName;
-    }
-
-    public Message[] getChatMessages() {
-        return chatMessages;
-    }
-
-    public void setChatMessages(Message[] chatMessages) {
-        this.chatMessages = chatMessages;
-    }
 
     /*
     ==================
@@ -73,9 +44,31 @@ public class Chat
     ==================
     */
 
-    public void receiveMessage(Message message, User user)
+    public void receiveMessage(Message message)
     {
-        // do something .... was macht receiveMessage genau ?
+        this.messages.add(message);
     }
 
+
+    /*
+    ==========================
+    == Chat setter und getter
+    ==========================
+    */
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(ArrayList<Message> messages) {
+        this.messages = messages;
+    }
 }
