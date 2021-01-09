@@ -13,7 +13,6 @@ public class Message
     private User            sender;
     private ArrayList<User> readBy; // dynamic array
     private String          text;
-    private LocalDateTime   createdAt;
     private LocalDateTime   sentAt;
 
     Message(String text , User sender)
@@ -21,24 +20,23 @@ public class Message
         this.text = text;
         this.sender = sender;
         this.readBy = new ArrayList<User>();
-        this.createdAt = LocalDateTime.now();
     }
 
     /**
      * Sends a message to a chat and calls the receiving function in the chat.
      * @param chat the chat, which the message is sent to
      */
-    public void sendMessageToChat(Chat chat)
+    public void sendToChat(Chat chat)
     {
         this.sentAt = LocalDateTime.now();
-        chat.receiveMessage(this, this.sender);
+        chat.receiveMessage(this);
     }
 
     /**
      * Deletes a message from a chat.
      * @param chat the chat, which the message is deleted from
      */
-    public void deleteMessageFromChat(/* Chat chat */)   // Message = null reicht.
+    public void deleteFromChat(/* Chat chat */)   // Message = null reicht.
     {
         // TODO JGE Message eindeutig identifizieren
         // TODO MAL(Molham Al-Khodari) Chat braucht noch eine Funktion zum löschen
@@ -61,7 +59,6 @@ public class Message
         this.sender     = null;
         this.readBy     = null;
         this.text       = null;
-        this.createdAt  = null;
         this.sentAt     = null;
     }
 
@@ -77,13 +74,8 @@ public class Message
         this.text = text;
     }
 
-    public LocalDateTime getCreatedAt()
+    public LocalDateTime getSentAt()
     {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt)
-    {
-        this.createdAt = createdAt;
+        return sentAt;
     }
 }
