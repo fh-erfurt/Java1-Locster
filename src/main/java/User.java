@@ -40,15 +40,14 @@ public class User {
     private PersonalInfo personalInfo;
     private ProfileStatistic profileStatistic;
     private AccountDetails accountDetails;
-    private String personalStatus;          // new name
-    private privacyStatus privacyStatusFlag;             // new code
+    private String personalStatus;
+    private privacyStatus privacyStatusFlag;
     private onlineStatus onlineStatusFlag;
     private Friendlist friendlist;
     private Guestbook guestbook;
     private ProfileText profileText;
-    private Chat[] messenger;
-    private User[] blockedUsers;
-    ArrayList<User> BlockUserList = new ArrayList<User>();  // create a block list ?????    // new code
+    private ArrayList<Chat> chats;
+    private ArrayList<User> blockedUsers;
 
     /*
     ===================================
@@ -56,30 +55,24 @@ public class User {
     ===================================
     */
 
-    public User(PersonalInfo personalInfo, AccountDetails accountDetails,
-                Friendlist friendlist, ProfileText profileText, Chat[] messenger,
-                User[] blockedUsers) {
-        this.personalInfo = personalInfo;
-        this.accountDetails = accountDetails;
-        this.messenger = messenger;
-    }
+
 
     public User() {
-        // if we need a constructor without parameters
+        // only for tests
     }
 
     /*
     ==================
-    == User functions       // new code
+    == User functions
     ==================
     */
 
     public void addBlockUser(User user) {
-        BlockUserList.add(user);
+        blockedUsers.add(user);
     }
 
     public void deleteBlockUser(User user) {
-        BlockUserList.remove(user);
+        blockedUsers.remove(user);
     }
 
     public void changePrivacyStatusFlag(User.privacyStatus status) {
@@ -169,27 +162,11 @@ public class User {
         this.profileText = profileText;
     }
 
-    public Chat[] getMessenger() {
-        return messenger;
-    }
-
-    public void setMessenger(Chat[] messenger) {
-        this.messenger = messenger;
-    }
-
-    public User[] getBlockedUsers() {
+    public ArrayList<User> getBlockedUsers() {
         return blockedUsers;
     }
 
-    public void setBlockedUsers(User[] blockedUsers) {
+    public void setBlockedUsers(ArrayList<User> blockedUsers) {
         this.blockedUsers = blockedUsers;
-    }
-
-    public ArrayList<User> getBlockUserList() {
-        return BlockUserList;
-    }
-
-    public void setBlockUserList(ArrayList<User> blockUserList) {
-        BlockUserList = blockUserList;
     }
 }
