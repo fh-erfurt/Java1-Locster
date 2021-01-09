@@ -182,4 +182,14 @@ public class User {
     public void setBlockedUsers(ArrayList<User> blockedUsers) {
         this.blockedUsers = blockedUsers;
     }
+
+    public onlineStatus getOnlineStatusFlag()
+    {
+        return onlineStatusFlag;
+    }
+
+    public void setOnlineStatusFlag(onlineStatus onlineStatusFlag)
+    {
+        this.onlineStatusFlag = onlineStatusFlag;
+    }
 }
