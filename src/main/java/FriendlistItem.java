@@ -15,7 +15,8 @@ public class FriendlistItem {
     ===================================
     */
 
-    public FriendlistItem(User friend) {
+    public FriendlistItem(User friend)
+    {
         this.friend = friend;
         this.friendSince = getUnixTime();
     }

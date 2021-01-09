@@ -6,7 +6,8 @@ public class FriendlistTest {
 
 
     @Test
-    public void should_have_empty_waitingFriends () {
+    public void should_have_empty_waitingFriends ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -21,7 +22,8 @@ public class FriendlistTest {
 
 
     @Test
-    public void should_have_empty_acceptedFriends () {
+    public void should_have_empty_acceptedFriends ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -36,7 +38,8 @@ public class FriendlistTest {
 
 
     @Test
-    public void should_send_friend_request () {
+    public void should_send_friend_request ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -51,7 +54,8 @@ public class FriendlistTest {
 
 
     @Test
-    public void should_return_correct_sender_and_receiver () {
+    public void should_return_correct_sender_and_receiver ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -71,7 +75,8 @@ public class FriendlistTest {
      *    userA sent the friendRequest, userB should be able to accept
      */
     @Test
-    public void should_accept_friend_request () {
+    public void should_accept_friend_request ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -92,7 +97,8 @@ public class FriendlistTest {
      *    userA sent the friendRequest, userA should not be able to accept
      */
     @Test
-    public void should_not_accept_friend_request () {
+    public void should_not_accept_friend_request ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -113,7 +119,8 @@ public class FriendlistTest {
      *    both users should be able to deny the friendRequest
      */
     @Test
-    public void should_deny_friend_request_from_userA () {
+    public void should_deny_friend_request_from_userA ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -134,7 +141,8 @@ public class FriendlistTest {
      *    both users should be able to deny the friendRequest
      */
     @Test
-    public void should_deny_friend_request_from_userB () {
+    public void should_deny_friend_request_from_userB ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -155,7 +163,8 @@ public class FriendlistTest {
      *   both users should be able to terminate the friendship
      */
     @Test
-    public void should_delete_accepted_friend_from_userA () {
+    public void should_delete_accepted_friend_from_userA ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -177,7 +186,8 @@ public class FriendlistTest {
      *   both users should be able to terminate the friendship
      */
     @Test
-    public void should_delete_accepted_friend_from_userB () {
+    public void should_delete_accepted_friend_from_userB ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -204,7 +214,8 @@ public class FriendlistTest {
      *    userA has friendRequests from userB to userJ, userA should be able to accept them all
      */
     @Test
-    public void should_send_friend_requests_with_more_users () {
+    public void should_send_friend_requests_with_more_users ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -238,7 +249,8 @@ public class FriendlistTest {
      *    userA has friendRequests from userB to userJ, userA should be able to accept them all
      */
     @Test
-    public void should_accept_friend_request_with_more_users () {
+    public void should_accept_friend_request_with_more_users ()
+    {
         //Given
         User userA = new User();
         User userB = new User();
@@ -275,7 +287,8 @@ public class FriendlistTest {
      *    userA has nine friends, userA should be able to terminate all the friendships
      */
     @Test
-    public void should_delete_accepted_friend_with_more_users () {
+    public void should_delete_accepted_friend_with_more_users ()
+    {
         //Given
         User userA = new User();
         User userB = new User();

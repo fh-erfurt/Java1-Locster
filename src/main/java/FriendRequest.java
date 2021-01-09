@@ -15,7 +15,8 @@ public class FriendRequest {
     ===================================
     */
 
-    public FriendRequest(User receiver, User sender) {
+    public FriendRequest(User receiver, User sender)
+    {
         this.receiver = receiver;
         this.sender = sender;
     }

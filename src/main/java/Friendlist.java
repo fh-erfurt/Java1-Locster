@@ -77,7 +77,7 @@ public class Friendlist {
         for (int count = 0; count < getAcceptedFriends().size(); count++) {
             if (getAcceptedFriends().get(count).getFriend() == toBeRemovedUser) {
                 getAcceptedFriends().remove(count);
-                break;
+                return;
             }
         }
     }
@@ -122,14 +122,14 @@ public class Friendlist {
             for (int count = 0; count < getWaitingFriends().size(); count++) {
                 if (getWaitingFriends().get(count).getReceiver() == user) {
                     getWaitingFriends().remove(count);
-                    break;
+                    return;
                 }
             }
         } else {
             for (int count = 0; count < getWaitingFriends().size(); count++) {
                 if (getWaitingFriends().get(count).getSender() == user) {
                     getWaitingFriends().remove(count);
-                    break;
+                    return;
                 }
             }
         }
