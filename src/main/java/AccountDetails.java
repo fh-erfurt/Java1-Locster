@@ -2,14 +2,19 @@ public class AccountDetails
 {
     private int userID;
     private String username;
-    private String mailadress;
+    private String mailAddress;
     private String password;
 
-    public AccountDetails(int userID, String username, String mailadress, String password)
+    /*
+       ===================================
+       Constructor
+       ===================================
+       */
+
+    public AccountDetails(String username, String mailAddress, String password)
     {
-        this.userID = userID;
         this.username = username;
-        this.mailadress = mailadress;
+        this.mailAddress = mailAddress;
         this.password = password;
     }
 
@@ -20,7 +25,7 @@ public class AccountDetails
 
     public void changeMailadress(String newmailadress)
     {
-        this.mailadress = newmailadress;
+        this.mailAddress = newmailadress;
     }
 
     public void changePassword(String newpassword)
@@ -32,14 +37,7 @@ public class AccountDetails
        ===================================
        Getter & Setter
        ===================================
-       */
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
+    */
 
     public String getUsername() {
         return username;
@@ -49,12 +47,12 @@ public class AccountDetails
         this.username = username;
     }
 
-    public String getMailadress() {
-        return mailadress;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setMailadress(String mailadresse) {
-        this.mailadress = mailadresse;
+    public void setMailAddress(String mailadresse) {
+        this.mailAddress = mailadresse;
     }
 
     public String getPassword() {

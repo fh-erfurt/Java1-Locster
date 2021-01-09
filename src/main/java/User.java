@@ -1,10 +1,14 @@
 /*
 ===================================
-== Molham Al-khodari    03.01.2020
+== edited by
+== Molham Al-khodari
+== Jakob Gensel
+== Matthias Gabel
 ===================================
 */
 
 import java.util.ArrayList;     // new code
+import java.util.Date;
 
 // Create a User class
 public class User {
@@ -15,10 +19,17 @@ public class User {
     =========================
     */
 
-    enum privacyFlag {
+    enum privacyStatus
+    {
         global,
         friends,
         nobody
+    }
+    enum onlineStatus
+    {
+        online,
+        absent,
+        offline
     }
 
     /*
@@ -30,14 +41,14 @@ public class User {
     private PersonalInfo personalInfo;
     private ProfileStatistic profileStatistic;
     private AccountDetails accountDetails;
-    private String personalStatus;          // new name
-    private privacyFlag status;             // new code
+    private String personalStatus;
+    private privacyStatus privacyStatusFlag;
+    private onlineStatus onlineStatusFlag;
     private Friendlist friendlist;
     private Guestbook guestbook;
     private ProfileText profileText;
-    private Chat[] messenger;
-    private User[] blockedUsers;
-    ArrayList<User> BlockUserList = new ArrayList<User>();  // create a block list ?????    // new code
+    private ArrayList<Chat> chats;
+    private ArrayList<User> blockedUsers;
 
     /*
     ===================================
@@ -45,44 +56,63 @@ public class User {
     ===================================
     */
 
-    public User(PersonalInfo personalInfo, AccountDetails accountDetails,
-                Friendlist friendlist, ProfileText profileText, Chat[] messenger,
-                User[] blockedUsers) {
-        this.personalInfo = personalInfo;
-        this.accountDetails = accountDetails;
-        this.messenger = messenger;
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex)
+    {
+        this.accountDetails    = new AccountDetails(userName, email, password);
+        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
+
+        this.profileStatistic  = new ProfileStatistic();
+        this.personalStatus    = "Hey I'm using Locster";
+        this.friendlist        = new Friendlist();
+        this.guestbook         = new Guestbook();
+        this.profileText       = new ProfileText();
+        this.chats             = new ArrayList<Chat>();
+        this.blockedUsers      = new ArrayList<User>();
     }
 
+    /**
+     * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
+     */
     public User() {
-        // if we need a constructor without parameters
+        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.sex.male);
+        this.profileStatistic   = new ProfileStatistic();
+        this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
+        this.personalStatus     = "";
+        this.privacyStatusFlag  = privacyStatus.global;
+        this.onlineStatusFlag   = onlineStatus.online;
+        this.friendlist         = new Friendlist();
+        this.guestbook          = new Guestbook();
+        this.profileText        = new ProfileText();
+        this.chats              = new ArrayList<Chat>();
+        this.blockedUsers       = new ArrayList<User>();
     }
 
     /*
     ==================
-    == User functions       // new code
+    == User functions
     ==================
     */
 
     public void addBlockUser(User user) {
-        BlockUserList.add(user);
+        blockedUsers.add(user);
     }
 
     public void deleteBlockUser(User user) {
-        BlockUserList.remove(user);
+        blockedUsers.remove(user);
     }
 
-    public void changePrivacyFlag(privacyFlag status) {
+    public void changePrivacyStatusFlag(User.privacyStatus status) {
         switch (status) {
             case global:
-                status = privacyFlag.global;
+                this.privacyStatusFlag = User.privacyStatus.global;
                 System.out.println(status);
                 break;
             case friends:
-                status = privacyFlag.friends;
+                this.privacyStatusFlag = User.privacyStatus.friends;
                 System.out.println(status);
                 break;
             case nobody:
-                status = privacyFlag.nobody;
+                this.privacyStatusFlag = User.privacyStatus.nobody;
                 System.out.println(status);
                 break;
         }
@@ -126,12 +156,12 @@ public class User {
         this.personalStatus = personalStatus;
     }
 
-    public privacyFlag getStatus() {
-        return status;
+    public User.privacyStatus getPrivacyStatusFlag() {
+        return privacyStatusFlag;
     }
 
-    public void setStatus(privacyFlag status) {
-        this.status = status;
+    public void setPrivacyStatusFlag(User.privacyStatus privacyStatusFlag) {
+        this.privacyStatusFlag = privacyStatusFlag;
     }
 
     public Friendlist getFriendlist() {
@@ -158,27 +188,21 @@ public class User {
         this.profileText = profileText;
     }
 
-    public Chat[] getMessenger() {
-        return messenger;
-    }
-
-    public void setMessenger(Chat[] messenger) {
-        this.messenger = messenger;
-    }
-
-    public User[] getBlockedUsers() {
+    public ArrayList<User> getBlockedUsers() {
         return blockedUsers;
     }
 
-    public void setBlockedUsers(User[] blockedUsers) {
+    public void setBlockedUsers(ArrayList<User> blockedUsers) {
         this.blockedUsers = blockedUsers;
     }
 
-    public ArrayList<User> getBlockUserList() {
-        return BlockUserList;
+    public onlineStatus getOnlineStatusFlag()
+    {
+        return onlineStatusFlag;
     }
 
-    public void setBlockUserList(ArrayList<User> blockUserList) {
-        BlockUserList = blockUserList;
+    public void setOnlineStatusFlag(onlineStatus onlineStatusFlag)
+    {
+        this.onlineStatusFlag = onlineStatusFlag;
     }
 }

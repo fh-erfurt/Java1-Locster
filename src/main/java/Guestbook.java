@@ -1,4 +1,4 @@
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Guestbook
@@ -11,31 +11,29 @@ public class Guestbook
         book = new ArrayList<GuestbookEntry>();
     }
 
-    public void addGuestbookEntry(User creator, String message)
+    public void addEntry(GuestbookEntry entry)
     {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        GuestbookEntry guestbookEntry = new GuestbookEntry(creator, timestamp, message);
-        book.add(guestbookEntry);
+        entry.setSentAt(LocalDateTime.now());
+        book.add(entry);
     }
 
-    public void editGuestbookEntry(GuestbookEntry oldGuestbookEntry, String message)
+    public void editEntry(GuestbookEntry oldGuestbookEntry, String newText) throws Exception
     {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        User creator = oldGuestbookEntry.getCreator();
-        GuestbookEntry newGuestbookEntry = new GuestbookEntry(creator, timestamp, message);
-        for (int Index = 0; Index < book.size(); Index++)
+        for (GuestbookEntry entry : this.book)
         {
-            if (book.get(Index) == oldGuestbookEntry)
+            if (entry.equals(oldGuestbookEntry))
             {
-                book.set(Index, newGuestbookEntry);
+                entry.editText(newText);
+                return;
             }
         }
+        throw new Exception("GuestbookEntry to edit not found in Guestbook!");
     }
 
-
-    public void deleteGuestbookEntry(GuestbookEntry toDeleteGuestbookEntry)
+    public void deleteEntry(GuestbookEntry guestbookEntryToDelete)
     {
-        book.removeIf(GuestbookEntry -> GuestbookEntry == toDeleteGuestbookEntry);
+        book.removeIf(GuestbookEntry -> GuestbookEntry == guestbookEntryToDelete);
+        // TODO warum nicht wie bei Message und Chat?
     }
 
     /*
@@ -46,9 +44,5 @@ public class Guestbook
 
     public ArrayList<GuestbookEntry> getBook() {
         return book;
-    }
-
-    public void setBook(ArrayList<GuestbookEntry> book) {
-        this.book = book;
     }
 }

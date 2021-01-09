@@ -1,32 +1,56 @@
+/*
+===================================
+Matthias Gabel
+===================================
+*/
+
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class PersonalInfo
 {
+    /*
+    ===================================
+    ENUM
+    ===================================
+    */
+    enum sex {
+        male,
+        female,
+        uni
+    }
+
     private String firstName;
     private String lastName;
     private String region;
-    private Timestamp birthdate;
+    private Date   birthdate;
     private String relationshipStatus;
     private String occupation;
     private String profilePicture;
+    private sex    sex;
 
-    public PersonalInfo(String firstName, String lastName, String region,
-                        Timestamp birthdate, String relationshipStatus,
-                        String occupation, String profilePicture) {
+
+    /*
+    ===================================
+    Constructor
+    ===================================
+    */
+    public PersonalInfo(String firstName, String lastName, Date birthdate, sex sex) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.region = region;
+        this.region = "";
         this.birthdate = birthdate;
-        this.relationshipStatus = relationshipStatus;
-        this.occupation = occupation;
-        this.profilePicture = profilePicture;
+        this.relationshipStatus = "";
+        this.occupation = "";
+        this.profilePicture = "";
+        this.sex = sex;
     }
 
     /*
-        ===================================
-        Getter & Setter
-        ===================================
-        */
+    ===================================
+    Getter & Setter
+    ===================================
+    */
     public String getFirstName() {
         return firstName;
     }
@@ -51,11 +75,11 @@ public class PersonalInfo
         this.region = region;
     }
 
-    public Timestamp getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(Timestamp birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -81,5 +105,13 @@ public class PersonalInfo
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public PersonalInfo.sex getSex() {
+        return sex;
+    }
+
+    public void setSex(PersonalInfo.sex sex) {
+        this.sex = sex;
     }
 }
