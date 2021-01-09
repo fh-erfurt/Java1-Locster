@@ -19,15 +19,16 @@ public class UserContainer
 
     public ArrayList<User> getAktivUser()
     {
-        ArrayList<User> usersUsers = new ArrayList<User>();
+        /* TODO ArrayList<User> usersUsers = new ArrayList<User>();
         for (User user : users) // for-each user in users
         {
-            if (user.getStatus() == 'online')
+            if (user.getOnlineStatusFlag() == User.onlineStatus.)
             {
                 usersUsers.add(user);
             }
         }
-        return usersUsers;
+        return usersUsers;*/
+        return null;
     }
 
     public void deleteUser(User userToDelete)

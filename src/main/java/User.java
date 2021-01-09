@@ -1,6 +1,9 @@
 /*
 ===================================
-== Molham Al-khodari    03.01.2020
+== edited by
+== Molham Al-khodari
+== Jakob Gensel
+== Matthias Gabel
 ===================================
 */
 
@@ -15,10 +18,17 @@ public class User {
     =========================
     */
 
-    enum privacyFlag {
+    enum privacyStatus
+    {
         global,
         friends,
         nobody
+    }
+    enum onlineStatus
+    {
+        online,
+        absent,
+        offline
     }
 
     /*
@@ -31,7 +41,8 @@ public class User {
     private ProfileStatistic profileStatistic;
     private AccountDetails accountDetails;
     private String personalStatus;          // new name
-    private privacyFlag status;             // new code
+    private privacyStatus privacyStatusFlag;             // new code
+    private onlineStatus onlineStatusFlag;
     private Friendlist friendlist;
     private Guestbook guestbook;
     private ProfileText profileText;
@@ -71,18 +82,18 @@ public class User {
         BlockUserList.remove(user);
     }
 
-    public void changePrivacyFlag(privacyFlag status) {
+    public void changePrivacyStatusFlag(User.privacyStatus status) {
         switch (status) {
             case global:
-                status = privacyFlag.global;
+                this.privacyStatusFlag = User.privacyStatus.global;
                 System.out.println(status);
                 break;
             case friends:
-                status = privacyFlag.friends;
+                this.privacyStatusFlag = User.privacyStatus.friends;
                 System.out.println(status);
                 break;
             case nobody:
-                status = privacyFlag.nobody;
+                this.privacyStatusFlag = User.privacyStatus.nobody;
                 System.out.println(status);
                 break;
         }
@@ -126,12 +137,12 @@ public class User {
         this.personalStatus = personalStatus;
     }
 
-    public privacyFlag getStatus() {
-        return status;
+    public User.privacyStatus getPrivacyStatusFlag() {
+        return privacyStatusFlag;
     }
 
-    public void setStatus(privacyFlag status) {
-        this.status = status;
+    public void setPrivacyStatusFlag(User.privacyStatus privacyStatusFlag) {
+        this.privacyStatusFlag = privacyStatusFlag;
     }
 
     public Friendlist getFriendlist() {
