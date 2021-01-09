@@ -8,6 +8,7 @@
 */
 
 import java.util.ArrayList;     // new code
+import java.util.Date;
 
 // Create a User class
 public class User {
@@ -55,7 +56,19 @@ public class User {
     ===================================
     */
 
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex)
+    {
+        this.accountDetails    = new AccountDetails(userName, email, password);
+        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
 
+        this.profileStatistic  = new ProfileStatistic();
+        this.personalStatus    = "Hey I'm using Locster";
+        this.friendlist        = new Friendlist();
+        this.guestbook         = new Guestbook();
+        this.profileText       = new ProfileText();
+        this.chats             = new ArrayList<Chat>();
+        this.blockedUsers      = new ArrayList<User>();
+    }
 
     public User() {
         // only for tests
