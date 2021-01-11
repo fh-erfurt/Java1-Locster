@@ -17,8 +17,9 @@ Das Team vom Locster besteht aus: <br>
 <li><strong>Saskia Wohlers</strong> https://github.com/schnoernja <br></li>
 </ul>
 	
-<h2>Einführung</h2>	
-In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus geben und Nutzer einen User Zugriff. Die User können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die User können selbständige ihre Freundesliste verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder User hat einen eigenen Kalender, in dem er seine Teilnehmenden Events finden kann. Das soziale Netzwerk soll mehr Seiten als nur das eigene Profil anzeigen könne. Es soll eine Seite für die „News“ - für lokale Nachrichten und Events -, eine Seite „Wer ist online?“ – für das Anzeigen von Usern in der Umgebung-, eine Seite „Freunde“ – Für das Anzeigen von Usern in der Freundesliste -, eine Seite „Nachrichten“-für das einsehen der eigenen nachrichten-, eine Seite „Profil“ – für das einsehen des eigenen Profils-. Jedes Profil hat wie vorhin angedeutet ein Bild, Persönliche Daten die man nach eigenen Ermessen angeben kann, ein Gästebuch, einen eigenen „Blog“ abschnitt den man nach freien ermessen gestalten kann, einen Abschnitt für Fotos, einen Abschnitt für Statistiken (Die letzten Besucher, wie oft wurde ich in letzter Zeit angeguckt usw.)
+### Einführung
+>
+>In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus >geben und Nutzer einen User Zugriff. Die User können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die User können selbständige ihre Freundesliste >verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder User hat einen eigenen Kalender, in dem er seine Teilnehmenden >Events finden kann. Das soziale Netzwerk soll mehr Seiten als nur das eigene Profil anzeigen könne. Es soll eine Seite für die „News“ - für lokale Nachrichten und Events -, >eine Seite „Wer ist online?“ – für das Anzeigen von Usern in der Umgebung-, eine Seite „Freunde“ – Für das Anzeigen von Usern in der Freundesliste -, eine Seite „Nachrichten“->für das einsehen der eigenen nachrichten-, eine Seite „Profil“ – für das einsehen des eigenen Profils-. Jedes Profil hat wie vorhin angedeutet ein Bild, Persönliche Daten die >man nach eigenen Ermessen angeben kann, ein Gästebuch, einen eigenen „Blog“ abschnitt den man nach freien ermessen gestalten kann, einen Abschnitt für Fotos, einen Abschnitt >für Statistiken (Die letzten Besucher, wie oft wurde ich in letzter Zeit angeguckt usw.)
 
 <h2>Idee und Produkt</h2>
 zum Miroboard für die Ideenfindung: https://miro.com/app/board/o9J_lf2VPJc=/ <br>
@@ -38,17 +39,17 @@ Die groben Ziele umfassen für den jetzigen Stand:<br>
 Nicht zum Projektumfang gehören:<br>
 
      -Erstellung eines regionalen Newsfeed
-<br>
-<h2>Tools</h2>
-wir haben während der Projektlaufzeit mit verschiedenen Tools gearbeitet wie: 
-<ul>
-	<li>Miro</li>
-	<li>Discord</li>
-	<li>[IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA</li>
-	<li>[lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...</li>
-	<li>Github</li>
-</ul>
      
+## Tools
+>
+>wir haben während der Projektlaufzeit mit verschiedenen Tools gearbeitet wie: 
+>
+>	+ [Miro](https://miro.com/) - für planung 
+>	+ [Discord](https://discord.com/) - für kommunikation
+>	+ [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
+>	+ [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
+>	+ [Github](https://github.com/) - für zusammen coden 
+>    
 </details>
 
 <details>
@@ -233,26 +234,16 @@ hier vielleicht unsere letzte PowerPoint ?
 <details>
 <summary>Lessons learned</summary><br>
 <h2>Herausforederungen</h2>
-<br>
-<ul>
-	<li>Viele Projektideen am anfang des Semesters:
-		<ul>
-			<li>die Lösung: was macht am meisten Spaß beim Implementieren und gleichzeitig deckt die ganzen Anforderungen ab</li>
-		</ul>
-	</li>
-	<li>Zeitgrenze: viele ideen über das Projekt, die wir nicht in der Zeit schaffen können			
+
++ Viele Projektideen am anfang des Semesters:
+	+ die Lösung: was macht am meisten Spaß beim Implementieren und gleichzeitig deckt die ganzen Anforderungen ab
++ Zeitgrenze: viele ideen über das Projekt, die wir nicht in der Zeit schaffen können			
 	    die Lösung: Die Anforderungen in 3 Teile abteilen:
-		<ul>
-			<li>Musskriterien</li>
-			<li>Wünschkriterien (wenn es Zeit am Ende bleibt)</li>
-			<li>Abgrenzungkriterien</li>
-		</ul>
-	</li>
-	<li>am Anfang jeder großen Aufgabe sieht aus, als sie unmöglich zu machen
-		<ul>
-			<li>die Lösung: Diese Aufgabe in kleinerer Teilaufgaben teilen und sofort mit einem Teil anfangen</li>
-		</ul>
-	</li>
-</ul>
+	+ Musskriterien
+	+ Wünschkriterien (wenn es Zeit am Ende bleibt)
+	+ Abgrenzungkriterien
++ am Anfang jeder großen Aufgabe sieht aus, als sie unmöglich zu machen
+	+ die Lösung: Diese Aufgabe in kleinerer Teilaufgaben teilen und sofort mit einem Teil anfangen
+	
 </details>
 
