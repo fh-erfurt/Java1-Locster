@@ -233,17 +233,19 @@ hier vielleicht unsere letzte PowerPoint ?
 
 <details>
 <summary>Lessons learned</summary><br>
-<h2>Herausforederungen</h2>
-
-+ Viele Projektideen am anfang des Semesters:
-	+ die Lösung: was macht am meisten Spaß beim Implementieren und gleichzeitig deckt die ganzen Anforderungen ab
-+ Zeitgrenze: viele ideen über das Projekt, die wir nicht in der Zeit schaffen können			
-	    die Lösung: Die Anforderungen in 3 Teile abteilen:
-	+ Musskriterien
-	+ Wünschkriterien (wenn es Zeit am Ende bleibt)
-	+ Abgrenzungkriterien
-+ am Anfang jeder großen Aufgabe sieht aus, als sie unmöglich zu machen
-	+ die Lösung: Diese Aufgabe in kleinerer Teilaufgaben teilen und sofort mit einem Teil anfangen
+	
+## Herausforederungen
+>
+>
+> + Viele Projektideen am anfang des Semesters:
+>	+ die Lösung: was macht am meisten Spaß beim Implementieren und gleichzeitig deckt die ganzen Anforderungen ab
+> + Zeitgrenze: viele ideen über das Projekt, die wir nicht in der Zeit schaffen können			
+>	    die Lösung: Die Anforderungen in 3 Teile abteilen:
+>	+ Musskriterien
+>	+ Wünschkriterien (wenn es Zeit am Ende bleibt)
+>	+ Abgrenzungkriterien
+> + am Anfang jeder großen Aufgabe sieht aus, als sie unmöglich zu machen
+>	+ die Lösung: Diese Aufgabe in kleinerer Teilaufgaben teilen und sofort mit einem Teil anfangen
 	
 </details>
 
