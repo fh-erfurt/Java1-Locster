@@ -232,6 +232,7 @@ hier vielleicht unsere letzte PowerPoint ?
 
 <details>
 <summary>Lessons learned</summary><br>
+<h2>Herausforederungen</h2>
 <br>
 <ul>
 	<li>Viele Projektideen am anfang des Semesters:
