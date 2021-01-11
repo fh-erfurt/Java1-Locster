@@ -16,6 +16,9 @@ Das Team vom Locster besteht aus: <br>
 <li><strong>Molham Al-Khodari</strong> https://github.com/Molham321 <br></li>
 <li><strong>Saskia Wohlers</strong> https://github.com/schnoernja <br></li>
 </ul>
+	
+<h2>Einführung</h2>	
+In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus geben und Nutzer einen User Zugriff. Die User können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die User können selbständige ihre Freundesliste verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder User hat einen eigenen Kalender, in dem er seine Teilnehmenden Events finden kann. Das soziale Netzwerk soll mehr Seiten als nur das eigene Profil anzeigen könne. Es soll eine Seite für die „News“ - für lokale Nachrichten und Events -, eine Seite „Wer ist online?“ – für das Anzeigen von Usern in der Umgebung-, eine Seite „Freunde“ – Für das Anzeigen von Usern in der Freundesliste -, eine Seite „Nachrichten“-für das einsehen der eigenen nachrichten-, eine Seite „Profil“ – für das einsehen des eigenen Profils-. Jedes Profil hat wie vorhin angedeutet ein Bild, Persönliche Daten die man nach eigenen Ermessen angeben kann, ein Gästebuch, einen eigenen „Blog“ abschnitt den man nach freien ermessen gestalten kann, einen Abschnitt für Fotos, einen Abschnitt für Statistiken (Die letzten Besucher, wie oft wurde ich in letzter Zeit angeguckt usw.)
 
 <h2>Idee und Produkt</h2>
 zum Miroboard für die Ideenfindung: https://miro.com/app/board/o9J_lf2VPJc=/ <br>
@@ -35,6 +38,16 @@ Die groben Ziele umfassen für den jetzigen Stand:<br>
 Nicht zum Projektumfang gehören:<br>
 
      -Erstellung eines regionalen Newsfeed
+<br>
+<h2>Tools</h2>
+wir haben während der Projektlaufzeit mit verschiedenen Tools gearbeitet wie: 
+<ul>
+	<li>Miro</li>
+	<li>Discord</li>
+	<li>intelliJ IDEA</li>
+	<li>Lucidchart</li>
+	<li>Github</li>
+</ul>
      
 </details>
 
