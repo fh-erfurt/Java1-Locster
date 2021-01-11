@@ -233,6 +233,25 @@ hier vielleicht unsere letzte PowerPoint ?
 <details>
 <summary>Lessons learned</summary><br>
 <br>
-hier kommt ein text ....
+<ul>
+	<li>Viele Projektideen am anfang des Semesters:
+		<ul>
+			<li>die Lösung: was macht am meisten Spaß beim Implementieren und gleichzeitig deckt die ganzen Anforderungen ab</li>
+		</ul>
+	</li>
+	<li>Zeitgrenze: viele ideen über das Projekt, die wir nicht in der Zeit schaffen können			
+	    die Lösung: Die Anforderungen in 3 Teile abteilen:
+		<ul>
+			<li>Musskriterien</li>
+			<li>Wünschkriterien (wenn es Zeit am Ende bleibt)</li>
+			<li>Abgrenzungkriterien</li>
+		</ul>
+	</li>
+	<li>am Anfang jeder großen Aufgabe sieht aus, als sie unmöglich zu machen
+		<ul>
+			<li>die Lösung: Diese Aufgabe in kleinerer Teilaufgaben teilen und sofort mit einem Teil anfangen</li>
+		</ul>
+	</li>
+</ul>
 </details>
 
