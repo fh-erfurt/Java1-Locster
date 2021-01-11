@@ -19,7 +19,7 @@ public class GuestbookTest
     @BeforeEach
     void prepare()
     {
-        testUser  = new User();
+        testUser  = User.getNewUserForTesting();
         testEntry = new GuestbookEntry(testUser, "Test Text");
         testBook  = new Guestbook();
     }

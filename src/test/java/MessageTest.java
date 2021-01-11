@@ -19,7 +19,7 @@ public class MessageTest
     void prepare()
     {
         testChat = new Chat();
-        testUser = new User();
+        testUser = User.getNewUserForTesting();
     }
 
     /**

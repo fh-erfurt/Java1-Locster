@@ -73,7 +73,7 @@ public class User {
     /**
      * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
      */
-    public User() {
+    private User() {
         this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.sex.male);
         this.profileStatistic   = new ProfileStatistic();
         this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
@@ -116,6 +116,11 @@ public class User {
                 System.out.println(status);
                 break;
         }
+    }
+
+    public static User getNewUserForTesting()
+    {
+        return new User();
     }
 
      /*
