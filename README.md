@@ -44,8 +44,8 @@ wir haben während der Projektlaufzeit mit verschiedenen Tools gearbeitet wie:
 <ul>
 	<li>Miro</li>
 	<li>Discord</li>
-	<li>intelliJ IDEA</li>
-	<li>Lucidchart</li>
+	<li>[IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA</li>
+	<li>[lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...</li>
 	<li>Github</li>
 </ul>
      
