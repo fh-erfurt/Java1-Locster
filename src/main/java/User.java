@@ -101,7 +101,7 @@ public class User {
         blockedUsers.remove(user);
     }
 
-    public void changePrivacyStatusFlag(User.privacyStatus status) {
+    public void changePrivacyStatusFlag(User.privacyStatus status) { // TODO  warum switch case?
         switch (status) {
             case global:
                 this.privacyStatusFlag = User.privacyStatus.global;

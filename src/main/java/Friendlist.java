@@ -66,7 +66,7 @@ public class Friendlist {
     }
 
 
-    public void deleteFriend(FriendlistItem friendlistItem, User executingUser) {
+    public void removeFriend(FriendlistItem friendlistItem, User executingUser) {
         User toBeRemovedUser = friendlistItem.getFriend();
         toBeRemovedUser.getFriendlist().removeEntryFromAcceptedFriend(executingUser);
         executingUser.getFriendlist().removeEntryFromAcceptedFriend(toBeRemovedUser);

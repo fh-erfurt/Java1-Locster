@@ -172,7 +172,7 @@ public class FriendlistTest {
         userB.getFriendlist().acceptFriendRequest(userB.getFriendlist().getWaitingFriendWithIndex(0), userB);
 
         //When
-        userA.getFriendlist().deleteFriend(userA.getFriendlist().getAcceptedFriendWithIndex(0),userA);
+        userA.getFriendlist().removeFriend(userA.getFriendlist().getAcceptedFriendWithIndex(0),userA);
 
         //Then
         assertEquals(0, userA.getFriendlist().getWaitingFriends().size(),"userA and userB should have no entry in waitingFriends");
@@ -195,7 +195,7 @@ public class FriendlistTest {
         userB.getFriendlist().acceptFriendRequest(userB.getFriendlist().getWaitingFriendWithIndex(0), userB);
 
         //When
-        userB.getFriendlist().deleteFriend(userB.getFriendlist().getAcceptedFriendWithIndex(0),userB);
+        userB.getFriendlist().removeFriend(userB.getFriendlist().getAcceptedFriendWithIndex(0),userB);
 
         //Then
         assertEquals(0, userA.getFriendlist().getWaitingFriends().size(),"userA and userB should have no entry in waitingFriends");
@@ -315,7 +315,7 @@ public class FriendlistTest {
 
         //When
         while (!userA.getFriendlist().getAcceptedFriends().isEmpty()) {
-            userA.getFriendlist().deleteFriend(userA.getFriendlist().getAcceptedFriendWithIndex(0),userA);
+            userA.getFriendlist().removeFriend(userA.getFriendlist().getAcceptedFriendWithIndex(0),userA);
         }
 
         //Then

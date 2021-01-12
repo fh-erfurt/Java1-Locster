@@ -24,7 +24,7 @@ public class PersonalInfo
     private String lastName;
     private String region;
     private Date   birthdate;
-    private String relationshipStatus;
+    private String relationshipStatus; //TODO Enum?
     private String occupation;
     private String profilePicture;
     private sex    sex;
