@@ -33,7 +33,7 @@ public class UserContainerTest {
         assertEquals("MaMus257",                            testUserContainer.getUsers().get(0).getAccountDetails().getUsername());
         assertEquals("Max",                                 testUserContainer.getUsers().get(0).getPersonalInfo().getFirstName());
         assertEquals("Mustermann",                          testUserContainer.getUsers().get(0).getPersonalInfo().getLastName());
-        assertEquals("max.mustermann@fh-email.de",                  testUserContainer.getUsers().get(0).getAccountDetails().getMailAddress());
+        assertEquals("max.mustermann@fh-email.de",          testUserContainer.getUsers().get(0).getAccountDetails().getMailAddress());
         assertEquals("password123",                         testUserContainer.getUsers().get(0).getAccountDetails().getPassword());
         assertEquals(new Date(1999, Calendar.JUNE,22),    testUserContainer.getUsers().get(0).getPersonalInfo().getBirthdate());
         assertEquals(PersonalInfo.sex.male,                         testUserContainer.getUsers().get(0).getPersonalInfo().getSex());

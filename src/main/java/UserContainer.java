@@ -34,14 +34,25 @@ public class UserContainer
     */
     public void registerUser(String firstName, String lastName, String userName, String email, String password, Date Birthdate, PersonalInfo.sex sex) {
 
-        if (!this.checkEmail(email))
+        try {
+            if (!this.checkEmail(email))
+            {
+                throw new EmailException("Invalid Email!");
+            }
+        }
+        catch (EmailException e)
         {
-            //todo throw new Exception("Invalid Email!");
+            System.out.println( "Error Message: " + e.getMessage() );
         }
 
-        if (!this.checkPassword(password))
+        try {
+            if (!this.checkPassword(password)) {
+                throw new PasswordException("Invalid Password!");
+            }
+        }
+        catch (PasswordException e)
         {
-            //todo throw new Exception("Invalid Password!");
+            System.out.println( "Error Message: " + e.getMessage() );
         }
 
         User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
