@@ -6,6 +6,7 @@
 package de.teamLocster.Friends;
 
 import de.teamLocster.User.User;
+import de.teamLocster.Exceptions.FriendlistException;
 
 import java.util.ArrayList;
 
@@ -85,12 +86,14 @@ public class Friendlist
      * @param receiver
      * @param sender
      */
-    public void sendFriendRequest(User receiver, User sender)
+    public void sendFriendRequest(User receiver, User sender) throws FriendlistException
     {
         if (sender != receiver)
         {
             sender.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
             receiver.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
+        } else {
+            throw new FriendlistException("Cannot send yourself a Friend Request!");
         }
     }
 
@@ -129,7 +132,7 @@ public class Friendlist
      * @param friendRequest
      * @param executingUser
      */
-    public void acceptFriendRequest(FriendRequest friendRequest, User executingUser)
+    public void acceptFriendRequest(FriendRequest friendRequest, User executingUser) throws FriendlistException
     {
         User sender = friendRequest.getSender();
         User receiver = friendRequest.getReceiver();
@@ -141,6 +144,8 @@ public class Friendlist
 
             receiver.getFriendlist().removeEntryFromWaitingFriends(sender, false);
             sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
+        } else {
+            throw new FriendlistException("Cannot accept own Friend Request!");
         }
     }
 
