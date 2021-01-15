@@ -203,7 +203,8 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     == ENUM
     ===================================
     */
-      enum exampleFlag {
+      enum exampleFlag
+      {
              value1,
              value2,
              value3
