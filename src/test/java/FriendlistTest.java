@@ -1,10 +1,20 @@
+/*
+===================================
+== Dirk Hofmann
+===================================
+*/
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FriendlistTest {
+public class FriendlistTest
+{
+    // toDo dho: Tests überarbeiten und kommentieren, Expeptions einarbeiten
 
-
+    /**
+     * tests if userA´s and userB´s 'waitingFriends' ArrayList is empty after creation
+     */
     @Test
     public void should_have_empty_waitingFriends ()
     {
@@ -21,6 +31,9 @@ public class FriendlistTest {
     }
 
 
+    /**
+     * tests if userA´s and userB´s 'acceptedFriends' ArrayList is empty after creation
+     */
     @Test
     public void should_have_empty_acceptedFriends ()
     {
@@ -37,6 +50,9 @@ public class FriendlistTest {
     }
 
 
+    /**
+     *  tests if userA´s and userB´s 'waitingFriends' ArrayList has one entry after userA sent userB a friend request
+     */
     @Test
     public void should_send_friend_request ()
     {
@@ -53,6 +69,9 @@ public class FriendlistTest {
     }
 
 
+    /**
+     * tests if userA´s and userB´s entry in 'waitingFriends' ArrayList has the correct sender and receiver
+     */
     @Test
     public void should_return_correct_sender_and_receiver ()
     {
@@ -72,7 +91,7 @@ public class FriendlistTest {
 
 
     /**
-     *    userA sent the friendRequest, userB should be able to accept
+     * tests if userA´s friend request can be accepted by userB
      */
     @Test
     public void should_accept_friend_request ()
@@ -94,7 +113,7 @@ public class FriendlistTest {
 
 
     /**
-     *    userA sent the friendRequest, userA should not be able to accept
+     * tests if userA´s friend request cannot be accepted by userA
      */
     @Test
     public void should_not_accept_friend_request ()
@@ -116,7 +135,7 @@ public class FriendlistTest {
 
 
     /**
-     *    both users should be able to deny the friendRequest
+     * tests if userA can deny the friend request by userA
      */
     @Test
     public void should_deny_friend_request_from_userA ()
@@ -138,7 +157,7 @@ public class FriendlistTest {
 
 
     /**
-     *    both users should be able to deny the friendRequest
+     * tests if userB can deny the friend request by userA
      */
     @Test
     public void should_deny_friend_request_from_userB ()
@@ -160,10 +179,10 @@ public class FriendlistTest {
 
 
     /**
-     *   both users should be able to terminate the friendship
+     * tests if UserA can remove the friendship with userB
      */
     @Test
-    public void should_delete_accepted_friend_from_userA ()
+    public void should_remove_accepted_friend_from_userA ()
     {
         //Given
         User userA = User.getNewUserForTesting();
@@ -183,10 +202,10 @@ public class FriendlistTest {
 
 
     /**
-     *   both users should be able to terminate the friendship
+     * tests if UserB can remove the friendship with userA
      */
     @Test
-    public void should_delete_accepted_friend_from_userB ()
+    public void should_remove_accepted_friend_from_userB ()
     {
         //Given
         User userA = User.getNewUserForTesting();
@@ -206,12 +225,12 @@ public class FriendlistTest {
 
 
     /**
-     *    tests with more users
+     * tests with more users
      */
 
 
     /**
-     *    userA has friendRequests from userB to userJ, userA should be able to accept them all
+     * tests if userA can receive friendRequests from userB to userJ
      */
     @Test
     public void should_send_friend_requests_with_more_users ()
@@ -246,7 +265,7 @@ public class FriendlistTest {
 
 
     /**
-     *    userA has friendRequests from userB to userJ, userA should be able to accept them all
+     * tests if userA can accept friendRequests from userB to userJ
      */
     @Test
     public void should_accept_friend_request_with_more_users ()
@@ -284,10 +303,10 @@ public class FriendlistTest {
 
 
     /**
-     *    userA has nine friends, userA should be able to terminate all the friendships
+     * tests if UserA can remove the friendship with userB to userJ
      */
     @Test
-    public void should_delete_accepted_friend_with_more_users ()
+    public void should_remove_accepted_friend_with_more_users ()
     {
         //Given
         User userA = User.getNewUserForTesting();
