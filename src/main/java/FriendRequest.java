@@ -1,4 +1,11 @@
-public class FriendRequest {
+/*
+===================================
+== Dirk Hofmann
+===================================
+*/
+
+public class FriendRequest
+{
 
     /*
     =========================
