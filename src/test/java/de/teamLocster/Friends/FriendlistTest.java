@@ -5,14 +5,14 @@ package de.teamLocster.Friends;/*
 */
 
 import de.teamLocster.User.User;
+import de.teamLocster.Exceptions.FriendlistException;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FriendlistTest
 {
-    // toDo dho: Tests überarbeiten und kommentieren, Expeptions einarbeiten
-
     /**
      * tests if userA´s and userB´s 'waitingFriends' ArrayList is empty after creation
      */
@@ -92,6 +92,23 @@ public class FriendlistTest
 
 
     /**
+     * tests if userA cannot send a friend request to userA
+     */
+    @Test
+    public void should_throw_FriendlistExeption_send_own_friend_request()
+    {
+        //Given
+        User userA = User.getNewUserForTesting();
+        User userB = User.getNewUserForTesting();
+
+        //When
+
+        //Then
+        assertThrows(FriendlistException.class, () -> userA.getFriendlist().sendFriendRequest(userA, userA));
+    }
+
+
+    /**
      * tests if userA´s friend request can be accepted by userB
      */
     @Test
@@ -117,7 +134,7 @@ public class FriendlistTest
      * tests if userA´s friend request cannot be accepted by userA
      */
     @Test
-    public void should_not_accept_friend_request ()
+    public void should_throw_FriendlistExeption_accept_own_friend_request()
     {
         //Given
         User userA = User.getNewUserForTesting();
@@ -125,13 +142,9 @@ public class FriendlistTest
         userA.getFriendlist().sendFriendRequest(userB, userA);
 
         //When
-        userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA);
 
         //Then
-        assertEquals(1, userA.getFriendlist().getWaitingFriends().size(),"userA and userB should have one entry in waitingFriends");
-        assertEquals(1, userB.getFriendlist().getWaitingFriends().size(),"userA and userB should have one entry in waitingFriends");
-        assertEquals(0, userA.getFriendlist().getAcceptedFriends().size(),"userA and userB should have no entry in acceptedFriends");
-        assertEquals(0, userB.getFriendlist().getAcceptedFriends().size(),"userA and userB should have no entry in acceptedFriends");
+        assertThrows(FriendlistException.class, () -> userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA));
     }
 
 
