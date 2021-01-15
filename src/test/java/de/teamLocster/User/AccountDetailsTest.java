@@ -14,7 +14,7 @@ public class AccountDetailsTest {
         String newusername = "Mickey";
 
         // When
-        accountdetails.changeUserName(newusername);
+        accountdetails.setUsername(newusername);
         String result = accountdetails.getUsername();
 
         // Then
@@ -29,7 +29,7 @@ public class AccountDetailsTest {
         String newmailadress = "bjoernathotmailde";
 
         // When
-        accountdetails.changeMailadress(newmailadress);
+        accountdetails.setMailAddress(newmailadress);
         String result = accountdetails.getMailAddress();
 
         // Then
@@ -44,7 +44,7 @@ public class AccountDetailsTest {
         String newpassword = "wurstwasser";
 
         // When
-        accountdetails.changePassword(newpassword);
+        accountdetails.setPassword(newpassword);
         String result = accountdetails.getPassword();
 
         // Then
