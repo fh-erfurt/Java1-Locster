@@ -20,21 +20,6 @@ public class AccountDetails
         this.password = password;
     }
 
-    public void changeUserName(String newusername)
-    {
-        this.username = newusername;
-    }
-
-    public void changeMailadress(String newmailadress)
-    {
-        this.mailAddress = newmailadress;
-    }
-
-    public void changePassword(String newpassword)
-    {
-        this.password = newpassword;
-    }
-
     /*
        ===================================
        Getter & Setter
