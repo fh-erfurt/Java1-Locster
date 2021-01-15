@@ -3,8 +3,8 @@
 Matthias Gabel
 ===================================
 */
+package de.teamLocster.User;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 public class PersonalInfo
@@ -52,17 +52,6 @@ public class PersonalInfo
         this.profilePicture = "";
         this.sex = sex;
     }
-
-    public void changeRegion(String newregion)
-    {
-        this.region = newregion;
-    }
-
-    public void changeRelationshipStatus(PersonalInfo.relationshipStatus newrelationshipStatus) { this.relationshipStatus = newrelationshipStatus; }
-
-    public void changeOccupation( String newoccupation) { this.occupation= newoccupation; }
-
-    public void changeprofilePicture( String newprofilepicture) { this.profilePicture= newprofilepicture; }
 
     /*
     ===================================

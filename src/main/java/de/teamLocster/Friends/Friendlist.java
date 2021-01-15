@@ -3,6 +3,9 @@
 == Dirk Hofmann
 ===================================
 */
+package de.teamLocster.Friends;
+
+import de.teamLocster.User.User;
 
 import java.util.ArrayList;
 
@@ -11,7 +14,7 @@ public class Friendlist
 
     /*
     =========================
-    == Friendlist Class Attributes
+    == de.teamLocster.Friends.Friendlist Class Attributes
     =========================
     */
 
@@ -20,7 +23,7 @@ public class Friendlist
 
     /*
     ===================================
-    == Friendlist Constructors & Destructors
+    == de.teamLocster.Friends.Friendlist Constructors & Destructors
     ===================================
     */
 
@@ -29,7 +32,7 @@ public class Friendlist
 
     /*
     ===================================
-    ==  Friendlist Getter & Setter
+    ==  de.teamLocster.Friends.Friendlist Getter & Setter
     ===================================
     */
 
@@ -73,7 +76,7 @@ public class Friendlist
 
     /*
     ==================
-    == Friendlist Functions
+    == de.teamLocster.Friends.Friendlist Functions
     ==================
     */
 

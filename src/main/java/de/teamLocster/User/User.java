@@ -1,4 +1,4 @@
-/*
+package de.teamLocster.User;/*
 ===================================
 == edited by
 == Molham Al-khodari
@@ -7,15 +7,19 @@
 ===================================
 */
 
+import de.teamLocster.Chat.Chat;
+import de.teamLocster.Friends.Friendlist;
+import de.teamLocster.Guestbook.Guestbook;
+
 import java.util.ArrayList;     // new code
 import java.util.Date;
 
-// Create a User class
+// Create a de.teamLocster.User.User class
 public class User {
 
     /*
     =========================
-    == ENUM class User
+    == ENUM class de.teamLocster.User.User
     =========================
     */
 
@@ -34,7 +38,7 @@ public class User {
 
     /*
     =========================
-    == User Class Attributes
+    == de.teamLocster.User.User Class Attributes
     =========================
     */
 
@@ -52,7 +56,7 @@ public class User {
 
     /*
     ===================================
-    == User Constructors & Destructors
+    == de.teamLocster.User.User Constructors & Destructors
     ===================================
     */
 
@@ -89,7 +93,7 @@ public class User {
 
     /*
     ==================
-    == User functions
+    == de.teamLocster.User.User functions
     ==================
     */
 
@@ -123,7 +127,7 @@ public class User {
 
      /*
     ==========================
-    == User setter und getter           // new code
+    == de.teamLocster.User.User setter und getter           // new code
     ==========================
     */
 

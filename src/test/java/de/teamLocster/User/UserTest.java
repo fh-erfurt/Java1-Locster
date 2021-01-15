@@ -1,10 +1,12 @@
-/*
+package de.teamLocster.User;/*
 ===================================
 == edited by
 == Saskia Wohlers
 ===================================
 */
 
+import de.teamLocster.User.PersonalInfo;
+import de.teamLocster.User.User;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Date;

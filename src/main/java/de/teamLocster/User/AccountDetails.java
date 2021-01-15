@@ -1,3 +1,5 @@
+package de.teamLocster.User;
+
 public class AccountDetails
 {
     private int userID;

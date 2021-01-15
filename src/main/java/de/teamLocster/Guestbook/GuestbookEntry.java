@@ -1,9 +1,13 @@
+package de.teamLocster.Guestbook;
+
+import de.teamLocster.User.User;
+
 import java.time.LocalDateTime;
 
 public class GuestbookEntry
 {
 
-    private User          creator;
+    private User creator;
     private String        text;
     private LocalDateTime sentAt;
 

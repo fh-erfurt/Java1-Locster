@@ -3,13 +3,17 @@
 == Dirk Hofmann
 ===================================
 */
+package de.teamLocster.Friends;
+
+import de.teamLocster.User.User;
+
 
 public class FriendRequest
 {
 
     /*
     =========================
-    == FriendRequest Class Attributes
+    == de.teamLocster.Friends.FriendRequest Class Attributes
     =========================
     */
 
@@ -18,7 +22,7 @@ public class FriendRequest
 
     /*
     ===================================
-    == FriendRequest Constructors & Destructors
+    == de.teamLocster.Friends.FriendRequest Constructors & Destructors
     ===================================
     */
 
@@ -30,7 +34,7 @@ public class FriendRequest
 
     /*
     ===================================
-    ==  FriendRequest Getter & Setter
+    ==  de.teamLocster.Friends.FriendRequest Getter & Setter
     ===================================
     */
 

@@ -1,9 +1,12 @@
-/*
+package de.teamLocster.Chat;/*
 ===================================
 == Jakob Gensel         05.01.2020
 ===================================
 */
 
+import de.teamLocster.Chat.Chat;
+import de.teamLocster.Chat.Message;
+import de.teamLocster.User.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,7 +49,7 @@ public class MessageTest
         testMsg.sendToChat(testChat);
         if (testChat.getMessages().contains(testMsg)) return;
 
-        throw new Exception("Message was not found in chat.");
+        throw new Exception("de.teamLocster.Chat.Message was not found in chat.");
     }
 
     /**
