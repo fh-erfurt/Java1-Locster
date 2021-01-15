@@ -20,11 +20,18 @@ public class PersonalInfo
         uni
     }
 
+    enum relationshipStatus {
+        taken,
+        single,
+        married,
+        no_information
+    }
+
     private String firstName;
     private String lastName;
     private String region;
     private Date   birthdate;
-    private String relationshipStatus;
+    private relationshipStatus relationshipStatus;
     private String occupation;
     private String profilePicture;
     private sex    sex;
@@ -35,16 +42,27 @@ public class PersonalInfo
     Constructor
     ===================================
     */
-    public PersonalInfo(String firstName, String lastName, Date birthdate, sex sex) {
+    public PersonalInfo(String firstName, String lastName, Date birthdate, sex sex, relationshipStatus relationshipStatus) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.region = "";
         this.birthdate = birthdate;
-        this.relationshipStatus = "";
+        this.relationshipStatus = relationshipStatus;
         this.occupation = "";
         this.profilePicture = "";
         this.sex = sex;
     }
+
+    public void changeRegion(String newregion)
+    {
+        this.region = newregion;
+    }
+
+    public void changeRelationshipStatus(PersonalInfo.relationshipStatus newrelationshipStatus) { this.relationshipStatus = newrelationshipStatus; }
+
+    public void changeOccupation( String newoccupation) { this.occupation= newoccupation; }
+
+    public void changeprofilePicture( String newprofilepicture) { this.profilePicture= newprofilepicture; }
 
     /*
     ===================================
@@ -83,13 +101,9 @@ public class PersonalInfo
         this.birthdate = birthdate;
     }
 
-    public String getRelationshipStatus() {
-        return relationshipStatus;
-    }
+    public PersonalInfo.relationshipStatus getRelationshipStatus() { return relationshipStatus; }
 
-    public void setRelationshipStatus(String relationshipStatus) {
-        this.relationshipStatus = relationshipStatus;
-    }
+    public void setRelationshipStatus(PersonalInfo.relationshipStatus relationshipStatus) { this.relationshipStatus = relationshipStatus; }
 
     public String getOccupation() {
         return occupation;

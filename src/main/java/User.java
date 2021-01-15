@@ -56,10 +56,10 @@ public class User {
     ===================================
     */
 
-    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex)
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex, PersonalInfo.relationshipStatus relationshipStatus)
     {
         this.accountDetails    = new AccountDetails(userName, email, password);
-        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
+        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex, relationshipStatus);
 
         this.profileStatistic  = new ProfileStatistic();
         this.personalStatus    = "Hey I'm using Locster";
@@ -74,7 +74,7 @@ public class User {
      * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
      */
     private User() {
-        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.sex.male);
+        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.sex.male, PersonalInfo.relationshipStatus.no_information);
         this.profileStatistic   = new ProfileStatistic();
         this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
         this.personalStatus     = "";
@@ -93,9 +93,7 @@ public class User {
     ==================
     */
 
-    public void addBlockUser(User user) {
-        blockedUsers.add(user);
-    }
+    public void addBlockUser(User user) { blockedUsers.add(user);  }
 
     public void deleteBlockUser(User user) {
         blockedUsers.remove(user);
@@ -165,9 +163,7 @@ public class User {
         return privacyStatusFlag;
     }
 
-    public void setPrivacyStatusFlag(User.privacyStatus privacyStatusFlag) {
-        this.privacyStatusFlag = privacyStatusFlag;
-    }
+    public void setPrivacyStatusFlag(User.privacyStatus privacyStatusFlag) { this.privacyStatusFlag = privacyStatusFlag; }
 
     public Friendlist getFriendlist() {
         return friendlist;
