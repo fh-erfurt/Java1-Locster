@@ -32,34 +32,34 @@ public class UserContainer
     == Methods
     ===================================
     */
-    public void registerUser(String firstName, String lastName, String userName, String email, String password, Date Birthdate, PersonalInfo.sex sex) {
-
+    public void registerUser(String firstName, String lastName, String userName, String email,
+                             String password, Date Birthdate, PersonalInfo.sex sex) throws EmailException, PasswordException
+    {
         if (!this.checkEmail(email))
         {
-            //todo throw new Exception("Invalid Email!");
+            throw new EmailException("Invalid Email!");
         }
 
-        if (!this.checkPassword(password))
-        {
-            //todo throw new Exception("Invalid Password!");
+        if (!this.checkPassword(password)) {
+            throw new PasswordException("Invalid Password!");
         }
 
-        User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
+        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
 
         this.users.add(user);
     }
 
     public ArrayList<User> activeUsers()
     {
-        ArrayList<User> usersUsers = new ArrayList<User>();
-        for (User user : users) // for-each user in users
+        ArrayList<User> activeUser = new ArrayList<User>();
+        for (User user : this.users) // for-each user in users
         {
             if (user.getOnlineStatusFlag() == User.onlineStatus.online)
             {
-                usersUsers.add(user);
+                activeUser.add(user);
             }
         }
-        return usersUsers;
+        return activeUser;
     }
 
     public void deleteUser(User userToDelete)
