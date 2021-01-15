@@ -49,7 +49,7 @@ public class UserContainer
         this.users.add(user);
     }
 
-    public ArrayList<User> activeUser()
+    public ArrayList<User> activeUsers()
     {
         ArrayList<User> usersUsers = new ArrayList<User>();
         for (User user : users) // for-each user in users

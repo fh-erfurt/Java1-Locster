@@ -91,7 +91,6 @@ public class Friendlist
         }
     }
 
-
     /**
      * Calls methods to remove entries from 'acceptedFriends' from both users in the 'friendlistItem'
      * @param friendlistItem == to be removed entry

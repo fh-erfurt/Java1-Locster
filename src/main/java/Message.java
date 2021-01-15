@@ -36,7 +36,7 @@ public class Message
      * Deletes a message from a chat.
      * @param chat the chat, which the message is deleted from
      */
-    public void deleteFromChat(/* Chat chat */)   // Message = null reicht.
+    public void deleteFromChat(Chat chat)   // Message = null reicht.
     {
         // TODO JGE Message eindeutig identifizieren
         // TODO MAL(Molham Al-Khodari) Chat braucht noch eine Funktion zum löschen
