@@ -1,4 +1,4 @@
-/*
+package de.teamLocster.Chat;/*
 ===================================
 == Molham Al-khodari    24.12.2020
 == Jakob Gensel         05.01.2020
@@ -7,16 +7,16 @@
 
 import java.util.ArrayList;
 
-// Create a Chat class
+// Create a de.teamLocster.Chat.Chat class
 public class Chat
 {
     /*
     =========================
-    == Chat Class Attributes
+    == de.teamLocster.Chat.Chat Class Attributes
     =========================
     */
 
-    private String name; // TODO Überlegung: Gruppenchat / automatisch generiert / User ArrayList?
+    private String name; // TODO Überlegung: Gruppenchat / automatisch generiert / de.teamLocster.User.User ArrayList?
     private ArrayList<Message> messages;
 
     /*
@@ -40,7 +40,7 @@ public class Chat
 
     /*
     ==================
-    == Chat functions
+    == de.teamLocster.Chat.Chat functions
     ==================
     */
 
@@ -52,7 +52,7 @@ public class Chat
 
     /*
     ==========================
-    == Chat setter und getter
+    == de.teamLocster.Chat.Chat setter und getter
     ==========================
     */
 

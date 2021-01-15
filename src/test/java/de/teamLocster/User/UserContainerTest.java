@@ -1,8 +1,13 @@
-/*
+package de.teamLocster.User;/*
 ===================================
 Matthias Gabel
 ===================================
 */
+import de.teamLocster.Exceptions.EmailException;
+import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.User.PersonalInfo;
+import de.teamLocster.User.User;
+import de.teamLocster.User.UserContainer;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -90,7 +95,7 @@ public class UserContainerTest {
                 case 78:
                 case 90:
                     String firstName = "Active" + i;
-                    String lastName = "User" + i;
+                    String lastName = "de.teamLocster.User.User" + i;
                     String userName = "ActiveUser" + 1;
                     String email = "ActUser" + i + "@email.de";
                     String password = "ActiveUserPW" + i + "!";
@@ -100,7 +105,7 @@ public class UserContainerTest {
                     testUserContainer.getUsers().get(i).setOnlineStatusFlag(User.onlineStatus.online);
                     break;
                 default:
-                    User user = new User();
+                    User user = User.getNewUserForTesting();
                     testUserContainer.getUsers().add(user);
                     testUserContainer.getUsers().get(i).setOnlineStatusFlag(User.onlineStatus.offline);
                     break;

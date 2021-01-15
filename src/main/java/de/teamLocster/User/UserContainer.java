@@ -1,10 +1,14 @@
-/*
+package de.teamLocster.User;/*
 ===================================
 == Matthias Gabel
 ===================================
 */
 
-import java.sql.Timestamp;
+import de.teamLocster.Exceptions.EmailException;
+import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.User.PersonalInfo;
+import de.teamLocster.User.User;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -44,7 +48,7 @@ public class UserContainer
             throw new PasswordException("Invalid Password!");
         }
 
-        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
+        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex, PersonalInfo.relationshipStatus.married);
 
         this.users.add(user);
     }

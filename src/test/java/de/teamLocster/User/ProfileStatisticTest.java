@@ -1,9 +1,11 @@
-/*
+package de.teamLocster.User;/*
 ===================================
 Matthias Gabel
 ===================================
 */
 
+import de.teamLocster.User.ProfileStatistic;
+import de.teamLocster.User.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

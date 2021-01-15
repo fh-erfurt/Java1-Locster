@@ -1,9 +1,10 @@
-/*
+package de.teamLocster.Friends;/*
 ===================================
 == Dirk Hofmann
 ===================================
 */
 
+import de.teamLocster.User.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

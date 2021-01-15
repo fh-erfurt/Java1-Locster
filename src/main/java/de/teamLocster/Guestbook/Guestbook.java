@@ -1,3 +1,5 @@
+package de.teamLocster.Guestbook;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -27,13 +29,13 @@ public class Guestbook
                 return;
             }
         }
-        throw new Exception("GuestbookEntry to edit not found in Guestbook!");
+        throw new Exception("de.teamLocster.Guestbook.GuestbookEntry to edit not found in de.teamLocster.Guestbook.Guestbook!");
     }
 
     public void deleteEntry(GuestbookEntry guestbookEntryToDelete)
     {
         book.removeIf(GuestbookEntry -> GuestbookEntry == guestbookEntryToDelete);
-        // TODO warum nicht wie bei Message und Chat?
+        // TODO warum nicht wie bei de.teamLocster.Chat.Message und de.teamLocster.Chat.Chat?
     }
 
     /*

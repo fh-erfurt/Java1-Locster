@@ -1,8 +1,9 @@
-/*
+package de.teamLocster.Friends;/*
 ===================================
 == Dirk Hofmann
 ===================================
 */
+import de.teamLocster.User.User;
 
 import java.time.LocalDateTime;
 
@@ -11,7 +12,7 @@ public class FriendlistItem
 
     /*
     =========================
-    == FriendlistItem Class Attributes
+    == de.teamLocster.Friends.FriendlistItem Class Attributes
     =========================
     */
 
@@ -20,7 +21,7 @@ public class FriendlistItem
 
     /*
     ===================================
-    == FriendlistItem Constructors & Destructors
+    == de.teamLocster.Friends.FriendlistItem Constructors & Destructors
     ===================================
     */
 
@@ -32,7 +33,7 @@ public class FriendlistItem
 
     /*
     ===================================
-    ==  FriendlistItem Getter & Setter
+    ==  de.teamLocster.Friends.FriendlistItem Getter & Setter
     ===================================
     */
 
@@ -52,7 +53,7 @@ public class FriendlistItem
 
     /*
     ==================
-    == FriendlistItem Functions
+    == de.teamLocster.Friends.FriendlistItem Functions
     ==================
     */
 }

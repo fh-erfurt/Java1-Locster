@@ -1,3 +1,6 @@
+package de.teamLocster.User;
+
+import de.teamLocster.User.AccountDetails;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

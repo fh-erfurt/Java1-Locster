@@ -1,10 +1,11 @@
-/*
+package de.teamLocster.User;/*
 ===================================
 == edited by
 == Saskia Wohlers
 ===================================
 */
 
+import de.teamLocster.User.PersonalInfo;
 import org.junit.jupiter.api.Test;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,7 +20,7 @@ public class PersonalInfoTest {
         String newRegion = "Valhalla";
 
         //When
-        personalinfo.changeRegion(newRegion);
+        personalinfo.setRegion(newRegion);
         String result = personalinfo.getRegion();
 
         //Then
@@ -34,11 +35,11 @@ public class PersonalInfoTest {
         PersonalInfo.relationshipStatus newrelationshipStatus = PersonalInfo.relationshipStatus.taken;
 
         //When
-        personalinfo.changeRelationshipStatus(newrelationshipStatus);
+        personalinfo.setRelationshipStatus(newrelationshipStatus);
         PersonalInfo.relationshipStatus result = personalinfo.getRelationshipStatus();
 
         //Then
-        assertEquals("taken", result, "RelationshipStatus should be taken");
+        assertEquals(newrelationshipStatus, result, "RelationshipStatus should be taken");
     }
 
     @Test  // needs boundaries like max. letters or so
@@ -49,7 +50,7 @@ public class PersonalInfoTest {
         String newoccupation = "Computer Scientist";
 
         //When
-        personalinfo.changeOccupation(newoccupation);
+        personalinfo.setOccupation(newoccupation);
         String result = personalinfo.getOccupation();
 
         //Then
@@ -64,7 +65,7 @@ public class PersonalInfoTest {
         String newprofilePicture = "PiggyPicture";
 
         //When
-        personalinfo.changeprofilePicture(newprofilePicture);
+        personalinfo.setProfilePicture(newprofilePicture);
         String result = personalinfo.getProfilePicture();
 
         //Then

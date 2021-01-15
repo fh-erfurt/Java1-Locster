@@ -1,3 +1,5 @@
+package de.teamLocster.User;
+
 public class ProfileText
 {
     static final int MAX_NUMBER_OF_CHARS = 10000;

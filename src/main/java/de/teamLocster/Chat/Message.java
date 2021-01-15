@@ -1,3 +1,7 @@
+package de.teamLocster.Chat;
+
+import de.teamLocster.User.User;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -9,13 +13,12 @@ import java.util.ArrayList;
  */
 public class Message
 {
-    // private Chat            chat; // sollte hier auch ein eindeutiger Chat gespeichert werden? evtl. benötigt für deleteMessageFromChat()
-    private User            sender;
+    private User sender;
     private ArrayList<User> readBy; // dynamic array
     private String          text;
     private LocalDateTime   sentAt;
 
-    Message(String text , User sender)
+    public Message(String text , User sender)
     {
         this.text = text;
         this.sender = sender;
@@ -36,10 +39,10 @@ public class Message
      * Deletes a message from a chat.
      * @param chat the chat, which the message is deleted from
      */
-    public void deleteFromChat(Chat chat)   // Message = null reicht.
+    public void deleteFromChat(Chat chat)   // de.teamLocster.Chat.Message = null reicht.
     {
-        // TODO JGE Message eindeutig identifizieren
-        // TODO MAL(Molham Al-Khodari) Chat braucht noch eine Funktion zum löschen
+        // TODO JGE de.teamLocster.Chat.Message eindeutig identifizieren
+        // TODO MAL(Molham Al-Khodari) de.teamLocster.Chat.Chat braucht noch eine Funktion zum löschen
     }
 
     /**
