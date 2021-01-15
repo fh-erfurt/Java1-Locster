@@ -47,7 +47,7 @@ public class ChatTest {
         testChat.receiveMessage(testMessage);
 
         // Then
-        Assertions.assertEquals(testChat.getMessages().get(0).getText(), testMessage.getText(), "etc ...");
+        Assertions.assertEquals(testChat.getMessages().get(0).getText(), testMessage.getText(), "The Chat receive a message");
 
     }
 }
