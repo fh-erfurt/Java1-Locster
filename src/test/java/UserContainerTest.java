@@ -47,15 +47,14 @@ public class UserContainerTest {
         String firstName    = "Max";
         String lastName     = "Mustermann";
         String username     = "MaMus257";
-        String email        = "max.mustermann.fh-email.de";
+        String email        = "max.mustermann.fh-email.de"; // missing @
         String password     = "Password123?";
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.sex sex = PersonalInfo.sex.male;
         // When
-        testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
 
         // Then
-        //assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
+        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
     }
 
     @Test
@@ -66,31 +65,12 @@ public class UserContainerTest {
         String lastName     = "Mustermann";
         String username     = "MaMus257";
         String email        = "max.mustermann@fh-email.de";
-        String password     = "password";
+        String password     = "password";                   // missing capital, numbers, special chars
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.sex sex = PersonalInfo.sex.male;
         // When
-        testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
 
         // Then
-        //assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
-    }
-
-    @Test
-    public void should_throw_Email_and_PasswordException()
-    {
-        // Given
-        String firstName    = "Max";
-        String lastName     = "Mustermann";
-        String username     = "MaMus257";
-        String email        = "max.mustermannfh-email.de";
-        String password     = "password";
-        Date   birthdate    = new Date(1999, Calendar.JUNE,22);
-        PersonalInfo.sex sex = PersonalInfo.sex.male;
-        // When
-        testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
-
-        // Then
-        //assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
+        assertThrows(PasswordException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
     }
 }
