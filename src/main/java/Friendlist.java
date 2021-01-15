@@ -1,6 +1,13 @@
+/*
+===================================
+== Dirk Hofmann
+===================================
+*/
+
 import java.util.ArrayList;
 
-public class Friendlist {
+public class Friendlist
+{
 
     /*
     =========================
@@ -8,8 +15,8 @@ public class Friendlist {
     =========================
     */
 
-    private ArrayList<FriendlistItem> acceptedFriends = new ArrayList<FriendlistItem>();
-    private ArrayList<FriendRequest> waitingFriends = new ArrayList<FriendRequest>();
+    private ArrayList<FriendlistItem> acceptedFriends = new ArrayList<FriendlistItem>(); // accepted friends are stored here
+    private ArrayList<FriendRequest> waitingFriends = new ArrayList<FriendRequest>();   // waiting requests are stored here
 
     /*
     ===================================
@@ -26,30 +33,43 @@ public class Friendlist {
     ===================================
     */
 
-    public ArrayList<FriendlistItem> getAcceptedFriends() {
-        return acceptedFriends;
-    }
+    /**
+     * Getter acceptedFriends
+     * @return ArrayList 'acceptedFriends'
+     */
+    public ArrayList<FriendlistItem> getAcceptedFriends() { return acceptedFriends; }
 
-    public FriendlistItem getAcceptedFriendWithIndex(int index) {
-        return getAcceptedFriends().get(index);
-    }
+    /**
+     * Getter acceptedFriends with index
+     * @param index
+     * @return entry with index from ArrayList 'acceptedFriends'
+     */
+    public FriendlistItem getAcceptedFriendWithIndex(int index) { return this.acceptedFriends.get(index); }
 
-    public void setAcceptedFriends(ArrayList<FriendlistItem> acceptedFriends) {
-        this.acceptedFriends = acceptedFriends;
-    }
+    /**
+     * Setter acceptedFriends
+     * @param acceptedFriends
+     */
+    public void setAcceptedFriends(ArrayList<FriendlistItem> acceptedFriends) { this.acceptedFriends = acceptedFriends; }
 
+    /**
+     * Getter waitingFriends
+     * @return ArrayList 'waitingFriends'
+     */
+    public ArrayList<FriendRequest> getWaitingFriends() { return waitingFriends; }
 
-    public ArrayList<FriendRequest> getWaitingFriends() {
-        return waitingFriends;
-    }
+    /**
+     * Getter waitingFriends with index
+     * @param index
+     * @return entry with index from ArrayList 'waitingFriends'
+     */
+    public FriendRequest getWaitingFriendWithIndex(int index) { return this.waitingFriends.get(index); }
 
-    public FriendRequest getWaitingFriendWithIndex(int index) {
-        return getWaitingFriends().get(index);
-    }
-
-    public void setWaitingFriends(ArrayList<FriendRequest> waitingFriends) {
-        this.waitingFriends = waitingFriends;
-    }
+    /**
+     * Setter waitingFriends
+     * @param waitingFriends
+     */
+    public void setWaitingFriends(ArrayList<FriendRequest> waitingFriends) { this.waitingFriends = waitingFriends; }
 
     /*
     ==================
@@ -57,52 +77,78 @@ public class Friendlist {
     ==================
     */
 
-    public void sendFriendRequest(User receiver, User sender) {
-
-        if (sender != receiver) {
+    /**
+     * Calls methods to add entries in 'waitingFriends' to both the sender and receiver
+     * @param receiver
+     * @param sender
+     */
+    public void sendFriendRequest(User receiver, User sender)
+    {
+        if (sender != receiver)
+        {
             sender.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
             receiver.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
         }
     }
 
 
-    public void deleteFriend(FriendlistItem friendlistItem, User executingUser) {
+    /**
+     * Calls methods to remove entries from 'acceptedFriends' from both users in the 'friendlistItem'
+     * @param friendlistItem == to be removed entry
+     * @param executingUser
+     */
+    public void removeFriend(FriendlistItem friendlistItem, User executingUser)
+    {
         User toBeRemovedUser = friendlistItem.getFriend();
         toBeRemovedUser.getFriendlist().removeEntryFromAcceptedFriend(executingUser);
         executingUser.getFriendlist().removeEntryFromAcceptedFriend(toBeRemovedUser);
     }
 
 
-    private void removeEntryFromAcceptedFriend(User toBeRemovedUser) {
-        for (int count = 0; count < getAcceptedFriends().size(); count++) {
-            if (getAcceptedFriends().get(count).getFriend() == toBeRemovedUser) {
-                getAcceptedFriends().remove(count);
+    /**
+     * Searches 'acceptedFriends' until 'toBeRemovedUser' is found, removes the entry and returns
+     * @param toBeRemovedUser
+     */
+    private void removeEntryFromAcceptedFriend(User toBeRemovedUser)
+    {
+        for (int count = 0; count < this.acceptedFriends.size(); count++)
+        {
+            if (this.acceptedFriends.get(count).getFriend() == toBeRemovedUser)
+            {
+                this.acceptedFriends.remove(count);
                 return;
             }
         }
     }
 
 
-    public void acceptFriendRequest(FriendRequest friendRequest, User executingUser) {
-
+    /**
+     * Calls methods to add entries in 'acceptedFriends' to both users in the 'friendRequest', calls methods to remove entries from 'waitingFriends' from both users in the 'friendRequest'
+     * @param friendRequest
+     * @param executingUser
+     */
+    public void acceptFriendRequest(FriendRequest friendRequest, User executingUser)
+    {
         User sender = friendRequest.getSender();
         User receiver = friendRequest.getReceiver();
 
-        if (sender != executingUser) {
-
+        if (sender != executingUser)
+        {
             receiver.getFriendlist().addEntryToAcceptedFriends(new FriendlistItem(sender));
             sender.getFriendlist().addEntryToAcceptedFriends(new FriendlistItem(receiver));
 
             receiver.getFriendlist().removeEntryFromWaitingFriends(sender, false);
             sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
-
         }
     }
 
 
-
-    public void denyFriendRequest(FriendRequest friendRequest) {
-
+    /**
+     * Calls methods to remove entries from 'waitingFriends' from both users in the 'friendRequest'
+     * @param friendRequest
+     */
+    public void denyFriendRequest(FriendRequest friendRequest)
+    {
         User sender = friendRequest.getSender();
         User receiver = friendRequest.getReceiver();
 
@@ -110,25 +156,37 @@ public class Friendlist {
         sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
     }
 
-    private void addEntryToAcceptedFriends(FriendlistItem friendlistItem) {
-        this.acceptedFriends.add(friendlistItem);
-    }
+
+    /**
+     * Adds entry 'friendlistItem' to 'acceptedFriends'
+     * @param friendlistItem
+     */
+    private void addEntryToAcceptedFriends(FriendlistItem friendlistItem) { this.acceptedFriends.add(friendlistItem); }
 
 
-
-    private void removeEntryFromWaitingFriends(User user, boolean isSender) {
-
-        if (isSender) {
-            for (int count = 0; count < getWaitingFriends().size(); count++) {
-                if (getWaitingFriends().get(count).getReceiver() == user) {
-                    getWaitingFriends().remove(count);
+    /**
+     * Searches 'waitingFriends' until an entry with 'user' is found, removes the entry and returns
+     * @param user
+     * @param isSender == it´s necessary to know if 'user' is the 'sender' or 'receiver' in the entry
+     */
+    private void removeEntryFromWaitingFriends(User user, boolean isSender)
+    {
+        if (isSender)
+        {
+            for (int count = 0; count < this.waitingFriends.size(); count++)
+            {
+                if (this.waitingFriends.get(count).getReceiver() == user)
+                {
+                    this.waitingFriends.remove(count);
                     return;
                 }
             }
         } else {
-            for (int count = 0; count < getWaitingFriends().size(); count++) {
-                if (getWaitingFriends().get(count).getSender() == user) {
-                    getWaitingFriends().remove(count);
+            for (int count = 0; count < this.waitingFriends.size(); count++)
+            {
+                if (this.waitingFriends.get(count).getSender() == user)
+                {
+                    this.waitingFriends.remove(count);
                     return;
                 }
             }
@@ -136,7 +194,9 @@ public class Friendlist {
     }
 
 
-    private void addEntryToWaitingFriends(FriendRequest friendRequest) {
-        getWaitingFriends().add(friendRequest);
-    }
+    /**
+     * Adds entry 'friendRequest' to 'waitingFriends'
+     * @param friendRequest
+     */
+    private void addEntryToWaitingFriends(FriendRequest friendRequest) { this.waitingFriends.add(friendRequest); }
 }
