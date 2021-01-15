@@ -1,4 +1,13 @@
-public class FriendlistItem {
+/*
+===================================
+== Dirk Hofmann
+===================================
+*/
+
+import java.time.LocalDateTime;
+
+public class FriendlistItem
+{
 
     /*
     =========================
@@ -7,7 +16,7 @@ public class FriendlistItem {
     */
 
     private User friend;
-    private long friendSince; // https://stackoverflow.com/questions/732034/getting-unixtime-in-java
+    private LocalDateTime friendSince;
 
     /*
     ===================================
@@ -18,7 +27,7 @@ public class FriendlistItem {
     public FriendlistItem(User friend)
     {
         this.friend = friend;
-        this.friendSince = getUnixTime();
+        this.friendSince = LocalDateTime.now();
     }
 
     /*
@@ -35,21 +44,15 @@ public class FriendlistItem {
         this.friend = friend;
     }
 
-    public long getFriendSince() {
+    public LocalDateTime getFriendSince() {
         return friendSince;
     }
 
-    public void setFriendSince(long friendSince) {
-        this.friendSince = friendSince;
-    }
+    public void setFriendSince(LocalDateTime friendSince) { this.friendSince = friendSince; }
 
     /*
     ==================
     == FriendlistItem Functions
     ==================
     */
-
-    private long getUnixTime() {
-        return System.currentTimeMillis() / 1000L;
-    }
 }
