@@ -31,16 +31,6 @@ public class ProfileStatistic {
         this.lastVisits.add(0, latestVisit);
     }
 
-    public void updateLatestFried(User latestFriend)
-    {
-        this.latestFriend = latestFriend;
-    }
-
-    public void updateOldestFried(User oldestFriend)
-    {
-        this.oldestFriend = oldestFriend;
-    }
-
     /*
     ===================================
     Getter & Setter
