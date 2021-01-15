@@ -110,7 +110,7 @@ public class UserContainerTest {
         ArrayList<User> activeUser = new ArrayList<User>();
 
         // When
-            activeUser = testUserContainer.activeUser();
+            activeUser = testUserContainer.activeUsers();
         // Then
         assertEquals("Active5", testUserContainer.getUsers().get(5).getPersonalInfo().getFirstName());
         assertEquals("Active15", testUserContainer.getUsers().get(15).getPersonalInfo().getFirstName());
