@@ -1,4 +1,4 @@
-package de.teamLocster.User;/*
+/*
 ===================================
 == edited by
 == Molham Al-khodari
@@ -6,30 +6,32 @@ package de.teamLocster.User;/*
 == Matthias Gabel
 ===================================
 */
+package de.teamLocster.User;
+
 
 import de.teamLocster.Chat.Chat;
 import de.teamLocster.Friends.Friendlist;
 import de.teamLocster.Guestbook.Guestbook;
 
-import java.util.ArrayList;     // new code
+import java.util.ArrayList;
 import java.util.Date;
 
-// Create a de.teamLocster.User.User class
+
 public class User {
 
     /*
     =========================
-    == ENUM class de.teamLocster.User.User
+    == ENUM class User
     =========================
     */
 
-    enum privacyStatus
+    enum PrivacyStatus
     {
         global,
         friends,
         nobody
     }
-    enum onlineStatus
+    enum OnlineStatus
     {
         online,
         absent,
@@ -38,7 +40,7 @@ public class User {
 
     /*
     =========================
-    == de.teamLocster.User.User Class Attributes
+    == User Class Attributes
     =========================
     */
 
@@ -46,8 +48,8 @@ public class User {
     private ProfileStatistic profileStatistic;
     private AccountDetails accountDetails;
     private String personalStatus;
-    private privacyStatus privacyStatusFlag;
-    private onlineStatus onlineStatusFlag;
+    private PrivacyStatus privacyStatus;
+    private OnlineStatus onlineStatus;
     private Friendlist friendlist;
     private Guestbook guestbook;
     private ProfileText profileText;
@@ -56,11 +58,11 @@ public class User {
 
     /*
     ===================================
-    == de.teamLocster.User.User Constructors & Destructors
+    == User Constructors & Destructors
     ===================================
     */
 
-    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.sex sex, PersonalInfo.relationshipStatus relationshipStatus)
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.Sex sex, PersonalInfo.RelationshipStatus relationshipStatus)
     {
         this.accountDetails    = new AccountDetails(userName, email, password);
         this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex, relationshipStatus);
@@ -78,12 +80,12 @@ public class User {
      * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
      */
     private User() {
-        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.sex.male, PersonalInfo.relationshipStatus.no_information);
+        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male, PersonalInfo.RelationshipStatus.no_information);
         this.profileStatistic   = new ProfileStatistic();
         this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
         this.personalStatus     = "";
-        this.privacyStatusFlag  = privacyStatus.global;
-        this.onlineStatusFlag   = onlineStatus.online;
+        this.privacyStatus = PrivacyStatus.global;
+        this.onlineStatus = OnlineStatus.online;
         this.friendlist         = new Friendlist();
         this.guestbook          = new Guestbook();
         this.profileText        = new ProfileText();
@@ -93,7 +95,7 @@ public class User {
 
     /*
     ==================
-    == de.teamLocster.User.User functions
+    == User functions
     ==================
     */
 
@@ -101,23 +103,6 @@ public class User {
 
     public void deleteBlockUser(User user) {
         blockedUsers.remove(user);
-    }
-
-    public void changePrivacyStatusFlag(User.privacyStatus status) { // TODO  warum switch case?
-        switch (status) {
-            case global:
-                this.privacyStatusFlag = User.privacyStatus.global;
-                System.out.println(status);
-                break;
-            case friends:
-                this.privacyStatusFlag = User.privacyStatus.friends;
-                System.out.println(status);
-                break;
-            case nobody:
-                this.privacyStatusFlag = User.privacyStatus.nobody;
-                System.out.println(status);
-                break;
-        }
     }
 
     public static User getNewUserForTesting()
@@ -137,7 +122,7 @@ public class User {
 
      /*
     ==========================
-    == de.teamLocster.User.User setter und getter           // new code
+    == User setter und getter
     ==========================
     */
 
@@ -173,11 +158,11 @@ public class User {
         this.personalStatus = personalStatus;
     }
 
-    public User.privacyStatus getPrivacyStatusFlag() {
-        return privacyStatusFlag;
+    public PrivacyStatus getPrivacyStatus() {
+        return privacyStatus;
     }
 
-    public void setPrivacyStatusFlag(User.privacyStatus privacyStatusFlag) { this.privacyStatusFlag = privacyStatusFlag; }
+    public void setPrivacyStatus(PrivacyStatus privacyStatus) { this.privacyStatus = privacyStatus; }
 
     public Friendlist getFriendlist() {
         return friendlist;
@@ -211,13 +196,13 @@ public class User {
         this.blockedUsers = blockedUsers;
     }
 
-    public onlineStatus getOnlineStatusFlag()
+    public OnlineStatus getOnlineStatus()
     {
-        return onlineStatusFlag;
+        return onlineStatus;
     }
 
-    public void setOnlineStatusFlag(onlineStatus onlineStatusFlag)
+    public void setOnlineStatus(OnlineStatus onlineStatus)
     {
-        this.onlineStatusFlag = onlineStatusFlag;
+        this.onlineStatus = onlineStatus;
     }
 }

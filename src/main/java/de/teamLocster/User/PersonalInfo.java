@@ -5,7 +5,9 @@ Matthias Gabel
 */
 package de.teamLocster.User;
 
+
 import java.util.Date;
+
 
 public class PersonalInfo
 {
@@ -14,13 +16,15 @@ public class PersonalInfo
     ENUM
     ===================================
     */
-    enum sex {
+    enum Sex
+    {
         male,
         female,
         uni
     }
 
-    enum relationshipStatus {
+    enum RelationshipStatus
+    {
         taken,
         single,
         married,
@@ -36,10 +40,10 @@ public class PersonalInfo
     private String lastName;
     private String region;
     private Date   birthdate;
-    private relationshipStatus relationshipStatus;
+    private RelationshipStatus relationshipStatus;
     private String occupation;
     private String profilePicture;
-    private sex    sex;
+    private Sex sex;
 
 
     /*
@@ -47,7 +51,7 @@ public class PersonalInfo
     Constructor
     ===================================
     */
-    public PersonalInfo(String firstName, String lastName, Date birthdate, sex sex, relationshipStatus relationshipStatus) {
+    public PersonalInfo(String firstName, String lastName, Date birthdate, Sex sex, RelationshipStatus relationshipStatus) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.region = "";
@@ -95,9 +99,9 @@ public class PersonalInfo
         this.birthdate = birthdate;
     }
 
-    public PersonalInfo.relationshipStatus getRelationshipStatus() { return relationshipStatus; }
+    public RelationshipStatus getRelationshipStatus() { return relationshipStatus; }
 
-    public void setRelationshipStatus(PersonalInfo.relationshipStatus relationshipStatus) { this.relationshipStatus = relationshipStatus; }
+    public void setRelationshipStatus(RelationshipStatus relationshipStatus) { this.relationshipStatus = relationshipStatus; }
 
     public String getOccupation() {
         return occupation;
@@ -115,11 +119,11 @@ public class PersonalInfo
         this.profilePicture = profilePicture;
     }
 
-    public PersonalInfo.sex getSex() {
+    public Sex getSex() {
         return sex;
     }
 
-    public void setSex(PersonalInfo.sex sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 }

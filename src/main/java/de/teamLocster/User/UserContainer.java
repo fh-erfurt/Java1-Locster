@@ -6,8 +6,6 @@ package de.teamLocster.User;/*
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
-import de.teamLocster.User.PersonalInfo;
-import de.teamLocster.User.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,7 +35,7 @@ public class UserContainer
     ===================================
     */
     public void registerUser(String firstName, String lastName, String userName, String email,
-                             String password, Date Birthdate, PersonalInfo.sex sex) throws EmailException, PasswordException
+                             String password, Date Birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException
     {
         if (!this.checkEmail(email))
         {
@@ -48,7 +46,7 @@ public class UserContainer
             throw new PasswordException("Invalid Password!");
         }
 
-        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex, PersonalInfo.relationshipStatus.married);
+        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex, PersonalInfo.RelationshipStatus.married);
 
         this.users.add(user);
     }
@@ -58,7 +56,7 @@ public class UserContainer
         ArrayList<User> activeUser = new ArrayList<User>();
         for (User user : this.users) // for-each user in users
         {
-            if (user.getOnlineStatusFlag() == User.onlineStatus.online)
+            if (user.getOnlineStatus() == User.OnlineStatus.online)
             {
                 activeUser.add(user);
             }

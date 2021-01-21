@@ -5,8 +5,6 @@ package de.teamLocster.User;/*
 ===================================
 */
 
-import de.teamLocster.User.PersonalInfo;
-import de.teamLocster.User.User;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,7 +16,7 @@ public class UserTest {
     public void should_add_User_to_blocked_Users() {
 
         //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.sex.female, PersonalInfo.relationshipStatus.no_information);
+        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
         ArrayList<User> blockedUsers = new ArrayList<User>();
 
         //When
@@ -34,7 +32,7 @@ public class UserTest {
     public void should_delete_user_out_of_blocked_users(){
 
         //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.sex.female, PersonalInfo.relationshipStatus.no_information);
+        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
         ArrayList<User> blockedUsers = new ArrayList<User>();
         blockedUsers.add(user);
 
@@ -50,21 +48,21 @@ public class UserTest {
     public void should_change_privacy_status(){
 
         //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.sex.female, PersonalInfo.relationshipStatus.no_information);
+        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
 
         //When
-        user.changePrivacyStatusFlag(User.privacyStatus.global);
-        User.privacyStatus result = user.getPrivacyStatusFlag();
+        user.setPrivacyStatus(User.PrivacyStatus.global);
+        User.PrivacyStatus result = user.getPrivacyStatus();
 
         //Then
-        assertEquals(User.privacyStatus.global, result, "The PrivacyStatus should be global!");
+        assertEquals(User.PrivacyStatus.global, result, "The PrivacyStatus should be global!");
     }
 
     @Test
     public void should_print_a_user()
     {
         //Given
-        User user = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
+        User user = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14), PersonalInfo.Sex.male, PersonalInfo.RelationshipStatus.no_information);
 
         //When
         String result = user.toString();

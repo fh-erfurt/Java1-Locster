@@ -1,21 +1,18 @@
-package de.teamLocster.User;/*
+/*
 ===================================
 Matthias Gabel
 ===================================
 */
+package de.teamLocster.User;
 
-import de.teamLocster.User.ProfileStatistic;
-import de.teamLocster.User.User;
+
 import org.junit.After;
 import org.junit.Before;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.Date;
+
 
 public class ProfileStatisticTest {
 
@@ -35,7 +32,7 @@ public class ProfileStatisticTest {
     {
         //Given
         User testUser = User.getNewUserForTesting();
-        User userVisitors = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
+        User userVisitors = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
 
         //When
         testUser.getProfileStatistic().updateLastVisitors(userVisitors);
@@ -55,16 +52,16 @@ public class ProfileStatisticTest {
         User testUser = User.getNewUserForTesting();
 
         // wir haben 10 User die wir besucht haben
-        User userVisits0 = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits1 = new User("Matze", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits2 = new User("Dirk", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits3 = new User("Saskia", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits4 = new User("Jakob", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits5 = new User("Lisa", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits6 = new User("Maven", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits7 = new User("Fabian", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits8 = new User("Jesse", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
-        User userVisits9 = new User("Mohammed", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
+        User userVisits0 = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits1 = new User("Matze", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits2 = new User("Dirk", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits3 = new User("Saskia", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits4 = new User("Jakob", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits5 = new User("Lisa", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits6 = new User("Maven", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits7 = new User("Fabian", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits8 = new User("Jesse", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
+        User userVisits9 = new User("Mohammed", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male,PersonalInfo.RelationshipStatus.no_information);
 
         // When
         testUser.getProfileStatistic().updateLastVisits(userVisits0);

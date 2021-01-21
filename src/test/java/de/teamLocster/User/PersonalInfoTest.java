@@ -5,7 +5,6 @@ package de.teamLocster.User;/*
 ===================================
 */
 
-import de.teamLocster.User.PersonalInfo;
 import org.junit.jupiter.api.Test;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,7 +15,7 @@ public class PersonalInfoTest {
     public void should_change_region() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.sex.uni, PersonalInfo.relationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
         String newRegion = "Valhalla";
 
         //When
@@ -31,12 +30,12 @@ public class PersonalInfoTest {
     public void should_change_relationshipStatus() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.sex.uni, PersonalInfo.relationshipStatus.no_information);
-        PersonalInfo.relationshipStatus newrelationshipStatus = PersonalInfo.relationshipStatus.taken;
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
+        PersonalInfo.RelationshipStatus newrelationshipStatus = PersonalInfo.RelationshipStatus.taken;
 
         //When
         personalinfo.setRelationshipStatus(newrelationshipStatus);
-        PersonalInfo.relationshipStatus result = personalinfo.getRelationshipStatus();
+        PersonalInfo.RelationshipStatus result = personalinfo.getRelationshipStatus();
 
         //Then
         assertEquals(newrelationshipStatus, result, "RelationshipStatus should be taken");
@@ -46,7 +45,7 @@ public class PersonalInfoTest {
     public void should_change_occupation() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.sex.uni, PersonalInfo.relationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
         String newoccupation = "Computer Scientist";
 
         //When
@@ -61,7 +60,7 @@ public class PersonalInfoTest {
     public void should_change_profilePicture() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.sex.uni, PersonalInfo.relationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
         String newprofilePicture = "PiggyPicture";
 
         //When

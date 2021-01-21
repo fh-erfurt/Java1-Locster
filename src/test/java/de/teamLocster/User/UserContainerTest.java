@@ -5,9 +5,6 @@ Matthias Gabel
 */
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
-import de.teamLocster.User.PersonalInfo;
-import de.teamLocster.User.User;
-import de.teamLocster.User.UserContainer;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -31,7 +28,7 @@ public class UserContainerTest {
         String email        = "max.mustermann@fh-email.de";
         String password     = "Password123?";
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
-        PersonalInfo.sex sex = PersonalInfo.sex.male;
+        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
         // When
         testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
 
@@ -43,7 +40,7 @@ public class UserContainerTest {
         assertEquals("max.mustermann@fh-email.de",          testUserContainer.getUsers().get(0).getAccountDetails().getMailAddress());
         assertEquals("Password123?",                        testUserContainer.getUsers().get(0).getAccountDetails().getPassword());
         assertEquals(new Date(1999, Calendar.JUNE,22),    testUserContainer.getUsers().get(0).getPersonalInfo().getBirthdate());
-        assertEquals(PersonalInfo.sex.male,                         testUserContainer.getUsers().get(0).getPersonalInfo().getSex());
+        assertEquals(PersonalInfo.Sex.male,                         testUserContainer.getUsers().get(0).getPersonalInfo().getSex());
     }
 
     @Test
@@ -56,7 +53,7 @@ public class UserContainerTest {
         String email        = "max.mustermann.fh-email.de"; // missing @
         String password     = "Password123?";
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
-        PersonalInfo.sex sex = PersonalInfo.sex.male;
+        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
         // When
 
         // Then
@@ -73,7 +70,7 @@ public class UserContainerTest {
         String email        = "max.mustermann@fh-email.de";
         String password     = "password";                   // missing capital, numbers, special chars
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
-        PersonalInfo.sex sex = PersonalInfo.sex.male;
+        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
         // When
 
         // Then
@@ -100,14 +97,14 @@ public class UserContainerTest {
                     String email = "ActUser" + i + "@email.de";
                     String password = "ActiveUserPW" + i + "!";
                     Date birthday = new Date(1999, Calendar.JUNE,22);
-                    PersonalInfo.sex sex = PersonalInfo.sex.uni;
+                    PersonalInfo.Sex sex = PersonalInfo.Sex.uni;
                     testUserContainer.registerUser(firstName, lastName, userName, email, password, birthday, sex);
-                    testUserContainer.getUsers().get(i).setOnlineStatusFlag(User.onlineStatus.online);
+                    testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
                     break;
                 default:
                     User user = User.getNewUserForTesting();
                     testUserContainer.getUsers().add(user);
-                    testUserContainer.getUsers().get(i).setOnlineStatusFlag(User.onlineStatus.offline);
+                    testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.offline);
                     break;
             }
         }

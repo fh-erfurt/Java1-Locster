@@ -49,7 +49,7 @@ public class MessageTest
         testMsg.sendToChat(testChat);
         if (testChat.getMessages().contains(testMsg)) return;
 
-        throw new Exception("de.teamLocster.Chat.Message was not found in chat.");
+        throw new Exception("Message was not found in chat.");
     }
 
     /**
@@ -60,7 +60,7 @@ public class MessageTest
     @Test
     void comparing_datetime_should_return_relative_value() throws AssertionError
     {
-        Chat testChat = new Chat();
+        testChat = new Chat();
         Message oldMsg = new Message("old", testUser);
         Message newMsg = new Message("new", testUser);
         try
@@ -79,7 +79,7 @@ public class MessageTest
         Assertions.assertEquals(-1, oldMsg.getSentAt().compareTo(newMsg.getSentAt()), "Comparing should return that the old message is older.");
         Assertions.assertEquals( 1, newMsg.getSentAt().compareTo(oldMsg.getSentAt()), "Comparing should return that the new message is newer.");
         Assertions.assertEquals( 0, oldMsg.getSentAt().compareTo(oldMsg.getSentAt()), "Comparing should return that the messages are equally old.");
-        Assertions.assertEquals( 0, newMsg.getSentAt().compareTo(newMsg.getSentAt()), "Comparing should return that the messages are equally new."); // TODO sinnlos?
+        Assertions.assertEquals( 0, newMsg.getSentAt().compareTo(newMsg.getSentAt()), "Comparing should return that the messages are equally new.");
     }
 
     @AfterEach
