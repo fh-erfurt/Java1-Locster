@@ -1,6 +1,6 @@
 /*
 ===================================
-== Dirk Hofmann
+Dirk Hofmann
 ===================================
 */
 package de.teamLocster.Friends;
@@ -15,69 +15,28 @@ public class Friendlist
 
     /*
     =========================
-    == de.teamLocster.Friends.Friendlist Class Attributes
+    Variable
     =========================
     */
 
-    private ArrayList<FriendlistItem> acceptedFriends = new ArrayList<FriendlistItem>(); // accepted friends are stored here
-    private ArrayList<FriendRequest> waitingFriends = new ArrayList<FriendRequest>();   // waiting requests are stored here
+    private ArrayList<FriendlistItem> acceptedFriends; // accepted friends are stored here
+    private ArrayList<FriendRequest> waitingFriends;   // waiting requests are stored here
 
     /*
     ===================================
-    == de.teamLocster.Friends.Friendlist Constructors & Destructors
+    Constructors
     ===================================
     */
 
-    public Friendlist() {
+    public Friendlist()
+    {
+        acceptedFriends = new ArrayList<FriendlistItem>();
+        waitingFriends = new ArrayList<FriendRequest>();
     }
 
     /*
-    ===================================
-    ==  de.teamLocster.Friends.Friendlist Getter & Setter
-    ===================================
-    */
-
-    /**
-     * Getter acceptedFriends
-     * @return ArrayList 'acceptedFriends'
-     */
-    public ArrayList<FriendlistItem> getAcceptedFriends() { return acceptedFriends; }
-
-    /**
-     * Getter acceptedFriends with index
-     * @param index
-     * @return entry with index from ArrayList 'acceptedFriends'
-     */
-    public FriendlistItem getAcceptedFriendWithIndex(int index) { return this.acceptedFriends.get(index); }
-
-    /**
-     * Setter acceptedFriends
-     * @param acceptedFriends
-     */
-    public void setAcceptedFriends(ArrayList<FriendlistItem> acceptedFriends) { this.acceptedFriends = acceptedFriends; }
-
-    /**
-     * Getter waitingFriends
-     * @return ArrayList 'waitingFriends'
-     */
-    public ArrayList<FriendRequest> getWaitingFriends() { return waitingFriends; }
-
-    /**
-     * Getter waitingFriends with index
-     * @param index
-     * @return entry with index from ArrayList 'waitingFriends'
-     */
-    public FriendRequest getWaitingFriendWithIndex(int index) { return this.waitingFriends.get(index); }
-
-    /**
-     * Setter waitingFriends
-     * @param waitingFriends
-     */
-    public void setWaitingFriends(ArrayList<FriendRequest> waitingFriends) { this.waitingFriends = waitingFriends; }
-
-    /*
     ==================
-    == de.teamLocster.Friends.Friendlist Functions
+    Methods
     ==================
     */
 
@@ -200,10 +159,53 @@ public class Friendlist
         }
     }
 
-
     /**
      * Adds entry 'friendRequest' to 'waitingFriends'
      * @param friendRequest
      */
     private void addEntryToWaitingFriends(FriendRequest friendRequest) { this.waitingFriends.add(friendRequest); }
+
+    /*
+    ===================================
+    Getter & Setter
+    ===================================
+    */
+
+    /**
+     * Getter acceptedFriends
+     * @return ArrayList 'acceptedFriends'
+     */
+    public ArrayList<FriendlistItem> getAcceptedFriends() { return acceptedFriends; }
+
+    /**
+     * Getter acceptedFriends with index
+     * @param index
+     * @return entry with index from ArrayList 'acceptedFriends'
+     */
+    public FriendlistItem getAcceptedFriendWithIndex(int index) { return this.acceptedFriends.get(index); }
+
+    /**
+     * Setter acceptedFriends
+     * @param acceptedFriends
+     */
+    public void setAcceptedFriends(ArrayList<FriendlistItem> acceptedFriends) { this.acceptedFriends = acceptedFriends; }
+
+    /**
+     * Getter waitingFriends
+     * @return ArrayList 'waitingFriends'
+     */
+    public ArrayList<FriendRequest> getWaitingFriends() { return waitingFriends; }
+
+    /**
+     * Getter waitingFriends with index
+     * @param index
+     * @return entry with index from ArrayList 'waitingFriends'
+     */
+    public FriendRequest getWaitingFriendWithIndex(int index) { return this.waitingFriends.get(index); }
+
+    /**
+     * Setter waitingFriends
+     * @param waitingFriends
+     */
+    public void setWaitingFriends(ArrayList<FriendRequest> waitingFriends) { this.waitingFriends = waitingFriends; }
 }

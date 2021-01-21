@@ -1,6 +1,6 @@
 package de.teamLocster.Friends;/*
 ===================================
-== Dirk Hofmann
+Dirk Hofmann
 ===================================
 */
 import de.teamLocster.User.User;
@@ -12,7 +12,7 @@ public class FriendlistItem
 
     /*
     =========================
-    == de.teamLocster.Friends.FriendlistItem Class Attributes
+    Variables
     =========================
     */
 
@@ -21,7 +21,7 @@ public class FriendlistItem
 
     /*
     ===================================
-    == de.teamLocster.Friends.FriendlistItem Constructors & Destructors
+    Constructors
     ===================================
     */
 
@@ -33,7 +33,7 @@ public class FriendlistItem
 
     /*
     ===================================
-    ==  de.teamLocster.Friends.FriendlistItem Getter & Setter
+    Getter & Setter
     ===================================
     */
 
@@ -51,9 +51,4 @@ public class FriendlistItem
 
     public void setFriendSince(LocalDateTime friendSince) { this.friendSince = friendSince; }
 
-    /*
-    ==================
-    == de.teamLocster.Friends.FriendlistItem Functions
-    ==================
-    */
 }
