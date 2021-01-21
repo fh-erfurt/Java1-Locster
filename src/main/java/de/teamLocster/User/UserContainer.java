@@ -68,7 +68,7 @@ public class UserContainer
 
     public void deleteUser(User userToDelete)
     {
-        users.removeIf(user -> user == userToDelete);
+        this.users.removeIf(user -> user == userToDelete);
     }
 
     public ArrayList<User> getUserList()

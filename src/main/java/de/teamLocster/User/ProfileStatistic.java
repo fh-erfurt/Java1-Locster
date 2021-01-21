@@ -1,21 +1,41 @@
+/*
+===================================
+Matthias Gabel
+===================================
+*/
 package de.teamLocster.User;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class ProfileStatistic {
+
+    /*
+    ===================================
+    Variable
+    ===================================
+    */
+
     private int viewsTotal;
     private List<User> lastVisitors;
     private List<User> lastVisits;
     private User latestFriend;
     private User oldestFriend;
-
+    /*
+    ===================================
+    Constructor
+    ===================================
+    */
     public ProfileStatistic()
     {
         lastVisitors = Arrays.asList(new User[10]);
         lastVisits   = Arrays.asList(new User[10]);
     }
-
+    /*
+    ===================================
+    Methods
+    ===================================
+    */
     public void succTotal()
     {
         this.viewsTotal ++;

@@ -27,6 +27,11 @@ public class PersonalInfo
         no_information
     }
 
+    /*
+    ===================================
+    Variable
+    ===================================
+    */
     private String firstName;
     private String lastName;
     private String region;

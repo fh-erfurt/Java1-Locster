@@ -1,8 +1,18 @@
+/*
+===================================
+Matthias Gabel
+===================================
+*/
 package de.teamLocster.User;
 
 public class AccountDetails
 {
-    private int userID;
+    /*
+       ===================================
+       Variable
+       ===================================
+     */
+
     private String username;
     private String mailAddress;
     private String password;
@@ -11,7 +21,7 @@ public class AccountDetails
        ===================================
        Constructor
        ===================================
-       */
+     */
 
     public AccountDetails(String username, String mailAddress, String password)
     {
