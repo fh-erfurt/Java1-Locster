@@ -3,33 +3,64 @@ package de.teamLocster.User;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProfileStatistic {
+public class ProfileStatistic
+{
+    private final int MAX_VISITS = 10;
+    private final int MAX_VISITORS = 10;
+
     private int viewsTotal;
-    private List<User> lastVisitors;
-    private List<User> lastVisits;
+    private User[] lastVisitors;
+    private User[] lastVisits;
     private User latestFriend;
     private User oldestFriend;
 
     public ProfileStatistic()
     {
-        lastVisitors = Arrays.asList(new User[10]);
-        lastVisits   = Arrays.asList(new User[10]);
+        lastVisitors = new User[MAX_VISITORS];
+        lastVisits = new User[MAX_VISITS];
     }
+
+    /**
+     * wir brauchen hier eine beschreibung
+     */
 
     public void succTotal()
     {
         this.viewsTotal ++;
     }
 
+    /**
+     * wir brauchen hier eine beschreibung
+     */
+
     public void updateLastVisitors(User latestVisitor)
     {
-        this.lastVisitors.add(0, latestVisitor);
+        if (this.lastVisitors.length<MAX_VISITORS)
+        {
+            this.lastVisitors[lastVisitors.length] = latestVisitor;
+        }
+        else
+        {
+            this.lastVisitors[0]=latestVisitor; //das logik stimmt nicht ganz...
+        }
     }
 
-    public void updateLastVisits(User latestVisit)
+    /**
+     * wir brauchen hier eine beschreibung
+     */
+
+    public void updateLastVisits(User latestVisit)  //for(User visit : this.lastVisit) {......};
     {
-        this.lastVisits.add(0, latestVisit);
+        if (this.lastVisits.length<MAX_VISITORS)
+        {
+            this.lastVisits[lastVisits.length] = latestVisit;
+        }
+        else
+        {
+            this.lastVisits[0] = latestVisit; //das logik stimmt nicht ganz...
+        }
     }
+
 
     /*
     ===================================
@@ -44,19 +75,19 @@ public class ProfileStatistic {
         this.viewsTotal = viewsTotal;
     }
 
-    public List<User> getLastVisitors() {
+    public User[] getLastVisitors() {
         return lastVisitors;
     }
 
-    public void setLastVisitors(List<User> lastVisitors) {
+    public void setLastVisitors(User[] lastVisitors) {
         this.lastVisitors = lastVisitors;
     }
 
-    public List<User> getLastVisits() {
+    public User[] getLastVisits() {
         return lastVisits;
     }
 
-    public void setLastVisits(List<User> lastVisits) {
+    public void setLastVisits(User[] lastVisits) {
         this.lastVisits = lastVisits;
     }
 

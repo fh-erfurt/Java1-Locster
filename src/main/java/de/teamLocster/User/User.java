@@ -125,6 +125,16 @@ public class User {
         return new User();
     }
 
+    /**
+     *
+     * toString It is called when a user outputs to the console, thus ensuring legible display and meaningful information
+     */
+
+    public String toString()
+    {
+        return "User{'" + personalInfo.getFirstName() + " " + personalInfo.getLastName() + "'}";
+    }
+
      /*
     ==========================
     == de.teamLocster.User.User setter und getter           // new code

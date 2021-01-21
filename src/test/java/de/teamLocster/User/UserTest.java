@@ -60,6 +60,19 @@ public class UserTest {
         assertEquals(User.privacyStatus.global, result, "The PrivacyStatus should be global!");
     }
 
+    @Test
+    public void should_print_a_user()
+    {
+        //Given
+        User user = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.sex.male,PersonalInfo.relationshipStatus.no_information);
+
+        //When
+        String result = user.toString();
+
+        //Then
+        assertEquals("User{'Molham Al-khodari'}", result,"The user is Molham Al-khodari");
+    }
+
 }
 
 
