@@ -3,8 +3,6 @@ package de.teamLocster.User;
 import java.util.Arrays;
 import java.util.List;
 
-public class ProfileStatistic {
-
     /*
     ===================================
     Variable
