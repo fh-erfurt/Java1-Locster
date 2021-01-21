@@ -1,3 +1,10 @@
+/*
+===================================
+Matthias Gabel
+Jakob Gensel
+Saskia Wohlers
+===================================
+*/
 package de.teamLocster.Guestbook;
 
 import de.teamLocster.User.User;
@@ -6,8 +13,12 @@ import java.time.LocalDateTime;
 
 public class GuestbookEntry
 {
-
-    private User creator;
+    /*
+    ===================================
+    Variable
+    ===================================
+    */
+    private User          creator;
     private String        text;
     private LocalDateTime sentAt;
 
@@ -15,12 +26,22 @@ public class GuestbookEntry
     private LocalDateTime editedAt;
     private boolean       edited = false;
 
+    /*
+    ===================================
+    Constructor
+    ===================================
+    */
     public GuestbookEntry(User creator, String text)
     {
         this.creator    = creator;
         this.text       = text;
     }
 
+    /*
+    ===================================
+    Methods
+    ===================================
+    */
     public void editText(String newText)
     {
         this.text     = newText;

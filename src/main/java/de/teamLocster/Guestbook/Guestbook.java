@@ -1,3 +1,10 @@
+/*
+===================================
+Matthias Gabel
+Jakob Gensel
+Saskia Wohlers
+===================================
+*/
 package de.teamLocster.Guestbook;
 
 import java.time.LocalDateTime;
@@ -5,14 +12,28 @@ import java.util.ArrayList;
 
 public class Guestbook
 {
-
+    /*
+    ===================================
+    Variable
+    ===================================
+    */
     private ArrayList<GuestbookEntry> book;
 
+    /*
+    ===================================
+    Constructor
+    ===================================
+    */
     public Guestbook()
     {
         book = new ArrayList<GuestbookEntry>();
     }
 
+    /*
+    ===================================
+    Methods
+    ===================================
+    */
     public void addEntry(GuestbookEntry entry)
     {
         entry.setSentAt(LocalDateTime.now());
