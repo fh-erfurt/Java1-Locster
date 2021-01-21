@@ -13,11 +13,22 @@ import java.util.ArrayList;
  */
 public class Message
 {
+    /*
+    =========================
+    Variable
+    =========================
+    */
+
     private User sender;
     private ArrayList<User> readBy; // dynamic array
     private String          text;
     private LocalDateTime   sentAt;
 
+    /*
+    =========================
+    Constructors
+    =========================
+    */
     public Message(String text , User sender)
     {
         this.text = text;
@@ -25,6 +36,11 @@ public class Message
         this.readBy = new ArrayList<User>();
     }
 
+    /*
+    =========================
+    Methods
+    =========================
+    */
     /**
      * Sends a message to a chat and calls the receiving function in the chat.
      * @param chat the chat, which the message is sent to
@@ -65,7 +81,11 @@ public class Message
         this.sentAt     = null;
     }
 
-    // ----- Getters and Setters ----- //
+    /*
+    =========================
+    Getter & Setter
+    =========================
+    */
 
     public String getText()
     {

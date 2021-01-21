@@ -1,18 +1,18 @@
-package de.teamLocster.Chat;/*
+/*
 ===================================
-== Molham Al-khodari    24.12.2020
-== Jakob Gensel         05.01.2020
+Molham Al-khodari
+Jakob Gensel
 ===================================
 */
+package de.teamLocster.Chat;
 
 import java.util.ArrayList;
 
-// Create a de.teamLocster.Chat.Chat class
 public class Chat
 {
     /*
     =========================
-    == de.teamLocster.Chat.Chat Class Attributes
+    Variable
     =========================
     */
 
@@ -21,7 +21,7 @@ public class Chat
 
     /*
     ===============
-    == Constructors
+    Constructors
     ===============
     */
 
@@ -40,7 +40,7 @@ public class Chat
 
     /*
     ==================
-    == de.teamLocster.Chat.Chat functions
+    Methods
     ==================
     */
 
@@ -52,7 +52,7 @@ public class Chat
 
     /*
     ==========================
-    == de.teamLocster.Chat.Chat setter und getter
+    setter & getter
     ==========================
     */
 
