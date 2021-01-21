@@ -2,7 +2,7 @@
 <h6>Ein Java-Projekt von Dirk Hofmann, Jakob Gensel, Matthias Gabel, Molham Al-Khodari, Saskia Wohlers</h6>
 
 <h2>Soziales Netzwerk mit Biss</h2>
-Im Rahmen der Veranstaltung "Java Programmierung 1 & 2" haben wir uns entschlossen, ein soziales Netzwerk mit Schwerpunkt auf chatten und "stalken" zu programmieren. Ganz ohne nervige Babybilder und Katzenvideos.<br>
+Im Rahmen der Veranstaltung "Java Programmierung 1 & 2" haben wir uns entschlossen, ein soziales Netzwerk mit Schwerpunkt auf chatten und Leute aus der Umgebung kennenzulernen. Ganz ohne nervige Babybilder und Katzenvideos.<br>
 <br>
 <details>
 <summary> Projekt allgemein</summary><br>
@@ -18,8 +18,23 @@ Das Team vom Locster besteht aus: <br>
 </ul>
 	
 ### Einführung
->
->In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus >geben und Nutzer einen de.teamLocster.User.User Zugriff. Die de.teamLocster.User.User können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die de.teamLocster.User.User können selbständige ihre Freundesliste >verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder de.teamLocster.User.User hat einen eigenen Kalender, in dem er seine Teilnehmenden >Events finden kann. Das soziale Netzwerk soll mehr Seiten als nur das eigene Profil anzeigen könne. Es soll eine Seite für die „News“ - für lokale Nachrichten und Events -, >eine Seite „Wer ist online?“ – für das Anzeigen von Usern in der Umgebung-, eine Seite „Freunde“ – Für das Anzeigen von Usern in der Freundesliste -, eine Seite „Nachrichten“->für das einsehen der eigenen nachrichten-, eine Seite „Profil“ – für das einsehen des eigenen Profils-. Jedes Profil hat wie vorhin angedeutet ein Bild, Persönliche Daten die >man nach eigenen Ermessen angeben kann, ein Gästebuch, einen eigenen „Blog“ abschnitt den man nach freien ermessen gestalten kann, einen Abschnitt für Fotos, einen Abschnitt >für Statistiken (Die letzten Besucher, wie oft wurde ich in letzter Zeit angeguckt usw.)
+
+In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus geben und einen Nutzer Zugriff (de.teamLocster.User.User) . Die Nutzer können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die Nutzer können selbständige ihre Freundesliste verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder Nutzer hat einen eigenen Kalender, in dem er Events finden kann, an denen er teilnimmt. 
+Das soziale Netzwerk soll außer dem eigenen Profil auch noch andere Seiten anzeigen können:
+<br>
+<ul>
+<li>eine Seite „News“ - für lokale Nachrichten und Events -</li>
+<br>
+<li>eine Seite „Wer ist online?“ – für das Anzeigen von Usern in der Umgebung-</li>
+<br>
+<li>eine Seite „Freunde“ – für das Anzeigen von Usern in der Freundesliste -</li>
+<br>
+<li>eine Seite „Nachrichten“->für das Einsehen der eigenen Nachrichten-,</li>
+<br>
+<li>eine Seite „News“ - für lokale Nachrichten und Events -</li>
+</ul>
+<br>
+Jedes Profil beinhaltet ein Profilbild, persönliche Daten (welche man nach eigenem Ermessen angeben kann), ein Gästebuch, einen eigenen „Blog“-Abschnitt, den man nach freiem Wunsch gestalten kann, einen Abschnitt für Fotos, und einen Abschnitt für Statistiken (die letzten Besucher wie oft wurde mein Profil in letzter Zeit besucht, usw.)
 
 <h2>Idee und Produkt</h2>
 zum Miroboard für die Ideenfindung: https://miro.com/app/board/o9J_lf2VPJc=/ <br>
@@ -42,11 +57,11 @@ Nicht zum Projektumfang gehören:<br>
      
 ## Tools
 >
->wir haben während der Projektlaufzeit mit verschiedenen Tools gearbeitet wie: 
+>Wir haben während der Projektlaufzeit mit verschiedenen Tools gearbeitet wie: 
 >
->	+ [Miro](https://miro.com/) - für planung 
->	+ [Discord](https://discord.com/) - für kommunikation
->	+ [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für JAVA
+>	+ [Miro](https://miro.com/) - für die Planung 
+>	+ [Discord](https://discord.com/) - für die Kommunikation
+>	+ [IntelliJ](https://www.jetbrains.com/de-de/idea/) - IDE für Java
 >	+ [lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diagramme / Charts / ...
 >	+ [Github](https://github.com/) - für zusammen coden 
 >    
@@ -84,7 +99,7 @@ Mithilfe dieses Diagrammes erarbeiteten wir uns Use Case und Aktivitätsdiagramm
 2. Klassen<br>
 <br>
 <ul>
-	<li>Klassen werden in der Ordnerstrukter unter src/main... angelegt.</li>
+	<li>Klassen werden in der Ordnerstrukter unter <strong>src/main...</strong> angelegt.</li>
 	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
 <li>Beispiel: ClassName.java</li>
 <li>Die Strukturierungen der Klassen sehen wie folgt:</li>
@@ -134,7 +149,7 @@ Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
 5. Kommentar<br>
 <br>
 <ul>
-<li>Am Anfang einer jeder Datei Hinterlässt der bearbeiter eine Signatur die wie folgt aussieht.</li>
+<li>Am Anfang einer jeder Datei hinterlässt der Bearbeiter eine Signatur die wie folgt aussieht.</li>
 </ul>
 <br>
  
@@ -146,7 +161,7 @@ Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
 
 <br>
 <ul>
-	<li>Methoden und Klassen werden über den Bezeichner Kommentiert und wie folgt initiiert</li>
+	<li>Methoden und Klassen werden über den Bezeichner kommentiert und wie folgt initiiert</li>
  </ul>
 <br>
 
@@ -170,10 +185,10 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 6. Tests<br>
 <br>
 <ul>
-<li>Klassen werden in der Ordnerstrukter unter src/main... angelegt.</li>
+	<li>Klassen werden in der Ordnerstrukter unter <strong>src/main...</strong> angelegt.</li>
 	<li>Test sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben und enden mit dem Suffix "Test"</li>
 <li>Beispiel: ClassNameTest.java</li>
-	<li>Die Tests sollen einen aussagekräftigne bezichner erhalten und sind wie folgt aufgebaut</li>
+	<li>Die Tests sollen einen aussagekräftigne Bezeichner erhalten und sind wie folgt aufgebaut</li>
 </ul>
 <br>
  
@@ -235,18 +250,18 @@ hier vielleicht unsere letzte PowerPoint ?
 <details>
 <summary>Lessons learned</summary><br>
 	
-## Herausforederungen
+## Herausforderungen
 >
 >
-> + Viele Projektideen am anfang des Semesters:
->	+ die Lösung: was macht am meisten Spaß beim Implementieren und gleichzeitig deckt die ganzen Anforderungen ab
-> + Zeitgrenze: viele ideen über das Projekt, die wir nicht in der Zeit schaffen können			
->	    die Lösung: Die Anforderungen in 3 Teile abteilen:
+> + Viele Projektideen am Anfang des Semesters:
+>	+ die Lösung: was macht am meisten Spaß beim Implementieren und deckt gleichzeitig die ganzen Anforderungen ab
+> + Zeitgrenze: viele Ideen über das Projekt, die wir nicht in der Zeit schaffen können			
+>	    die Lösung: Die Anforderungen in 3 Teile unterteilen:
 >	+ Musskriterien
->	+ Wünschkriterien (wenn es Zeit am Ende bleibt)
+>	+ Wunschkriterien (wenn es Zeit am Ende bleibt)
 >	+ Abgrenzungkriterien
-> + am Anfang jeder großen Aufgabe sieht aus, als sie unmöglich zu machen
->	+ die Lösung: Diese Aufgabe in kleinerer Teilaufgaben teilen und sofort mit einem Teil anfangen
+> + am Anfang jeder großen Aufgabe sieht es so aus, als sei sie unmöglich zu meistern
+>	+ die Lösung: Diese Aufgabe in kleinere Teilaufgaben aufteilen und sofort mit einem Teil anfangen
 	
 </details>
 
