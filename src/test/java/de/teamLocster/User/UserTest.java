@@ -16,7 +16,7 @@ public class UserTest {
     public void should_add_User_to_blocked_Users() {
 
         //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
+        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female);
         ArrayList<User> blockedUsers = new ArrayList<User>();
 
         //When
@@ -32,7 +32,7 @@ public class UserTest {
     public void should_delete_user_out_of_blocked_users(){
 
         //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
+        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female);
         ArrayList<User> blockedUsers = new ArrayList<User>();
         blockedUsers.add(user);
 
@@ -48,7 +48,7 @@ public class UserTest {
     public void should_change_privacy_status(){
 
         //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
+        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female);
 
         //When
         user.setPrivacyStatus(User.PrivacyStatus.global);
@@ -62,7 +62,7 @@ public class UserTest {
     public void should_print_a_user()
     {
         //Given
-        User user = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14), PersonalInfo.Sex.male, PersonalInfo.RelationshipStatus.no_information);
+        User user = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14), PersonalInfo.Sex.male);
 
         //When
         String result = user.toString();

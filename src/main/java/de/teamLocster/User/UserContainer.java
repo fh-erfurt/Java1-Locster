@@ -47,7 +47,7 @@ public class UserContainer
             throw new PasswordException("Invalid Password!");
         }
 
-        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex, PersonalInfo.RelationshipStatus.married);
+        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
 
         this.users.add(user);
     }

@@ -62,10 +62,10 @@ public class User {
     ===================================
     */
 
-    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.Sex sex, PersonalInfo.RelationshipStatus relationshipStatus)
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.Sex sex)
     {
         this.accountDetails    = new AccountDetails(userName, email, password);
-        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex, relationshipStatus);
+        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
 
         this.profileStatistic  = new ProfileStatistic();
         this.personalStatus    = "Hey I'm using Locster";
@@ -80,7 +80,7 @@ public class User {
      * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
      */
     private User() {
-        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male, PersonalInfo.RelationshipStatus.no_information);
+        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male);
         this.profileStatistic   = new ProfileStatistic();
         this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
         this.personalStatus     = "";
