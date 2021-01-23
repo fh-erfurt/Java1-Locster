@@ -38,14 +38,9 @@ public class UserContainer
     public void registerUser(String firstName, String lastName, String userName, String email,
                              String password, Date Birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException
     {
-        if (!this.checkEmail(email))
-        {
-            throw new EmailException("Invalid Email!");
-        }
+        this.checkEmail(email);
 
-        if (!this.checkPassword(password)) {
-            throw new PasswordException("Invalid Password!");
-        }
+        this.checkPassword(password);
 
         final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
 
@@ -80,24 +75,35 @@ public class UserContainer
         // TODO: Add functionality
     }
 
-    public boolean checkEmail(String email)//TODO: access modifier may have to be changed
+    public boolean checkEmail(String email) throws EmailException//TODO: access modifier may have to be changed
     {
-        if (ValidationUtility.isValidEmail(email)
-             && !ValidationUtility.stringAlreadyExistInArray(email, this.getEntireEmailOfAllUsers()))
+        if (ValidationUtility.isValidEmail(email))
         {
-            return true;
+             if (!ValidationUtility.stringAlreadyExistInArray(email, this.getEntireEmailOfAllUsers()))
+                {
+                    return true;
+                }
+             else
+             {
+                 throw new EmailException("Email already exist!");
+             }
         }
-
-        return false;
+        else
+        {
+            throw new EmailException("Invalid Email!");
+        }
     }
 
-    public boolean checkPassword(String password) // TODO: checkPassword might be extendend in future with more validations (next semester)
+    public boolean checkPassword(String password) throws PasswordException// TODO: checkPassword might be extendend in future with more validations (next semester)
     {
         if (ValidationUtility.isValidPassword(password))
         {
             return true;
         }
-        return false;
+        else
+        {
+            throw new PasswordException("Invalid Password!");
+        }
     }
 
     public ArrayList<String> getEntireEmailOfAllUsers()

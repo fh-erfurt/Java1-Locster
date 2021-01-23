@@ -69,16 +69,16 @@ public class UserContainerTest {
     @Test
     public void should_register_max_mustermann(){
         // Given
-        String firstName    = "Max";
-        String lastName     = "Mustermann";
+        String firstname    = "Max";
+        String lastname     = "Mustermann";
         String username     = "MaMus257";
         String email        = "max.mustermann@fh-email.de";
         String password     = "Password123?";
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.Sex sex = PersonalInfo.Sex.male;
-        // When
-        testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
 
+        // When
+        testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex);
 
         // Then
         assertEquals("MaMus257",                            testUserContainer.getUsers().get(0).getAccountDetails().getUsername());
@@ -88,23 +88,44 @@ public class UserContainerTest {
         assertEquals("Password123?",                        testUserContainer.getUsers().get(0).getAccountDetails().getPassword());
         assertEquals(new Date(1999, Calendar.JUNE,22),    testUserContainer.getUsers().get(0).getPersonalInfo().getBirthdate());
         assertEquals(PersonalInfo.Sex.male,                         testUserContainer.getUsers().get(0).getPersonalInfo().getSex());
+        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
+        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "fh.email.de", password, birthdate, sex));
+        assertThrows(PasswordException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "email@email.de", "password", birthdate, sex));
     }
 
     @Test
-    public void should_throw_EmailException()
+    public void force_email_already_exist_exception()
     {
-        // Given
-        String firstName    = "Max";
-        String lastName     = "Mustermann";
+        //Given
+        String firstname    = "Max";
+        String lastname     = "Mustermann";
+        String username     = "MaMus257";
+        String email        = "max.mustermann@fh-email.de";
+        String password     = "Password123?";
+        Date   birthdate    = new Date(1999, Calendar.JUNE,22);
+        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
+
+        testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex); //already exist
+        //When
+        //Then
+        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
+
+    }
+
+    @Test
+    public void force_email_invalid_exception()
+    {
+        //Given
+        String firstname    = "Max";
+        String lastname     = "Mustermann";
         String username     = "MaMus257";
         String email        = "max.mustermann.fh-email.de"; // missing @
         String password     = "Password123?";
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.Sex sex = PersonalInfo.Sex.male;
-        // When
-
-        // Then
-        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
+        //When
+        //Then
+        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
     }
 
     @Test

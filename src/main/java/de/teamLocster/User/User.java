@@ -83,7 +83,7 @@ public class User {
     private User() {
         this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male);
         this.profileStatistic   = new ProfileStatistic();
-        this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
+        this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "Password123?");
         this.personalStatus     = "";
         this.privacyStatus      = PrivacyStatus.global;
         this.onlineStatus       = OnlineStatus.online;
