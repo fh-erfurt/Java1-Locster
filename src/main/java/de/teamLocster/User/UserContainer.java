@@ -106,6 +106,19 @@ public class UserContainer
         }
     }
 
+    public void changeEmail(User user, String newEmail) //TODO: has to move to AccountDetails
+    {
+        this.checkEmail(newEmail);
+
+        user.getAccountDetails().setMailAddress(newEmail);
+    }
+
+
+
+
+
+
+
     public ArrayList<String> getEntireEmailOfAllUsers()
     {
         ArrayList<String> StringContainer = new ArrayList<String>();

@@ -92,6 +92,22 @@ public class UserContainerTest {
     }
 
     @Test
+    public void should_change_email_from_user()
+    {
+        //Given
+        testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
+        User testUser = testUserContainer.getUsers().get(0);
+        String newEmail = "meine.geile.email@email.de";
+        String falseEmail = "meine.geile.email.email.de";
+        //When
+        testUserContainer.changeEmail(testUser, newEmail);
+        //Then
+        assertEquals(newEmail, testUser.getAccountDetails().getMailAddress());
+        assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, falseEmail)); //throws invalid Email
+        assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, newEmail)); //throws email already exist
+    }
+
+    @Test
     public void force_email_already_exist_exception()
     {
         //Given
