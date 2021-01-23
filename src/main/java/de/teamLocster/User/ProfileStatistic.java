@@ -1,3 +1,10 @@
+/*
+===================================
+== edited by
+== Molham Al-khodari
+== Matthias Gabel
+===================================
+*/
 package de.teamLocster.User;
 
 import java.util.Arrays;

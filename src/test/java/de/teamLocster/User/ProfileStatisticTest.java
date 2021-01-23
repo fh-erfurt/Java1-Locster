@@ -1,13 +1,11 @@
 /*
 ===================================
 Matthias Gabel
+Molham Al-khodari
 ===================================
 */
 package de.teamLocster.User;
 
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
