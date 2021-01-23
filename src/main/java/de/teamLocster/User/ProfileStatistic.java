@@ -130,4 +130,12 @@ public class ProfileStatistic
     public void setOldestFriend(User oldestFriend) {
         this.oldestFriend = oldestFriend;
     }
+
+    public int getVisitorsCount() {
+        return visitorsCount;
+    }
+
+    public int getVisitsCount() {
+        return visitsCount;
+    }
 }
