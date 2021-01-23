@@ -79,7 +79,7 @@ public class UserContainer
         // TODO: Add functionality
     }
 
-    private boolean checkEmail(String email)
+    private boolean checkEmail(String email) //TODO: should validate email and check if email already exist
     {
         //Minimum one @
         String regex = "^(.+)@(.+)$";
@@ -91,7 +91,8 @@ public class UserContainer
     }
 
     private boolean checkPassword(String password)
-    {   //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+    {
+        //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
         String minimum = "8";
         String specialCharacter = "@$!%*?&";
 
