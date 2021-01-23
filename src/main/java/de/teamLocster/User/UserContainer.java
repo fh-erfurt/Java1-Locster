@@ -60,7 +60,7 @@ public class UserContainer
         return activeUser;
     }
 
-    public void deleteUser(User userToDelete)//TODO: have to do
+    public void deleteUser(User userToDelete)
     {
         this.users.removeIf(user -> user == userToDelete);
     }

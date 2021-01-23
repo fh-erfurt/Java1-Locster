@@ -224,4 +224,29 @@ public class UserContainerTest {
         assertEquals("max.mustermann4@fh-email.de", result.get(4));
         assertEquals("max.mustermann5@fh-email.de", result.get(5));
     }
+
+    @Test
+    public void should_delete_user()
+    {
+        //Given
+        for (int i = 0; i < 100; i++)
+        {
+            String firstName = "Userfirstname" + i;
+            String lastName = "Userlastname" + i;
+            String userName = "Username" + 1;
+            String email = "User" + i + "@email.de";
+            String password = "ActiveUserPW" + i + "!";
+            Date birthday = new Date(1999, Calendar.JUNE,22);
+            PersonalInfo.Sex sex = PersonalInfo.Sex.uni;
+            testUserContainer.registerUser(firstName, lastName, userName, email, password, birthday, sex);
+            testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
+        }
+        //When
+        User TestDeleteUser = testUserContainer.getUsers().get(50);
+        testUserContainer.deleteUser(TestDeleteUser);
+
+        //Then
+        assertEquals("Userfirstname49", testUserContainer.getUsers().get(49).getPersonalInfo().getFirstName());
+        assertEquals("Userfirstname51", testUserContainer.getUsers().get(50).getPersonalInfo().getFirstName());
+    }
 }
