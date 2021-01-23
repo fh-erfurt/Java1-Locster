@@ -6,18 +6,47 @@ Matthias Gabel
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class UserContainerTest {
 
     // Given
     UserContainer testUserContainer = new UserContainer();
+
+    @Test
+    public void should_test_if_email_is_correct_and_unique()
+    {
+        //Given
+        User Test1 = User.getNewUserForTesting();
+        User Test2 = User.getNewUserForTesting();
+        Test2.getAccountDetails().setMailAddress("User50@email.de");
+
+        for (int i = 0; i < 100; i++)
+        {
+            String firstName = "Userfirstname" + i;
+            String lastName = "Userlastname" + i;
+            String userName = "Username" + 1;
+            String email = "User" + i + "@email.de";
+            String password = "ActiveUserPW" + i + "!";
+            Date birthday = new Date(1999, Calendar.JUNE,22);
+            PersonalInfo.Sex sex = PersonalInfo.Sex.uni;
+            testUserContainer.registerUser(firstName, lastName, userName, email, password, birthday, sex);
+            testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
+        }
+        //When
+        boolean result1 = testUserContainer.checkEmail(Test1.getAccountDetails().getMailAddress());
+        boolean result2 = testUserContainer.checkEmail(Test2.getAccountDetails().getMailAddress());
+
+        //Then
+        assertTrue(result1);
+        assertFalse(result2);
+    }
 
     @Test
     public void should_register_max_mustermann(){

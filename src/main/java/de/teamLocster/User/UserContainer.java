@@ -6,6 +6,7 @@ package de.teamLocster.User;/*
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.Utility.ValidationUtility;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,18 +80,17 @@ public class UserContainer
         // TODO: Add functionality
     }
 
-    private boolean checkEmail(String email) //TODO: should validate email and check if email already exist
+    public boolean checkEmail(String email) //TODO: access modifier may have to be changed
     {
-        //Minimum one @
-        String regex = "^(.+)@(.+)$";
-
-        Pattern pattern = Pattern.compile(regex);
-
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+        if (ValidationUtility.isValidEmail(email)
+             && !ValidationUtility.stringAlreadyExistInArray(email, this.getEntireEmailOfAllUsers()))
+        {
+            return true;
+        }
+        return false;
     }
 
-    private boolean checkPassword(String password) //TODO: should validate email and compare with the verify password
+    public boolean checkPassword(String password) //TODO: should validate email and compare with the verify password
     {
         //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
         String minimum = "8";
