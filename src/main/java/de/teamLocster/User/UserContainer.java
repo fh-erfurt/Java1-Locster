@@ -80,13 +80,14 @@ public class UserContainer
         // TODO: Add functionality
     }
 
-    public boolean checkEmail(String email) //TODO: access modifier may have to be changed
+    public boolean checkEmail(String email)//TODO: access modifier may have to be changed
     {
         if (ValidationUtility.isValidEmail(email)
              && !ValidationUtility.stringAlreadyExistInArray(email, this.getEntireEmailOfAllUsers()))
         {
             return true;
         }
+
         return false;
     }
 

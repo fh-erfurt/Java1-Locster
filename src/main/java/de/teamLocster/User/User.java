@@ -67,6 +67,7 @@ public class User {
         this.accountDetails    = new AccountDetails(userName, email, password);
         this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
 
+        this.privacyStatus     = PrivacyStatus.nobody;
         this.profileStatistic  = new ProfileStatistic();
         this.personalStatus    = "Hey I'm using Locster";
         this.friendlist        = new Friendlist();
@@ -84,8 +85,8 @@ public class User {
         this.profileStatistic   = new ProfileStatistic();
         this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
         this.personalStatus     = "";
-        this.privacyStatus = PrivacyStatus.global;
-        this.onlineStatus = OnlineStatus.online;
+        this.privacyStatus      = PrivacyStatus.global;
+        this.onlineStatus       = OnlineStatus.online;
         this.friendlist         = new Friendlist();
         this.guestbook          = new Guestbook();
         this.profileText        = new ProfileText();
