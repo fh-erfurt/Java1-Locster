@@ -1,5 +1,8 @@
 package de.teamLocster.Utility;
 
+import de.teamLocster.User.User;
+
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,6 +11,20 @@ public class ValidationUtility
 /*
 - stringAlreadyExistInArray(String testString, ArrayList<User> users) : boolean !!!
 */
+    public static boolean stringAlreadyExistInArray(String inputString, ArrayList<String> stringList)
+    {
+
+        for (String value : stringList)
+        {
+            if(value.equals(inputString))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    
     public static boolean isValidEmail(String email)
     {
         //Minimum one @
