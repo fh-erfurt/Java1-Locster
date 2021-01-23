@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UserTest {
 
     @Test
-    public void should_add_User_to_blocked_Users() {
+    public void should_add_User_to_blocked_Users(){
 
         //Given
         User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female, PersonalInfo.RelationshipStatus.no_information);
@@ -24,7 +24,7 @@ public class UserTest {
 
         //Then
         if (blockedUsers.contains(user))
-        System.out.println("The user is in blockedUsers now!");
+            System.out.println("The user is in blockedUsers now!");
 
     }
 

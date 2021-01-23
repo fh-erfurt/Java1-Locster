@@ -19,6 +19,9 @@ public class ProfileStatistic
     private User[] lastVisits;
     private User latestFriend;
     private User oldestFriend;
+    private int visitorsCount;
+    private int visitsCount;
+
     /*
     ===================================
     Constructor
@@ -27,7 +30,7 @@ public class ProfileStatistic
     public ProfileStatistic()
     {
         lastVisitors = new User[MAX_VISITORS];
-        lastVisits = new User[MAX_VISITS];
+        lastVisits   = new User[MAX_VISITS];
     }
     /*
     ===================================
@@ -39,28 +42,48 @@ public class ProfileStatistic
         this.viewsTotal ++;
     }
 
+    /**
+     *      UPDATELASTVISITORS: THIS METHOD EXPECTS A USER WHO HAS VISITED OUR PROFILES
+     *      CHECKS FIRST WHETHER THE ARRAY IS FULL IF THAT IS THE CASE, THE OLDEST VISITOR
+     *      WILL BE DELETED AND THE NEWEST VISITOR WILL BE ADDED TO THE LIST
+     */
+
+
     public void updateLastVisitors(User latestVisitor)
     {
-        if (this.lastVisitors.length<MAX_VISITORS)
+        if(this.visitorsCount >= this.lastVisitors.length)
         {
-            this.lastVisitors[lastVisitors.length] = latestVisitor;
+            this.lastVisitors[9]=null;
+            --this.visitorsCount;
         }
-        else
+        for (int i= this.visitorsCount; i > 0; --i)
         {
-            this.lastVisitors[0]=latestVisitor; //das logik stimmt nicht ganz...
+            this.lastVisitors[i] = this.lastVisitors[i-1];
         }
+        this.lastVisitors[0]=latestVisitor;
+        ++this.visitorsCount;
     }
 
-    public void updateLastVisits(User latestVisit)  //for(User visit : this.lastVisit) {......};
+    /**
+     *
+     * UPDATELASTVISITS: THIS METHOD EXPECTS A USER WE VISITED HIM
+     * CHECKS FIRST WHETHER THE ARRAY IS FULL IF THAT IS THE CASE, THE OLDEST VISITS
+     * WILL BE DELETED AND THE NEWEST VISITS WILL BE ADDED TO THE LIST
+     */
+
+    public void updateLastVisits(User latestVisit)
     {
-        if (this.lastVisits.length<MAX_VISITORS)
+        if(this.visitsCount >= this.lastVisits.length)
         {
-            this.lastVisits[lastVisits.length] = latestVisit;
+            this.lastVisits[9]=null;
+            --this.visitsCount;
         }
-        else
+        for (int i= this.visitsCount; i > 0; --i)
         {
-            this.lastVisits[0] = latestVisit; //das logik stimmt nicht ganz...
+            this.lastVisits[i] = this.lastVisits[i-1];
         }
+        this.lastVisits[0]=latestVisit;
+        ++this.visitsCount;
     }
 
     /*
