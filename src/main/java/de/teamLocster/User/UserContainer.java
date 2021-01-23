@@ -90,18 +90,13 @@ public class UserContainer
         return false;
     }
 
-    public boolean checkPassword(String password) //TODO: should validate email and compare with the verify password
+    public boolean checkPassword(String password) // TODO: checkPassword might be extendend in future with more validations (next semester)
     {
-        //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
-        String minimum = "8";
-        String specialCharacter = "@$!%*?&";
-
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*["+specialCharacter+"])[A-Za-z\\d"+specialCharacter+"]{"+minimum+",}$";
-
-        Pattern pattern = Pattern.compile(regex);
-
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
+        if (ValidationUtility.isValidPassword(password))
+        {
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<String> getEntireEmailOfAllUsers()

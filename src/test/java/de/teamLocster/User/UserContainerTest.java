@@ -5,6 +5,7 @@ Matthias Gabel
 */
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.Utility.ValidationUtility;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -42,6 +43,23 @@ public class UserContainerTest {
         //When
         boolean result1 = testUserContainer.checkEmail(Test1.getAccountDetails().getMailAddress());
         boolean result2 = testUserContainer.checkEmail(Test2.getAccountDetails().getMailAddress());
+
+        //Then
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+
+    @Test
+    public void should_test_if_password_is_valid()
+    {
+
+        //Given
+        String validPassword = "Pikachu?0";
+        String invalidPassword = "picho";
+
+        //When
+        boolean result1 = testUserContainer.checkPassword(validPassword);
+        boolean result2 = testUserContainer.checkPassword(invalidPassword);
 
         //Then
         assertTrue(result1);
