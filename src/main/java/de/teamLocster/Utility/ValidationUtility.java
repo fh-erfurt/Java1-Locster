@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class ValidationUtility
 {
 /*
-- stringAlreadyeExistInArray(String testString, ArrayList<User> users) : boolean !!!
+- stringAlreadyExistInArray(String testString, ArrayList<User> users) : boolean !!!
 */
     public static boolean isValidEmail(String email)
     {

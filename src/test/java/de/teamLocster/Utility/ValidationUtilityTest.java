@@ -21,4 +21,21 @@ public class ValidationUtilityTest
         assertTrue(result1);
         assertFalse(result2);
     }
+
+    @Test
+    public void should_test_password()
+    {
+        //Given
+        String validPassword = "Pikachu?0";
+        String invalidPassword = "picho";
+
+        //When
+        boolean result1 = ValidationUtility.isValidPassword(validPassword);
+        boolean result2 = ValidationUtility.isValidPassword(invalidPassword);
+
+        //Then
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+
 }
