@@ -8,9 +8,6 @@ import java.util.regex.Pattern;
 
 public class ValidationUtility
 {
-/*
-- stringAlreadyExistInArray(String testString, ArrayList<User> users) : boolean !!!
-*/
     public static boolean stringAlreadyExistInArray(String inputString, ArrayList<String> stringList)
     {
 
