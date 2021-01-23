@@ -42,11 +42,10 @@ public class UserContainerTest {
         }
         //When
         boolean result1 = testUserContainer.checkEmail(Test1.getAccountDetails().getMailAddress());
-        boolean result2 = testUserContainer.checkEmail(Test2.getAccountDetails().getMailAddress());
 
         //Then
         assertTrue(result1);
-        assertFalse(result2);
+        assertThrows(EmailException.class, ()->testUserContainer.checkEmail(Test2.getAccountDetails().getMailAddress()));
     }
 
     @Test
@@ -59,11 +58,10 @@ public class UserContainerTest {
 
         //When
         boolean result1 = testUserContainer.checkPassword(validPassword);
-        boolean result2 = testUserContainer.checkPassword(invalidPassword);
 
         //Then
         assertTrue(result1);
-        assertFalse(result2);
+        assertThrows(PasswordException.class, () -> testUserContainer.checkPassword(invalidPassword));
     }
 
     @Test
