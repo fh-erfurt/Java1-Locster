@@ -127,4 +127,33 @@ public class UserContainerTest {
         }
         testUserContainer = null;
     }
+
+    @Test
+    public void should_store_all_emails_in_one_list()
+    {
+        //Given
+        String firstName    = "Max";
+        String lastName     = "Mustermann";
+        String username     = "MaMus257";
+        String email        = "";
+        String password     = "Password123?";
+        Date   birthdate    = new Date(1999, Calendar.JUNE,22);
+        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
+        for (int i = 0; i < 20; i++)
+        {
+            email        = "max.mustermann"+ i +"@fh-email.de";
+            testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
+        }
+
+        //When
+        ArrayList<String> result = testUserContainer.getEntireEmailOfAllUsers();
+
+        //Then
+        assertEquals("max.mustermann0@fh-email.de", result.get(0));
+        assertEquals("max.mustermann1@fh-email.de", result.get(1));
+        assertEquals("max.mustermann2@fh-email.de", result.get(2));
+        assertEquals("max.mustermann3@fh-email.de", result.get(3));
+        assertEquals("max.mustermann4@fh-email.de", result.get(4));
+        assertEquals("max.mustermann5@fh-email.de", result.get(5));
+    }
 }

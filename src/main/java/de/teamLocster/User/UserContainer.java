@@ -64,12 +64,12 @@ public class UserContainer
         return activeUser;
     }
 
-    public void deleteUser(User userToDelete)
+    public void deleteUser(User userToDelete)//TODO: have to do
     {
         this.users.removeIf(user -> user == userToDelete);
     }
 
-    public ArrayList<User> getUserList()
+    public ArrayList<User> getUserList() //TODO: have to do
     {
         return this.users;
     }
@@ -90,7 +90,7 @@ public class UserContainer
         return matcher.matches();
     }
 
-    private boolean checkPassword(String password)
+    private boolean checkPassword(String password) //TODO: should validate email and compare with the verify password
     {
         //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
         String minimum = "8";
@@ -102,6 +102,18 @@ public class UserContainer
 
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
+    }
+
+    public ArrayList<String> getEntireEmailOfAllUsers()
+    {
+        ArrayList<String> StringContainer = new ArrayList<String>();
+
+        for (User user : this.users)
+        {
+            StringContainer.add(user.getAccountDetails().getMailAddress());
+        }
+
+        return StringContainer;
     }
 
 
