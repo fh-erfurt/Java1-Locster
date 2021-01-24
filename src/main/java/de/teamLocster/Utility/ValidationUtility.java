@@ -46,4 +46,13 @@ public class ValidationUtility
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
+    public static boolean isValidUsername(String username)
+    {
+        //Minimum 5 Chars
+        if (username.length() >= 5)
+        {
+            return true;
+        }
+        return false;
+    }
 }

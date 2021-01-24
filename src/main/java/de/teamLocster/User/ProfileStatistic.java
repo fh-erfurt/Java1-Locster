@@ -47,7 +47,7 @@ public class ProfileStatistic
         }
         else
         {
-            this.lastVisitors[0]=latestVisitor; //das logik stimmt nicht ganz...
+            this.lastVisitors[0]=latestVisitor; //TODO: das logik stimmt nicht ganz...
         }
     }
 
@@ -59,7 +59,7 @@ public class ProfileStatistic
         }
         else
         {
-            this.lastVisits[0] = latestVisit; //das logik stimmt nicht ganz...
+            this.lastVisits[0] = latestVisit; //TODO: das logik stimmt nicht ganz...
         }
     }
 

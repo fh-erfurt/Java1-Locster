@@ -5,6 +5,7 @@ Matthias Gabel
 */
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.Exceptions.UsernameException;
 import de.teamLocster.Utility.ValidationUtility;
 import org.junit.jupiter.api.Test;
 
@@ -105,6 +106,32 @@ public class UserContainerTest {
         assertEquals(newEmail, testUser.getAccountDetails().getMailAddress());
         assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, falseEmail)); //throws invalid Email
         assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, newEmail)); //throws email already exist
+    }
+    @Test
+    public void should_change_password_from_user()
+    {
+        testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
+        User testUser = testUserContainer.getUsers().get(0);
+        String newPassword = "123Password!";
+        String falsePassword = "password"; // missing number and specialchar
+        //When
+        testUserContainer.changePassword(testUser, newPassword);
+        //Then
+        assertEquals(newPassword, testUser.getAccountDetails().getPassword());
+        assertThrows(PasswordException.class, ()->testUserContainer.changePassword(testUser, falsePassword)); //throws invalid Password
+    }
+    @Test
+    public void should_change_username_from_user()
+    {
+        testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
+        User testUser = testUserContainer.getUsers().get(0);
+        String newUsername = "MaMu123465";
+        String falseUsername = "MaMu"; // less then 5 chars
+        //When
+        testUserContainer.changeUsername(testUser, newUsername);
+        //Then
+        assertEquals(newUsername, testUser.getAccountDetails().getUsername());
+        assertThrows(UsernameException.class, ()->testUserContainer.changeUsername(testUser, falseUsername)); //throws invalid Username
     }
 
     @Test

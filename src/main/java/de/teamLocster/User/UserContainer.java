@@ -6,6 +6,7 @@ package de.teamLocster.User;/*
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.Exceptions.UsernameException;
 import de.teamLocster.Utility.ValidationUtility;
 
 import java.util.ArrayList;
@@ -65,11 +66,6 @@ public class UserContainer
         this.users.removeIf(user -> user == userToDelete);
     }
 
-    public ArrayList<User> getUserList() //TODO: have to do
-    {
-        return this.users;
-    }
-
     public void sortBy()
     {
         // TODO: Add functionality
@@ -106,11 +102,38 @@ public class UserContainer
         }
     }
 
+    public boolean checkUsername(String username) throws UsernameException
+    {
+        if(ValidationUtility.isValidUsername(username))
+        {
+            return true;
+        }
+        else
+        {
+            throw new UsernameException("Invalid Username!");
+        }
+    }
+
+
     public void changeEmail(User user, String newEmail) //TODO: has to move to AccountDetails
     {
         this.checkEmail(newEmail);
 
         user.getAccountDetails().setMailAddress(newEmail);
+    }
+
+    public void changePassword(User user, String newPassword) //TODO: has to move to AccountDetails
+    {
+        this.checkPassword(newPassword);
+
+        user.getAccountDetails().setPassword(newPassword);
+    }
+
+    public void changeUsername(User user, String newUsername) //TODO: has to move to AccountDetails
+    {
+        this.checkUsername(newUsername);
+
+        user.getAccountDetails().setUsername(newUsername);
     }
 
 
