@@ -1,3 +1,8 @@
+/*
+===================================
+Matthias Gabel
+===================================
+*/
 package de.teamLocster.Exceptions;
 
 public class PasswordException extends RuntimeException{

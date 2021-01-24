@@ -1,8 +1,9 @@
-package de.teamLocster.Chat;/*
+/*
 =====================
-== Molham Al khodari
+Molham Al khodari
 =====================
 */
+package de.teamLocster.Chat;
 
 import de.teamLocster.Chat.Chat;
 import de.teamLocster.Chat.Message;

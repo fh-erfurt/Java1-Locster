@@ -1,6 +1,7 @@
 package de.teamLocster.User;/*
 ===================================
 Matthias Gabel
+Saskia Wohlers
 ===================================
 */
 import de.teamLocster.Exceptions.EmailException;

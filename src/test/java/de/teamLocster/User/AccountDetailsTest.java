@@ -1,3 +1,9 @@
+/*
+===================================
+Saskia Wohlers
+===================================
+*/
+
 package de.teamLocster.User;
 
 import de.teamLocster.User.AccountDetails;

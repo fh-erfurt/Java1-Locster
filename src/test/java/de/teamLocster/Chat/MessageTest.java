@@ -1,8 +1,9 @@
-package de.teamLocster.Chat;/*
+/*
 ===================================
-== Jakob Gensel         05.01.2020
+Jakob Gensel
 ===================================
 */
+package de.teamLocster.Chat;
 
 import de.teamLocster.Chat.Chat;
 import de.teamLocster.Chat.Message;

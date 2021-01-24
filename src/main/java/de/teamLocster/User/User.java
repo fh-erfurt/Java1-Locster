@@ -1,9 +1,8 @@
 /*
 ===================================
-== edited by
-== Molham Al-khodari
-== Jakob Gensel
-== Matthias Gabel
+Molham Al-khodari
+Jakob Gensel
+Matthias Gabel
 ===================================
 */
 package de.teamLocster.User;

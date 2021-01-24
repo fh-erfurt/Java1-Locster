@@ -1,3 +1,8 @@
+/*
+===================================
+Matthias Gabel
+===================================
+*/
 package de.teamLocster.User;
 
 public class ProfileText

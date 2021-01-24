@@ -1,8 +1,9 @@
-package de.teamLocster.Guestbook;/*
+/*
 ===================================
-== Jakob Gensel         07.01.2020
+== Jakob Gensel
 ===================================
 */
+package de.teamLocster.Guestbook;
 
 import de.teamLocster.Guestbook.Guestbook;
 import de.teamLocster.Guestbook.GuestbookEntry;

@@ -1,9 +1,9 @@
-package de.teamLocster.User;/*
+/*
 ===================================
-== edited by
-== Saskia Wohlers
+Saskia Wohlers
 ===================================
 */
+package de.teamLocster.User;
 
 import org.junit.jupiter.api.Test;
 import java.util.Date;

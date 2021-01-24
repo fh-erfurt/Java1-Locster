@@ -1,8 +1,9 @@
-package de.teamLocster.User;/*
+/*
 ===================================
-== Matthias Gabel
+Matthias Gabel
 ===================================
 */
+package de.teamLocster.User;
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;

@@ -1,8 +1,9 @@
-package de.teamLocster.Friends;/*
+/*
 ===================================
-== Dirk Hofmann
+Dirk Hofmann
 ===================================
 */
+package de.teamLocster.Friends;
 
 import de.teamLocster.User.User;
 import de.teamLocster.Exceptions.FriendlistException;

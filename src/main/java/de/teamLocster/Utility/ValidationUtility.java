@@ -1,3 +1,9 @@
+/*
+===================================
+Matthias Gabel
+Saskia Wohlers
+===================================
+*/
 package de.teamLocster.Utility;
 
 import de.teamLocster.User.User;
