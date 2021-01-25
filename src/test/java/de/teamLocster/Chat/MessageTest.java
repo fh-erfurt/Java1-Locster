@@ -1,12 +1,14 @@
-package de.teamLocster.Chat;/*
+/*
 ===================================
-== Jakob Gensel         05.01.2020
+== Jakob Gensel
 ===================================
 */
+package de.teamLocster.Chat;
 
-import de.teamLocster.Chat.Chat;
-import de.teamLocster.Chat.Message;
 import de.teamLocster.User.User;
+import de.teamLocster.Exceptions.MessageNotFoundException;
+import de.teamLocster.Exceptions.MessageNotDeletedException;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -38,18 +40,19 @@ public class MessageTest
     }
 
     /**
-     * creates a new chat and saves a new message in its messages by calling the sendToChat() method
-     * the tests then looks for the message an throws an exception if not found.
-     * @throws Exception
+     * creates a new chat, saves a new message in its messages, then looks for the message and throws an exception if not found.
+     * deletes the message from the chat, looks for the message and throws an exception if found.
+     * @throws MessageNotFoundException
      */
     @Test
-    void message_should_be_saved_to_given_chat() throws Exception
+    void message_should_be_saved_to_and_deleted_from_given_chat() throws MessageNotFoundException, MessageNotDeletedException
     {
         Message testMsg = new Message("test text", testUser);
         testMsg.sendToChat(testChat);
-        if (testChat.getMessages().contains(testMsg)) return;
+        if(!testChat.getMessages().contains(testMsg)) throw new MessageNotFoundException("Message was not found in chat.");
 
-        throw new Exception("Message was not found in chat.");
+        testMsg.deleteInChat(testChat);
+        if (testChat.getMessages().contains(testMsg)) throw new MessageNotDeletedException("Message was not deleted from chat.");
     }
 
     /**

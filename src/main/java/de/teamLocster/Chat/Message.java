@@ -5,12 +5,7 @@ import de.teamLocster.User.User;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-// TODO JGE Kommentare
 
-
-/**
- *
- */
 public class Message
 {
     /*
@@ -55,10 +50,9 @@ public class Message
      * Deletes a message from a chat.
      * @param chat the chat, which the message is deleted from
      */
-    public void deleteFromChat(Chat chat)   // de.teamLocster.Chat.Message = null reicht.
+    public void deleteInChat(Chat chat)
     {
-        // TODO JGE de.teamLocster.Chat.Message eindeutig identifizieren
-        // TODO MAL(Molham Al-Khodari) de.teamLocster.Chat.Chat braucht noch eine Funktion zum löschen
+        chat.deleteFromMessages(this);
     }
 
     /**
@@ -70,15 +64,6 @@ public class Message
     {
         this.readBy.add(reader);
         return this.getText();
-    }
-
-    protected void finalize()
-    {
-        // this.chat       = null;
-        this.sender     = null;
-        this.readBy     = null;
-        this.text       = null;
-        this.sentAt     = null;
     }
 
     /*

@@ -16,7 +16,7 @@ public class Chat
     =========================
     */
 
-    private String name; // TODO Überlegung: Gruppenchat / automatisch generiert / de.teamLocster.User.User ArrayList?
+    private String name;
     private ArrayList<Message> messages;
 
     /*
@@ -49,6 +49,10 @@ public class Chat
         this.messages.add(message);
     }
 
+    public void deleteFromMessages(Message message)
+    {
+        messages.remove(message);
+    }
 
     /*
     ==========================
