@@ -6,7 +6,8 @@ Dirk Hofmann
 package de.teamLocster.Friends;
 
 import de.teamLocster.User.User;
-import de.teamLocster.Exceptions.FriendlistException;
+import de.teamLocster.Exceptions.CannotSendFriendRequestException;
+import de.teamLocster.Exceptions.CannotAcceptFriendRequestException;
 import de.teamLocster.Utility.TestUtility;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -97,7 +98,7 @@ public class FriendlistTest
      * tests if userA cannot send a friend request to userA
      */
     @Test
-    public void should_throw_FriendlistExeption_send_own_friend_request()
+    public void should_throw_CannotSendFriendRequestException()
     {
         //Given
         User userA = TestUtility.getNewUserForTesting();
@@ -106,7 +107,7 @@ public class FriendlistTest
         //When
 
         //Then
-        assertThrows(FriendlistException.class, () -> userA.getFriendlist().sendFriendRequest(userA, userA));
+        assertThrows(CannotSendFriendRequestException.class, () -> userA.getFriendlist().sendFriendRequest(userA, userA));
     }
 
 
@@ -136,7 +137,7 @@ public class FriendlistTest
      * tests if userA´s friend request cannot be accepted by userA
      */
     @Test
-    public void should_throw_FriendlistExeption_accept_own_friend_request()
+    public void should_throw_CannotAcceptFriendRequestException()
     {
         //Given
         User userA = TestUtility.getNewUserForTesting();
@@ -146,7 +147,7 @@ public class FriendlistTest
         //When
 
         //Then
-        assertThrows(FriendlistException.class, () -> userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA));
+        assertThrows(CannotAcceptFriendRequestException.class, () -> userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA));
     }
 
 

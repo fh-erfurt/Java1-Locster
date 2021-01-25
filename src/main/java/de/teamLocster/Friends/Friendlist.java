@@ -6,7 +6,8 @@ Dirk Hofmann
 package de.teamLocster.Friends;
 
 import de.teamLocster.User.User;
-import de.teamLocster.Exceptions.FriendlistException;
+import de.teamLocster.Exceptions.CannotSendFriendRequestException;
+import de.teamLocster.Exceptions.CannotAcceptFriendRequestException;
 
 import java.util.ArrayList;
 
@@ -45,14 +46,14 @@ public class Friendlist
      * @param receiver
      * @param sender
      */
-    public void sendFriendRequest(User receiver, User sender) throws FriendlistException
+    public void sendFriendRequest(User receiver, User sender) throws CannotSendFriendRequestException
     {
         if (sender != receiver)
         {
             sender.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
             receiver.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
         } else {
-            throw new FriendlistException("Cannot send yourself a Friend Request!");
+            throw new CannotSendFriendRequestException("Cannot send yourself a Friend Request!");
         }
     }
 
@@ -91,7 +92,7 @@ public class Friendlist
      * @param friendRequest
      * @param executingUser
      */
-    public void acceptFriendRequest(FriendRequest friendRequest, User executingUser) throws FriendlistException
+    public void acceptFriendRequest(FriendRequest friendRequest, User executingUser) throws CannotAcceptFriendRequestException
     {
         User sender = friendRequest.getSender();
         User receiver = friendRequest.getReceiver();
@@ -104,7 +105,7 @@ public class Friendlist
             receiver.getFriendlist().removeEntryFromWaitingFriends(sender, false);
             sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
         } else {
-            throw new FriendlistException("Cannot accept own Friend Request!");
+            throw new CannotAcceptFriendRequestException("Cannot accept own Friend Request!");
         }
     }
 
