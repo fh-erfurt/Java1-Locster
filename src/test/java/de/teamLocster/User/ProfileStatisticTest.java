@@ -8,8 +8,6 @@ package de.teamLocster.User;
 
 
 import de.teamLocster.Utility.TestUtility;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,7 +23,7 @@ public class ProfileStatisticTest {
 
         // Given
         UserContainer testUserContainer = new UserContainer();
-        User mainUser = User.getNewUserForTesting();
+        User mainUser = TestUtility.getNewUserForTesting();
 
         for (int i = 0; i < 16; i++)
         {
@@ -70,7 +68,7 @@ public class ProfileStatisticTest {
     {
         // Given
         UserContainer testUserContainer = new UserContainer();
-        User mainUser = User.getNewUserForTesting();
+        User mainUser = TestUtility.getNewUserForTesting();
 
         for (int i = 0; i < 100; i++)
         {

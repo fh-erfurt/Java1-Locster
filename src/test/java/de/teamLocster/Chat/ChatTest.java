@@ -1,4 +1,4 @@
-package de.teamLocster.Chat;/*
+/*
 =====================
 == Molham Al khodari
 == Jakob Gensel
@@ -6,13 +6,12 @@ package de.teamLocster.Chat;/*
 */
 package de.teamLocster.Chat;
 
-import de.teamLocster.Chat.Chat;
-import de.teamLocster.Chat.Message;
 import de.teamLocster.User.User;
 import de.teamLocster.Utility.TestUtility;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class ChatTest {

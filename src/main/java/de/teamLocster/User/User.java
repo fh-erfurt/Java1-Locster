@@ -81,7 +81,7 @@ public class User {
      * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
      */
     private User() {
-        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male, PersonalInfo.RelationshipStatus.no_information);
+        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male);
         this.profileStatistic   = new ProfileStatistic();
         this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
         this.personalStatus     = "";
