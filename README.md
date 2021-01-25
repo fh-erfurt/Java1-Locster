@@ -4,26 +4,28 @@
 
 <h6>Ein Java-Projekt von Dirk Hofmann, Jakob Gensel, Matthias Gabel, Molham Al-Khodari, Saskia Wohlers</h6>
 
-<h2>Soziales Netzwerk mit Biss</h2>
+<h2>Soziales Netzwerk mit Kniff</h2>
 Im Rahmen der Veranstaltung "Java Programmierung 1 & 2" haben wir uns entschlossen, ein soziales Netzwerk mit Schwerpunkt auf chatten und Leute aus der Umgebung kennenzulernen. Ganz ohne nervige Babybilder und Katzenvideos.<br>
 <br>
 <details>
 <summary> Projekt allgemein</summary><br>
-<h2>Projektteam</h2>
-Das Team vom Locster besteht aus: <br>
-<br>
-<ul>
-<li><strong>Dirk Hofmann</strong> https://github.com/Munchkin129 <br></li>
-<li><strong>Jakob Gensel</strong> https://github.com/bro-scientist <br></li>
-<li><strong>Matthias Gabel</strong> https://github.com/f0rkster <br></li>
-<li><strong>Molham Al-Khodari</strong> https://github.com/Molham321 <br></li>
-<li><strong>Saskia Wohlers</strong> https://github.com/schnoernja <br></li>
-</ul>
+	
+## Projektteam
+Das Team vom Locster besteht aus:
+* **Dirk Hofmann** - [Profil](https://github.com/Munchkin129)
+* **Jakob Gensel** - [Profil](https://github.com/bro-scientist)
+* **Matthias Gabel** - [Profil](https://github.com/f0rkster)
+* **Molham Al-Khodari** - [Profil](https://github.com/Molham321)
+* **Saskia Wohlers** - [Profil](https://github.com/schnoernja)
+
 	
 ### Einführung
 
-In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus geben und einen Nutzer Zugriff (de.teamLocster.User.User) . Die Nutzer können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die Nutzer können selbständige ihre Freundesliste verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder Nutzer hat einen eigenen Kalender, in dem er Events finden kann, an denen er teilnimmt. 
+In unserem Projekt möchten wir uns mit der Entwicklung eines sozialen Netzwerks beschäftigen. In diesem Netzwerk soll es administrativen Zugriff von der Entwicklerseite aus geben und einen Nutzer Zugriff (User). Die Nutzer können sich ihr eigenes Profil nach den individuellen Ansprüchen gestalten. Die Nutzer können selbständige ihre Freundesliste verwalten. Zudem können Sie Nachrichten verschicken und sich gegenseitig Gästebucheinträge schreiben. Jeder Nutzer hat einen eigenen Kalender, in dem er Events finden kann, an denen er teilnimmt. 
 Das soziale Netzwerk soll außer dem eigenen Profil auch noch andere Seiten anzeigen können:
+
+Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem  
+
 <br>
 <ul>
 <li>eine Seite „News“ - für lokale Nachrichten und Events -</li>
