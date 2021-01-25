@@ -200,7 +200,7 @@ public class FriendListTest
 
 
     /**
-     * tests with more users
+     * tests with more users todo: wie kann man mehr user besser darstellen?
      */
 
 
