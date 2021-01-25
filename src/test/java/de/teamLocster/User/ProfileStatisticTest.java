@@ -7,6 +7,7 @@ Molham Al khodari
 package de.teamLocster.User;
 
 
+import de.teamLocster.Utility.TestUtility;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,7 @@ public class ProfileStatisticTest {
     public void should_return_new_visitors() throws Exception
     {
         //Given
-        User testUser = User.getNewUserForTesting();
+        User testUser = TestUtility.getNewUserForTesting();
         User userVisitors = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male);
 
         //When
@@ -50,7 +51,7 @@ public class ProfileStatisticTest {
     public void should_return_new_Visits()
     {
         // Given
-        User testUser = User.getNewUserForTesting();
+        User testUser = TestUtility.getNewUserForTesting();
 
         // wir haben 10 User die wir besucht haben
         User userVisits0 = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14),PersonalInfo.Sex.male);

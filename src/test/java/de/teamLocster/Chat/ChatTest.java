@@ -9,6 +9,7 @@ import de.teamLocster.Chat.Chat;
 import de.teamLocster.Chat.Message;
 import de.teamLocster.User.User;
 
+import de.teamLocster.Utility.TestUtility;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ public class ChatTest {
     void prepare()
     {
         testChat = new Chat();
-        testUser = User.getNewUserForTesting();
+        testUser = TestUtility.getNewUserForTesting();
         testMessage = new Message("whats up!", testUser);
     }
 

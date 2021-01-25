@@ -7,6 +7,7 @@ Saskia Wohlers
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
 import de.teamLocster.Exceptions.UsernameException;
+import de.teamLocster.Utility.TestUtility;
 import de.teamLocster.Utility.ValidationUtility;
 import org.junit.jupiter.api.Test;
 
@@ -26,8 +27,8 @@ public class UserContainerTest {
     public void should_test_if_email_is_correct_and_unique()
     {
         //Given
-        User Test1 = User.getNewUserForTesting();
-        User Test2 = User.getNewUserForTesting();
+        User Test1 = TestUtility.getNewUserForTesting();
+        User Test2 = TestUtility.getNewUserForTesting();
         Test2.getAccountDetails().setMailAddress("User50@email.de");
 
         for (int i = 0; i < 100; i++)
@@ -212,7 +213,7 @@ public class UserContainerTest {
                     testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
                     break;
                 default:
-                    User user = User.getNewUserForTesting();
+                    User user = TestUtility.getNewUserForTesting();
                     testUserContainer.getUsers().add(user);
                     testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.offline);
                     break;

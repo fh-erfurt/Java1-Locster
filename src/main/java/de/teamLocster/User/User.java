@@ -76,22 +76,6 @@ public class User {
         this.blockedUsers      = new ArrayList<User>();
     }
 
-    /**
-     * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
-     */
-    private User() {
-        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male);
-        this.profileStatistic   = new ProfileStatistic();
-        this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "Password123?");
-        this.personalStatus     = "";
-        this.privacyStatus      = PrivacyStatus.global;
-        this.onlineStatus       = OnlineStatus.online;
-        this.friendlist         = new Friendlist();
-        this.guestbook          = new Guestbook();
-        this.profileText        = new ProfileText();
-        this.chats              = new ArrayList<Chat>();
-        this.blockedUsers       = new ArrayList<User>();
-    }
 
     /*
     ==================
@@ -105,10 +89,6 @@ public class User {
         blockedUsers.remove(user);
     }
 
-    public static User getNewUserForTesting()
-    {
-        return new User();
-    }
 
     /**
      *

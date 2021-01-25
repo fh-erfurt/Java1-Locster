@@ -16,14 +16,14 @@ public class PersonalInfo
     ENUM
     ===================================
     */
-    enum Sex
+    public enum Sex
     {
         male,
         female,
         uni
     }
 
-    enum RelationshipStatus
+    public enum RelationshipStatus
     {
         taken,
         single,

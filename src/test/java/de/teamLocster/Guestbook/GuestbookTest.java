@@ -8,6 +8,7 @@ package de.teamLocster.Guestbook;
 import de.teamLocster.Guestbook.Guestbook;
 import de.teamLocster.Guestbook.GuestbookEntry;
 import de.teamLocster.User.User;
+import de.teamLocster.Utility.TestUtility;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +24,7 @@ public class GuestbookTest
     @BeforeEach
     void prepare()
     {
-        testUser  = User.getNewUserForTesting();
+        testUser  = TestUtility.getNewUserForTesting();
         testEntry = new GuestbookEntry(testUser, "Test Text");
         testBook  = new Guestbook();
     }
