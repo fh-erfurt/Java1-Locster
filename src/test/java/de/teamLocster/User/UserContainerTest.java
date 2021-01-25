@@ -92,6 +92,7 @@ public class UserContainerTest {
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "fh.email.de", password, birthdate, sex));
         assertThrows(PasswordException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "email@email.de", "password", birthdate, sex));
+        assertThrows(UsernameException.class, () -> testUserContainer.registerUser(firstname, lastname, "Max", "fh.email@de", password, birthdate, sex));
     }
 
     @Test

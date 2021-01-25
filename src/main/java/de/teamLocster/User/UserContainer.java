@@ -38,7 +38,7 @@ public class UserContainer
     ===================================
     */
     public void registerUser(String firstname, String lastname, String username, String email,
-                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException
+                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException, UsernameException
     {
         this.checkEmail(email);
 
