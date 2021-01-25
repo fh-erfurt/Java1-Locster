@@ -11,7 +11,7 @@ import de.teamLocster.Exceptions.CannotAcceptFriendRequestException;
 
 import java.util.ArrayList;
 
-public class Friendlist
+public class FriendList
 {
 
     /*
@@ -20,7 +20,7 @@ public class Friendlist
     =========================
     */
 
-    private ArrayList<FriendlistItem> acceptedFriends; // accepted friends are stored here
+    private ArrayList<FriendListItem> acceptedFriends; // accepted friends are stored here
     private ArrayList<FriendRequest> waitingFriends;   // waiting requests are stored here
 
     /*
@@ -29,9 +29,9 @@ public class Friendlist
     ===================================
     */
 
-    public Friendlist()
+    public FriendList()
     {
-        acceptedFriends = new ArrayList<FriendlistItem>();
+        acceptedFriends = new ArrayList<FriendListItem>();
         waitingFriends = new ArrayList<FriendRequest>();
     }
 
@@ -59,12 +59,12 @@ public class Friendlist
 
     /**
      * Calls methods to remove entries from 'acceptedFriends' from both users in the 'friendlistItem'
-     * @param friendlistItem == to be removed entry
+     * @param friendListItem == to be removed entry
      * @param executingUser
      */
-    public void removeFriend(FriendlistItem friendlistItem, User executingUser)
+    public void removeFriend(FriendListItem friendListItem, User executingUser)
     {
-        User toBeRemovedUser = friendlistItem.getFriend();
+        User toBeRemovedUser = friendListItem.getFriend();
         toBeRemovedUser.getFriendlist().removeEntryFromAcceptedFriend(executingUser);
         executingUser.getFriendlist().removeEntryFromAcceptedFriend(toBeRemovedUser);
     }
@@ -99,8 +99,8 @@ public class Friendlist
 
         if (sender != executingUser)
         {
-            receiver.getFriendlist().addEntryToAcceptedFriends(new FriendlistItem(sender));
-            sender.getFriendlist().addEntryToAcceptedFriends(new FriendlistItem(receiver));
+            receiver.getFriendlist().addEntryToAcceptedFriends(new FriendListItem(sender));
+            sender.getFriendlist().addEntryToAcceptedFriends(new FriendListItem(receiver));
 
             receiver.getFriendlist().removeEntryFromWaitingFriends(sender, false);
             sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
@@ -128,7 +128,7 @@ public class Friendlist
      * Adds entry 'friendlistItem' to 'acceptedFriends'
      * @param friendlistItem
      */
-    private void addEntryToAcceptedFriends(FriendlistItem friendlistItem) { this.acceptedFriends.add(friendlistItem); }
+    private void addEntryToAcceptedFriends(FriendListItem friendlistItem) { this.acceptedFriends.add(friendlistItem); }
 
 
     /**
@@ -176,20 +176,20 @@ public class Friendlist
      * Getter acceptedFriends
      * @return ArrayList 'acceptedFriends'
      */
-    public ArrayList<FriendlistItem> getAcceptedFriends() { return acceptedFriends; }
+    public ArrayList<FriendListItem> getAcceptedFriends() { return acceptedFriends; }
 
     /**
      * Getter acceptedFriends with index
      * @param index
      * @return entry with index from ArrayList 'acceptedFriends'
      */
-    public FriendlistItem getAcceptedFriendWithIndex(int index) { return this.acceptedFriends.get(index); }
+    public FriendListItem getAcceptedFriendWithIndex(int index) { return this.acceptedFriends.get(index); }
 
     /**
      * Setter acceptedFriends
      * @param acceptedFriends
      */
-    public void setAcceptedFriends(ArrayList<FriendlistItem> acceptedFriends) { this.acceptedFriends = acceptedFriends; }
+    public void setAcceptedFriends(ArrayList<FriendListItem> acceptedFriends) { this.acceptedFriends = acceptedFriends; }
 
     /**
      * Getter waitingFriends

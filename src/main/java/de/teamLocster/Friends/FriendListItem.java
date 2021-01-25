@@ -8,7 +8,7 @@ import de.teamLocster.User.User;
 
 import java.time.LocalDateTime;
 
-public class FriendlistItem
+public class FriendListItem
 {
 
     /*
@@ -26,7 +26,7 @@ public class FriendlistItem
     ===================================
     */
 
-    public FriendlistItem(User friend)
+    public FriendListItem(User friend)
     {
         this.friend = friend;
         this.friendSince = LocalDateTime.now();

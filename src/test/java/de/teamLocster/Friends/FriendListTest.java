@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FriendlistTest
+public class FriendListTest
 {
     /**
      * tests if userA´s and userB´s 'waitingFriends' ArrayList is empty after creation
