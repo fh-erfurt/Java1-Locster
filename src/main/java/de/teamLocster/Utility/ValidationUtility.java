@@ -43,7 +43,7 @@ public class ValidationUtility
     {
         //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
         String minimum = "8";
-        String specialCharacter = "@$!%*?&";
+        String specialCharacter = "@$!%*?&.";
 
         String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*["+specialCharacter+"])[A-Za-z\\d"+specialCharacter+"]{"+minimum+",}$";
 

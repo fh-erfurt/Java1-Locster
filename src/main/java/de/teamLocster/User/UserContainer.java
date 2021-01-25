@@ -37,14 +37,16 @@ public class UserContainer
     == Methods
     ===================================
     */
-    public void registerUser(String firstName, String lastName, String userName, String email,
-                             String password, Date Birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException
+    public void registerUser(String firstname, String lastname, String username, String email,
+                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException
     {
         this.checkEmail(email);
 
         this.checkPassword(password);
 
-        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
+        this.checkUsername(username);
+
+        final User user = new User(firstname, lastname, username, email, password, birthdate, sex);
 
         this.users.add(user);
     }
