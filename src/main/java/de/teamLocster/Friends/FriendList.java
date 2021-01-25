@@ -42,7 +42,7 @@ public class FriendList
     */
 
     /**
-     * Calls methods to add entries in 'waitingFriends' to both the sender and receiver
+     * Calls methods to add entries in 'waitingFriends' to both the sender and receiver, throws Exceptions if sender == receiver
      * @param receiver
      * @param sender
      */
