@@ -1,3 +1,8 @@
+/*
+===================================
+Dirk Hofmann
+===================================
+*/
 package de.teamLocster.Exceptions;
 
 public class FriendlistException extends RuntimeException

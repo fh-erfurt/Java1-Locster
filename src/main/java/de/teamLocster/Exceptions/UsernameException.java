@@ -5,11 +5,10 @@ Matthias Gabel
 */
 package de.teamLocster.Exceptions;
 
-public class EmailException extends RuntimeException
-{
-    public EmailException(String message)
+public class UsernameException extends RuntimeException{
+    public UsernameException(String message)
     {
-        super( message);
+        super(message);
         System.out.println( "Error Message: " + message);
     }
 }

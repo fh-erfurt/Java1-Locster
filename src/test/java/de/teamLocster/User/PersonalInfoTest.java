@@ -1,9 +1,9 @@
-package de.teamLocster.User;/*
+/*
 ===================================
-== edited by
-== Saskia Wohlers
+Saskia Wohlers
 ===================================
 */
+package de.teamLocster.User;
 
 import org.junit.jupiter.api.Test;
 import java.util.Date;
@@ -15,7 +15,7 @@ public class PersonalInfoTest {
     public void should_change_region() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
         String newRegion = "Valhalla";
 
         //When
@@ -30,7 +30,7 @@ public class PersonalInfoTest {
     public void should_change_relationshipStatus() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
         PersonalInfo.RelationshipStatus newrelationshipStatus = PersonalInfo.RelationshipStatus.taken;
 
         //When
@@ -45,7 +45,7 @@ public class PersonalInfoTest {
     public void should_change_occupation() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
         String newoccupation = "Computer Scientist";
 
         //When
@@ -60,7 +60,7 @@ public class PersonalInfoTest {
     public void should_change_profilePicture() {
 
         //Given
-        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni, PersonalInfo.RelationshipStatus.no_information);
+        PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
         String newprofilePicture = "PiggyPicture";
 
         //When

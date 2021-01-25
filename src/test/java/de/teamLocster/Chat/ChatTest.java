@@ -1,4 +1,4 @@
-/*
+package de.teamLocster.Chat;/*
 =====================
 == Molham Al khodari
 == Jakob Gensel
@@ -6,9 +6,11 @@
 */
 package de.teamLocster.Chat;
 
+import de.teamLocster.Chat.Chat;
+import de.teamLocster.Chat.Message;
 import de.teamLocster.User.User;
+import de.teamLocster.Utility.TestUtility;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +26,7 @@ public class ChatTest {
     void prepare()
     {
         testChat    = new Chat();
-        testUser    = User.getNewUserForTesting();
+        testUser    = TestUtility.getNewUserForTesting();
         testMessage = new Message("whats up!", testUser);
     }
 
@@ -52,7 +54,7 @@ public class ChatTest {
         testChat.receiveMessage(testMessage);
 
         // Then
-        Assertions.assertEquals(testChat.getMessages().get(0).getText(), testMessage.getText(), "The Chat receive a message");
+        Assertions.assertEquals(testChat.getMessages().get(0).getText(), testMessage.getText(), "The de.teamLocster.Chat.Chat receive a message");
 
     }
 

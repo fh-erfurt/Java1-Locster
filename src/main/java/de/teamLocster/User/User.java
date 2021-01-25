@@ -62,11 +62,12 @@ public class User {
     ===================================
     */
 
-    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.Sex sex, PersonalInfo.RelationshipStatus relationshipStatus)
+    public User(String firstName, String lastName, String userName, String email, String password, Date birthdate, PersonalInfo.Sex sex)
     {
         this.accountDetails    = new AccountDetails(userName, email, password);
-        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex, relationshipStatus);
+        this.personalInfo      = new PersonalInfo(firstName, lastName, birthdate, sex);
 
+        this.privacyStatus     = PrivacyStatus.nobody;
         this.profileStatistic  = new ProfileStatistic();
         this.personalStatus    = "Hey I'm using Locster";
         this.friendlist        = new Friendlist();
@@ -105,10 +106,6 @@ public class User {
         blockedUsers.remove(user);
     }
 
-    public static User getNewUserForTesting()
-    {
-        return new User();
-    }
 
     /**
      *

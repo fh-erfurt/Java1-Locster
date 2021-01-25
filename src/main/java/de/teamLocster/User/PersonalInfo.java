@@ -16,14 +16,14 @@ public class PersonalInfo
     ENUM
     ===================================
     */
-    enum Sex
+    public enum Sex
     {
         male,
         female,
         uni
     }
 
-    enum RelationshipStatus
+    public enum RelationshipStatus
     {
         taken,
         single,
@@ -51,12 +51,12 @@ public class PersonalInfo
     Constructor
     ===================================
     */
-    public PersonalInfo(String firstName, String lastName, Date birthdate, Sex sex, RelationshipStatus relationshipStatus) {
+    public PersonalInfo(String firstName, String lastName, Date birthdate, Sex sex) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.region = "";
         this.birthdate = birthdate;
-        this.relationshipStatus = relationshipStatus;
+        this.relationshipStatus = RelationshipStatus.no_information;
         this.occupation = "";
         this.profilePicture = "";
         this.sex = sex;

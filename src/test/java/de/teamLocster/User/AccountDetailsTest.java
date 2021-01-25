@@ -1,8 +1,7 @@
 /*
 ===================================
-== edited by
-== Molham Al-khodari
-== wer hat hier gearbeitet
+Molham Al-khodari
+Saskia Wohlers
 ===================================
 */
 

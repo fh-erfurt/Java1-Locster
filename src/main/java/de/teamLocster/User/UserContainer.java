@@ -1,11 +1,14 @@
-package de.teamLocster.User;/*
+/*
 ===================================
-== Matthias Gabel
+Matthias Gabel
 ===================================
 */
+package de.teamLocster.User;
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
+import de.teamLocster.Exceptions.UsernameException;
+import de.teamLocster.Utility.ValidationUtility;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,16 +40,11 @@ public class UserContainer
     public void registerUser(String firstName, String lastName, String userName, String email,
                              String password, Date Birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException
     {
-        if (!this.checkEmail(email))
-        {
-            throw new EmailException("Invalid Email!");
-        }
+        this.checkEmail(email);
 
-        if (!this.checkPassword(password)) {
-            throw new PasswordException("Invalid Password!");
-        }
+        this.checkPassword(password);
 
-        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex, PersonalInfo.RelationshipStatus.married);
+        final User user = new User(firstName, lastName, userName, email, password, Birthdate, sex);
 
         this.users.add(user);
     }
@@ -69,38 +67,92 @@ public class UserContainer
         this.users.removeIf(user -> user == userToDelete);
     }
 
-    public ArrayList<User> getUserList()
-    {
-        return this.users;
-    }
-
     public void sortBy()
     {
         // TODO: Add functionality
     }
 
-    private boolean checkEmail(String email)
+    public boolean checkEmail(String email) throws EmailException//TODO: access modifier may have to be changed
     {
-        //Minimum one @
-        String regex = "^(.+)@(.+)$";
-
-        Pattern pattern = Pattern.compile(regex);
-
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+        if (ValidationUtility.isValidEmail(email))
+        {
+             if (!ValidationUtility.stringAlreadyExistInArray(email, this.getEntireEmailOfAllUsers()))
+                {
+                    return true;
+                }
+             else
+             {
+                 throw new EmailException("Email already exist!");
+             }
+        }
+        else
+        {
+            throw new EmailException("Invalid Email!");
+        }
     }
 
-    private boolean checkPassword(String password)
-    {   //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
-        String minimum = "8";
-        String specialCharacter = "@$!%*?&";
+    public boolean checkPassword(String password) throws PasswordException// TODO: checkPassword might be extendend in future with more validations (next semester)
+    {
+        if (ValidationUtility.isValidPassword(password))
+        {
+            return true;
+        }
+        else
+        {
+            throw new PasswordException("Invalid Password!");
+        }
+    }
 
-        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*["+specialCharacter+"])[A-Za-z\\d"+specialCharacter+"]{"+minimum+",}$";
+    public boolean checkUsername(String username) throws UsernameException
+    {
+        if(ValidationUtility.isValidUsername(username))
+        {
+            return true;
+        }
+        else
+        {
+            throw new UsernameException("Invalid Username!");
+        }
+    }
 
-        Pattern pattern = Pattern.compile(regex);
 
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
+    public void changeEmail(User user, String newEmail) //TODO: has to move to AccountDetails
+    {
+        this.checkEmail(newEmail);
+
+        user.getAccountDetails().setMailAddress(newEmail);
+    }
+
+    public void changePassword(User user, String newPassword) //TODO: has to move to AccountDetails
+    {
+        this.checkPassword(newPassword);
+
+        user.getAccountDetails().setPassword(newPassword);
+    }
+
+    public void changeUsername(User user, String newUsername) //TODO: has to move to AccountDetails
+    {
+        this.checkUsername(newUsername);
+
+        user.getAccountDetails().setUsername(newUsername);
+    }
+
+
+
+
+
+
+
+    public ArrayList<String> getEntireEmailOfAllUsers()
+    {
+        ArrayList<String> StringContainer = new ArrayList<String>();
+
+        for (User user : this.users)
+        {
+            StringContainer.add(user.getAccountDetails().getMailAddress());
+        }
+
+        return StringContainer;
     }
 
 

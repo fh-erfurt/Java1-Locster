@@ -1,3 +1,8 @@
+/*
+===================================
+Jakob Gensel
+===================================
+*/
 package de.teamLocster.Chat;
 
 import de.teamLocster.User.User;
