@@ -213,27 +213,34 @@ VERSCHIEDENE UML DIAGRAMME MIT ERKLÄRUNG
 </details>
 
 <details>
-<summary>Verwendete Technolgie</summary><br>
+<summary>Verwendete Technolgien</summary>
 
-* Software Dev
-   * [Java SDK 11](https://docs.oracle.com/en/java/javase/11/docs/api/index.html)
-   * [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-   * [Maven](https://maven.apache.org/)
-   * [JUnit](https://junit.org/junit5/)
- 
+* Entwicklertools
+   <br>
+   <a id="intellij-logo" href="https://www.jetbrains.com/idea/"><img src="https://daviddelatorre.me/wp-content/uploads/2017/06/intellij.png" height=40></a>
+   <br>
+   <a id="maven-logo" href="https://maven.apache.org/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Maven_logo.svg/512px-Maven_logo.svg.png" height=40>	    </a>
+   <br>
+   <a id="junit-logo" href="https://junit.org/junit5/"><img src="https://junit.org/junit4/images/junit5-banner.png" height=40></a>
+   
+   
 * Diagramme
-   * [Lucidchart](https://www.lucidchart.com)
-   * [miro](https://miro.com/)
+   <br>
+   <a id="lucidchart-logo" href="https://www.lucidchart.com"><img src="http://www.sbmarketingtools.com/wp-content/uploads/2016/04/lucidchart-logo.png" height=40></a>
+   <br>
+   <a id="miro-logo" href="https://miro.com/"><img src="https://www.underconsideration.com/brandnew/archives/miro_logo.png" height=40></a>
  
-* Kommunikation/Worflow
-   * [Github](https://github.com/)
-   * [Discord](https://discord.com/)
+* Kommunikation
+   <br>
+   <a id="discord-logo" href="https://discord.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Discord_Color_Text_Logo.svg/640px-Discord_Color_Text_Logo.svg.png" height=40></a>
 	
 </details>
 <details>
-<summary>Ausblick Java2</summary><br>
-Für das kommende Semester haben wir uns folgende Ziele gesetzt:
-    * Datenbank
-    * Frontend
+<summary>Ausblick Java2</summary>
+
+* Für das kommende Semester haben wir uns bereits folgende Ziele gesetzt:
+    * **Datenbank für die Speicherung der Nutzerdaten**
+    * **Nutzeroberfläche/Webseite**
+
 </details>
 
