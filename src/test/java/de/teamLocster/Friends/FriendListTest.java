@@ -6,52 +6,26 @@ Dirk Hofmann
 package de.teamLocster.Friends;
 
 import de.teamLocster.User.User;
-import de.teamLocster.Exceptions.FriendlistException;
+import de.teamLocster.Exceptions.CannotSendFriendRequestException;
+import de.teamLocster.Exceptions.CannotAcceptFriendRequestException;
 import de.teamLocster.Utility.TestUtility;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FriendlistTest
+public class FriendListTest
 {
-    /**
-     * tests if userA´s and userB´s 'waitingFriends' ArrayList is empty after creation
-     */
-    @Test
-    public void should_have_empty_waitingFriends ()
+    User userA;
+    User userB;
+
+    @BeforeEach
+    public void init()
     {
-        //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
-
-        //When
-
-
-        //Then
-        assertEquals(0, userA.getFriendlist().getWaitingFriends().size(),"userA and userB should have no entry in waitingFriends");
-        assertEquals(0, userB.getFriendlist().getWaitingFriends().size(),"userA and userB should have no entry in waitingFriends");
+        userA = TestUtility.getNewUserForTesting();
+        userB = TestUtility.getNewUserForTesting();
     }
-
-
-    /**
-     * tests if userA´s and userB´s 'acceptedFriends' ArrayList is empty after creation
-     */
-    @Test
-    public void should_have_empty_acceptedFriends ()
-    {
-        //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
-
-        //When
-
-
-        //Then
-        assertEquals(0, userA.getFriendlist().getAcceptedFriends().size(),"userA and userB should have no entry in acceptedFriends");
-        assertEquals(0, userB.getFriendlist().getAcceptedFriends().size(),"userA and userB should have no entry in acceptedFriends");
-    }
-
 
     /**
      *  tests if userA´s and userB´s 'waitingFriends' ArrayList has one entry after userA sent userB a friend request
@@ -60,8 +34,7 @@ public class FriendlistTest
     public void should_send_friend_request ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
+
 
         //When
         userA.getFriendlist().sendFriendRequest(userB, userA);
@@ -79,8 +52,7 @@ public class FriendlistTest
     public void should_return_correct_sender_and_receiver ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
+
 
         //When
         userA.getFriendlist().sendFriendRequest(userB, userA);
@@ -97,16 +69,15 @@ public class FriendlistTest
      * tests if userA cannot send a friend request to userA
      */
     @Test
-    public void should_throw_FriendlistExeption_send_own_friend_request()
+    public void should_throw_CannotSendFriendRequestException()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
+
 
         //When
 
         //Then
-        assertThrows(FriendlistException.class, () -> userA.getFriendlist().sendFriendRequest(userA, userA));
+        assertThrows(CannotSendFriendRequestException.class, () -> userA.getFriendlist().sendFriendRequest(userA, userA));
     }
 
 
@@ -117,8 +88,6 @@ public class FriendlistTest
     public void should_accept_friend_request ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         userA.getFriendlist().sendFriendRequest(userB, userA);
 
         //When
@@ -136,17 +105,15 @@ public class FriendlistTest
      * tests if userA´s friend request cannot be accepted by userA
      */
     @Test
-    public void should_throw_FriendlistExeption_accept_own_friend_request()
+    public void should_throw_CannotAcceptFriendRequestException()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         userA.getFriendlist().sendFriendRequest(userB, userA);
 
         //When
 
         //Then
-        assertThrows(FriendlistException.class, () -> userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA));
+        assertThrows(CannotAcceptFriendRequestException.class, () -> userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA));
     }
 
 
@@ -157,8 +124,6 @@ public class FriendlistTest
     public void should_deny_friend_request_from_userA ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         userA.getFriendlist().sendFriendRequest(userB, userA);
 
         //When
@@ -179,8 +144,6 @@ public class FriendlistTest
     public void should_deny_friend_request_from_userB ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         userA.getFriendlist().sendFriendRequest(userB, userA);
 
         //When
@@ -201,8 +164,6 @@ public class FriendlistTest
     public void should_remove_accepted_friend_from_userA ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         userA.getFriendlist().sendFriendRequest(userB, userA);
         userB.getFriendlist().acceptFriendRequest(userB.getFriendlist().getWaitingFriendWithIndex(0), userB);
 
@@ -224,8 +185,6 @@ public class FriendlistTest
     public void should_remove_accepted_friend_from_userB ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         userA.getFriendlist().sendFriendRequest(userB, userA);
         userB.getFriendlist().acceptFriendRequest(userB.getFriendlist().getWaitingFriendWithIndex(0), userB);
 
@@ -287,8 +246,6 @@ public class FriendlistTest
     public void should_accept_friend_request_with_more_users ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         User userC = TestUtility.getNewUserForTesting();
         User userD = TestUtility.getNewUserForTesting();
         User userE = TestUtility.getNewUserForTesting();
@@ -325,8 +282,6 @@ public class FriendlistTest
     public void should_remove_accepted_friend_with_more_users ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
         User userC = TestUtility.getNewUserForTesting();
         User userD = TestUtility.getNewUserForTesting();
         User userE = TestUtility.getNewUserForTesting();

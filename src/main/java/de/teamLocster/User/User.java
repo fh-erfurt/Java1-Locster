@@ -10,7 +10,7 @@ package de.teamLocster.User;
 
 
 import de.teamLocster.Chat.Chat;
-import de.teamLocster.Friends.Friendlist;
+import de.teamLocster.Friends.FriendList;
 import de.teamLocster.Guestbook.Guestbook;
 
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class User {
     private String personalStatus;
     private PrivacyStatus privacyStatus;
     private OnlineStatus onlineStatus;
-    private Friendlist friendlist;
+    private FriendList friendList;
     private Guestbook guestbook;
     private ProfileText profileText;
     private ArrayList<Chat> chats;
@@ -70,7 +70,7 @@ public class User {
         this.privacyStatus     = PrivacyStatus.nobody;
         this.profileStatistic  = new ProfileStatistic();
         this.personalStatus    = "Hey I'm using Locster";
-        this.friendlist        = new Friendlist();
+        this.friendList        = new FriendList();
         this.guestbook         = new Guestbook();
         this.profileText       = new ProfileText();
         this.chats             = new ArrayList<Chat>();
@@ -87,7 +87,7 @@ public class User {
         this.personalStatus     = "";
         this.privacyStatus      = PrivacyStatus.global;
         this.onlineStatus       = OnlineStatus.online;
-        this.friendlist         = new Friendlist();
+        this.friendList         = new FriendList();
         this.guestbook          = new Guestbook();
         this.profileText        = new ProfileText();
         this.chats              = new ArrayList<Chat>();
@@ -161,12 +161,12 @@ public class User {
 
     public void setPrivacyStatus(PrivacyStatus privacyStatus) { this.privacyStatus = privacyStatus; }
 
-    public Friendlist getFriendlist() {
-        return friendlist;
+    public FriendList getFriendlist() {
+        return friendList;
     }
 
-    public void setFriendlist(Friendlist friendlist) {
-        this.friendlist = friendlist;
+    public void setFriendlist(FriendList friendList) {
+        this.friendList = friendList;
     }
 
     public Guestbook getGuestbook() {

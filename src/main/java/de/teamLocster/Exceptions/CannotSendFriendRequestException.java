@@ -5,9 +5,9 @@ Dirk Hofmann
 */
 package de.teamLocster.Exceptions;
 
-public class FriendlistException extends RuntimeException
+public class CannotSendFriendRequestException extends RuntimeException
 {
-    public FriendlistException(String message)
+    public CannotSendFriendRequestException(String message)
     {
         super(message);
         System.out.println( "Error Message: " + message );
