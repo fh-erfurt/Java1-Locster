@@ -1,9 +1,11 @@
-package de.teamLocster.User;/*
+/*
 ===================================
-Matthias Gabel
-Saskia Wohlers
+== Matthias Gabel
+== Saskia Wohlers
 ===================================
 */
+package de.teamLocster.User;
+
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
 import de.teamLocster.Exceptions.UserNameException;
@@ -23,6 +25,7 @@ public class UserContainerTest {
 
     @Test
     public void should_register_max_mustermann(){
+        //Given
         String firstname    = "Max";
         String lastname     = "Mustermann";
         String username     = "MaMus257";
@@ -31,8 +34,10 @@ public class UserContainerTest {
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.Sex sex = PersonalInfo.Sex.male;
 
+        //When
         testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex);
 
+        //Then
         assertEquals("MaMus257",                            testUserContainer.getUsers().get(0).getAccountDetails().getUsername());
         assertEquals("Max",                                 testUserContainer.getUsers().get(0).getPersonalInfo().getFirstName());
         assertEquals("Mustermann",                          testUserContainer.getUsers().get(0).getPersonalInfo().getLastName());
@@ -49,13 +54,16 @@ public class UserContainerTest {
     @Test
     public void should_change_email_from_user()
     {
+        //Given
         testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
         User testUser = testUserContainer.getUsers().get(0);
         String newEmail = "meine.geile.email@email.de";
         String falseEmail = "meine.geile.email.email.de";
 
+        //When
         testUserContainer.changeEmail(testUser, newEmail);
 
+        //Then
         assertEquals(newEmail, testUser.getAccountDetails().getMailAddress());
         assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, falseEmail)); //throws invalid Email
         assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, newEmail)); //throws email already exist
@@ -63,26 +71,32 @@ public class UserContainerTest {
     @Test
     public void should_change_password_from_user()
     {
+        //Given
         testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
         User testUser = testUserContainer.getUsers().get(0);
         String newPassword = "123Password!";
         String falsePassword = "password"; // missing number and specialchar
 
+        //When
         testUserContainer.changePassword(testUser, newPassword);
 
+        //Then
         assertEquals(newPassword, testUser.getAccountDetails().getPassword());
         assertThrows(PasswordException.class, ()->testUserContainer.changePassword(testUser, falsePassword)); //throws invalid Password
     }
     @Test
     public void should_change_username_from_user()
     {
+        //Given
         testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
         User testUser = testUserContainer.getUsers().get(0);
         String newUsername = "MaMu123465";
         String falseUsername = "MaMu"; // less then 5 chars
 
+        //When
         testUserContainer.changeUsername(testUser, newUsername);
 
+        //Then
         assertEquals(newUsername, testUser.getAccountDetails().getUsername());
         assertThrows(UserNameException.class, ()->testUserContainer.changeUsername(testUser, falseUsername)); //throws invalid Username
     }
@@ -90,6 +104,7 @@ public class UserContainerTest {
     @Test
     public void force_email_already_exist_exception()
     {
+        //Given
         String firstname    = "Max";
         String lastname     = "Mustermann";
         String username     = "MaMus257";
@@ -98,14 +113,17 @@ public class UserContainerTest {
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.Sex sex = PersonalInfo.Sex.male;
 
+        //When
         testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex); //already exist
 
+        //Then
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
     }
 
     @Test
     public void activeUser_should_contain_all_active_user()
     {
+        //Given
         for (int i = 0; i < 100; i++)
         {
             switch (i)
@@ -134,16 +152,23 @@ public class UserContainerTest {
             }
         }
 
-        ArrayList<User> activeUser = new ArrayList<User>();
+        //When
+        ArrayList<User> activeUser = testUserContainer.activeUsers();
 
-        activeUser = testUserContainer.activeUsers();
-
+        //Then
         assertEquals("Active5",  testUserContainer.getUsers().get(5).getPersonalInfo().getFirstName());
         assertEquals("Active15", testUserContainer.getUsers().get(15).getPersonalInfo().getFirstName());
         assertEquals("Active30", testUserContainer.getUsers().get(30).getPersonalInfo().getFirstName());
         assertEquals("Active56", testUserContainer.getUsers().get(56).getPersonalInfo().getFirstName());
         assertEquals("Active78", testUserContainer.getUsers().get(78).getPersonalInfo().getFirstName());
         assertEquals("Active90", testUserContainer.getUsers().get(90).getPersonalInfo().getFirstName());
+
+        assertEquals("Active5",  activeUser.get(0).getPersonalInfo().getFirstName());
+        assertEquals("Active15", activeUser.get(1).getPersonalInfo().getFirstName());
+        assertEquals("Active30", activeUser.get(2).getPersonalInfo().getFirstName());
+        assertEquals("Active56", activeUser.get(3).getPersonalInfo().getFirstName());
+        assertEquals("Active78", activeUser.get(4).getPersonalInfo().getFirstName());
+        assertEquals("Active90", activeUser.get(5).getPersonalInfo().getFirstName());
 
         // Final
         for (User user:
@@ -156,6 +181,7 @@ public class UserContainerTest {
     @Test
     public void should_store_all_emails_in_one_list()
     {
+        //Given
         String firstName    = "Max";
         String lastName     = "Mustermann";
         String username     = "MaMus257";
@@ -169,8 +195,10 @@ public class UserContainerTest {
             testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex);
         }
 
+        //When
         ArrayList<String> result = testUserContainer.getEntireEmailOfAllUsers();
 
+        //Then
         assertEquals("max.mustermann0@fh-email.de", result.get(0));
         assertEquals("max.mustermann1@fh-email.de", result.get(1));
         assertEquals("max.mustermann2@fh-email.de", result.get(2));
@@ -195,6 +223,7 @@ public class UserContainerTest {
             testUserContainer.registerUser(firstName, lastName, userName, email, password, birthday, sex);
             testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
         }
+
         //When
         User TestDeleteUser = testUserContainer.getUsers().get(50);
         testUserContainer.deleteUser(TestDeleteUser);
