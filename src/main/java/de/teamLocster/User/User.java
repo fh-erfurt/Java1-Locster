@@ -77,23 +77,6 @@ public class User {
         this.blockedUsers      = new ArrayList<User>();
     }
 
-    /**
-     * THIS CONSTRUCTOR SHOULD ONLY BE USED FOR TESTING
-     */
-    private User() {
-        this.personalInfo       = new PersonalInfo("Max", "Mustermann", new Date(1999, 3,2), PersonalInfo.Sex.male);
-        this.profileStatistic   = new ProfileStatistic();
-        this.accountDetails     = new AccountDetails("MaMu257", "max.mustermann@fh-email.de", "PW123456");
-        this.personalStatus     = "";
-        this.privacyStatus      = PrivacyStatus.global;
-        this.onlineStatus       = OnlineStatus.online;
-        this.friendList         = new FriendList();
-        this.guestbook          = new Guestbook();
-        this.profileText        = new ProfileText();
-        this.chats              = new ArrayList<Chat>();
-        this.blockedUsers       = new ArrayList<User>();
-    }
-
     /*
     ==================
     == User functions
@@ -104,17 +87,6 @@ public class User {
 
     public void deleteBlockUser(User user) {
         blockedUsers.remove(user);
-    }
-
-
-    /**
-     *
-     * toString It is called when a user outputs to the console, thus ensuring legible display and meaningful information
-     */
-
-    public String toString()
-    {
-        return "User{'" + personalInfo.getFirstName() + " " + personalInfo.getLastName() + "'}";
     }
 
      /*
