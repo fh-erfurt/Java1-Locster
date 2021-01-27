@@ -24,10 +24,7 @@ public class ProfileTextTest {
         testUser.getProfileText().changeProfileText(newText);
 
 
-        StringBuilder temp = new StringBuilder();
-        temp.append("!".repeat(10000));
-
-        String tooBigString = "This will be to big!" + temp;
+        String tooBigString = "This will be to big!" + "!".repeat(10000);
 
         //Then
         assertEquals(newText, testUser.getProfileText().getContent());
