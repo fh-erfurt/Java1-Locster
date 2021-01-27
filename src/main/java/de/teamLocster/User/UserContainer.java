@@ -49,10 +49,14 @@ public class UserContainer
         this.users.add(user);
     }
 
+    /**
+     *
+     * @return ArrayList of all activeUser
+     */
     public ArrayList<User> activeUsers()
     {
         ArrayList<User> activeUser = new ArrayList<User>();
-        for (User user : this.users) // for-each user in users
+        for (User user : this.users)
         {
             if (user.getOnlineStatus() == User.OnlineStatus.online)
             {
@@ -67,7 +71,7 @@ public class UserContainer
         this.users.removeIf(user -> user == userToDelete);
     }
 
-    public boolean checkEmail(String email) throws EmailException//TODO: access modifier may have to be changed
+    private boolean checkEmail(String email) throws EmailException//TODO: access modifier may have to be changed
     {
         if (ValidationUtility.isValidEmail(email))
         {
@@ -86,7 +90,7 @@ public class UserContainer
         }
     }
 
-    public boolean checkPassword(String password) throws PasswordException // TODO: checkPassword might be extendend in future with more validations (next semester)
+    private boolean checkPassword(String password) throws PasswordException // TODO: checkPassword might be extendend in future with more validations (next semester)
     {
         if (ValidationUtility.isValidPassword(password))
         {
@@ -98,7 +102,7 @@ public class UserContainer
         }
     }
 
-    public boolean checkUsername(String username) throws UserNameException // TODO: checkPassword might be extendend in future with more validations (next semester)
+    private boolean checkUsername(String username) throws UserNameException // TODO: checkPassword might be extendend in future with more validations (next semester)
     {
         if(ValidationUtility.isValidUsername(username))
         {
