@@ -152,7 +152,7 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     == ENUM
     ===================================
     */
-      enum exampleFlag
+      enum Example
       {
              value1,
              value2,
@@ -164,7 +164,7 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     ===================================
     */
     
-    private exmpleFlag example = exampleFlag.value1;
+    private Exmple example = Example.value1;
      
 <br>
 
