@@ -6,9 +6,8 @@ Saskia Wohlers
 */
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
-import de.teamLocster.Exceptions.UsernameException;
+import de.teamLocster.Exceptions.UserNameException;
 import de.teamLocster.Utility.TestUtility;
-import de.teamLocster.Utility.ValidationUtility;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -92,7 +91,7 @@ public class UserContainerTest {
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "fh.email.de", password, birthdate, sex));
         assertThrows(PasswordException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "email@email.de", "password", birthdate, sex));
-        assertThrows(UsernameException.class, () -> testUserContainer.registerUser(firstname, lastname, "Max", "fh.email@de", password, birthdate, sex));
+        assertThrows(UserNameException.class, () -> testUserContainer.registerUser(firstname, lastname, "Max", "fh.email@de", password, birthdate, sex));
     }
 
     @Test
@@ -134,7 +133,7 @@ public class UserContainerTest {
         testUserContainer.changeUsername(testUser, newUsername);
         //Then
         assertEquals(newUsername, testUser.getAccountDetails().getUsername());
-        assertThrows(UsernameException.class, ()->testUserContainer.changeUsername(testUser, falseUsername)); //throws invalid Username
+        assertThrows(UserNameException.class, ()->testUserContainer.changeUsername(testUser, falseUsername)); //throws invalid Username
     }
 
     @Test

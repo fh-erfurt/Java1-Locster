@@ -7,7 +7,7 @@ package de.teamLocster.User;
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
-import de.teamLocster.Exceptions.UsernameException;
+import de.teamLocster.Exceptions.UserNameException;
 import de.teamLocster.Utility.ValidationUtility;
 
 import java.util.ArrayList;
@@ -36,7 +36,7 @@ public class UserContainer
     ===================================
     */
     public void registerUser(String firstName, String lastName, String userName, String email,
-                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException, UsernameException
+                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException, UserNameException
     {
         this.checkEmail(email);
 
@@ -98,7 +98,7 @@ public class UserContainer
         }
     }
 
-    public boolean checkUsername(String username) throws UsernameException // TODO: checkPassword might be extendend in future with more validations (next semester)
+    public boolean checkUsername(String username) throws UserNameException // TODO: checkPassword might be extendend in future with more validations (next semester)
     {
         if(ValidationUtility.isValidUsername(username))
         {
@@ -106,7 +106,7 @@ public class UserContainer
         }
         else
         {
-            throw new UsernameException("Invalid Username!");
+            throw new UserNameException("Invalid Username!");
         }
     }
 
