@@ -1,6 +1,6 @@
 /*
 ===================================
-Dirk Hofmann
+== Dirk Hofmann
 ===================================
 */
 package de.teamLocster.Friends;
@@ -16,16 +16,16 @@ public class FriendList
 
     /*
     =========================
-    Variable
+    == Variable
     =========================
     */
 
-    private ArrayList<FriendListItem> acceptedFriends; // accepted friends are stored here
-    private ArrayList<FriendRequest> waitingFriends;   // waiting requests are stored here
+    private ArrayList<FriendListItem> acceptedFriends;
+    private ArrayList<FriendRequest> waitingFriends;
 
     /*
     ===================================
-    Constructors
+    == Constructors
     ===================================
     */
 
@@ -37,14 +37,14 @@ public class FriendList
 
     /*
     ==================
-    Methods
+    == Methods
     ==================
     */
 
     /**
      * Calls methods to add entries in 'waitingFriends' to both the sender and receiver, throws Exceptions if sender == receiver
-     * @param receiver
-     * @param sender
+     * @param receiver == receiving user
+     * @param sender == sending user
      */
     public void sendFriendRequest(User receiver, User sender) throws CannotSendFriendRequestException
     {
@@ -58,9 +58,9 @@ public class FriendList
     }
 
     /**
-     * Calls methods to remove entries from 'acceptedFriends' from both users in the 'friendlistItem'
+     * Calls methods to remove entries in 'acceptedFriends' from both users in the 'friendlistItem'
      * @param friendListItem == to be removed entry
-     * @param executingUser
+     * @param executingUser == calling user
      */
     public void removeFriend(FriendListItem friendListItem, User executingUser)
     {
@@ -72,7 +72,7 @@ public class FriendList
 
     /**
      * Searches 'acceptedFriends' until 'toBeRemovedUser' is found, removes the entry and returns
-     * @param toBeRemovedUser
+     * @param toBeRemovedUser == to be removed user
      */
     private void removeEntryFromAcceptedFriend(User toBeRemovedUser)
     {
@@ -88,9 +88,9 @@ public class FriendList
 
 
     /**
-     * Calls methods to add entries in 'acceptedFriends' to both users in the 'friendRequest', calls methods to remove entries from 'waitingFriends' from both users in the 'friendRequest'
-     * @param friendRequest
-     * @param executingUser
+     * Calls methods to add entries in 'acceptedFriends' to both users in the 'friendRequest', calls methods to remove entries in 'waitingFriends' from both users in the 'friendRequest'
+     * @param friendRequest == to be accepted and removed friend request
+     * @param executingUser == calling user
      */
     public void acceptFriendRequest(FriendRequest friendRequest, User executingUser) throws CannotAcceptFriendRequestException
     {
@@ -111,8 +111,8 @@ public class FriendList
 
 
     /**
-     * Calls methods to remove entries from 'waitingFriends' from both users in the 'friendRequest'
-     * @param friendRequest
+     * Calls methods to remove entries in 'waitingFriends' from both users in the 'friendRequest'
+     * @param friendRequest == to be removed friend request
      */
     public void denyFriendRequest(FriendRequest friendRequest)
     {
@@ -126,14 +126,14 @@ public class FriendList
 
     /**
      * Adds entry 'friendlistItem' to 'acceptedFriends'
-     * @param friendlistItem
+     * @param friendListItem == to be added friendListItem
      */
-    private void addEntryToAcceptedFriends(FriendListItem friendlistItem) { this.acceptedFriends.add(friendlistItem); }
+    private void addEntryToAcceptedFriends(FriendListItem friendListItem) { this.acceptedFriends.add(friendListItem); }
 
 
     /**
      * Searches 'waitingFriends' until an entry with 'user' is found, removes the entry and returns
-     * @param user
+     * @param user == user which needs to be found to remove entry
      * @param isSender == it´s necessary to know if 'user' is the 'sender' or 'receiver' in the entry
      */
     private void removeEntryFromWaitingFriends(User user, boolean isSender)
@@ -162,51 +162,25 @@ public class FriendList
 
     /**
      * Adds entry 'friendRequest' to 'waitingFriends'
-     * @param friendRequest
+     * @param friendRequest == to be added entry
      */
     private void addEntryToWaitingFriends(FriendRequest friendRequest) { this.waitingFriends.add(friendRequest); }
 
     /*
     ===================================
-    Getter & Setter
+    == Getter & Setter
     ===================================
     */
 
-    /**
-     * Getter acceptedFriends
-     * @return ArrayList 'acceptedFriends'
-     */
     public ArrayList<FriendListItem> getAcceptedFriends() { return acceptedFriends; }
 
-    /**
-     * Getter acceptedFriends with index
-     * @param index
-     * @return entry with index from ArrayList 'acceptedFriends'
-     */
     public FriendListItem getAcceptedFriendWithIndex(int index) { return this.acceptedFriends.get(index); }
 
-    /**
-     * Setter acceptedFriends
-     * @param acceptedFriends
-     */
     public void setAcceptedFriends(ArrayList<FriendListItem> acceptedFriends) { this.acceptedFriends = acceptedFriends; }
 
-    /**
-     * Getter waitingFriends
-     * @return ArrayList 'waitingFriends'
-     */
     public ArrayList<FriendRequest> getWaitingFriends() { return waitingFriends; }
 
-    /**
-     * Getter waitingFriends with index
-     * @param index
-     * @return entry with index from ArrayList 'waitingFriends'
-     */
     public FriendRequest getWaitingFriendWithIndex(int index) { return this.waitingFriends.get(index); }
 
-    /**
-     * Setter waitingFriends
-     * @param waitingFriends
-     */
     public void setWaitingFriends(ArrayList<FriendRequest> waitingFriends) { this.waitingFriends = waitingFriends; }
 }

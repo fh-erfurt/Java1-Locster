@@ -1,6 +1,6 @@
 /*
 ===================================
-Dirk Hofmann
+== Dirk Hofmann
 ===================================
 */
 package de.teamLocster.Friends;
@@ -19,12 +19,28 @@ public class FriendListTest
 {
     User userA;
     User userB;
+    User userC;
+    User userD;
+    User userE;
+    User userF;
+    User userG;
+    User userH;
+    User userI;
+    User userJ;
 
     @BeforeEach
     public void init()
     {
         userA = TestUtility.getNewUserForTesting();
         userB = TestUtility.getNewUserForTesting();
+        userC = TestUtility.getNewUserForTesting();
+        userD = TestUtility.getNewUserForTesting();
+        userE = TestUtility.getNewUserForTesting();
+        userF = TestUtility.getNewUserForTesting();
+        userG = TestUtility.getNewUserForTesting();
+        userH = TestUtility.getNewUserForTesting();
+        userI = TestUtility.getNewUserForTesting();
+        userJ = TestUtility.getNewUserForTesting();
     }
 
     /**
@@ -211,16 +227,7 @@ public class FriendListTest
     public void should_send_friend_requests_with_more_users ()
     {
         //Given
-        User userA = TestUtility.getNewUserForTesting();
-        User userB = TestUtility.getNewUserForTesting();
-        User userC = TestUtility.getNewUserForTesting();
-        User userD = TestUtility.getNewUserForTesting();
-        User userE = TestUtility.getNewUserForTesting();
-        User userF = TestUtility.getNewUserForTesting();
-        User userG = TestUtility.getNewUserForTesting();
-        User userH = TestUtility.getNewUserForTesting();
-        User userI = TestUtility.getNewUserForTesting();
-        User userJ = TestUtility.getNewUserForTesting();
+
 
         //When
         userB.getFriendlist().sendFriendRequest(userA, userB);
@@ -246,14 +253,6 @@ public class FriendListTest
     public void should_accept_friend_request_with_more_users ()
     {
         //Given
-        User userC = TestUtility.getNewUserForTesting();
-        User userD = TestUtility.getNewUserForTesting();
-        User userE = TestUtility.getNewUserForTesting();
-        User userF = TestUtility.getNewUserForTesting();
-        User userG = TestUtility.getNewUserForTesting();
-        User userH = TestUtility.getNewUserForTesting();
-        User userI = TestUtility.getNewUserForTesting();
-        User userJ = TestUtility.getNewUserForTesting();
         userB.getFriendlist().sendFriendRequest(userA, userB);
         userC.getFriendlist().sendFriendRequest(userA, userC);
         userD.getFriendlist().sendFriendRequest(userA, userD);
@@ -282,14 +281,6 @@ public class FriendListTest
     public void should_remove_accepted_friend_with_more_users ()
     {
         //Given
-        User userC = TestUtility.getNewUserForTesting();
-        User userD = TestUtility.getNewUserForTesting();
-        User userE = TestUtility.getNewUserForTesting();
-        User userF = TestUtility.getNewUserForTesting();
-        User userG = TestUtility.getNewUserForTesting();
-        User userH = TestUtility.getNewUserForTesting();
-        User userI = TestUtility.getNewUserForTesting();
-        User userJ = TestUtility.getNewUserForTesting();
         userB.getFriendlist().sendFriendRequest(userA, userB);
         userC.getFriendlist().sendFriendRequest(userA, userC);
         userD.getFriendlist().sendFriendRequest(userA, userD);

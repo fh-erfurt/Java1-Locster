@@ -1,6 +1,6 @@
 /*
 ===================================
-Dirk Hofmann
+== Dirk Hofmann
 ===================================
 */
 package de.teamLocster.Friends;
@@ -13,7 +13,7 @@ public class FriendRequest
 
     /*
     =========================
-    Variable
+    == Variable
     =========================
     */
 
@@ -22,7 +22,7 @@ public class FriendRequest
 
     /*
     ===================================
-    Constructors
+    == Constructors
     ===================================
     */
 
@@ -34,7 +34,7 @@ public class FriendRequest
 
     /*
     ===================================
-    ==  de.teamLocster.Friends.FriendRequest Getter & Setter
+    ==  Getter & Setter
     ===================================
     */
 
