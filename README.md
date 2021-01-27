@@ -196,7 +196,12 @@ Link zur Präsentation
 <details>
 <summary>Diagramme</summary><br>
 
-[Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Screenshot/JAVA1%20-%20Klassendiagramm.png)
+![Klassendiagramm](Java1-Locster/Projektdokumentation/screenshot/klassendiagramm.png) <br>
+![chat](Java1-Locster/Projektdokumentation/screenshot/chat.png) <br>
+![friend](Java1-Locster/Projektdokumentation/screenshot/friend.png) <br>
+![guestbook](Java1-Locster/Projektdokumentation/screenshot/guestbook.png) <br>
+![user](Java1-Locster/Projektdokumentation/screenshot/.png) <br>
+![rest](Java1-Locster/Projektdokumentation/screenshot/.png) <br>
 
 VERSCHIEDENE UML DIAGRAMME MIT ERKLÄRUNG
 </details>
