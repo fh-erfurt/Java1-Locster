@@ -196,7 +196,7 @@ Link zur Präsentation
 <details>
 <summary>Diagramme</summary><br>
 
-LINK ZU SCREENSHOT ZU KLASSENDIAGRAMM
+[Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Screenshot/JAVA1%20-%20Klassendiagramm.png)
 
 VERSCHIEDENE UML DIAGRAMME MIT ERKLÄRUNG
 </details>
