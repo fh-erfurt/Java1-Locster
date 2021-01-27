@@ -89,17 +89,6 @@ public class User {
         blockedUsers.remove(user);
     }
 
-
-    /**
-     *
-     * toString It is called when a user outputs to the console, thus ensuring legible display and meaningful information
-     */
-
-    public String toString()
-    {
-        return "User{'" + personalInfo.getFirstName() + " " + personalInfo.getLastName() + "'}";
-    }
-
      /*
     ==========================
     == User setter und getter
