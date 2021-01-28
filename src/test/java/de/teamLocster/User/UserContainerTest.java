@@ -1,14 +1,15 @@
-package de.teamLocster.User;/*
+/*
 ===================================
-Matthias Gabel
-Saskia Wohlers
+== Matthias Gabel
+== Saskia Wohlers
 ===================================
 */
+package de.teamLocster.User;
+
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
-import de.teamLocster.Exceptions.UsernameException;
+import de.teamLocster.Exceptions.UserNameException;
 import de.teamLocster.Utility.TestUtility;
-import de.teamLocster.Utility.ValidationUtility;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -20,56 +21,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserContainerTest {
 
-    // Given
     UserContainer testUserContainer = new UserContainer();
 
     @Test
-    public void should_test_if_email_is_correct_and_unique()
-    {
-        //Given
-        User Test1 = TestUtility.getNewUserForTesting();
-        User Test2 = TestUtility.getNewUserForTesting();
-        Test2.getAccountDetails().setMailAddress("User50@email.de");
-
-        for (int i = 0; i < 100; i++)
-        {
-            String firstName = "Userfirstname" + i;
-            String lastName = "Userlastname" + i;
-            String userName = "Username" + 1;
-            String email = "User" + i + "@email.de";
-            String password = "ActiveUserPW" + i + "!";
-            Date birthday = new Date(1999, Calendar.JUNE,22);
-            PersonalInfo.Sex sex = PersonalInfo.Sex.uni;
-            testUserContainer.registerUser(firstName, lastName, userName, email, password, birthday, sex);
-            testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
-        }
-        //When
-        boolean result1 = testUserContainer.checkEmail(Test1.getAccountDetails().getMailAddress());
-
-        //Then
-        assertTrue(result1);
-        assertThrows(EmailException.class, ()->testUserContainer.checkEmail(Test2.getAccountDetails().getMailAddress()));
-    }
-
-    @Test
-    public void should_test_if_password_is_valid()
-    {
-
-        //Given
-        String validPassword = "Pikachu?0";
-        String invalidPassword = "picho";
-
-        //When
-        boolean result1 = testUserContainer.checkPassword(validPassword);
-
-        //Then
-        assertTrue(result1);
-        assertThrows(PasswordException.class, () -> testUserContainer.checkPassword(invalidPassword));
-    }
-
-    @Test
     public void should_register_max_mustermann(){
-        // Given
+        //Given
         String firstname    = "Max";
         String lastname     = "Mustermann";
         String username     = "MaMus257";
@@ -78,10 +34,10 @@ public class UserContainerTest {
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.Sex sex = PersonalInfo.Sex.male;
 
-        // When
+        //When
         testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex);
 
-        // Then
+        //Then
         assertEquals("MaMus257",                            testUserContainer.getUsers().get(0).getAccountDetails().getUsername());
         assertEquals("Max",                                 testUserContainer.getUsers().get(0).getPersonalInfo().getFirstName());
         assertEquals("Mustermann",                          testUserContainer.getUsers().get(0).getPersonalInfo().getLastName());
@@ -92,7 +48,7 @@ public class UserContainerTest {
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "fh.email.de", password, birthdate, sex));
         assertThrows(PasswordException.class, () -> testUserContainer.registerUser(firstname, lastname, username, "email@email.de", "password", birthdate, sex));
-        assertThrows(UsernameException.class, () -> testUserContainer.registerUser(firstname, lastname, "Max", "fh.email@de", password, birthdate, sex));
+        assertThrows(UserNameException.class, () -> testUserContainer.registerUser(firstname, lastname, "Max", "fh.email@de", password, birthdate, sex));
     }
 
     @Test
@@ -103,8 +59,10 @@ public class UserContainerTest {
         User testUser = testUserContainer.getUsers().get(0);
         String newEmail = "meine.geile.email@email.de";
         String falseEmail = "meine.geile.email.email.de";
+
         //When
         testUserContainer.changeEmail(testUser, newEmail);
+
         //Then
         assertEquals(newEmail, testUser.getAccountDetails().getMailAddress());
         assertThrows(EmailException.class, ()->testUserContainer.changeEmail(testUser, falseEmail)); //throws invalid Email
@@ -113,12 +71,15 @@ public class UserContainerTest {
     @Test
     public void should_change_password_from_user()
     {
+        //Given
         testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
         User testUser = testUserContainer.getUsers().get(0);
         String newPassword = "123Password!";
         String falsePassword = "password"; // missing number and specialchar
+
         //When
         testUserContainer.changePassword(testUser, newPassword);
+
         //Then
         assertEquals(newPassword, testUser.getAccountDetails().getPassword());
         assertThrows(PasswordException.class, ()->testUserContainer.changePassword(testUser, falsePassword)); //throws invalid Password
@@ -126,15 +87,18 @@ public class UserContainerTest {
     @Test
     public void should_change_username_from_user()
     {
+        //Given
         testUserContainer.registerUser("Max", "Mustermann", "MaMu123", "max.mustermann@fh-email.de", "Password123?", new Date(1999, Calendar.JUNE,22), PersonalInfo.Sex.uni);
         User testUser = testUserContainer.getUsers().get(0);
         String newUsername = "MaMu123465";
         String falseUsername = "MaMu"; // less then 5 chars
+
         //When
         testUserContainer.changeUsername(testUser, newUsername);
+
         //Then
         assertEquals(newUsername, testUser.getAccountDetails().getUsername());
-        assertThrows(UsernameException.class, ()->testUserContainer.changeUsername(testUser, falseUsername)); //throws invalid Username
+        assertThrows(UserNameException.class, ()->testUserContainer.changeUsername(testUser, falseUsername)); //throws invalid Username
     }
 
     @Test
@@ -149,50 +113,17 @@ public class UserContainerTest {
         Date   birthdate    = new Date(1999, Calendar.JUNE,22);
         PersonalInfo.Sex sex = PersonalInfo.Sex.male;
 
+        //When
         testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex); //already exist
-        //When
+
         //Then
         assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
-
-    }
-
-    @Test
-    public void force_email_invalid_exception()
-    {
-        //Given
-        String firstname    = "Max";
-        String lastname     = "Mustermann";
-        String username     = "MaMus257";
-        String email        = "max.mustermann.fh-email.de"; // missing @
-        String password     = "Password123?";
-        Date   birthdate    = new Date(1999, Calendar.JUNE,22);
-        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
-        //When
-        //Then
-        assertThrows(EmailException.class, () -> testUserContainer.registerUser(firstname, lastname, username, email, password, birthdate, sex));
-    }
-
-    @Test
-    public void should_throw_PasswordException()
-    {
-        // Given
-        String firstName    = "Max";
-        String lastName     = "Mustermann";
-        String username     = "MaMus257";
-        String email        = "max.mustermann@fh-email.de";
-        String password     = "password";                   // missing capital, numbers, special chars
-        Date   birthdate    = new Date(1999, Calendar.JUNE,22);
-        PersonalInfo.Sex sex = PersonalInfo.Sex.male;
-        // When
-
-        // Then
-        assertThrows(PasswordException.class, () -> testUserContainer.registerUser(firstName, lastName, username, email, password, birthdate, sex));
     }
 
     @Test
     public void activeUser_should_contain_all_active_user()
     {
-        // Given
+        //Given
         for (int i = 0; i < 100; i++)
         {
             switch (i)
@@ -221,17 +152,24 @@ public class UserContainerTest {
             }
         }
 
-        ArrayList<User> activeUser = new ArrayList<User>();
+        //When
+        ArrayList<User> activeUser = testUserContainer.activeUsers();
 
-        // When
-            activeUser = testUserContainer.activeUsers();
-        // Then
-        assertEquals("Active5", testUserContainer.getUsers().get(5).getPersonalInfo().getFirstName());
+        //Then
+        assertEquals("Active5",  testUserContainer.getUsers().get(5).getPersonalInfo().getFirstName());
         assertEquals("Active15", testUserContainer.getUsers().get(15).getPersonalInfo().getFirstName());
         assertEquals("Active30", testUserContainer.getUsers().get(30).getPersonalInfo().getFirstName());
         assertEquals("Active56", testUserContainer.getUsers().get(56).getPersonalInfo().getFirstName());
         assertEquals("Active78", testUserContainer.getUsers().get(78).getPersonalInfo().getFirstName());
         assertEquals("Active90", testUserContainer.getUsers().get(90).getPersonalInfo().getFirstName());
+
+        assertEquals("Active5",  activeUser.get(0).getPersonalInfo().getFirstName());
+        assertEquals("Active15", activeUser.get(1).getPersonalInfo().getFirstName());
+        assertEquals("Active30", activeUser.get(2).getPersonalInfo().getFirstName());
+        assertEquals("Active56", activeUser.get(3).getPersonalInfo().getFirstName());
+        assertEquals("Active78", activeUser.get(4).getPersonalInfo().getFirstName());
+        assertEquals("Active90", activeUser.get(5).getPersonalInfo().getFirstName());
+
         // Final
         for (User user:
              testUserContainer.getUsers()) {
@@ -285,6 +223,7 @@ public class UserContainerTest {
             testUserContainer.registerUser(firstName, lastName, userName, email, password, birthday, sex);
             testUserContainer.getUsers().get(i).setOnlineStatus(User.OnlineStatus.online);
         }
+
         //When
         User TestDeleteUser = testUserContainer.getUsers().get(50);
         testUserContainer.deleteUser(TestDeleteUser);

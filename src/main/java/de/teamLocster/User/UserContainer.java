@@ -1,19 +1,17 @@
 /*
 ===================================
-Matthias Gabel
+== Matthias Gabel
 ===================================
 */
 package de.teamLocster.User;
 
 import de.teamLocster.Exceptions.EmailException;
 import de.teamLocster.Exceptions.PasswordException;
-import de.teamLocster.Exceptions.UsernameException;
+import de.teamLocster.Exceptions.UserNameException;
 import de.teamLocster.Utility.ValidationUtility;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class UserContainer
 {
@@ -37,24 +35,28 @@ public class UserContainer
     == Methods
     ===================================
     */
-    public void registerUser(String firstname, String lastname, String username, String email,
-                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException, UsernameException
+    public void registerUser(String firstName, String lastName, String userName, String email,
+                             String password, Date birthdate, PersonalInfo.Sex sex) throws EmailException, PasswordException, UserNameException
     {
         this.checkEmail(email);
 
         this.checkPassword(password);
 
-        this.checkUsername(username);
+        this.checkUsername(userName);
 
-        final User user = new User(firstname, lastname, username, email, password, birthdate, sex);
+        final User user = new User(firstName, lastName, userName, email, password, birthdate, sex);
 
         this.users.add(user);
     }
 
+    /**
+     *
+     * @return ArrayList of all activeUser
+     */
     public ArrayList<User> activeUsers()
     {
         ArrayList<User> activeUser = new ArrayList<User>();
-        for (User user : this.users) // for-each user in users
+        for (User user : this.users)
         {
             if (user.getOnlineStatus() == User.OnlineStatus.online)
             {
@@ -69,12 +71,7 @@ public class UserContainer
         this.users.removeIf(user -> user == userToDelete);
     }
 
-    public void sortBy()
-    {
-        // TODO: Add functionality
-    }
-
-    public boolean checkEmail(String email) throws EmailException//TODO: access modifier may have to be changed
+    private boolean checkEmail(String email) throws EmailException//TODO: access modifier may have to be changed
     {
         if (ValidationUtility.isValidEmail(email))
         {
@@ -93,7 +90,7 @@ public class UserContainer
         }
     }
 
-    public boolean checkPassword(String password) throws PasswordException// TODO: checkPassword might be extendend in future with more validations (next semester)
+    private boolean checkPassword(String password) throws PasswordException // TODO: checkPassword might be extendend in future with more validations (next semester)
     {
         if (ValidationUtility.isValidPassword(password))
         {
@@ -105,7 +102,7 @@ public class UserContainer
         }
     }
 
-    public boolean checkUsername(String username) throws UsernameException
+    private boolean checkUsername(String username) throws UserNameException // TODO: checkPassword might be extendend in future with more validations (next semester)
     {
         if(ValidationUtility.isValidUsername(username))
         {
@@ -113,7 +110,7 @@ public class UserContainer
         }
         else
         {
-            throw new UsernameException("Invalid Username!");
+            throw new UserNameException("Invalid Username!");
         }
     }
 
@@ -138,11 +135,6 @@ public class UserContainer
 
         user.getAccountDetails().setUsername(newUsername);
     }
-
-
-
-
-
 
 
     public ArrayList<String> getEntireEmailOfAllUsers()
