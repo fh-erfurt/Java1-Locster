@@ -1,8 +1,8 @@
 /*
-===================================
+=================
 Molham Al-khodari
 Jakob Gensel
-===================================
+=================
 */
 package de.teamLocster.Chat;
 
@@ -11,18 +11,18 @@ import java.util.ArrayList;
 public class Chat
 {
     /*
-    =========================
-    Variable
-    =========================
+    =========
+    Variables
+    =========
     */
 
     private String name;
     private ArrayList<Message> messages;
 
     /*
-    ===============
+    ============
     Constructors
-    ===============
+    ============
     */
 
     public Chat(String chatName)
@@ -39,9 +39,9 @@ public class Chat
 
 
     /*
-    ==================
+    =======
     Methods
-    ==================
+    =======
     */
 
     public void receiveMessage(Message message)
@@ -55,17 +55,13 @@ public class Chat
     }
 
     /*
-    ==========================
-    setter & getter
-    ==========================
+    =================
+    Setters & Getters
+    =================
     */
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public ArrayList<Message> getMessages() {

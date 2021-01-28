@@ -1,12 +1,10 @@
 /*
-===================================
-== Jakob Gensel         05.01.2020
-===================================
+===============
+== Jakob Gensel
+===============
 */
 package de.teamLocster.Chat;
 
-import de.teamLocster.Chat.Chat;
-import de.teamLocster.Chat.Message;
 import de.teamLocster.User.User;
 import de.teamLocster.Exceptions.MessageNotFoundException;
 import de.teamLocster.Exceptions.MessageNotDeletedException;
@@ -26,6 +24,7 @@ public class MessageTest
     @BeforeEach
     void prepare()
     {
+        // Given
         testChat = new Chat();
         testUser = TestUtility.getNewUserForTesting();
     }
@@ -36,9 +35,11 @@ public class MessageTest
     @Test
     void message_should_contain_given_text()
     {
+        // When
         String testText = "Hi, wie geht's?";
         Message testMessage = new Message(testText, testUser);
 
+        // Then
         Assertions.assertEquals(testText, testMessage.getText(), "Given message is not the same as received message.");
     }
 
@@ -50,11 +51,17 @@ public class MessageTest
     @Test
     void message_should_be_saved_to_and_deleted_from_given_chat() throws MessageNotFoundException, MessageNotDeletedException
     {
+        //Given
         Message testMsg = new Message("test text", testUser);
+
+        // When
         testMsg.sendToChat(testChat);
+        // Then
         if(!testChat.getMessages().contains(testMsg)) throw new MessageNotFoundException("Message was not found in chat.");
 
+        // When
         testMsg.deleteInChat(testChat);
+        // Then
         if (testChat.getMessages().contains(testMsg)) throw new MessageNotDeletedException("Message was not deleted from chat.");
     }
 
@@ -66,11 +73,13 @@ public class MessageTest
     @Test
     void comparing_datetime_should_return_relative_value() throws AssertionError
     {
-        testChat = new Chat();
+        // Given
         Message oldMsg = new Message("old", testUser);
         Message newMsg = new Message("new", testUser);
+
         try
         {
+            //When
             oldMsg.sendToChat(testChat);
             Thread.sleep(10);
             newMsg.sendToChat(testChat);
@@ -82,10 +91,35 @@ public class MessageTest
             throw new AssertionError("Exception message: " + e.getMessage());
         }
 
+        // Then
         Assertions.assertEquals(-1, oldMsg.getSentAt().compareTo(newMsg.getSentAt()), "Comparing should return that the old message is older.");
         Assertions.assertEquals( 1, newMsg.getSentAt().compareTo(oldMsg.getSentAt()), "Comparing should return that the new message is newer.");
         Assertions.assertEquals( 0, oldMsg.getSentAt().compareTo(oldMsg.getSentAt()), "Comparing should return that the messages are equally old.");
         Assertions.assertEquals( 0, newMsg.getSentAt().compareTo(newMsg.getSentAt()), "Comparing should return that the messages are equally new.");
+    }
+
+    @Test
+    void reading_message_should_save_user()
+    {
+        //Given
+        User sendingUser = TestUtility.getNewUserForTesting();
+        Message testMsg = new Message("read me!", sendingUser);
+
+        // When
+        testMsg.read(testUser);
+
+        // Then
+        Assertions.assertEquals(true, testMsg.getReadBy().contains(testUser), "User should appear in readBy list.");
+    }
+
+    @Test
+    void message_should_contain_user_it_was_sent_by()
+    {
+        // When
+        Message testMsg = new Message("sup?", testUser);
+
+        // Then
+        Assertions.assertEquals(testUser, testMsg.getSender(), "Message should contain sender.");
     }
 
     @AfterEach
