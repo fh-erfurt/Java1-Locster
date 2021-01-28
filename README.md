@@ -209,6 +209,12 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 ![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exceptions%26validation.png) <br>
 
 VERSCHIEDENE UML DIAGRAMME MIT ERKLÄRUNG
+
+![registerUser](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/registerUser.png) <br>
+![check](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/check.png) <br>
+![isValidEmail](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidEmail.png) <br>
+![isValidPassword](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidPassword%26Username.png) <br>
+
 </details>
 
 <details>
