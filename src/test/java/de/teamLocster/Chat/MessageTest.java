@@ -1,7 +1,7 @@
 /*
-===================================
-== Jakob Gensel         05.01.2020
-===================================
+===============
+== Jakob Gensel
+===============
 */
 package de.teamLocster.Chat;
 
@@ -74,7 +74,6 @@ public class MessageTest
     void comparing_datetime_should_return_relative_value() throws AssertionError
     {
         // Given
-        testChat = new Chat();
         Message oldMsg = new Message("old", testUser);
         Message newMsg = new Message("new", testUser);
 
@@ -97,6 +96,30 @@ public class MessageTest
         Assertions.assertEquals( 1, newMsg.getSentAt().compareTo(oldMsg.getSentAt()), "Comparing should return that the new message is newer.");
         Assertions.assertEquals( 0, oldMsg.getSentAt().compareTo(oldMsg.getSentAt()), "Comparing should return that the messages are equally old.");
         Assertions.assertEquals( 0, newMsg.getSentAt().compareTo(newMsg.getSentAt()), "Comparing should return that the messages are equally new.");
+    }
+
+    @Test
+    void reading_message_should_save_user()
+    {
+        //Given
+        User sendingUser = TestUtility.getNewUserForTesting();
+        Message testMsg = new Message("read me!", sendingUser);
+
+        // When
+        testMsg.read(testUser);
+
+        // Then
+        Assertions.assertEquals(true, testMsg.getReadBy().contains(testUser), "User should appear in readBy list.");
+    }
+
+    @Test
+    void message_should_contain_user_it_was_sent_by()
+    {
+        // When
+        Message testMsg = new Message("sup?", testUser);
+
+        // Then
+        Assertions.assertEquals(testUser, testMsg.getSender(), "Message should contain sender.");
     }
 
     @AfterEach

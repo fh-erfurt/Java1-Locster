@@ -77,6 +77,16 @@ public class Message
     =================
     */
 
+    public User getSender()
+    {
+        return sender;
+    }
+
+    public ArrayList<User> getReadBy()
+    {
+        return readBy;
+    }
+
     public String getText()
     {
         return text;

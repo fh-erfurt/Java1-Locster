@@ -1,8 +1,8 @@
 /*
-=====================
+====================
 == Molham Al khodari
 == Jakob Gensel
-=====================
+====================
 */
 package de.teamLocster.Chat;
 
