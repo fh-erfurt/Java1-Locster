@@ -5,43 +5,31 @@ Saskia Wohlers
 */
 package de.teamLocster.User;
 
+import de.teamLocster.Utility.TestUtility;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserTest {
 
     @Test
-    public void should_add_User_to_blocked_Users(){
+    public void user_should_be_added_to_and_deleted_from_blockedUsers(){
 
         //Given
+        User mainUser = TestUtility.getNewUserForTesting();
         User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female);
-        ArrayList<User> blockedUsers = new ArrayList<User>();
 
         //When
-        blockedUsers.add(user);  //Mit Methode addBlockUser klappts noch nicht??
+        mainUser.addBlockUser(user);
 
         //Then
-        if (blockedUsers.contains(user))
-            System.out.println("The user is in blockedUsers now!");
-
-    }
-
-    @Test
-    public void should_delete_user_out_of_blocked_users(){
-
-        //Given
-        User user = new User("Lola", "Lola", "TestUser", "LL@hotmail.de", "PW333", new Date(2003, 3, 3), PersonalInfo.Sex.female);
-        ArrayList<User> blockedUsers = new ArrayList<User>();
-        blockedUsers.add(user);
+        assertEquals(mainUser.getBlockedUsers().contains(user),true, "user should be in blockedUsers");
 
         //When
-        blockedUsers.remove(user);  //Mit Methode deleteblockedUser klappts noch nicht??
+        mainUser.deleteBlockUser(user);
 
         //Then
-        if (blockedUsers.contains(user))
-            System.out.println("The user ist still in blockedUsers!");
+        assertEquals(mainUser.getBlockedUsers().contains(user),false, "user should not be in blockedUsers");
     }
 
     @Test
@@ -57,20 +45,6 @@ public class UserTest {
         //Then
         assertEquals(User.PrivacyStatus.global, result, "The PrivacyStatus should be global!");
     }
-
-    @Test
-    public void should_print_a_user()
-    {
-        //Given
-        User user = new User("Molham", "Al-khodari","Molham321","molham@gmail.com","test321.",new Date(2002,6,14), PersonalInfo.Sex.male);
-
-        //When
-        String result = user.toString();
-
-        //Then
-        assertEquals("User{'Molham Al-khodari'}", result,"The user is Molham Al-khodari");
-    }
-
 }
 
 
