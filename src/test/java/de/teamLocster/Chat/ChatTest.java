@@ -24,6 +24,7 @@ public class ChatTest {
     @BeforeEach
     void prepare()
     {
+        // Given
         testChat    = new Chat();
         testUser    = TestUtility.getNewUserForTesting();
         testMessage = new Message("whats up!", testUser);
@@ -46,10 +47,11 @@ public class ChatTest {
     @Test
     public void chat_should_receive_message()
     {
-        // When
+        // Given
         String testChatName = "what ever!";
         testChat = new Chat(testChatName);
 
+        // When
         testChat.receiveMessage(testMessage);
 
         // Then
