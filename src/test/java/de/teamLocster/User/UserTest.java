@@ -1,6 +1,9 @@
 /*
 ===================================
 Saskia Wohlers
+Molham Al khodari
+Matthias Gabel
+Jakob Gensel
 ===================================
 */
 package de.teamLocster.User;
@@ -8,7 +11,8 @@ package de.teamLocster.User;
 import de.teamLocster.Utility.TestUtility;
 import org.junit.jupiter.api.Test;
 import java.util.Date;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
 
@@ -23,13 +27,13 @@ public class UserTest {
         mainUser.addBlockUser(user);
 
         //Then
-        assertEquals(mainUser.getBlockedUsers().contains(user),true, "user should be in blockedUsers");
+        assertTrue(mainUser.getBlockedUsers().contains(user), "user should be in blockedUsers");
 
         //When
         mainUser.deleteBlockUser(user);
 
         //Then
-        assertEquals(mainUser.getBlockedUsers().contains(user),false, "user should not be in blockedUsers");
+        assertFalse(mainUser.getBlockedUsers().contains(user), "user should not be in blockedUsers");
     }
 
     @Test
