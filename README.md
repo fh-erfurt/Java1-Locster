@@ -195,13 +195,18 @@ Link zur Präsentation
 
 <details>
 <summary>Diagramme</summary><br>
+	
+enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+	
+![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/klassendiagramm.png) <br>
 
-![Klassendiagramm](Java1-Locster/Projektdokumentation/screenshot/klassendiagramm.png) <br>
-![chat](Java1-Locster/Projektdokumentation/screenshot/chat.png) <br>
-![friend](Java1-Locster/Projektdokumentation/screenshot/friend.png) <br>
-![guestbook](Java1-Locster/Projektdokumentation/screenshot/guestbook.png) <br>
-![user](Java1-Locster/Projektdokumentation/screenshot/.png) <br>
-![rest](Java1-Locster/Projektdokumentation/screenshot/.png) <br>
+
+![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
+![friend](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/friend.png) <br>
+![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
+![user1](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user1.png) <br>
+![user2](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user2.png) <br>
+![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exceptions%26validation.png) <br>
 
 VERSCHIEDENE UML DIAGRAMME MIT ERKLÄRUNG
 </details>
