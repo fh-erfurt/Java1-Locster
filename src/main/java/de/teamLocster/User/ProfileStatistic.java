@@ -63,10 +63,7 @@ public class ProfileStatistic
             this.lastVisitors[9]=null;
             --this.visitorsCount;
         }
-        for (int i= this.visitorsCount; i > 0; --i)
-        {
-            this.lastVisitors[i] = this.lastVisitors[i-1];
-        }
+        if (this.visitorsCount >= 0) System.arraycopy(this.lastVisitors, 0, this.lastVisitors, 1, this.visitorsCount);
         this.lastVisitors[0]=latestVisitor;
         ++this.visitorsCount;
     }
@@ -85,10 +82,7 @@ public class ProfileStatistic
             this.lastVisits[9]=null;
             --this.visitsCount;
         }
-        for (int i= this.visitsCount; i > 0; --i)
-        {
-            this.lastVisits[i] = this.lastVisits[i-1];
-        }
+        if (this.visitsCount >= 0) System.arraycopy(this.lastVisits, 0, this.lastVisits, 1, this.visitsCount);
         this.lastVisits[0]=latestVisit;
         ++this.visitsCount;
     }

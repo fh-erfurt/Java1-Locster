@@ -18,8 +18,7 @@ import java.util.Date;
 public class ProfileStatisticTest {
 
     @Test
-    public void should_return_new_visitors() throws Exception
-    {
+    public void should_return_new_visitors() {
 
         // Given
         UserContainer testUserContainer = new UserContainer();
@@ -46,10 +45,10 @@ public class ProfileStatisticTest {
 
         //Then
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < 10; i++)
         {
-            result = result + (i+1) + ". " + mainUser.getProfileStatistic().getLastVisitors()[i].getPersonalInfo().getFirstName() + ", ";
+            result.append(i + 1).append(". ").append(mainUser.getProfileStatistic().getLastVisitors()[i].getPersonalInfo().getFirstName()).append(", ");
         }
 
 
@@ -57,15 +56,14 @@ public class ProfileStatisticTest {
                             "3. Userfirstname13, 4. Userfirstname12, " +
                             "5. Userfirstname11, 6. Userfirstname10, " +
                             "7. Userfirstname9, 8. Userfirstname8, " +
-                            "9. Userfirstname7, 10. Userfirstname6, ", result,
+                            "9. Userfirstname7, 10. Userfirstname6, ", result.toString(),
                   "The last 10 visitor user should Userfirstname15 until Userfirstname6");
       System.out.println(result);
 
     }
 
     @Test
-    public void should_return_new_Visits() throws Exception
-    {
+    public void should_return_new_Visits() {
         // Given
         UserContainer testUserContainer = new UserContainer();
         User mainUser = TestUtility.getNewUserForTesting();
@@ -91,10 +89,10 @@ public class ProfileStatisticTest {
 
         //Then
 
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < 10; i++)
         {
-            result = result + (i+1) + ". " + mainUser.getProfileStatistic().getLastVisits()[i].getPersonalInfo().getFirstName() + ", ";
+            result.append(i + 1).append(". ").append(mainUser.getProfileStatistic().getLastVisits()[i].getPersonalInfo().getFirstName()).append(", ");
         }
 
 
@@ -102,7 +100,7 @@ public class ProfileStatisticTest {
                              "3. Userfirstname97, 4. Userfirstname96, " +
                              "5. Userfirstname95, 6. Userfirstname94, " +
                              "7. Userfirstname93, 8. Userfirstname92, " +
-                             "9. Userfirstname91, 10. Userfirstname90, ", result,
+                             "9. Userfirstname91, 10. Userfirstname90, ", result.toString(),
                     "The last 10 Visits user should Userfirstname99 until Userfirstname90");
         System.out.println(result);
     }

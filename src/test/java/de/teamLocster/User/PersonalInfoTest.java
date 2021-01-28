@@ -31,14 +31,14 @@ public class PersonalInfoTest {
 
         //Given
         PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
-        PersonalInfo.RelationshipStatus newrelationshipStatus = PersonalInfo.RelationshipStatus.taken;
+        PersonalInfo.RelationshipStatus newRelationshipStatus = PersonalInfo.RelationshipStatus.taken;
 
         //When
-        personalinfo.setRelationshipStatus(newrelationshipStatus);
+        personalinfo.setRelationshipStatus(newRelationshipStatus);
         PersonalInfo.RelationshipStatus result = personalinfo.getRelationshipStatus();
 
         //Then
-        assertEquals(newrelationshipStatus, result, "RelationshipStatus should be taken");
+        assertEquals(newRelationshipStatus, result, "RelationshipStatus should be taken");
     }
 
     @Test  // needs boundaries like max. letters or so
@@ -46,10 +46,10 @@ public class PersonalInfoTest {
 
         //Given
         PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
-        String newoccupation = "Computer Scientist";
+        String newOccupation = "Computer Scientist";
 
         //When
-        personalinfo.setOccupation(newoccupation);
+        personalinfo.setOccupation(newOccupation);
         String result = personalinfo.getOccupation();
 
         //Then
@@ -61,10 +61,10 @@ public class PersonalInfoTest {
 
         //Given
         PersonalInfo personalinfo = new PersonalInfo("Super", "Chonk", new Date(1800, 12, 31), PersonalInfo.Sex.uni);
-        String newprofilePicture = "PiggyPicture";
+        String newProfilePicture = "PiggyPicture";
 
         //When
-        personalinfo.setProfilePicture(newprofilePicture);
+        personalinfo.setProfilePicture(newProfilePicture);
         String result = personalinfo.getProfilePicture();
 
         //Then

@@ -18,10 +18,10 @@ public class AccountDetailsTest {
     {
         // Given
         AccountDetails accountdetails = new AccountDetails("SaskiaWo", "saskiawohlers@outlook.de", "Pepsicola" );
-        String newusername = "Mickey";
+        String newUsername = "Mickey";
 
         // When
-        accountdetails.setUsername(newusername);
+        accountdetails.setUsername(newUsername);
         String result = accountdetails.getUsername();
 
         // Then
@@ -33,10 +33,10 @@ public class AccountDetailsTest {
     {
         // Given
         AccountDetails accountdetails = new AccountDetails("SaskiaWo", "saskiawohlers@outlook.de", "Pepsicola" );
-        String newmailadress = "bjoernathotmailde";
+        String newMailadress = "bjoernathotmailde";
 
         // When
-        accountdetails.setMailAddress(newmailadress);
+        accountdetails.setMailAddress(newMailadress);
         String result = accountdetails.getMailAddress();
 
         // Then
@@ -48,10 +48,10 @@ public class AccountDetailsTest {
     {
         // Given
         AccountDetails accountdetails = new AccountDetails("SaskiaWo", "saskiawohlers@outlook.de", "Pepsicola" );
-        String newpassword = "wurstwasser";
+        String newPassword = "wurstwasser";
 
         // When
-        accountdetails.setPassword(newpassword);
+        accountdetails.setPassword(newPassword);
         String result = accountdetails.getPassword();
 
         // Then
