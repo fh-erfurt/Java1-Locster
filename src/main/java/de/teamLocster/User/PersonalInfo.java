@@ -1,6 +1,6 @@
 /*
 ===================================
-Matthias Gabel
+== Matthias Gabel
 ===================================
 */
 package de.teamLocster.User;
@@ -13,7 +13,7 @@ public class PersonalInfo
 {
     /*
     ===================================
-    ENUM
+    == ENUM
     ===================================
     */
     public enum Sex
@@ -33,7 +33,7 @@ public class PersonalInfo
 
     /*
     ===================================
-    Variable
+    == Variable
     ===================================
     */
     private String firstName;
@@ -48,7 +48,7 @@ public class PersonalInfo
 
     /*
     ===================================
-    Constructor
+    == Constructor
     ===================================
     */
     public PersonalInfo(String firstName, String lastName, Date birthdate, Sex sex) {
@@ -64,7 +64,7 @@ public class PersonalInfo
 
     /*
     ===================================
-    Getter & Setter
+    == Getter & Setter
     ===================================
     */
     public String getFirstName() {

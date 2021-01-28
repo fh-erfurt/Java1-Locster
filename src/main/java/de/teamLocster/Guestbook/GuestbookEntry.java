@@ -1,8 +1,8 @@
 /*
 ===================================
-Matthias Gabel
-Jakob Gensel
-Saskia Wohlers
+== Matthias Gabel
+== Jakob Gensel
+== Saskia Wohlers
 ===================================
 */
 package de.teamLocster.Guestbook;
@@ -17,7 +17,7 @@ public class GuestbookEntry
 {
     /*
     ===================================
-    Variable
+    == Variable
     ===================================
     */
     private User          creator;
@@ -30,7 +30,7 @@ public class GuestbookEntry
 
     /*
     ===================================
-    Constructor
+    == Constructor
     ===================================
     */
     public GuestbookEntry(User creator, String text)
@@ -41,7 +41,7 @@ public class GuestbookEntry
 
     /*
     ===================================
-    Methods
+    == Methods
     ===================================
     */
     public void editText(String newText)
@@ -53,7 +53,7 @@ public class GuestbookEntry
 
     /*
     ===================================
-    Getter & Setter
+    == Getter & Setter
     ===================================
     */
 

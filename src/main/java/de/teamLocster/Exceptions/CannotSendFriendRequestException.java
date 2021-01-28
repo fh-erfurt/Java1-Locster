@@ -1,6 +1,6 @@
 /*
 ===================================
-Dirk Hofmann
+== Dirk Hofmann
 ===================================
 */
 package de.teamLocster.Exceptions;

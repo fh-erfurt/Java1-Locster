@@ -1,3 +1,8 @@
+/*
+===================================
+== Matthias Gabel
+===================================
+*/
 package de.teamLocster.Utility;
 
 import de.teamLocster.User.*;

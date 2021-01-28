@@ -1,7 +1,7 @@
 /*
 ===================================
-Matthias Gabel
-Molham Al-khodari
+== Matthias Gabel
+== Molham Al-khodari
 ===================================
 */
 package de.teamLocster.User;
@@ -9,20 +9,20 @@ package de.teamLocster.User;
 public class AccountDetails
 {
     /*
-       ===================================
-       Variable
-       ===================================
-     */
+    ===================================
+    == Variable
+    ===================================
+    */
 
     private String username;
     private String mailAddress;
     private String password;
 
     /*
-       ===================================
-       Constructor
-       ===================================
-     */
+     ===================================
+     == Constructor
+     ===================================
+    */
 
     public AccountDetails(String username, String mailAddress, String password)
     {
@@ -32,9 +32,9 @@ public class AccountDetails
     }
 
     /*
-       ===================================
-       Getter & Setter
-       ===================================
+   ===================================
+   == Getter & Setter
+   ===================================
     */
 
     public String getUsername() {

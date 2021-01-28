@@ -1,6 +1,5 @@
 /*
 ===================================
-== edited by
 == Molham Al-khodari
 == Jakob Gensel
 == Matthias Gabel

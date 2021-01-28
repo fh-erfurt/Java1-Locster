@@ -1,7 +1,7 @@
 /*
 ===================================
-Matthias Gabel
-Saskia Wohlers
+== Matthias Gabel
+== Saskia Wohlers
 ===================================
 */
 package de.teamLocster.Utility;
@@ -55,10 +55,6 @@ public class ValidationUtility
     public static boolean isValidUsername(String username)
     {
         //Minimum 5 Chars
-        if (username.length() >= 5)
-        {
-            return true;
-        }
-        return false;
+        return username.length() >= 5;
     }
 }

@@ -6,13 +6,9 @@
 ===================================
 */
 package de.teamLocster.User;
-
-import java.util.Arrays;
-import java.util.List;
-
     /*
     ===================================
-    Variable
+    == Variable
     ===================================
     */
 
@@ -31,7 +27,7 @@ public class ProfileStatistic
 
     /*
     ===================================
-    Constructor
+    == Constructor
     ===================================
     */
     public ProfileStatistic()
@@ -41,7 +37,7 @@ public class ProfileStatistic
     }
     /*
     ===================================
-    Methods
+    == Methods
     ===================================
     */
     public void succTotal()
@@ -89,7 +85,7 @@ public class ProfileStatistic
 
     /*
     ===================================
-    Getter & Setter
+    == Getter & Setter
     ===================================
     */
     public int getViewsTotal() {

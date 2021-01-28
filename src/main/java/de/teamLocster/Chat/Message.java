@@ -1,7 +1,7 @@
 /*
-============
-Jakob Gensel
-============
+===============
+== Jakob Gensel
+===============
 */
 package de.teamLocster.Chat;
 
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Message
 {
     /*
-    =========
-    Variables
-    =========
+    ============
+    == Variables
+    ============
     */
 
     private User sender;
@@ -25,9 +25,9 @@ public class Message
     private LocalDateTime   sentAt;
 
     /*
-    ============
-    Constructors
-    ============
+    ===============
+    == Constructors
+    ===============
     */
     public Message(String text , User sender)
     {
@@ -37,9 +37,9 @@ public class Message
     }
 
     /*
-    =======
-    Methods
-    =======
+    ==========
+    == Methods
+    ==========
     */
     /**
      * Sends a message to a chat and calls the receiving function in the chat.
@@ -72,9 +72,9 @@ public class Message
     }
 
     /*
-    =================
-    Getters & Setters
-    =================
+    ====================
+    == Getters & Setters
+    ====================
     */
 
     public User getSender()

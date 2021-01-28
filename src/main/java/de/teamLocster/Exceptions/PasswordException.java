@@ -1,6 +1,6 @@
 /*
 ===================================
-Matthias Gabel
+== Matthias Gabel
 ===================================
 */
 package de.teamLocster.Exceptions;
