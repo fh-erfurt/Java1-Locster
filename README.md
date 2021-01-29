@@ -10,7 +10,8 @@ Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau 
 <details>
 <summary>Projekt allgemein</summary><br>
 
-HIER FEHLT NOCH EIN EINLEITUNGSTEXT
+HIER FEHLT NOCH EIN EINLEITUNGSTEXT <br>
+Das projekt ist eine sozialmedie app bzw seite, wo man mit menschen kommentzieren könnte, eine regiestierung ist erfordlich dann könnte man nachrichten an freundne schicken bzw. freundschaft anfrage und man dürfte seite profiel jederzeit bearbeiten. besonders ist, man kann sein profil statstik anschauen und dort werden angezeigt , welche letzte 10 User hat man besucht bzw. welche 10 User haben sein profil besuchet. etc ...
 
 ### Projektteam
 Das Team vom Locster besteht aus:
