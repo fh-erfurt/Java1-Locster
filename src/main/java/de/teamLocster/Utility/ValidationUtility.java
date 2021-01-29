@@ -14,6 +14,12 @@ import java.util.regex.Pattern;
 
 public class ValidationUtility
 {
+    /**
+     * iterates a string list and compares if the inputString already exist
+     * @param inputString string that should be compare
+     * @param stringList list that should be compare
+     * @return the result of the comparison
+     */
     public static boolean stringAlreadyExistInArray(String inputString, ArrayList<String> stringList)
     {
 
@@ -26,8 +32,12 @@ public class ValidationUtility
         }
         return false;
     }
-    
-    
+
+    /**
+     * validates the email address of a user
+     * @param email email address of user
+     * @return true if the email address matches a @ character
+     */
     public static boolean isValidEmail(String email)
     {
         //Minimum one @
@@ -39,6 +49,11 @@ public class ValidationUtility
         return matcher.matches();
     }
 
+    /**
+     * validates the password of a user
+     * @param password password of a user
+     * @return true if the email address matches following constraint: Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+     */
     public static boolean isValidPassword(String password)
     {
         //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
@@ -52,6 +67,12 @@ public class ValidationUtility
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
+
+    /**
+     * calidates the user name of a user
+     * @param username user name of user
+     * @return true if the length of the user name is greater then 5
+     */
     public static boolean isValidUsername(String username)
     {
         //Minimum 5 Chars

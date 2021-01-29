@@ -1,6 +1,5 @@
 /*
 ===================================
-== edited by
 == Molham Al-khodari
 == Matthias Gabel
 ===================================
@@ -32,8 +31,13 @@ public class ProfileStatistic
     */
     public ProfileStatistic()
     {
+        viewsTotal = 0;
         lastVisitors = new User[MAX_VISITORS];
         lastVisits   = new User[MAX_VISITS];
+        latestFriend = null;
+        oldestFriend = null;
+        visitorsCount = 0;
+        visitsCount = 0;
     }
     /*
     ===================================
@@ -46,12 +50,9 @@ public class ProfileStatistic
     }
 
     /**
-     *      UPDATELASTVISITORS: THIS METHOD EXPECTS A USER WHO HAS VISITED OUR PROFILES
-     *      CHECKS FIRST WHETHER THE ARRAY IS FULL IF THAT IS THE CASE, THE OLDEST VISITOR
-     *      WILL BE DELETED AND THE NEWEST VISITOR WILL BE ADDED TO THE LIST
+     * pushes the user in the lastVisitors list and prevent a out of bounce exception
+     * @param latestVisitor the latest visitor of our user
      */
-
-
     public void updateLastVisitors(User latestVisitor)
     {
         if(this.visitorsCount >= this.lastVisitors.length)
@@ -65,12 +66,9 @@ public class ProfileStatistic
     }
 
     /**
-     *
-     * UPDATELASTVISITS: THIS METHOD EXPECTS A USER WE VISITED HIM
-     * CHECKS FIRST WHETHER THE ARRAY IS FULL IF THAT IS THE CASE, THE OLDEST VISITS
-     * WILL BE DELETED AND THE NEWEST VISITS WILL BE ADDED TO THE LIST
+     * pushes the user in the lastVisits list and prevent a out of bounce exception
+     * @param latestVisit the user we visit
      */
-
     public void updateLastVisits(User latestVisit)
     {
         if(this.visitsCount >= this.lastVisits.length)

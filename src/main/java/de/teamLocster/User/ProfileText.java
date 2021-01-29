@@ -33,6 +33,13 @@ public class ProfileText
     == Method
     ===================================
     */
+
+    /**
+     * checks the new text and updates the content
+     * @param newText the new text of the content
+     * @throws ProfileTextException throws an exception if the amount of characters is to much
+     */
+
     public void changeProfileText(String newText) throws ProfileTextException
     {
         if(newText.length() < MAX_NUMBER_OF_CHARS)

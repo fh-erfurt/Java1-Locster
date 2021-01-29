@@ -11,6 +11,10 @@ import java.util.Date;
 
 public class TestUtility {
 
+    /**
+     * generates a new user for testing
+     * @return test user
+     */
     public static User getNewUserForTesting()
     {
         String firstname = "Max";
