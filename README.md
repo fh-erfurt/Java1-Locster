@@ -197,26 +197,73 @@ Link zur Präsentation
 <details>
 <summary>Diagramme</summary><br>
 	
+## Klassendiagramm <br>
+	
 enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
 	
 ![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/klassendiagramm.png) <br>
 
 
+<details>
+<summary>chat package</summary><br>
+	
+enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+	
 ![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
+
+</details>
+
+<details>
+<summary>friend package</summary><br>
+	
+enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+	
 ![friend](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/friend.png) <br>
+
+</details>
+
+<details>
+<summary>guestbook package</summary><br>
+	
+enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+	
 ![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
+
+</details>
+
+<details>
+<summary>user package</summary><br>
+	
+enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+	
 ![user1](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user1.png) <br>
 ![user2](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user2.png) <br>
+
+</details>
+
+<details>
+<summary>Exceptions & ValidationUtility package</summary><br>
+	
+enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+	
 ![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exceptions%26validation.png) <br>
 
-VERSCHIEDENE UML DIAGRAMME MIT ERKLÄRUNG
+</details>
+	
+### Aktivitätsdiagramme
+
+<details>
+<summary>Register User</summary><br>
 
 ![registerUser](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/registerUser.png) <br>
 ![check](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/check.png) <br>
 ![isValidEmail](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidEmail.png) <br>
 ![isValidPassword](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidPassword%26Username.png) <br>
-
+	
 </details>
+<hr>
+</details>
+
 
 <details>
 <summary>Verwendete Technolgien</summary>
