@@ -261,8 +261,9 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 ![isValidPassword](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidPassword%26Username.png) <br>
 	
 </details>
-
+<hr>
 </details>
+
 
 <details>
 <summary>Verwendete Technolgien</summary>
