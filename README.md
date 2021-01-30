@@ -10,11 +10,10 @@ Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau 
 <details>
 <summary>Projekt allgemein</summary><br>
 
-HIER FEHLT NOCH EIN EINLEITUNGSTEXT <br>
-Das projekt ist eine sozialmedie app bzw seite, wo man mit menschen kommentzieren könnte, eine regiestierung ist erfordlich dann könnte man nachrichten an freundne schicken bzw. freundschaft anfrage und man dürfte seite profiel jederzeit bearbeiten. besonders ist, man kann sein profil statstik anschauen und dort werden angezeigt , welche letzte 10 User hat man besucht bzw. welche 10 User haben sein profil besuchet. etc ...
+Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
 ### Projektteam
-Das Team vom Locster besteht aus:
+
 * **Dirk Hofmann** - [Profil](https://github.com/Munchkin129)
 * **Jakob Gensel** - [Profil](https://github.com/bro-scientist)
 * **Matthias Gabel** - [Profil](https://github.com/f0rkster)
@@ -34,7 +33,7 @@ Das Team vom Locster besteht aus:
 2. Klassen<br>
 <br>
 <ul>
-	<li>Klassen werden in der Ordnerstrukter unter <strong>src/main...</strong> angelegt.</li>
+	<li>Klassen werden in der Ordnerstruktur unter <strong>src/main...</strong> angelegt.</li>
 	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
 <li>Beispiel: ClassName.java</li>
 <li>Die Strukturierungen der Klassen sehen wie folgt:</li>
@@ -42,8 +41,8 @@ Das Team vom Locster besteht aus:
 
  <br>
  
-    1. Konstanten und Klassenvariablen 
-    2. Enum
+    1. Enum
+    2. Konstanten und Klassenvariablen 
     3. Variablen
     4. Konstruktor
     5. abstrakte Methoden
@@ -120,10 +119,10 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 6. Tests<br>
 <br>
 <ul>
-	<li>Klassen werden in der Ordnerstrukter unter <strong>src/main...</strong> angelegt.</li>
+	<li>Test-Klassen werden in der Ordnerstrukter unter <strong>src/test...</strong> angelegt.</li>
 	<li>Test sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben und enden mit dem Suffix "Test"</li>
 <li>Beispiel: ClassNameTest.java</li>
-	<li>Die Tests sollen einen aussagekräftigne Bezeichner erhalten und sind wie folgt aufgebaut</li>
+	<li>Die Tests sollen einen aussagekräftigen Bezeichner erhalten und sind wie folgt aufgebaut</li>
 </ul>
 <br>
  
@@ -142,9 +141,8 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 7. Enum<br>
 <br>
 <ul>
-<li>enums bekommen den Suffix "Flag"</li>
-	<li>werden allerdings als Variable ohne Suffix initiiert.</li>
-	<li>Folgendes Beispiel sollte Klarheit verschaffen</li>
+	<li>Enums werden in <strong>UpperCamelCase</strong> geschrieben</li>
+	<li>Beispiel für Enum:</li>
 </ul>
 <br>
 
@@ -165,7 +163,7 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     ===================================
     */
     
-    private Exmple example = Example.value1;
+    private Example example = Example.value1;
      
 <br>
 
@@ -214,7 +212,7 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 </details>
 
 <details>
-<summary>friend package</summary><br>
+<summary>Friend Package</summary><br>
 	
 Im Package "Friends" befindet sich die Freundesverwaltung.
 Die Klasse FriendList ist der Mittelpunkt.
@@ -265,7 +263,7 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 
 Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie weitere Funktionen auf, damit die Eingaben des neuen Nutzers auch den gültigen Anforderungen entsprechen.
 
-<strong>checkEmail</strong> überprüft die E-Mail-Adresse auf "@"-Zeichen und Einmaligkeit.
+<strong>checkEmail</strong> überprüft die E-Mail-Adresse auf "@"-Zeichen und Eindeutigkeit.
 ![registerUsercheckemail](https://cdn.discordapp.com/attachments/783318437384552521/805088682809098250/Screenshot_143.png) <br>
 
 <strong>checkPassword</strong> überprüft das Passwort auf die benötigten Zeichen/-Anzahl und Sonderzeichen.
@@ -281,7 +279,7 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 
 
 <details>
-<summary>Verwendete Technolgien</summary>
+<summary>Verwendete Technologien</summary>
 
 * Entwicklertools
    <br>
