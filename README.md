@@ -20,8 +20,6 @@
 
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
 <br>
-<details>
-<summary>Projekt allgemein</summary><br>
 
 Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
@@ -32,9 +30,6 @@ Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich k
 * **Matthias Gabel** - [Profil](https://github.com/f0rkster)
 * **Molham Al-Khodari** - [Profil](https://github.com/Molham321)
 * **Saskia Wohlers** - [Profil](https://github.com/schnoernja)
-
-<details>
-<summary>Codestyle</summary>
 	
 ## Codestyle
 
@@ -180,11 +175,6 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     private Example example = Example.value1;
      
 <br>
-
-</details>
-
-<details>
-<summary>Workflow</summary>
 	
 ## Workflow
 
@@ -199,14 +189,11 @@ Wie wird gearbeitet?
 7. Branch pushen & Pull Request
 8. Branch mergen & löschen
 
-</details>
-
 ## Projektpräsentation
 
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project zwischenpräsentation</a> <br>
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project finale präsentation</a> <br>
-</details>
 
 <details>
 <summary>Diagramme</summary><br>
