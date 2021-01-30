@@ -86,6 +86,7 @@ public class ProfileStatistic
         {
             if (executingUser.getProfileStatistic().getOldestFriend() == null)
             {
+
                 setOldestFriend(friend);
                 return;
             }

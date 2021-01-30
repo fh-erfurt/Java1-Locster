@@ -106,7 +106,8 @@ public class ProfileStatisticTest {
     }
 
     @Test
-    public void should_increase_totals_value_by_one() {
+    public void should_increase_totals_value_by_one()
+    {
         // Given
         ProfileStatistic profileStatistic = new ProfileStatistic();
         // When
@@ -116,6 +117,37 @@ public class ProfileStatisticTest {
         // Then
         assertEquals(1, result, "viewsTotal value should be 1");
     }
+
+    @Test
+    public void should_put_userB_as_oldest_friend_for_userA()
+    {
+        // Given
+        User userA = TestUtility.getNewUserForTesting();
+        User userB = TestUtility.getNewUserForTesting();
+
+        // When
+        userA.getProfileStatistic().updateOldestFriend(userA, userB, true);
+
+        // Then
+        assertEquals(userB, userA.getProfileStatistic().getOldestFriend(),"we expect userB as the oldest friend of userA ");
+
+    }
+
+    @Test
+    public void should_put_userB_as_latest_friend_for_userA()
+    {
+        // Given
+        User userA = TestUtility.getNewUserForTesting();
+        User userB = TestUtility.getNewUserForTesting();
+
+        // When
+        userA.getProfileStatistic().updateLatestFriend(userA, userB, true);
+
+        // Then
+        assertEquals(userB, userA.getProfileStatistic().getLatestFriend(),"we expect userB as the latest friend of userA ");
+
+    }
+
 }
 
 
