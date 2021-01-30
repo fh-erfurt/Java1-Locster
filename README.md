@@ -198,8 +198,6 @@ Wie wird gearbeitet?
 <details>
 <summary>Diagramme</summary><br>
 	
-## Diagramme
-	
 ## Klassendiagramm <br>
 	
 enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
@@ -316,7 +314,7 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 <details>
 <summary>Ausblick Java2</summary>
 	
-## #Ausblick_Java2
+## Ausblick Java2
 
 * Für das kommende Semester haben wir uns bereits folgende Ziele gesetzt:
     * **Datenbank für die Speicherung der Nutzerdaten**
