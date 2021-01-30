@@ -14,20 +14,20 @@ public class ProfileTextTest {
     UserContainer testUserContainer = new UserContainer();
 
     @Test
-    public void should_change_profile_text()
+    public void should_update_profile_text_content()
     {
         //Given
         User testUser = TestUtility.getNewUserForTesting();
 
         //When
         String newText = "Hallo Welt!";
-        testUser.getProfileText().changeProfileText(newText);
+        testUser.getProfileText().updateContent(newText);
 
 
         String tooBigString = "This will be to big!" + "!".repeat(10000);
 
         //Then
         assertEquals(newText, testUser.getProfileText().getContent());
-        assertThrows(ProfileTextException.class, () -> testUser.getProfileText().changeProfileText(tooBigString));
+        assertThrows(ProfileTextException.class, () -> testUser.getProfileText().updateContent(tooBigString));
     }
 }

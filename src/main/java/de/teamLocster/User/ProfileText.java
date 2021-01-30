@@ -40,7 +40,7 @@ public class ProfileText
      * @throws ProfileTextException throws an exception if the amount of characters is to much
      */
 
-    public void changeProfileText(String newText) throws ProfileTextException
+    public void updateContent(String newText) throws ProfileTextException
     {
         if(newText.length() < MAX_NUMBER_OF_CHARS)
         {
