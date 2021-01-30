@@ -9,10 +9,10 @@
 - [About](#Soziales_Netzwerk_mit_Kniff)
 - [Projektteam](#Soziales_Netzwerk_mit_Kniff)
 - [Codestyle](#Codestyle)
-- [Workflow](#Soziales_Netzwerk_mit_Kniff)
-- [Projektpräsentation](#Soziales_Netzwerk_mit_Kniff)
+- [Workflow](#Workflow)
+- [Projektpräsentation](#Projektpräsentation)
 - [Diagramme](#Diagramme)
-- [Aktivitätsdiagramme](#)
+- [Aktivitätsdiagramme](#Aktivitätsdiagramme)
 - [tools](#Tools)
 - [Ausblick Java2](#AusblickJava2)
 
