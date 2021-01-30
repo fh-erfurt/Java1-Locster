@@ -216,7 +216,15 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 <details>
 <summary>friend package</summary><br>
 	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+Im Package "Friends" befindet sich die Freundesverwaltung.
+Die Klasse FriendList ist der Mittelpunkt.
+Jeder User hat eine ArrayList "acceptedFriends", in der die bestätigten Freundschaften hinterlegt sind und eine ArrayList "waitingFriends", in der gesendete und empfangene Freundschaftsanfragen zu finden sind.
+Beide ArrayListen werden einmalig beim Erstellen eines neuen Users angelegt.
+Die Klasse FriendListItem dient als Eintrag in der ArrayList "acceptedFriends", während die Klasse FriendRequest Eintrag in der ArrayList "waitingFriends" ist.
+Die beiden Exceptions "CannotSendFriendRequestException" und "CannotAcceptFriendRequestException" werden in Methoden in der FriendList verwendet.
+User haben die Grundlegenden Fähigkeiten, anderen Usern Freundschaftsanfragen zu schicken, Freundschaftsanfragen zu akzeptieren oder zu verweigern und bestätigte Freunde zu entfernen.
+Freundschaftsanfragen werden beim Absender und beim Empfänger gespeichert. User können selbst geschickte Anfragen nicht annehmen, diese aber zurückziehen (ablehnen). Empfangene Freundschaftsanfragen können angenommen oder abgelehnt werden. In dieser frühen Phase des Programms kann dieselbe Anfrage mehrfach verschickt werden, dies wird später nicht mehr möglich sein und wird an einer anderen Stelle vorraussichtlich im Front End behandelt.
+Bei bestätigten Freundschaften wird der andere User mit einem Zeitstempel, wann die Freundschaft angenommen wurde, gespeichert.
 	
 ![friend](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/friend.png) <br>
 
