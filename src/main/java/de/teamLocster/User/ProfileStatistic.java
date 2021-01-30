@@ -2,6 +2,7 @@
 ===================================
 == Molham Al-khodari
 == Matthias Gabel
+== Dirk Hofmann
 ===================================
 */
 package de.teamLocster.User;
