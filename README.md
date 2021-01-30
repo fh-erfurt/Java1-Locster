@@ -6,7 +6,7 @@
 
 ## Contents
 
-- [About](#Soziales_Netzwerk_mit_Kniff)
+- [Soziales_Netzwerk_mit_Kniff](#Soziales_Netzwerk_mit_Kniff)
 - [Projektteam](#Soziales_Netzwerk_mit_Kniff)
 - [Codestyle](#Codestyle)
 - [Workflow](#Workflow)
