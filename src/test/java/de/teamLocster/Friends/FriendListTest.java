@@ -246,10 +246,10 @@ public class FriendListTest
 
 
     /**
-     * tests if userA can accept friendRequests from userB to userJ
+     * tests if userA can accept friendRequests from userB to userJ and tests if correct latest and oldest friends are displayed
      */
     @Test
-    public void should_accept_friend_request_with_more_users ()
+    public void should_accept_friend_request_with_more_users_and_return_correct_latest_and_oldest_friend ()
     {
         //Given
         userB.getFriendlist().sendFriendRequest(userA, userB);
@@ -263,18 +263,48 @@ public class FriendListTest
         userJ.getFriendlist().sendFriendRequest(userA, userJ);
 
         //When
-        while (!userA.getFriendlist().getWaitingFriends().isEmpty()) {
+        while (!userA.getFriendlist().getWaitingFriends().isEmpty())
+        {
             userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA);
         }
 
         //Then
         assertEquals(0, userA.getFriendlist().getWaitingFriends().size(),"userA should have no entry in waitingFriends");
         assertEquals(9, userA.getFriendlist().getAcceptedFriends().size(),"userA should have nine entries in acceptedFriends");
+        assertEquals(userB, userA.getProfileStatistic().getOldestFriend(),"userB should be the oldestFriend");
+        assertEquals(userJ, userA.getProfileStatistic().getLatestFriend(),"userJ should be the latestFriend");
     }
 
 
     /**
-     * tests if UserA can remove the friendship with userB to userJ
+     * tests if correct latest and oldest friends are displayed
+     */
+    @Test
+    public void should_display_correct_latest_and_oldest_friend ()
+    {
+        //Given
+        userB.getFriendlist().sendFriendRequest(userA, userB);
+        userC.getFriendlist().sendFriendRequest(userA, userC);
+        userD.getFriendlist().sendFriendRequest(userA, userD);
+        userE.getFriendlist().sendFriendRequest(userA, userE);
+
+        while (!userA.getFriendlist().getWaitingFriends().isEmpty())
+        {
+            userA.getFriendlist().acceptFriendRequest(userA.getFriendlist().getWaitingFriendWithIndex(0), userA);
+        }
+
+        //When
+        userB.getFriendlist().removeFriend(userB.getFriendlist().getAcceptedFriendWithIndex(0), userB);
+        userE.getFriendlist().removeFriend(userE.getFriendlist().getAcceptedFriendWithIndex(0), userE);
+
+        //Then
+        assertEquals(userC, userA.getProfileStatistic().getOldestFriend(),"userC should be the oldestFriend");
+        assertEquals(userD, userA.getProfileStatistic().getLatestFriend(),"userD should be the latestFriend");
+    }
+
+
+    /**
+     * tests if UserA can remove the friendship with userB to userJ tests if correct latest and oldest friends are displayed
      */
     @Test
     public void should_remove_accepted_friend_with_more_users ()
@@ -301,5 +331,7 @@ public class FriendListTest
         //Then
         assertEquals(0, userA.getFriendlist().getWaitingFriends().size(),"userA should have no entry in waitingFriends");
         assertEquals(0, userA.getFriendlist().getAcceptedFriends().size(),"userA should have no entry in acceptedFriends");
+        assertEquals(null, userA.getProfileStatistic().getOldestFriend(),"userA should have no oldestFriend");
+        assertEquals(null, userA.getProfileStatistic().getLatestFriend(),"userA should have no latestFriend");
     }
 }
