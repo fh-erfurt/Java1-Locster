@@ -11,8 +11,7 @@
 - [Codestyle](#Codestyle)
 - [Diagramme](#Diagramme)
 - [tools](#tools)
-- [tools](#tools)
-- [Ausblick Java2](#Ausblick Java2)
+- [Ausblick Java2](#Ausblick_Java2)
 
 <br />
 <br />
