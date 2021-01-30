@@ -63,12 +63,12 @@ public class UserTest {
         User brunhilde = TestUtility.getNewUserForTesting();
         brunhilde.getPersonalInfo().setFirstName("Brunhilde");
         //When
-        max.visitUser(max, lisa);
-        max.visitUser(max, peter);
-        max.visitUser(max, brunhilde);
-        lisa.visitUser(lisa, max);
-        lisa.visitUser(lisa, brunhilde);
-        brunhilde.visitUser(brunhilde, peter);
+        max.visitUser(lisa);
+        max.visitUser(peter);
+        max.visitUser(brunhilde);
+        lisa.visitUser(max);
+        lisa.visitUser(brunhilde);
+        brunhilde.visitUser(peter);
         //Then
         assertEquals("Brunhilde", max.getProfileStatistic().      getLastVisits()[0].getPersonalInfo().getFirstName());
         assertEquals("Peter",     max.getProfileStatistic().      getLastVisits()[1].getPersonalInfo().getFirstName());

@@ -90,14 +90,13 @@ public class User {
 
     /**
      * updates the statistics of both users
-     * @param user user who wants to visit the other user
      * @param visitedUser the user that should be visit
      */
-    public void visitUser(User user, User visitedUser)
+    public void visitUser(User visitedUser)
     {
-        visitedUser.getProfileStatistic().updateLastVisitors(user);
+        visitedUser.getProfileStatistic().updateLastVisitors(this);
 
-        user.getProfileStatistic().updateLastVisits(visitedUser);
+        this.getProfileStatistic().updateLastVisits(visitedUser);
     }
 
      /*
