@@ -17,6 +17,7 @@
 - [Ausblick Java2](#AusblickJava2)
 
 ## Soziales_Netzwerk_mit_Kniff
+
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
 <br>
 <details>
@@ -24,7 +25,7 @@ Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau 
 
 Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
-### Projektteam
+## Projektteam
 
 * **Dirk Hofmann** - [Profil](https://github.com/Munchkin129)
 * **Jakob Gensel** - [Profil](https://github.com/bro-scientist)
@@ -36,7 +37,7 @@ Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich k
 <summary>Codestyle</summary>
 	
 ## Codestyle
-<br>
+
 1. Sprache<br>
 <br>
 <ul>
@@ -201,6 +202,7 @@ Wie wird gearbeitet?
 </details>
 
 ## Projektpräsentation
+
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project zwischenpräsentation</a> <br>
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project finale präsentation</a> <br>
@@ -266,7 +268,7 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 
 </details>
 	
-### Aktivitätsdiagramme
+## Aktivitätsdiagramme
 
 <details>
 <summary>registerUser</summary><br>
