@@ -55,8 +55,8 @@ public class FriendListTest
         userA.getFriendlist().sendFriendRequest(userB, userA);
 
         //Then
-        assertEquals(1, userA.getFriendlist().getWaitingFriends().size(),"userA and userB should have one entry in waitingFriends");
-        assertEquals(1, userB.getFriendlist().getWaitingFriends().size(),"userA and userB should have one entry in waitingFriends");
+        assertEquals(1, userA.getFriendlist().getWaitingFriends().size(),"userA should have one entry in waitingFriends");
+        assertEquals(1, userB.getFriendlist().getWaitingFriends().size(),"userB should have one entry in waitingFriends");
     }
 
 
@@ -84,15 +84,29 @@ public class FriendListTest
      * tests if userA cannot send a friend request to userA
      */
     @Test
-    public void should_throw_CannotSendFriendRequestException()
+    public void should_throw_CannotSendFriendRequestException_cannot_send_yourself_a_friend_request()
     {
         //Given
-
 
         //When
 
         //Then
         assertThrows(CannotSendFriendRequestException.class, () -> userA.getFriendlist().sendFriendRequest(userA, userA));
+    }
+
+    /**
+     * tests if userA cannot send a friend request to userB twice
+     */
+    @Test
+    public void should_throw_CannotSendFriendRequestException_friend_request_with_user_already_exists()
+    {
+        //Given
+
+        //When
+        userA.getFriendlist().sendFriendRequest(userB, userA);
+
+        //Then
+        assertThrows(CannotSendFriendRequestException.class, () -> userA.getFriendlist().sendFriendRequest(userB, userA));
     }
 
 
