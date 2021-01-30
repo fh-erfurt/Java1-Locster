@@ -6,7 +6,7 @@
 
 ## Contents
 
-- [About the project](#about)
+- [About the project](#Soziales Netzwerk mit Kniff)
 - [Gert started](#get-started)
 - [Codestyle](#Codestyle)
 - [Diagramme](#Diagramme)
