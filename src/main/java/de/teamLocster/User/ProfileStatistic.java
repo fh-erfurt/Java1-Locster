@@ -16,7 +16,6 @@ public class ProfileStatistic
     private final int MAX_VISITS = 10;
     private final int MAX_VISITORS = 10;
 
-    private int viewsTotal;
     private User[] lastVisitors;
     private User[] lastVisits;
     private User latestFriend;
@@ -31,7 +30,6 @@ public class ProfileStatistic
     */
     public ProfileStatistic()
     {
-        viewsTotal = 0;
         lastVisitors = new User[MAX_VISITORS];
         lastVisits   = new User[MAX_VISITS];
         latestFriend = null;
@@ -44,13 +42,9 @@ public class ProfileStatistic
     == Methods
     ===================================
     */
-    public void succTotal()
-    {
-        this.viewsTotal ++;
-    }
 
     /**
-     * pushes the user in the lastVisitors list and prevent a out of bounce exception
+     * pushes the user in the lastVisitors list and prevent a out of bounce exception after this the visitorsCount increased by one
      * @param latestVisitor the latest visitor of our user
      */
     public void updateLastVisitors(User latestVisitor)
@@ -62,11 +56,12 @@ public class ProfileStatistic
         }
         if (this.visitorsCount >= 0) System.arraycopy(this.lastVisitors, 0, this.lastVisitors, 1, this.visitorsCount);
         this.lastVisitors[0]=latestVisitor;
+
         ++this.visitorsCount;
     }
 
     /**
-     * pushes the user in the lastVisits list and prevent a out of bounce exception
+     * pushes the user in the lastVisits list and prevent a out of bounce exception after this the visitorsCount increased by one
      * @param latestVisit the user we visit
      */
     public void updateLastVisits(User latestVisit)
@@ -78,6 +73,7 @@ public class ProfileStatistic
         }
         if (this.visitsCount >= 0) System.arraycopy(this.lastVisits, 0, this.lastVisits, 1, this.visitsCount);
         this.lastVisits[0]=latestVisit;
+
         ++this.visitsCount;
     }
 
@@ -86,14 +82,6 @@ public class ProfileStatistic
     == Getter & Setter
     ===================================
     */
-    public int getViewsTotal() {
-        return viewsTotal;
-    }
-
-    public void setViewsTotal(int viewsTotal) {
-        this.viewsTotal = viewsTotal;
-    }
-
     public User[] getLastVisitors() {
         return lastVisitors;
     }

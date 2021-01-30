@@ -105,17 +105,6 @@ public class ProfileStatisticTest {
         System.out.println(result);
     }
 
-    @Test
-    public void should_increase_totals_value_by_one() {
-        // Given
-        ProfileStatistic profileStatistic = new ProfileStatistic();
-        // When
-        profileStatistic.succTotal();
-        int result = profileStatistic.getViewsTotal();
-
-        // Then
-        assertEquals(1, result, "viewsTotal value should be 1");
-    }
 }
 
 
