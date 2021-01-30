@@ -42,7 +42,7 @@ public class FriendList
     */
 
     /**
-     * Calls methods to add entries in 'waitingFriends' to both the sender and receiver, throws Exceptions if sender == receiver
+     * Calls methods to add entries in 'waitingFriends' to both the sender and receiver, throws Exceptions if sender == receiver or if validation fails
      * @param receiver == receiving user
      * @param sender == sending user
      */
@@ -50,11 +50,39 @@ public class FriendList
     {
         if (sender != receiver)
         {
-            sender.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
-            receiver.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
-        } else {
+            if (validateFriendRequest(receiver, sender))
+            {
+                sender.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
+                receiver.getFriendlist().addEntryToWaitingFriends(new FriendRequest(receiver, sender));
+            }
+            else
+            {
+                throw new CannotSendFriendRequestException("Friend Request with this User already exists!");
+            }
+        }
+        else
+        {
             throw new CannotSendFriendRequestException("Cannot send yourself a Friend Request!");
         }
+    }
+
+    /**
+     * checks if 'friendRequest' with the two users (sender and receiver) already exists
+     * @param receiver == receiving user
+     * @param sender == sending user
+     * @return true if 'friendRequest' does not exists, false if 'friendRequest' already exists
+     */
+    private boolean validateFriendRequest(User receiver, User sender)
+    {
+        boolean validation = true;
+        for (int count = 0; count < sender.getFriendlist().getWaitingFriends().size(); count++)
+        {
+            if ((sender.getFriendlist().getWaitingFriendWithIndex(count).getSender() == sender && sender.getFriendlist().getWaitingFriendWithIndex(count).getReceiver() == receiver) || (sender.getFriendlist().getWaitingFriendWithIndex(count).getSender() == receiver && sender.getFriendlist().getWaitingFriendWithIndex(count).getReceiver() == sender))
+            {
+                validation = false;
+            }
+        }
+        return validation;
     }
 
     /**
