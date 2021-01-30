@@ -316,7 +316,7 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 <details>
 <summary>Ausblick Java2</summary>
 	
-## Ausblick Java2
+## #Ausblick_Java2
 
 * Für das kommende Semester haben wir uns bereits folgende Ziele gesetzt:
     * **Datenbank für die Speicherung der Nutzerdaten**
