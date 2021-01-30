@@ -16,9 +16,6 @@
 - [tools](#Tools)
 - [Ausblick Java2](#AusblickJava2)
 
-<br />
-<br />
-
 ## Soziales_Netzwerk_mit_Kniff
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
 <br>
