@@ -51,7 +51,6 @@ public class FriendListTest
     {
         //Given
 
-
         //When
         userA.getFriendlist().sendFriendRequest(userB, userA);
 

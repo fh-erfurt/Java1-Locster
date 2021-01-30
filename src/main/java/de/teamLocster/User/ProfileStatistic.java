@@ -75,7 +75,7 @@ public class ProfileStatistic
     {
         if (isAccepting)
         {
-            if (executingUser.getFriendlist().getAcceptedFriends() == null) {
+            if (executingUser.getProfileStatistic().getOldestFriend() == null) {
                 setOldestFriend(friend);
                 return;
             }
