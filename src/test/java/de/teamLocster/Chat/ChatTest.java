@@ -25,7 +25,7 @@ public class ChatTest {
     void prepare()
     {
         // Given
-        testChat    = new Chat();
+        testChat    = new Chat("");
         testUser    = TestUtility.getNewUserForTesting();
         testMessage = new Message("whats up!", testUser);
     }

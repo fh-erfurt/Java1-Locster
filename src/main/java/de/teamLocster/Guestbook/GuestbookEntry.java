@@ -44,6 +44,11 @@ public class GuestbookEntry
     == Methods
     ===================================
     */
+
+    /**
+     * Edits the text of the entry and updates the edited flag as well as the time of the last edit.
+     * @param newText
+     */
     public void editText(String newText)
     {
         this.text     = newText;
@@ -56,10 +61,6 @@ public class GuestbookEntry
     == Getter & Setter
     ===================================
     */
-
-    public User getCreator() {
-        return creator;
-    }
 
     public LocalDateTime getSentAt() {
         return sentAt;

@@ -19,8 +19,8 @@ public class Message
     ============
     */
 
-    private User sender;
-    private ArrayList<User> readBy; // dynamic array
+    private User            sender;
+    private ArrayList<User> readBy;
     private String          text;
     private LocalDateTime   sentAt;
 
@@ -41,8 +41,9 @@ public class Message
     == Methods
     ==========
     */
+
     /**
-     * Sends a message to a chat and calls the receiving function in the chat.
+     * Sends the message to a chat and calls the receiving function in the chat.
      * @param chat the chat, which the message is sent to
      */
     public void sendToChat(Chat chat)
@@ -52,7 +53,7 @@ public class Message
     }
 
     /**
-     * Deletes a message from a chat.
+     * Deletes the message from a chat.
      * @param chat the chat, which the message is deleted from
      */
     public void deleteInChat(Chat chat)
@@ -61,14 +62,14 @@ public class Message
     }
 
     /**
-     * Marks a messsage as read by the reading user and returns the message text.
+     * Marks the messsage as read by the reading user and returns the message text.
      * @param reader user, who is reading the message
      * @return the text the message contains
      */
     public String read(User reader)
     {
         this.readBy.add(reader);
-        return this.getText();
+        return this.text;
     }
 
     /*
