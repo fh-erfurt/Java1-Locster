@@ -71,26 +71,46 @@ public class ProfileStatistic
         ++this.visitorsCount;
     }
 
+    /**
+     * updates 'oldestFriend' for 'executingUser'.
+     * 'isAccepting' == true  ==> If 'oldestFriend' is null -> 'oldestFriend' becomes 'friend'
+     * 'isAccepting' == false ==> If 'executingUser' ArrayList 'acceptedFriends' is empty -> 'oldestFriend' becomes null, else copy of 'acceptedFriends' is sorted by LocalDateTime in the entries and 'oldestFriend' becomes first entry
+     * @param executingUser == calling user
+     * @param friend == friend to be added or removed
+     * @param isAccepting == checks if 'friend' is to be removed or added
+     */
     public void updateOldestFriend(User executingUser, User friend, boolean isAccepting)
     {
         if (isAccepting)
         {
-            if (executingUser.getFriendlist().getAcceptedFriends() == null) {
+            if (executingUser.getProfileStatistic().getOldestFriend() == null)
+            {
                 setOldestFriend(friend);
                 return;
             }
         }
         else
         {
-            if (friend == getOldestFriend())
+            if (friend == executingUser.getProfileStatistic().getOldestFriend())
             {
-                ArrayList<FriendListItem> sortedList = new ArrayList<FriendListItem>(executingUser.getFriendlist().getAcceptedFriends());
-                Collections.sort(sortedList);
-                setOldestFriend(sortedList.get(0).getFriend());
+                if (!executingUser.getFriendlist().getAcceptedFriends().isEmpty()) {
+                    ArrayList<FriendListItem> sortedList = new ArrayList<FriendListItem>(executingUser.getFriendlist().getAcceptedFriends());
+                    Collections.sort(sortedList);
+                    executingUser.getProfileStatistic().setOldestFriend(sortedList.get(0).getFriend());
+                }
+                else executingUser.getProfileStatistic().setOldestFriend(null);
             }
         }
     }
 
+    /**
+     * updates 'latestFriend' for 'executingUser'.
+     * 'isAccepting' == true  ==> 'latestFriend' becomes 'friend'
+     * 'isAccepting' == false ==> If 'executingUser' ArrayList 'acceptedFriends' is empty -> 'latestFriend' becomes null, else copy of 'acceptedFriends' is sorted by LocalDateTime in the entries and 'latestFriend' becomes last entry
+     * @param executingUser == calling user
+     * @param friend == friend to be added or removed
+     * @param isAccepting == checks if 'friend' is to be removed or added
+     */
     public void updateLatestFriend(User executingUser, User friend, boolean isAccepting)
     {
         if (isAccepting)
@@ -101,9 +121,13 @@ public class ProfileStatistic
         {
             if (friend == getLatestFriend())
             {
-                ArrayList<FriendListItem> sortedList = new ArrayList<FriendListItem>(executingUser.getFriendlist().getAcceptedFriends());
-                Collections.sort(sortedList);
-                setLatestFriend(sortedList.get(sortedList.size()-1).getFriend());
+                if (!executingUser.getFriendlist().getAcceptedFriends().isEmpty())
+                {
+                    ArrayList<FriendListItem> sortedList = new ArrayList<FriendListItem>(executingUser.getFriendlist().getAcceptedFriends());
+                    Collections.sort(sortedList);
+                    executingUser.getProfileStatistic().setLatestFriend(sortedList.get(sortedList.size() - 1).getFriend());
+                }
+                else executingUser.getProfileStatistic().setLatestFriend(null);
             }
         }
     }

@@ -58,15 +58,22 @@ public class FriendList
     }
 
     /**
-     * Calls methods to remove entries in 'acceptedFriends' from both users in the 'friendlistItem'
+     * Calls methods to remove entries in 'acceptedFriends' from both users in the 'friendlistItem' and updates latestFriend and oldestFriend in ProfileStatistics, calls methods to update 'latestFriend' and 'oldestFriend' from both users
      * @param friendListItem == to be removed entry
      * @param executingUser == calling user
      */
     public void removeFriend(FriendListItem friendListItem, User executingUser)
     {
         User toBeRemovedUser = friendListItem.getFriend();
+
         toBeRemovedUser.getFriendlist().removeEntryFromAcceptedFriend(executingUser);
         executingUser.getFriendlist().removeEntryFromAcceptedFriend(toBeRemovedUser);
+
+        toBeRemovedUser.getProfileStatistic().updateLatestFriend(toBeRemovedUser,executingUser, false);
+        executingUser.getProfileStatistic().updateLatestFriend(executingUser,toBeRemovedUser,false);
+
+        toBeRemovedUser.getProfileStatistic().updateOldestFriend(toBeRemovedUser,executingUser, false);
+        executingUser.getProfileStatistic().updateOldestFriend(executingUser,toBeRemovedUser,false);
     }
 
 
@@ -88,7 +95,7 @@ public class FriendList
 
 
     /**
-     * Calls methods to add entries in 'acceptedFriends' to both users in the 'friendRequest', calls methods to remove entries in 'waitingFriends' from both users in the 'friendRequest'
+     * Calls methods to add entries in 'acceptedFriends' to both users in the 'friendRequest', calls methods to remove entries in 'waitingFriends' from both users in the 'friendRequest', calls methods to update 'latestFriend' and 'oldestFriend' from both users
      * @param friendRequest == to be accepted and removed friend request
      * @param executingUser == calling user
      */
@@ -104,13 +111,18 @@ public class FriendList
 
             receiver.getFriendlist().removeEntryFromWaitingFriends(sender, false);
             sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
+
+            receiver.getProfileStatistic().updateLatestFriend(receiver,sender, true);
+            sender.getProfileStatistic().updateLatestFriend(sender,receiver,true);
+
+            receiver.getProfileStatistic().updateOldestFriend(receiver,sender, true);
+            sender.getProfileStatistic().updateOldestFriend(sender,receiver,true);
         }
         else
         {
             throw new CannotAcceptFriendRequestException("Cannot accept own Friend Request!");
         }
     }
-
 
     /**
      * Calls methods to remove entries in 'waitingFriends' from both users in the 'friendRequest'
