@@ -11,6 +11,12 @@ package de.teamLocster.User;
     ===================================
     */
 
+import de.teamLocster.Friends.FriendList;
+import de.teamLocster.Friends.FriendListItem;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class ProfileStatistic
 {
     private final int MAX_VISITS = 10;
@@ -63,6 +69,43 @@ public class ProfileStatistic
         if (this.visitorsCount >= 0) System.arraycopy(this.lastVisitors, 0, this.lastVisitors, 1, this.visitorsCount);
         this.lastVisitors[0]=latestVisitor;
         ++this.visitorsCount;
+    }
+
+    public void updateOldestFriend(User executingUser, User friend, boolean isAccepting)
+    {
+        if (isAccepting)
+        {
+            if (executingUser.getProfileStatistic().getOldestFriend() == null) {
+                setOldestFriend(friend);
+                return;
+            }
+        }
+        else
+        {
+            if (friend == getOldestFriend())
+            {
+                ArrayList<FriendListItem> sortedList = new ArrayList<FriendListItem>(executingUser.getFriendlist().getAcceptedFriends());
+                Collections.sort(sortedList);
+                setOldestFriend(sortedList.get(0).getFriend());
+            }
+        }
+    }
+
+    public void updateLatestFriend(User executingUser, User friend, boolean isAccepting)
+    {
+        if (isAccepting)
+        {
+            setLatestFriend(friend);
+        }
+        else
+        {
+            if (friend == getLatestFriend())
+            {
+                ArrayList<FriendListItem> sortedList = new ArrayList<FriendListItem>(executingUser.getFriendlist().getAcceptedFriends());
+                Collections.sort(sortedList);
+                setLatestFriend(sortedList.get(sortedList.size()-1).getFriend());
+            }
+        }
     }
 
     /**

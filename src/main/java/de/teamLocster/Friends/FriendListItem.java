@@ -8,7 +8,7 @@ import de.teamLocster.User.User;
 
 import java.time.LocalDateTime;
 
-public class FriendListItem
+public class FriendListItem implements Comparable<FriendListItem>
 {
 
     /*
@@ -52,4 +52,14 @@ public class FriendListItem
 
     public void setFriendSince(LocalDateTime friendSince) { this.friendSince = friendSince; }
 
+    /**
+     * Compares two entries from FriendListItem by friendSince
+     * @param other == Entry to be compared to
+     * @return -1 if this < other, 1 if this < other, 0 if this == other
+     */
+    @Override
+    public int compareTo(FriendListItem other)
+    {
+        return this.friendSince.compareTo(other.friendSince);
+    }
 }

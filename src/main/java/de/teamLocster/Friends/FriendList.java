@@ -104,7 +104,9 @@ public class FriendList
 
             receiver.getFriendlist().removeEntryFromWaitingFriends(sender, false);
             sender.getFriendlist().removeEntryFromWaitingFriends(receiver, true);
-        } else {
+        }
+        else
+        {
             throw new CannotAcceptFriendRequestException("Cannot accept own Friend Request!");
         }
     }
@@ -148,7 +150,9 @@ public class FriendList
                     return;
                 }
             }
-        } else {
+        }
+        else
+        {
             for (int count = 0; count < this.waitingFriends.size(); count++)
             {
                 if (this.waitingFriends.get(count).getSender() == user)
