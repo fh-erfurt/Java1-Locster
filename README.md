@@ -205,7 +205,7 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 
 
 <details>
-<summary>chat package</summary><br>
+<summary>Chat Package</summary><br>
 	
 enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
 	
@@ -231,7 +231,7 @@ Bei bestätigten Freundschaften wird der andere User mit einem Zeitstempel, wann
 </details>
 
 <details>
-<summary>guestbook package</summary><br>
+<summary>Guestbook Package</summary><br>
 	
 enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
 	
@@ -240,7 +240,7 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 </details>
 
 <details>
-<summary>user package</summary><br>
+<summary>User Package</summary><br>
 	
 enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
 	
@@ -261,12 +261,19 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 ### Aktivitätsdiagramme
 
 <details>
-<summary>Register User</summary><br>
+<summary>registerUser</summary><br>
 
-![registerUser](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/registerUser.png) <br>
-![check](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/check.png) <br>
-![isValidEmail](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidEmail.png) <br>
-![isValidPassword](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/isValidPassword%26Username.png) <br>
+Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie weitere Funktionen auf, damit die Eingaben des neuen Nutzers auch den gültigen Anforderungen entsprechen.
+
+<strong>checkEmail</strong> überprüft die E-Mail-Adresse auf "@"-Zeichen und Einmaligkeit.
+![registerUsercheckemail](https://cdn.discordapp.com/attachments/783318437384552521/805088682809098250/Screenshot_143.png) <br>
+
+<strong>checkPassword</strong> überprüft das Passwort auf die benötigten Zeichen/-Anzahl und Sonderzeichen.
+![validemail](https://cdn.discordapp.com/attachments/783318437384552521/805088723191988224/Screenshot_148.png) <br>
+
+<strong>checkUsername</strong> überprüft den Benutzernamen auf genügend Zeichen.
+![validusername](https://cdn.discordapp.com/attachments/783318437384552521/805088754536284180/Screenshot_149.png) <br>
+
 	
 </details>
 <hr>
