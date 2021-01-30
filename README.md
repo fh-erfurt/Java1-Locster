@@ -254,6 +254,17 @@ Bei bestätigten Freundschaften wird der andere User mit einem Zeitstempel, wann
 <details>
 <summary>User Package</summary><br>
 	
+In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse kann man User anlegen, entfernen und gewisse Attribute ändern. Letztere Funktionalität (changeUsername, changeMailadress, changePassword) wird zu einem späteren Zeitpunkt in die AccountDetails Klasse verschoben.
+
+* Über die **User Klasse** kann man auf alle Attribute zugreifen und gegebenenfalls verändern. 
+* In der **ProfilText** Klasse findet man den Content des ProfilTextes.
+* **AccountDetails** enthält alle Informationen zum Login.
+* **PersonalInfo** enthält alle Daten die die Person betreffen.
+* **ProfileStatistic** hier werden die statistischen Daten des Profils gehalten und aktualisiert.
+* **TestUtility** hier findet man Hilfsfunktionen für die Tests.
+* **ValidationUtility** hier findet man Hilfsfunktionen für das Überprüfen verschiedener Werte.
+
+
 ![user1](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user1.png) <br>
 ![user2](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user2.png) <br>
 
