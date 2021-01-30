@@ -4,7 +4,20 @@
 
 ###### Ein Java-Projekt von Dirk Hofmann, Jakob Gensel, Matthias Gabel, Molham Al-Khodari, Saskia Wohlers
 
-## Soziales Netzwerk mit Kniff
+## Contents
+
+- [About](#Soziales_Netzwerk_mit_Kniff)
+- [Projektteam](#Soziales_Netzwerk_mit_Kniff)
+- [Codestyle](#Codestyle)
+- [Workflow](#Soziales_Netzwerk_mit_Kniff)
+- [Projektpräsentation](#Soziales_Netzwerk_mit_Kniff)
+- [Diagramme](#Diagramme)
+- [Aktivitätsdiagramme](#)
+- [tools](#Tools)
+- [Ausblick Java2](#AusblickJava2)
+
+## Soziales_Netzwerk_mit_Kniff
+
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
 <br>
 <details>
@@ -12,7 +25,7 @@ Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau 
 
 Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
-### Projektteam
+## Projektteam
 
 * **Dirk Hofmann** - [Profil](https://github.com/Munchkin129)
 * **Jakob Gensel** - [Profil](https://github.com/bro-scientist)
@@ -22,8 +35,9 @@ Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich k
 
 <details>
 <summary>Codestyle</summary>
-<h2>Codestyle</h2>
-<br>
+	
+## Codestyle
+
 1. Sprache<br>
 <br>
 <ul>
@@ -187,13 +201,17 @@ Wie wird gearbeitet?
 
 </details>
 
-### Projektpräsentation
-Link zur Präsentation
+## Projektpräsentation
 
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project zwischenpräsentation</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project finale präsentation</a> <br>
 </details>
 
 <details>
 <summary>Diagramme</summary><br>
+	
+## Diagramme
 	
 ## Klassendiagramm <br>
 	
@@ -204,8 +222,6 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 
 <details>
 <summary>Chat Package</summary><br>
-	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
 	
 ![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
 
@@ -231,16 +247,12 @@ Bei bestätigten Freundschaften wird der andere User mit einem Zeitstempel, wann
 <details>
 <summary>Guestbook Package</summary><br>
 	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
-	
 ![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
 
 </details>
 
 <details>
 <summary>User Package</summary><br>
-	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
 	
 ![user1](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user1.png) <br>
 ![user2](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user2.png) <br>
@@ -256,7 +268,7 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 
 </details>
 	
-### Aktivitätsdiagramme
+## Aktivitätsdiagramme
 
 <details>
 <summary>registerUser</summary><br>
@@ -280,6 +292,8 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 
 <details>
 <summary>Verwendete Technologien</summary>
+	
+## tools
 
 * Entwicklertools
    <br>
@@ -303,6 +317,8 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 </details>
 <details>
 <summary>Ausblick Java2</summary>
+	
+## #Ausblick_Java2
 
 * Für das kommende Semester haben wir uns bereits folgende Ziele gesetzt:
     * **Datenbank für die Speicherung der Nutzerdaten**
