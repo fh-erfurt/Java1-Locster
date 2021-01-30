@@ -50,6 +50,42 @@ public class UserTest {
         //Then
         assertEquals(User.PrivacyStatus.global, result, "The PrivacyStatus should be global!");
     }
+
+    @Test
+    public void should_visit_other_user_and_updates_the_statistics_() {
+        //Given
+        User max = TestUtility.getNewUserForTesting();
+        max.getPersonalInfo().setFirstName("Max");
+        User peter = TestUtility.getNewUserForTesting();
+        peter.getPersonalInfo().setFirstName("Peter");
+        User lisa = TestUtility.getNewUserForTesting();
+        lisa.getPersonalInfo().setFirstName("Lisa");
+        User brunhilde = TestUtility.getNewUserForTesting();
+        brunhilde.getPersonalInfo().setFirstName("Brunhilde");
+        //When
+        max.visitUser(max, lisa);
+        max.visitUser(max, peter);
+        max.visitUser(max, brunhilde);
+        lisa.visitUser(lisa, max);
+        lisa.visitUser(lisa, brunhilde);
+        brunhilde.visitUser(brunhilde, peter);
+        //Then
+        assertEquals("Brunhilde", max.getProfileStatistic().      getLastVisits()[0].getPersonalInfo().getFirstName());
+        assertEquals("Peter",     max.getProfileStatistic().      getLastVisits()[1].getPersonalInfo().getFirstName());
+        assertEquals("Lisa",      max.getProfileStatistic().      getLastVisits()[2].getPersonalInfo().getFirstName());
+        assertEquals("Brunhilde", lisa.getProfileStatistic().     getLastVisits()[0].getPersonalInfo().getFirstName());
+        assertEquals("Max",       lisa.getProfileStatistic().     getLastVisits()[1].getPersonalInfo().getFirstName());
+        assertEquals("Peter",     brunhilde.getProfileStatistic().getLastVisits()[0].getPersonalInfo().getFirstName());
+
+        assertEquals("Lisa",      max.getProfileStatistic().      getLastVisitors()[0].getPersonalInfo().getFirstName());
+        assertEquals("Max",       lisa.getProfileStatistic().     getLastVisitors()[0].getPersonalInfo().getFirstName());
+        assertEquals("Brunhilde", peter.getProfileStatistic().    getLastVisitors()[0].getPersonalInfo().getFirstName());
+        assertEquals("Max",       peter.getProfileStatistic().    getLastVisitors()[1].getPersonalInfo().getFirstName());
+        assertEquals("Lisa",      brunhilde.getProfileStatistic().getLastVisitors()[0].getPersonalInfo().getFirstName());
+        assertEquals("Max",       brunhilde.getProfileStatistic().getLastVisitors()[1].getPersonalInfo().getFirstName());
+
+    }
+
 }
 
 

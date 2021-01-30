@@ -88,6 +88,18 @@ public class User {
         blockedUsers.remove(user);
     }
 
+    /**
+     * updates the statistics of both users
+     * @param user user who wants to visit the other user
+     * @param visitedUser the user that should be visit
+     */
+    public void visitUser(User user, User visitedUser)
+    {
+        visitedUser.getProfileStatistic().updateLastVisitors(user);
+
+        user.getProfileStatistic().updateLastVisits(visitedUser);
+    }
+
      /*
     ==========================
     == User setter und getter

@@ -106,19 +106,6 @@ public class ProfileStatisticTest {
     }
 
     @Test
-    public void should_increase_totals_value_by_one()
-    {
-        // Given
-        ProfileStatistic profileStatistic = new ProfileStatistic();
-        // When
-        profileStatistic.succTotal();
-        int result = profileStatistic.getViewsTotal();
-
-        // Then
-        assertEquals(1, result, "viewsTotal value should be 1");
-    }
-
-    @Test
     public void should_put_userB_as_oldest_friend_for_userA()
     {
         // Given
