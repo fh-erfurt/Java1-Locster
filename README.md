@@ -6,7 +6,7 @@
 
 ## Contents
 
-- [About the project](#Soziales Netzwerk mit Kniff)
+- [About the project](#Soziales_Netzwerk_mit_Kniff)
 - [Gert started](#get-started)
 - [Codestyle](#Codestyle)
 - [Diagramme](#Diagramme)
@@ -17,7 +17,7 @@
 <br />
 <br />
 
-## Soziales Netzwerk mit Kniff
+## Soziales_Netzwerk_mit_Kniff
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
 <br>
 <details>
