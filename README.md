@@ -13,7 +13,8 @@
 - [Projektpräsentation](#Projektpräsentation)
 - [Diagramme](#Diagramme)
 - [Aktivitätsdiagramme](#Aktivitätsdiagramme)
-- [tools](#Tools)
+- [Tools](#Tools)
+- [Lessons Learned](#Lessons_Learned)
 - [Ausblick Java2](#AusblickJava2)
 
 ## Soziales_Netzwerk_mit_Kniff
@@ -312,7 +313,26 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 	
 </details>
 <details>
-<summary>Ausblick Java2</summary>
+
+<summary>Lessons Learned</summary>
+	
+## Lessons Learned
+
+* **Feste Aufgabenverteilung:** ohne feste Aufgabenverteilung wurden so manche Sachen doppelt gemacht oder gar nicht. Es ist essenziell jede Aufgabe einer Person zuzuordnen, damit auch jeder was zu tun hat und das Projekt vorangeht. Außerdem wird so verhindert, dass man unnötige Funktionen o.Ä. schreibt, welche eigentlich gar nicht gebraucht werden.
+
+* **Objektstruktur ohne Anwendung:** der Umfang und die konkrete Umsetzung eines Projektes ist schwer vorstellbar und sehr abstrakt ohne Bezug zur Anwendung. Gerade dadurch, dass wir vom Modul Java 1 diesbezüglich etwas eingeschränkt wurden (keine Datenbank; für unsere Anwendung leider der Grundpfeiler).
+
+* **Umgang mit Github:** nie vergessen eine eigene Branch anzulegen, Commits sind geil und es wäre vom Vorteil nicht nur einmal die Woche eine Pull-Request zu starten.
+
+* **Testen ist geil:** testen ist einfach geil.
+
+* **Grundlagen Java:** natürlich die größte Lessons Learned in diesem Projekt!
+
+* **Projektstrukturierung und Zeitplanung:** Eine gute Projektstrukturierung und Zeitplanung ist notwendig um das Projekt voranzubringen. Ohne feste Struktur in der Vorgehensweise macht jeder einfach irgendwas und nichts funktioniert wirklich miteinander. Auch ist Kommunikation zwischen den Teammitgliedern hierbei ein wichtiger Schlüssel zum Erfolg.
+
+* **Kleinigkeiten sind keine Kleinigkeiten:** Kleinigkeiten benötigen fast IMMER mehr Zeit als "mal eben kurz..". Deshalb sollte man diese "Kleinigkeiten" (z.B. Aktualisierung des Klassendiagrammes, Namens-Änderung von Variablen oder Funktionen, etc) am besten sofort erledigen!
+
+</details>
 	
 ## Ausblick Java2
 
