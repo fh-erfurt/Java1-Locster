@@ -6,12 +6,15 @@
 
 ## Contents
 
-- [About the project](#Soziales_Netzwerk_mit_Kniff)
-- [Gert started](#get-started)
+- [About](#Soziales_Netzwerk_mit_Kniff)
+- [Projektteam](#Soziales_Netzwerk_mit_Kniff)
 - [Codestyle](#Codestyle)
+- [Workflow](#Soziales_Netzwerk_mit_Kniff)
+- [Projektpräsentation](#Soziales_Netzwerk_mit_Kniff)
 - [Diagramme](#Diagramme)
-- [tools](#tools)
-- [Ausblick Java2](#Ausblick_Java2)
+- [Aktivitätsdiagramme](#)
+- [tools](#Tools)
+- [Ausblick Java2](#AusblickJava2)
 
 <br />
 <br />
