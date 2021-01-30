@@ -240,14 +240,15 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 <details>
 <summary>User Package</summary><br>
 	
-In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse kann man User anlegen, entfernen und gewisse Attribute ändern. Letzte funktionalität (changeUsername, changeMailadress, changePassword) wird zu einem späteren Entwicklungsstand in die AccountDetails Klasse verschoben.
-Über die **User Klasse** kann man auf alle Attribute zugreifen und gegebenenfalls verändern. 
-In der **ProfilText** Klasse findet man den Content des ProfilTextes.
-**AccountDetails** hält alle Informationen zum Login.
-**PersonalInfo** hält alle Daten die die Person betreffen.
-**ProfileStatistic** hier werden die Statistischen daten des Profils gehalten und aktualisiert.
-**TestUtility** hier findet man hilfsfunktionen für die Tests
-**ValidationUtility** hier findet man hilfsfunktionen für das überprüfen verschiedener Werte.
+In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse kann man User anlegen, entfernen und gewisse Attribute ändern. Letztere Funktionalität (changeUsername, changeMailadress, changePassword) wird zu einem späteren Zeitpunkt in die AccountDetails Klasse verschoben.
+
+* Über die **User Klasse** kann man auf alle Attribute zugreifen und gegebenenfalls verändern. 
+* In der **ProfilText** Klasse findet man den Content des ProfilTextes.
+* **AccountDetails** enthält alle Informationen zum Login.
+* **PersonalInfo** enthält alle Daten die die Person betreffen.
+* **ProfileStatistic** hier werden die statistischen Daten des Profils gehalten und aktualisiert.
+* **TestUtility** hier findet man Hilfsfunktionen für die Tests.
+* **ValidationUtility** hier findet man Hilfsfunktionen für das Überprüfen verschiedener Werte.
 
 ![user1](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user1.png) <br>
 ![user2](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user2.png) <br>
