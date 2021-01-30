@@ -82,11 +82,9 @@ public class User {
     ==================
     */
 
-    public void addBlockUser(User user) { blockedUsers.add(user);  }
+    public void addBlockUser(User user) { blockedUsers.add(user); } //TODO: addBlockUser might be extendend in future with more validations (next semester)
 
-    public void deleteBlockUser(User user) {
-        blockedUsers.remove(user);
-    }
+    public void deleteBlockUser(User user) { blockedUsers.remove(user); } //TODO: deleteBlockUser might be extendend in future with more validations (next semester)
 
     /**
      * updates the statistics of both users
