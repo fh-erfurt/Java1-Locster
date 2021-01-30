@@ -10,6 +10,8 @@ package de.teamLocster.Guestbook;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import de.teamLocster.Exceptions.GuestbookEntryNotFoundException;
+
 public class Guestbook
 {
     /*
@@ -34,13 +36,20 @@ public class Guestbook
     == Methods
     ===================================
     */
+
     public void addEntry(GuestbookEntry entry)
     {
         entry.setSentAt(LocalDateTime.now());
         book.add(entry);
     }
 
-    public void editEntry(GuestbookEntry oldGuestbookEntry, String newText) throws Exception
+    /**
+     * Searches for a given entry in the guestbook and sets the given text, if the entry was found.
+     * @param oldGuestbookEntry
+     * @param newText
+     * @throws GuestbookEntryNotFoundException
+     */
+    public void editEntry(GuestbookEntry oldGuestbookEntry, String newText) throws GuestbookEntryNotFoundException
     {
         for (GuestbookEntry entry : this.book)
         {
@@ -50,13 +59,12 @@ public class Guestbook
                 return;
             }
         }
-        throw new Exception("de.teamLocster.Guestbook.GuestbookEntry to edit not found in de.teamLocster.Guestbook.Guestbook!");
+        throw new GuestbookEntryNotFoundException("GuestbookEntry to edit not found in Guestbook!");
     }
 
     public void deleteEntry(GuestbookEntry guestbookEntryToDelete)
     {
         book.removeIf(GuestbookEntry -> GuestbookEntry == guestbookEntryToDelete);
-        // TODO warum nicht wie bei de.teamLocster.Chat.Message und de.teamLocster.Chat.Chat?
     }
 
     /*

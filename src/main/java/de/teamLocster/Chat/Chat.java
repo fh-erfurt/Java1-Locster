@@ -31,13 +31,6 @@ public class Chat
         this.messages = new ArrayList<Message>();
     }
 
-    public Chat()
-    {
-        this.name     = "";
-        this.messages = new ArrayList<Message>();
-    }
-
-
     /*
     ==========
     == Methods
@@ -47,6 +40,7 @@ public class Chat
     public void receiveMessage(Message message)
     {
         this.messages.add(message);
+        // TODO: notification about new message
     }
 
     public void deleteFromMessages(Message message)
