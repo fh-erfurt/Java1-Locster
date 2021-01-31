@@ -281,6 +281,20 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 
 	
 </details>
+
+<details>
+<summary>acceptFriendRequest</summary><br>
+	
+Die Methode <strong>acceptFriendRequest</strong> akzeptiert eine Freunschaftsanfrage. Sie ruft weitere Methoden auf: 
+* um einen Eintrag in 'acceptedFriends' bei beiden Usern anzulegen
+* um den Eintrag (die abzuarbeitende Freundschaftsanfrage) aus 'waitingFriends' bei beiden Usern zu entfernen
+* um in ProfileStatistic latest- und oldestFriend bei beiden Usern zu aktualisieren
+![acceptFriendRequest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/acceptFriendRequest.png) <br>
+
+Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFriends' solange, bis der Eintrag gefunden wurde und entfernt diesen. Es ist wichtig zu wissen, ob der übergebene User als 'sender' oder 'receiver' abgespeichert ist.
+![removeEntryFromWaitingFriends](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/removeEntryFromWaitingFriends.png) <br>
+
+</details>
 <hr>
 </details>
 
