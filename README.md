@@ -203,7 +203,7 @@ Wie wird gearbeitet?
 	
 Das Klassendiagramm enthält die logische Struktur der Klassen und unterteilt diese in farblich gekennzeichnete Packages.
 	
-![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/klassendiagramm.png) <br>
+![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/JAVA1%20-%20Klassendiagramm_NEW.png) <br>
 
 
 <details>
@@ -267,7 +267,7 @@ Die Klasse **ValidationUtilty** enthält alle Funktionen die zur Validierung ein
 	
 Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
 	
-![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exceptions%26validation.png) <br>
+![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Exceptions%26ValidationNEW.png) <br>
 
 </details>
 	
