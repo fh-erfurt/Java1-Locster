@@ -7,8 +7,6 @@
 ## Soziales_Netzwerk_mit_Kniff
 
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
-<br>
-
 Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
 ## Projektteam
