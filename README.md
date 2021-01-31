@@ -219,7 +219,7 @@ Jeder User hat eine ArrayList **acceptedFriends**, in der die bestätigten Freun
 <details>
 <summary>Guestbook Package</summary><br>
 
-Die Klasse **Guestbook**  enthält den Speicherort - eine ArrayList in diesem Fall - für die Einträge im Gästebuch. Die Klasse **GuestbookEntry** bewahrt die Informationen über den Verfasser des Eintrages, den Inhalt diesen, sowie die Uhrezeit wann der Eintrag bearbeitet worden ist. 
+Die Klasse **Guestbook**  enthält den Speicherort - eine ArrayList in diesem Fall - für die Einträge im Gästebuch. Die Klasse **GuestbookEntry** bewahrt die Informationen über den Verfasser des Eintrages, den Inhalt diesen, sowie die Uhrzeit wann der Eintrag bearbeitet worden ist. 
 Mithilfe der Funktion **addEntry** wird ein Eintrag erstellt, **editEntry** lässt einen Eintrag bearbeiten und updaten und **deleteEntry** gibt die Möglichkeit, diesen zu löschen.
 	
 ![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
