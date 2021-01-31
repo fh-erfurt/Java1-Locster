@@ -22,13 +22,13 @@ Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich k
 1. Sprache<br>
 <br>
 <ul>
-<li>Code und Kommentare werden in englisch verfasst.</li>
+<li>Code und Kommentare werden in Englisch verfasst.</li>
 </ul>
 <br>
 2. Klassen<br>
 <br>
 <ul>
-	<li>Klassen werden in der Ordnerstruktur unter <strong>src/main...</strong> angelegt.</li>
+	<li>Klassen werden in der Ordnerstruktur unter <strong>src/main...</strong> angelegt</li>
 	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
 <li>Beispiel: ClassName.java</li>
 <li>Die Strukturierungen der Klassen sehen wie folgt:</li>
@@ -177,9 +177,9 @@ Wie wird gearbeitet?
 
 ## Projektpräsentation
 
- <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
- <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Zwischen_prasentation_1.pdf">Project zwischenpräsentation</a> <br>
- <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/finale_java_presentation1.pdf">Project finale präsentation</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Projekt Vorstellung</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Zwischen_prasentation_1.pdf">Projekt Zwischen Präsentation</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/finale_java_presentation1.pdf">Projekt Finale Präsentation</a> <br>
 
 <details>
 <summary>Diagramme</summary><br>
@@ -207,7 +207,7 @@ Mithilfe der Funktion **sendToChat** wird die Nachricht über die Funktion **rec
 Die Klasse **FriendList** ist der Mittelpunkt. Hier ist die komplette Funktionalität zu finden.
 Jeder User hat eine ArrayList **acceptedFriends**, in der die bestätigten Freundschaften hinterlegt sind und eine ArrayList **waitingFriends**, in der gesendete und empfangene Freundschaftsanfragen zu finden sind.
 * **FriendListItem** dient als Eintrag in der ArrayList "acceptedFriends". Dort ist der befreundete User mit einer LocalDateTime seit Beginn der Freundschaft hinterlegt.
-* **FriendRequest** dient als Eintrag in der ArrayList "waitingFriends". Dort ist der Absender und der Empfänger der Anfrage gespeichert.
+* **FriendRequest** dient als Eintrag in der ArrayList "waitingFriends". Dort sind der Absender und der Empfänger der Anfrage gespeichert.
 * User haben die Grundlegenden Fähigkeiten, anderen Usern **Freundschaftsanfragen zu schicken**, **Freundschaftsanfragen zu akzeptieren oder zu verweigern** und **bestätigte Freunde zu entfernen**.
 * Freundschaftsanfragen werden beim **Absender und beim Empfänger gespeichert**. User können selbst geschickte Anfragen nicht annehmen, diese aber zurückziehen (ablehnen). Empfangene Freundschaftsanfragen können angenommen oder abgelehnt werden. 
 * Die beiden Exceptions **CannotSendFriendRequestException** und **CannotAcceptFriendRequestException** werden in Methoden in der FriendList verwendet.
@@ -234,7 +234,7 @@ In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse 
 * Über die **User Klasse** kann man auf alle Attribute zugreifen und gegebenenfalls verändern. 
 * In der **ProfilText** Klasse findet man den Content des ProfilTextes.
 * **AccountDetails** enthält alle Informationen zum Login.
-* **PersonalInfo** enthält alle Daten die die Person betreffen.
+* **PersonalInfo** enthält alle Daten, die die Person betreffen.
 * **ProfileStatistic** hier werden die statistischen Daten des Profils gehalten und aktualisiert.
 * **TestUtility** hier findet man Hilfsfunktionen für die Tests.
 * **ValidationUtility** hier findet man Hilfsfunktionen für das Überprüfen verschiedener Werte.
@@ -248,9 +248,9 @@ In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse 
 <details>
 <summary>Exceptions & ValidationUtility package</summary><br>
 
-Die Klasse **ValidationUtilty** enthält alle Funktionen die zur Validierung eines neuen Users benötigt werden. Die Funktion **stringAlreadyExistsInArray** zum Beispiel überprüft in der **ArrayList<User>** ob die Email-Addresse schon zu einem anderen User gehört. 
+Die Klasse **ValidationUtilty** enthält alle Funktionen, die zur Validierung eines neuen Users benötigt werden. Die Funktion **stringAlreadyExistsInArray** zum Beispiel überprüft in der **ArrayList<User>** ob die E-mail-Addresse schon zu einem anderen User gehört. 
 	
-Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
+Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise, dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
 	
 ![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Exceptions%26ValidationNEW.png) <br>
 
@@ -278,7 +278,7 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 <details>
 <summary>acceptFriendRequest</summary><br>
 	
-Die Methode <strong>acceptFriendRequest</strong> akzeptiert eine Freunschaftsanfrage. Sie ruft weitere Methoden auf: 
+Die Methode <strong>acceptFriendRequest</strong> akzeptiert eine Freundschaftsanfrage. Sie ruft weitere Methoden auf: 
 * um einen Eintrag in 'acceptedFriends' bei beiden Usern anzulegen
 * um den Eintrag (die abzuarbeitende Freundschaftsanfrage) aus 'waitingFriends' bei beiden Usern zu entfernen
 * um in ProfileStatistic latest- und oldestFriend bei beiden Usern zu aktualisieren
