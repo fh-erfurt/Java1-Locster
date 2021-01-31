@@ -194,7 +194,7 @@ Das Klassendiagramm enthält die logische Struktur der Klassen und unterteilt di
 <details>
 <summary>Chat Package</summary><br>
 
-Die Klasse **Chat**  enthält den Speicherort - eine ArrayList in diesem Fall - für die im Chat gesendeten Nachrichten. Die Klasse **Message** bewahrt die Informationen über den Verfasser der Nachricht, den Inhalt dieser, sowie die Uhrezeit wann sie abgeschickt worden ist.
+Die Klasse **Chat**  enthält den Speicherort - eine ArrayList in diesem Fall - für die im Chat gesendeten Nachrichten. Die Klasse **Message** bewahrt die Informationen über den Verfasser der Nachricht, den Inhalt dieser, sowie die Uhrzeit wann sie abgeschickt worden ist.
 Mithilfe der Funktion **sendToChat** wird die Nachricht über die Funktion **recieveMessage** an die **ArrayList<Messages>** in der **Chat-Klasse** übergeben.
 
 ![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
