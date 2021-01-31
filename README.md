@@ -4,19 +4,6 @@
 
 ###### Ein Java-Projekt von Dirk Hofmann, Jakob Gensel, Matthias Gabel, Molham Al-Khodari, Saskia Wohlers
 
-## Contents
-
-- [Soziales_Netzwerk_mit_Kniff](#Soziales_Netzwerk_mit_Kniff)
-- [Projektteam](#Soziales_Netzwerk_mit_Kniff)
-- [Codestyle](#Codestyle)
-- [Workflow](#Workflow)
-- [Projektpräsentation](#Projektpräsentation)
-- [Diagramme](#Diagramme)
-- [Aktivitätsdiagramme](#Aktivitätsdiagramme)
-- [Tools](#Tools)
-- [Lessons Learned](#Lessons_Learned)
-- [Ausblick Java2](#AusblickJava2)
-
 ## Soziales_Netzwerk_mit_Kniff
 
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
