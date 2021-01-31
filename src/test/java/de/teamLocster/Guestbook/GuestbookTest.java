@@ -5,8 +5,6 @@
 */
 package de.teamLocster.Guestbook;
 
-import de.teamLocster.Guestbook.Guestbook;
-import de.teamLocster.Guestbook.GuestbookEntry;
 import de.teamLocster.User.User;
 import de.teamLocster.Utility.TestUtility;
 import org.junit.jupiter.api.AfterEach;
@@ -30,7 +28,7 @@ public class GuestbookTest
     }
 
     /**
-     * Checks if GuetstbookEntry is added to a given de.teamLocster.Guestbook.Guestbook properly.
+     * Checks if GuetstbookEntry is added to a given Guestbook properly.
      * @throws Exception
      */
     @Test
@@ -38,7 +36,7 @@ public class GuestbookTest
     {
         testBook.addEntry(testEntry);
 
-        Assertions.assertTrue(testBook.getBook().contains(testEntry), "Created de.teamLocster.Guestbook.GuestbookEntry was not found.");
+        Assertions.assertTrue(testBook.getBook().contains(testEntry), "Created GuestbookEntry was not found.");
     }
 
     /**
@@ -53,9 +51,9 @@ public class GuestbookTest
         Thread.sleep(10);
         testBook.editEntry(testEntry, testText);
 
-        Assertions.assertEquals(testEntry.getText() , testText,                                       "The de.teamLocster.Guestbook.GuestbookEntry should contain the new text.");
+        Assertions.assertEquals(testEntry.getText() , testText,                                       "The GuestbookEntry should contain the new text.");
         Assertions.assertTrue  (testEntry.isEdited(),                                                 "The flag \"edited\" should be set to true.");
-        Assertions.assertEquals(-1, testEntry.getSentAt().compareTo(testEntry.getEditedAt()), "The de.teamLocster.Guestbook.GuestbookEntry should be edited after it was sent.");
+        Assertions.assertEquals(-1, testEntry.getSentAt().compareTo(testEntry.getEditedAt()), "The GuestbookEntry should be edited after it was sent.");
     }
 
     /**
@@ -68,7 +66,7 @@ public class GuestbookTest
         testBook.addEntry(testEntry);
         testBook.deleteEntry(testEntry);
 
-        Assertions.assertFalse(testBook.getBook().contains(testEntry), "de.teamLocster.Guestbook.GuestbookEntry should not be found anymore.");
+        Assertions.assertFalse(testBook.getBook().contains(testEntry), "GuestbookEntry should not be found anymore.");
     }
 
     @AfterEach

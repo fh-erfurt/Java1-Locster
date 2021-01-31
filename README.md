@@ -4,24 +4,9 @@
 
 ###### Ein Java-Projekt von Dirk Hofmann, Jakob Gensel, Matthias Gabel, Molham Al-Khodari, Saskia Wohlers
 
-## Contents
-
-- [Soziales_Netzwerk_mit_Kniff](#Soziales_Netzwerk_mit_Kniff)
-- [Projektteam](#Soziales_Netzwerk_mit_Kniff)
-- [Codestyle](#Codestyle)
-- [Workflow](#Workflow)
-- [Projektpräsentation](#Projektpräsentation)
-- [Diagramme](#Diagramme)
-- [Aktivitätsdiagramme](#Aktivitätsdiagramme)
-- [Tools](#Tools)
-- [Lessons Learned](#Lessons_Learned)
-- [Ausblick Java2](#AusblickJava2)
-
 ## Soziales_Netzwerk_mit_Kniff
 
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
-<br>
-
 Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
 ## Projektteam
@@ -192,8 +177,8 @@ Wie wird gearbeitet?
 
 ## Projektpräsentation
 
- <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
- <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project zwischenpräsentation</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Zwischen_prasentation_1.pdf">Project zwischenpräsentation</a> <br>
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project finale präsentation</a> <br>
 
 <details>
@@ -201,14 +186,17 @@ Wie wird gearbeitet?
 	
 ## Klassendiagramm <br>
 	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+Das Klassendiagramm enthält die logische Struktur der Klassen und unterteilt diese in farblich gekennzeichnete Packages.
 	
-![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/klassendiagramm.png) <br>
+![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/JAVA1%20-%20Klassendiagramm_NEW.png) <br>
 
 
 <details>
 <summary>Chat Package</summary><br>
-	
+
+Die Klasse **Chat**  enthält den Speicherort - eine ArrayList in diesem Fall - für die im Chat gesendeten Nachrichten. Die Klasse **Message** bewahrt die Informationen über den Verfasser der Nachricht, den Inhalt dieser, sowie die Uhrezeit wann sie abgeschickt worden ist.
+Mithilfe der Funktion **sendToChat** wird die Nachricht über die Funktion **recieveMessage** an die **ArrayList<Messages>** in der **Chat-Klasse** übergeben.
+
 ![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
 
 </details>
@@ -216,15 +204,13 @@ enthält logische Struktur von Daten geteilt in verschiedene Packages und jede P
 <details>
 <summary>Friend Package</summary><br>
 	
-Im Package "Friends" befindet sich die Freundesverwaltung.
-Die Klasse FriendList ist der Mittelpunkt.
-Jeder User hat eine ArrayList "acceptedFriends", in der die bestätigten Freundschaften hinterlegt sind und eine ArrayList "waitingFriends", in der gesendete und empfangene Freundschaftsanfragen zu finden sind.
-Beide ArrayListen werden einmalig beim Erstellen eines neuen Users angelegt.
-Die Klasse FriendListItem dient als Eintrag in der ArrayList "acceptedFriends", während die Klasse FriendRequest Eintrag in der ArrayList "waitingFriends" ist.
-Die beiden Exceptions "CannotSendFriendRequestException" und "CannotAcceptFriendRequestException" werden in Methoden in der FriendList verwendet.
-User haben die Grundlegenden Fähigkeiten, anderen Usern Freundschaftsanfragen zu schicken, Freundschaftsanfragen zu akzeptieren oder zu verweigern und bestätigte Freunde zu entfernen.
-Freundschaftsanfragen werden beim Absender und beim Empfänger gespeichert. User können selbst geschickte Anfragen nicht annehmen, diese aber zurückziehen (ablehnen). Empfangene Freundschaftsanfragen können angenommen oder abgelehnt werden. In dieser frühen Phase des Programms kann dieselbe Anfrage mehrfach verschickt werden, dies wird später nicht mehr möglich sein und wird an einer anderen Stelle vorraussichtlich im Front End behandelt.
-Bei bestätigten Freundschaften wird der andere User mit einem Zeitstempel, wann die Freundschaft angenommen wurde, gespeichert.
+Die Klasse **FriendList** ist der Mittelpunkt. Hier ist die komplette Funktionalität zu finden.
+Jeder User hat eine ArrayList **acceptedFriends**, in der die bestätigten Freundschaften hinterlegt sind und eine ArrayList **waitingFriends**, in der gesendete und empfangene Freundschaftsanfragen zu finden sind.
+* **FriendListItem** dient als Eintrag in der ArrayList "acceptedFriends". Dort ist der befreundete User mit einer LocalDateTime seit Beginn der Freundschaft hinterlegt.
+* **FriendRequest** dient als Eintrag in der ArrayList "waitingFriends". Dort ist der Absender und der Empfänger der Anfrage gespeichert.
+* User haben die Grundlegenden Fähigkeiten, anderen Usern **Freundschaftsanfragen zu schicken**, **Freundschaftsanfragen zu akzeptieren oder zu verweigern** und **bestätigte Freunde zu entfernen**.
+* Freundschaftsanfragen werden beim **Absender und beim Empfänger gespeichert**. User können selbst geschickte Anfragen nicht annehmen, diese aber zurückziehen (ablehnen). Empfangene Freundschaftsanfragen können angenommen oder abgelehnt werden. 
+* Die beiden Exceptions **CannotSendFriendRequestException** und **CannotAcceptFriendRequestException** werden in Methoden in der FriendList verwendet.
 	
 ![friend](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/friend.png) <br>
 
@@ -232,6 +218,9 @@ Bei bestätigten Freundschaften wird der andere User mit einem Zeitstempel, wann
 
 <details>
 <summary>Guestbook Package</summary><br>
+
+Die Klasse **Guestbook**  enthält den Speicherort - eine ArrayList in diesem Fall - für die Einträge im Gästebuch. Die Klasse **GuestbookEntry** bewahrt die Informationen über den Verfasser des Eintrages, den Inhalt, sowie die Uhrzeit wann der Eintrag bearbeitet worden ist. 
+Mithilfe der Funktion **addEntry** wird ein Eintrag erstellt, **editEntry** lässt einen Eintrag bearbeiten und updaten und **deleteEntry** gibt die Möglichkeit, diesen zu löschen.
 	
 ![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
 
@@ -258,10 +247,12 @@ In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse 
 
 <details>
 <summary>Exceptions & ValidationUtility package</summary><br>
+
+Die Klasse **ValidationUtilty** enthält alle Funktionen die zur Validierung eines neuen Users benötigt werden. Die Funktion **stringAlreadyExistsInArray** zum Beispiel überprüft in der **ArrayList<User>** ob die Email-Addresse schon zu einem anderen User gehört. 
 	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
 	
-![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exceptions%26validation.png) <br>
+![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Exceptions%26ValidationNEW.png) <br>
 
 </details>
 	
@@ -282,6 +273,20 @@ Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie
 ![validusername](https://cdn.discordapp.com/attachments/783318437384552521/805088754536284180/Screenshot_149.png) <br>
 
 	
+</details>
+
+<details>
+<summary>acceptFriendRequest</summary><br>
+	
+Die Methode <strong>acceptFriendRequest</strong> akzeptiert eine Freunschaftsanfrage. Sie ruft weitere Methoden auf: 
+* um einen Eintrag in 'acceptedFriends' bei beiden Usern anzulegen
+* um den Eintrag (die abzuarbeitende Freundschaftsanfrage) aus 'waitingFriends' bei beiden Usern zu entfernen
+* um in ProfileStatistic latest- und oldestFriend bei beiden Usern zu aktualisieren
+![acceptFriendRequest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/acceptFriendRequest.png) <br>
+
+Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFriends' solange, bis der Eintrag mit dem übergebenen User gefunden wurde und entfernt diesen. Es ist wichtig zu wissen, ob der übergebene User als 'sender' oder 'receiver' abgespeichert ist.
+![removeEntryFromWaitingFriends](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/removeEntryFromWaitingFriends.png) <br>
+
 </details>
 <hr>
 </details>
