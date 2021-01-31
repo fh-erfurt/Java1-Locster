@@ -201,14 +201,17 @@ Wie wird gearbeitet?
 	
 ## Klassendiagramm <br>
 	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+Das Klassendiagramm enthält die logische Struktur der Klassen und unterteilt diese in farblich gekennzeichnete Packages.
 	
 ![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/klassendiagramm.png) <br>
 
 
 <details>
 <summary>Chat Package</summary><br>
-	
+
+Die Klasse **Chat**  enthält den Speicherort - eine ArrayList in diesem Fall - für die im Chat gesendeten Nachrichten. Die Klasse **Message** bewahrt die Informationen über den Verfasser der Nachricht, den Inhalt dieser, sowie die Uhrezeit wann sie abgeschickt worden ist.
+Mithilfe der Funktion **sendToChat** wird die Nachricht über die Funktion **recieveMessage** an die **ArrayList<Messages>** in der **Chat-Klasse** übergeben.
+
 ![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
 
 </details>
@@ -230,6 +233,9 @@ Jeder User hat eine ArrayList **acceptedFriends**, in der die bestätigten Freun
 
 <details>
 <summary>Guestbook Package</summary><br>
+
+Die Klasse **Guestbook**  enthält den Speicherort - eine ArrayList in diesem Fall - für die Einträge im Gästebuch. Die Klasse **GuestbookEntry** bewahrt die Informationen über den Verfasser des Eintrages, den Inhalt diesen, sowie die Uhrezeit wann der Eintrag bearbeitet worden ist. 
+Mithilfe der Funktion **addEntry** wird ein Eintrag erstellt, **editEntry** lässt einen Eintrag bearbeiten und updaten und **deleteEntry** gibt die Möglichkeit, diesen zu löschen.
 	
 ![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
 
@@ -256,8 +262,10 @@ In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse 
 
 <details>
 <summary>Exceptions & ValidationUtility package</summary><br>
+
+Die Klasse **ValidationUtilty** enthält alle Funktionen die zur Validierung eines neuen Users benötigt werden. Die Funktion **stringAlreadyExistsInArray** zum Beispiel überprüft in der **ArrayList<User>** ob die Email-Addresse schon zu einem anderen User gehört. 
 	
-enthält logische Struktur von Daten geteilt in verschiedene Packages und jede Package hat die logische verbundene Klassen.
+Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
 	
 ![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exceptions%26validation.png) <br>
 
