@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"de.teamLocster.Chat"},{"l":"de.teamLocster.Exceptions"},{"l":"de.teamLocster.Friends"},{"l":"de.teamLocster.Guestbook"},{"l":"de.teamLocster.User"},{"l":"de.teamLocster.Utility"}]
