@@ -250,9 +250,13 @@ In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse 
 
 Die Klasse **ValidationUtilty** enthält alle Funktionen, die zur Validierung eines neuen Users benötigt werden. Die Funktion **stringAlreadyExistsInArray** zum Beispiel überprüft in der **ArrayList<User>** ob die E-mail-Addresse schon zu einem anderen User gehört. 
 	
+Die Klasse **TestUtility** enthält eine Hilfsfunktion (getNewUserForTesting) um Standart-User für Testfälle einfacher anlegen zu können.
+	
 Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise, dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
 	
-![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Exceptions%26ValidationNEW.png) <br>
+![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exception.png) <br>
+![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/ValidationUtility.png) <br>
+![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/TestUtility.png) <br>
 
 </details>
 	
