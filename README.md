@@ -179,7 +179,7 @@ Wie wird gearbeitet?
 
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Team%20%26%20Project%20Vorstellen.pdf">Team & Project vorstellen</a> <br>
  <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/Zwischen_prasentation_1.pdf">Project zwischenpräsentation</a> <br>
- <a href="https://github.com/fh-erfurt/Java1-Locster/blob/mal-readme/Projektdokumentation/Team%20%26%20Project%20Vorstellen.pdf">Project finale präsentation</a> <br>
+ <a href="https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/Pr%C3%A4sentation/finale_java_presentation1.pdf">Project finale präsentation</a> <br>
 
 <details>
 <summary>Diagramme</summary><br>
