@@ -187,6 +187,7 @@ Wie wird gearbeitet?
 ## Klassendiagramm <br>
 	
 Das Klassendiagramm enthält die logische Struktur der Klassen und unterteilt diese in farblich gekennzeichnete Packages.
+User werden bewusst als ganzer User abgespeichert, im nächsten Semester werden User per UserID referenziert.
 	
 ![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/JAVA1%20-%20Klassendiagramm_NEW.png) <br>
 
