@@ -2,7 +2,9 @@ package de.teamLocster.domains;
 
 import lombok.*;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -20,5 +22,7 @@ public class PersonalInfo extends BaseEntity {
     private String profilePicture; // String?
     private String personalInfo;
     private int sexID;
-
 }
+
+//@OneToOne(cascade = CascadeType.PERSIST)
+//public User user;
