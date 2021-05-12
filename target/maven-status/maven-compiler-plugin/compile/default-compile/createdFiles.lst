@@ -1,0 +1,10 @@
+de\teamLocster\domains\errors\UserNotFoundException.class
+de\teamLocster\storages\errors\StorageError.class
+de\teamLocster\storages\BaseRepository.class
+de\teamLocster\core\errors\SqlException.class
+de\teamLocster\domains\BaseEntity.class
+de\teamLocster\domains\User.class
+de\teamLocster\domains\PersonalInfo.class
+de\teamLocster\storages\PersonalInfoRepository.class
+de\teamLocster\core\H2Controller.class
+de\teamLocster\storages\UserRepository.class

@@ -1,0 +1,30 @@
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    color: white;
+    background: linear-gradient(45deg, #05c5e4, #b1ffd7, #f6fddf);
+    background-size: 1000% 1000%;
+    animation: colors 10s ease infinite;
+    padding: 30px;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
