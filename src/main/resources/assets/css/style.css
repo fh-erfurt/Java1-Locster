@@ -2,6 +2,8 @@
 *:before,
 *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -15,6 +17,7 @@ body {
     background-size: 1000% 1000%;
     animation: colors 10s ease infinite;
     padding: 30px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @keyframes colors {
@@ -27,4 +30,24 @@ body {
     100% {
         background-position: 0 50%;
     }
+}
+
+.link {
+    /* float: right; */
+    background-color: red;
+    clear: left;
+}
+
+.content-wraper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image {
+    background-color: black;
+}
+
+.image img {
+    height: 230px;
 }

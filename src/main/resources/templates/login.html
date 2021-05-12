@@ -1,45 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/head :: head">
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Locster.de/Login</title>
 </head>
-<body>
-<div class="link"> <a href="#" title="SignUp">Schon Teil der Crew? Hier geht's zum Registration</a> </div>
 
-<div class="Content">
-    <div class="image">
-        <img src="../assets/images/locsterLogo_Gruen.png" alt="Logo">
-    </div>
-    <div class="text">
-        <p>
-            Hey Du! Hast auch du nicht Lust mit neuen Leuten aus deiner City zu connecten? Dann tauch ab in die Welt von Locster!
-            Einfach easypeasy unten registrieren und ZACK- liegt dir die ganze Stadt offen! Wir freuen uns auf dich!
-        </p>
-    </div>
-    <div class="form">
-        <form>
-            <div class="inputs">
-                <input type="email" placeholder="enter_email" name="email" required>
-                <input type="password" placeholder="enter_password" name="password" required>
-            </div>
-            <div class="checkbox">
-                <label>
+<body>
+    <div class="link"> <a href="#" title="SignUp">Schon Teil der Crew? Hier geht's zum Registration</a> </div>
+
+    <div class="content-wraper">
+        <div class="image">
+            <img src="../assets/images/locsterLogo_Gruen.png" alt="Logo">
+        </div>
+        <div class="text">
+            <p>
+                Hey Du! Hast auch du nicht Lust mit neuen Leuten aus deiner City zu connecten? Dann tauch ab in die Welt von Locster! Einfach easypeasy unten registrieren und ZACK- liegt dir die ganze Stadt offen! Wir freuen uns auf dich!
+            </p>
+        </div>
+        <div class="form">
+            <form>
+                <div class="inputs">
+                    <input type="email" placeholder="enter_email" name="email" required>
+                    <input type="password" placeholder="enter_password" name="password" required>
+                </div>
+                <div class="checkbox">
+                    <label>
                 <input type="checkbox" checked="checked" name="Remember"> Eingeloggt bleiben
                 </label>
-            </div>
-            <div class="submitButton">
+                </div>
+                <div class="submitButton">
 
-                <button type="submit">Login</button>
-            </div>
+                    <button type="submit">Login</button>
+                </div>
 
-        </form>
+            </form>
+        </div>
+
     </div>
-
-</div>
 
 
 </body>
+
 </html>
