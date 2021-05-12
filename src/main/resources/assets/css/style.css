@@ -54,11 +54,65 @@ body {
 }
 
 .form-text-container .text p {
-    padding: 0 0 50px 0;
     text-align: center;
 }
 
 .form {
-    background-color: #FFECF4;
     padding: 50px;
+    width: 100%;
+    border-radius: 25px;
+}
+
+
+/* inputs form */
+
+input[type=email],
+input[type=password] {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    border-radius: 25px;
+    border: solid #08DCFF;
+    margin-top: 2%;
+    padding: 15px;
+    font-size: 16px;
+    color: #5E6472;
+    outline: none;
+    border-width: 2px;
+    transition: 0.2s linear;
+}
+
+
+/* focus */
+
+input:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+}
+
+.checkbox-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 25px 0;
+    width: 100%;
+}
+
+.checkbox-button-container .checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    justify-self: flex-start;
+    flex: 1;
+}
+
+.btn {
+    width: 100px;
+    padding: 10px;
+    border: solid #08DCFF;
+    border-width: 2px;
+    background-color: #FFEE94;
+    border-radius: 25px;
 }
