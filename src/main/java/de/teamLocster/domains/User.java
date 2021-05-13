@@ -25,4 +25,5 @@ public class User extends BaseEntity {
     private String personalStatus;
     private String privacyStatusID;
     private String onlineStatusID;
+
 }
