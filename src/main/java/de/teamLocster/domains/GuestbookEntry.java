@@ -1,6 +1,5 @@
 package de.teamLocster.domains;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,10 +13,13 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Friendship extends BaseEntity {
 
-    private long senderID;
-    private long receiverID;
-    private Date friendSince; // timestamp
-    private boolean isAccepted;
+public class GuestbookEntry extends BaseEntity {
+
+    private long creatorID;
+    private long userID;  // muss es abgespeichert werden?
+    private String text;
+    private Date sentAt;
+    private Date editedAt;
+    private boolean edited;
 }
