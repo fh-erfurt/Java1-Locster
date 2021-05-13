@@ -2,9 +2,7 @@ package de.teamLocster.domains;
 
 import lombok.*;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -20,7 +18,7 @@ public class PersonalInfo extends BaseEntity {
     private String occupation;
     private Long relationshipStatusID;
     private String profilePicture; // String?
-    private String personalInfo;
+    private String personalInfoCol; // komisch?
     private Long sexID;
 }
 
