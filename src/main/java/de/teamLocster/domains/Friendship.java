@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -15,8 +16,8 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Friendship extends BaseEntity {
 
-    private String sender;
-    private String receiver;
-    private String friendSince; // timestamp
+    private int senderID;
+    private int receiverID;
+    private Date friendSince; // timestamp
     private boolean isAccepted;
 }

@@ -18,10 +18,10 @@ public class PersonalInfo extends BaseEntity {
     private String region;
     private String birthDay;    // Date?
     private String occupation;
-    private int relationshipStatusID;
+    private Long relationshipStatusID;
     private String profilePicture; // String?
     private String personalInfo;
-    private int sexID;
+    private Long sexID;
 }
 
 //@OneToOne(cascade = CascadeType.PERSIST)
