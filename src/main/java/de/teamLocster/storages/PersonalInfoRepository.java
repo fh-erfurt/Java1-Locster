@@ -11,10 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-
-
 @Slf4j
-
 public class PersonalInfoRepository extends BaseRepository<PersonalInfo> {
 
     public PersonalInfoRepository() {
