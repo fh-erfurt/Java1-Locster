@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <title>Locster.de/Login</title>
+</head>
+
+<body>
+    <div class="link"> <a href="./signup.html" title="go to SignUp">Noch nicht Teil der Crew? Hier geht's zum Registration</a> </div>
+
+    <div class="content-wraper-image">
+        <div class="image">
+            <img src="../assets/images/locsterLogo_Gruen.png" alt="Logo">
+        </div>
+        <div class="form-text-container">
+            <div class="text">
+                <p>
+                    Hey Du! Da bist du ja wieder! Schnell unten einloggen und neue Leute aus deiner City kennlernen ;)
+                </p>
+            </div>
+            <div class="form">
+                <form>
+                    <div class="inputs">
+                        <input type="email" placeholder="Deine Email-Adresse" name="email" required>
+                        <input type="password" placeholder="Dein Passwort" name="password" required>
+                    </div>
+                    <div class="checkbox-button-container">
+                        <div class="checkbox">
+                            <label>
+                        <input type="checkbox" checked="checked" name="Remember"> Eingeloggt bleiben
+                        </label>
+                        </div>
+                        <div class="submitButton">
+
+                            <button class="btn" type="submit">Login</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
