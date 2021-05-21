@@ -1,0 +1,55 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    background: #087AAF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-wrapper{
+    padding-left: 20px;
+}
+
+.logo {
+    width: 275px;
+
+}
+
+.icon-wrapper{
+    padding-right: 20px;
+}
+
+.icon {
+    width: 50px;
+}
+
+.icon-wrapper a {
+    padding-right: 15px;
+}
+
+.search-icon {
+    width: 20px;
+}
+
+.input-group {
+    display: flex;
+}
+
+.input-group input {
+    border-radius: 5px 0 0 5px;
+    border: unset;
+    padding: 5px 5px 5px 10px;
+}
+
+.input-group-btn button {
+    border-radius: 0 5px 5px 0;
+    border: solid 1px white;
+    background: white;
+    padding: 5px 10px 5px 5px;
+}
+
