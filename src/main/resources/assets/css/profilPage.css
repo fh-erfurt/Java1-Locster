@@ -24,17 +24,19 @@ body {
   margin: 2%;
   border: 2px solid #fed700;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 .post {
   border: 2px solid #fed700;
+  border-radius: 15px;
 }
 
 /* profile structure */
 
 .profile {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
 
 .profile_pic {
@@ -42,6 +44,11 @@ body {
   /* margin-left: 10px; */
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.profile-info-wrapper{
+  display: flex;
+  flex-direction: row;
 }
 
 .info {
@@ -59,6 +66,10 @@ body {
 .more_info {
   margin-left: 10px;
   text-decoration: none;
+}
+.icon-edit-content {
+  align-self: flex-end;
+  margin: 0 15px 10px 0;
 }
 
 .icon-edit-content img {
