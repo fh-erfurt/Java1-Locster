@@ -6,12 +6,12 @@
   box-sizing: inherit;
 }
 body {
-  background-color: rgba(11, 163, 234, 0.8);
+  background-color: #3CB5EE;
 }
 .container {
-  width: 45%;
+  width: 800px;
   margin: auto;
-  background-color: rgba(11, 163, 234, 0.6);
+  background-color:  #63BEE8;
 
   /* test */
 
