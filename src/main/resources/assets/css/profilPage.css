@@ -1,0 +1,102 @@
+/* general structure */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  background-color: #3CB5EE;
+}
+.container {
+  width: 800px;
+  margin: auto;
+  background-color:  #63BEE8;
+
+  /* test */
+
+  display: flex;
+  flex-direction: column;
+  /* end test */
+}
+.box {
+  background-color: #fff3b1;
+  margin: 2%;
+  border: 2px solid #fed700;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.post {
+  border: 2px solid #fed700;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+/* profile structure */
+
+.profile {
+}
+
+.profile_pic {
+  width: 150px;
+  /* margin-left: 10px; */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-info-wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+.info {
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.profile_name {
+  padding: 10px;
+}
+.profile_city {
+  padding: 10px;
+}
+.more_info {
+  margin-left: 10px;
+  text-decoration: none;
+}
+.icon-edit-content {
+  align-self: flex-end;
+  margin: 0 15px 10px 0;
+}
+
+.icon-edit-content img {
+  width: 20px;
+}
+
+/* status */
+.status {
+  padding: 10px;
+}
+
+/* guestbook */
+
+.guestbook,
+.guestbook h2 {
+  padding: 6px;
+}
+.post {
+  padding: 10px;
+  background-color: cornsilk;
+}
+
+.sender {
+  padding: 5px;
+}
+
+.message {
+  padding: 5px;
+}
