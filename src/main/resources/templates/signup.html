@@ -2,8 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments/head :: head">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/signup.css">
+    <script src="../assets/js/signup.js"></script>
     <title>Locster.de/SignUp</title>
 </head>
 
@@ -23,8 +25,18 @@
                         <input type="text" placeholder="Dein Geburtsdatum" name="birthday" required>
                         <input type="text" placeholder="Geschlecht" name="gender" required>
                         <input type="email" placeholder="Deine Email-Adresse" name="email" required>
-                        <input type="password" placeholder="Ein sicheres Passwort" name="password" required>
-                        <input type="password" placeholder="Passwort wiederholen" name="passwordAgain" required>
+                        <input type="password" placeholder="Ein sicheres Passwort" name="password" onkeyup="onPasswordChanged()" required>
+                        <div>
+                            <p>Das Passwort muss mindestens
+                                <span class="length-8">8 Zeichen</span> enthalten,
+                                davon mindestens <br>
+                                <span class="major">1 Großbuchstabe</span>,
+                                <span class="minor">1 Kleinbuchstabe</span>,
+                                <span class="number">1 Zahl</span>,
+                                <span class="special">1 Sonderzeichen</span>.
+                            </p>
+                        </div>
+                        <input type="password" placeholder="Passwort wiederholen" name="passwordRepeat" onkeyup="onPasswordRepeatChanged()" required>
                     </div>
                     <div class="checkbox-button-container">
                         <div class="submitButton">

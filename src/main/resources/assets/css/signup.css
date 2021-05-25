@@ -1,7 +1,17 @@
 .form {
-    padding: 0px;
+    padding: 0;
 }
 
 .checkbox-button-container {
     justify-content: flex-end
+}
+
+.inputs div p{
+    width: 105%;
+    margin: 5px;
+    text-align: center;
+}
+
+.inputs div p .length-8, .major, .minor, .number, .special {
+    color: red;
 }
