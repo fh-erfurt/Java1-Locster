@@ -1,7 +1,7 @@
 package de.teamLocster.storages;
 
 import de.teamLocster.domains.PersonalInfo;
-import de.teamLocster.core.H2Controller;
+import de.teamLocster.core.DBController;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,7 +15,7 @@ import java.util.Optional;
 public class PersonalInfoRepository extends BaseRepository<PersonalInfo> {
 
     public PersonalInfoRepository() {
-        super(PersonalInfo.class, H2Controller.getManager().getEntityManager());
+        super(PersonalInfo.class, DBController.getManager().getEntityManager());
     }
 
     public Optional<PersonalInfo> findBy(String lastName){

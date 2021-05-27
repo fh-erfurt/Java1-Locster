@@ -16,8 +16,8 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class Message extends BaseEntity {
 
-    private long senderID;
-    private long chatID;
+    private Long senderID;
+    private Long chatID;
     private String readBy;
     private String text;
     private Date sentAt;

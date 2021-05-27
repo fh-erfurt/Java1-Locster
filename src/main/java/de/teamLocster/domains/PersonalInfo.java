@@ -3,6 +3,8 @@ package de.teamLocster.domains;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -14,12 +16,11 @@ public class PersonalInfo extends BaseEntity {
     private String firstName;
     private String lastName;
     private String region;
-    private String birthDay;    // Date?
+    private Date birthDay;    // TODO Date?
     private String occupation;
-    private Long relationshipStatusID;
+    private RelationshipStatus relationshipStatus;
     private String profilePicture; // String?
-    private String personalInfoCol; // komisch?
-    private Long sexID;
+    private Sex sex;
 }
 
 //@OneToOne(cascade = CascadeType.PERSIST)

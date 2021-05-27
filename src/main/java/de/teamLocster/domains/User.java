@@ -8,8 +8,6 @@ import lombok.Setter;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.*;
-import java.util.Objects;
 
 
 @Entity
@@ -19,11 +17,13 @@ import java.util.Objects;
 @AllArgsConstructor
 public class User extends BaseEntity {
 
-    private String personalInfoID;
-    private String profileStatisticID;
-    private String accountDetailsID;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private PersonalInfo personalInfo;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private ProfileStatistic profileStatistic;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private AccountDetails accountDetails;
     private String personalStatus;
-    private String privacyStatusID;
-    private String onlineStatusID;
-
+    private PrivacyStatus privacyStatus;
+    private OnlineStatus onlineStatus;
 }

@@ -12,18 +12,18 @@ import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class H2Controller {
-    private static final String PERSISTENCE_UNIT = "de.locster.jpa";
+public class DBController
+{
+    private static final String PERSISTENCE_UNIT = "de.locster.jpa.h2file";
 
-    private static H2Controller instance;
+    private static DBController instance;
 
     private final EntityManagerFactory factory;
 
-    public static H2Controller getManager() {
+    public static DBController getManager() {
         if (Objects.isNull(instance)) {
-            instance = new H2Controller(Persistence.createEntityManagerFactory(PERSISTENCE_UNIT));
+            instance = new DBController(Persistence.createEntityManagerFactory(PERSISTENCE_UNIT));
         }
-
         return instance;
     }
 

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter
@@ -15,7 +16,6 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 public class AccountDetails extends BaseEntity {
 
-    // username wurde rausgeschmissen
     private String eMailAddress;
     private String passwordHash;
 }

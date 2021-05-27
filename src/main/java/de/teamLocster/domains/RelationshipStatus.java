@@ -1,18 +1,13 @@
 package de.teamLocster.domains;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-import javax.persistence.Entity;
-
-@Entity
-@Getter
-@Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class RelationshipStatus extends BaseEntity {
+public enum RelationshipStatus {
 
-    private String description;
+    SINGLE,
+    IN_A_RELATIONSHIP,
+    MARRIED,
+    DIVORCED,
+    ITS_COMPLICATED
 }
