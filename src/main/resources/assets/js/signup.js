@@ -19,26 +19,29 @@ onload = function () {
 function onPasswordChanged() {
     const password = inputPassword.value;
     if(password) {
-        let regexWeak = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/m;
-        let regexMedium = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/m;
-        let regexStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/m;
-        let string = password;
 
-        if (string.match(regexStrong)) {
+        let hasLength       = password.length >= 8;
+        let hasLowerCase    = password.match(/[a-z]/m);
+        let hasUpperCase    = password.match(/[A-Z]/m);
+        let hasNumber       = password.match(/[0-9]/m);
+        let hasSpecial      = password.match(/[@$!%*?&]/m);
+
+
+        if (hasLength && hasLowerCase && hasUpperCase && hasNumber && hasSpecial) {
             inputPassword.style.border = '2px solid green';
-        } else if (string.match(regexMedium)) {
+        } else if (hasLowerCase && hasUpperCase && hasNumber && hasSpecial) {
             inputPassword.style.border = '2px solid yellow';
-        } else if (string.match(regexWeak)) {
+        } else if (hasLowerCase && hasUpperCase) {
             inputPassword.style.border = '2px solid orange';
         } else {
             inputPassword.style.border = '2px solid red';
         }
 
-        password.length >= 8        ? length.style.color    = 'green'   : length.style.color  = 'red';
-        string.match(/[a-z]/m)      ? minor.style.color     = 'green'   : minor.style.color   = 'red';
-        string.match(/[A-Z]/m)      ? major.style.color     = 'green'   : major.style.color   = 'red';
-        string.match(/[0-9]/m)      ? number.style.color    = 'green'   : number.style.color  = 'red';
-        string.match(/[@$!%*?&]/m)  ? special.style.color   = 'green'   : special.style.color = 'red';
+        hasLength       ? length.style.color    = 'green'   : length.style.color  = 'red';
+        hasLowerCase    ? minor.style.color     = 'green'   : minor.style.color   = 'red';
+        hasUpperCase    ? major.style.color     = 'green'   : major.style.color   = 'red';
+        hasNumber       ? number.style.color    = 'green'   : number.style.color  = 'red';
+        hasSpecial      ? special.style.color   = 'green'   : special.style.color = 'red';
     }
 }
 
