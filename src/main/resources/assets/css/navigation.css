@@ -21,15 +21,16 @@ nav {
 
 .icon-wrapper {
   padding-right: 20px;
+  display: flex;
 }
 
 .icon {
-  width: 50px;
   height: 50px;
 }
 
 .icon-wrapper a {
   padding-right: 15px;
+  text-decoration: none;
 }
 
 .search-icon {
@@ -64,13 +65,13 @@ nav {
   border: solid 1px white;
   background: white;
   padding: 5px 10px 5px 5px;
+  height: 55px;
 }
 
 /* dropdown */
 
 /* The dropdown container */
 .dropdown {
-  float: right;
   overflow: hidden;
 }
 
@@ -83,25 +84,38 @@ nav {
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+  padding-left: 16px;
 }
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #066188;
 }
 
+/* speechbubble */
+.sb1::before {
+  content: "";
+  position: absolute;
+  border-right: 10px solid #087aaf;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid #087aaf;
+  border-top: 10px solid transparent;
+  top: 10px;
+  left: 80%;
+}
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: transparent;
   /* min-width: 160px; */
   width: 350px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   right: 2px;
   left: auto;
+  padding-top: 30px;
+  padding-right: 30px;
 }
 
 /* Links inside the dropdown */
@@ -125,7 +139,7 @@ nav {
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #63BEE8;
 }
 
 /* Show the dropdown menu on hover */
