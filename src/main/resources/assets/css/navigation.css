@@ -29,8 +29,8 @@ nav {
 }
 
 .icon-wrapper a {
-  padding-right: 15px;
   text-decoration: none;
+  padding: 0 10px;
 }
 
 .search-icon {
@@ -84,11 +84,10 @@ nav {
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
-  padding-left: 16px;
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover,
+.icon-wrapper a:hover,
 .dropdown:hover .dropbtn {
   background-color: #066188;
 }
