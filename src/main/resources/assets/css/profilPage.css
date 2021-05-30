@@ -6,13 +6,13 @@
   box-sizing: inherit;
 }
 body {
-  background-color: #3CB5EE;
-  font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
+  background-color: #3cb5ee;
+  font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
 }
 .container {
   width: 800px;
   margin: auto;
-  background-color:  #63BEE8;
+  background-color: #63bee8;
 
   /* test */
 
@@ -28,7 +28,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .post {
   border: 2px solid #fed700;
@@ -41,6 +40,10 @@ body {
 .profile {
 }
 
+.collapsible_content {
+  display: none;
+}
+
 .profile_pic {
   width: 150px;
   /* margin-left: 10px; */
@@ -48,7 +51,7 @@ body {
   margin-bottom: 10px;
 }
 
-.profile-info-wrapper{
+.profile-info-wrapper {
   display: flex;
   flex-direction: row;
 }
