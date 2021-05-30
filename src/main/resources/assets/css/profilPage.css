@@ -58,10 +58,20 @@ body {
 
 .ProfileInfosHeader {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+}
+.group1 {
+  display: flex;
+  justify-content: center;
+}
+.group2 {
+  display: flex;
 }
 
-.ProfileInfos_group {
+.visitor {
+  display: flex;
+  flex-direction: initial;
+  justify-content: center;
 }
 
 .birthday {
@@ -84,9 +94,29 @@ body {
   flex-direction: inherit;
 }
 
-.ProfileInfosFooter {
+.content .profileinfo {
+  padding: 2px;
+  margin: 8px;
+}
+
+.content .profileInfoIcons {
+  width: 35px;
+}
+
+.content .profileinfo p {
+  margin: 3px;
+  padding: 3px;
+  text-align: center;
+}
+
+.profileInfosFooter {
   display: flex;
   flex-direction: column;
+}
+
+.profileInfosFooter p {
+  padding: 5px;
+  margin: 5px;
 }
 
 .profile_pic {
