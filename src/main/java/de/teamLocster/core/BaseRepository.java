@@ -1,6 +1,6 @@
-package de.teamLocster.storages;
+package de.teamLocster.core;
 
-import de.teamLocster.domains.BaseEntity;
+import de.teamLocster.core.BaseEntity;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.EntityManager;

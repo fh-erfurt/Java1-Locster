@@ -1,5 +1,7 @@
-package de.teamLocster.domains;
+package de.teamLocster.statistics;
 
+import de.teamLocster.core.BaseEntity;
+import de.teamLocster.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +19,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfileStatistic extends BaseEntity {
+public class ProfileStatistic extends BaseEntity
+{
 
     private int visitsCount;
     private int visitorsCount;

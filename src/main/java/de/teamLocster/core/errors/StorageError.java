@@ -1,4 +1,4 @@
-package de.teamLocster.storages.errors;
+package de.teamLocster.core.errors;
 
 public class StorageError extends Exception {
 

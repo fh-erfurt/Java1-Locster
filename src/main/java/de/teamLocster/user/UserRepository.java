@@ -1,6 +1,7 @@
-package de.teamLocster.storages;
+package de.teamLocster.user;
 
-import de.teamLocster.domains.User;
+import de.teamLocster.core.BaseRepository;
+import de.teamLocster.user.User;
 import de.teamLocster.core.DBController;
 
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Slf4j
-public class UserRepository extends BaseRepository<User> {
+public class UserRepository extends BaseRepository<User>
+{
 
     public UserRepository() {
         super(User.class, DBController.getManager().getEntityManager());

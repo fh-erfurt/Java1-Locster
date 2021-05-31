@@ -1,9 +1,11 @@
-package de.teamLocster.domains;
+package de.teamLocster.user;
 
+import de.teamLocster.core.BaseEntity;
+import de.teamLocster.enums.RelationshipStatus;
+import de.teamLocster.enums.Sex;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import java.util.Date;
 
 @Entity
@@ -11,7 +13,8 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PersonalInfo extends BaseEntity {
+public class PersonalInfo extends BaseEntity
+{
 
     private String firstName;
     private String lastName;

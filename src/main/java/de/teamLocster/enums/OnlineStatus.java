@@ -1,4 +1,4 @@
-package de.teamLocster.domains;
+package de.teamLocster.enums;
 
 import lombok.NoArgsConstructor;
 

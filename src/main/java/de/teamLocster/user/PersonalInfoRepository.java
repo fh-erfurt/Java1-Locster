@@ -1,6 +1,7 @@
-package de.teamLocster.storages;
+package de.teamLocster.user;
 
-import de.teamLocster.domains.PersonalInfo;
+import de.teamLocster.core.BaseRepository;
+import de.teamLocster.user.PersonalInfo;
 import de.teamLocster.core.DBController;
 
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +13,8 @@ import java.util.Optional;
 
 
 @Slf4j
-public class PersonalInfoRepository extends BaseRepository<PersonalInfo> {
+public class PersonalInfoRepository extends BaseRepository<PersonalInfo>
+{
 
     public PersonalInfoRepository() {
         super(PersonalInfo.class, DBController.getManager().getEntityManager());

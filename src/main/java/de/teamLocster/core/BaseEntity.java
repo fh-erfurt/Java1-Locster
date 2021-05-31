@@ -1,4 +1,4 @@
-package de.teamLocster.domains;
+package de.teamLocster.core;
 
 import lombok.*;
 

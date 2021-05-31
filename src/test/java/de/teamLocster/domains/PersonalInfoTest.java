@@ -1,6 +1,7 @@
 package de.teamLocster.domains;
 
-import de.teamLocster.storages.PersonalInfoRepository;
+import de.teamLocster.user.PersonalInfoRepository;
+import de.teamLocster.user.PersonalInfo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

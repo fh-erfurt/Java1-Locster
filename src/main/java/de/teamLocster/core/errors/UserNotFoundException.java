@@ -1,4 +1,4 @@
-package de.teamLocster.domains.errors;
+package de.teamLocster.core.errors;
 
 import java.io.Serial;
 
