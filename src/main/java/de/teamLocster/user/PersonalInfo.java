@@ -6,6 +6,8 @@ import de.teamLocster.enums.Sex;
 import lombok.*;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.Date;
 
 @Entity
@@ -21,8 +23,10 @@ public class PersonalInfo extends BaseEntity
     private String region;
     private Date birthDay;    // TODO Date?
     private String occupation;
+    @Enumerated(EnumType.ORDINAL)
     private RelationshipStatus relationshipStatus;
     private String profilePicture; // String?
+    @Enumerated(EnumType.ORDINAL)
     private Sex sex;
 }
 

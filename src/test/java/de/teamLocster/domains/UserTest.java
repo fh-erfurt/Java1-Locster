@@ -86,4 +86,12 @@ public class UserTest {
         Assertions.assertThat(result).isEqualTo(testUser).withFailMessage("USER DOESN'T EQUAL");
     }
 
+    @Test
+    void findById2() {
+        List<User> result = repository.findAll();
+        for(User user : result) {
+            System.out.println(user.getPersonalInfo().getFirstName());
+        }
+    }
+
 }

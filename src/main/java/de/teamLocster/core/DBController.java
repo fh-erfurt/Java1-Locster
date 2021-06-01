@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class DBController
 {
-    private static final String PERSISTENCE_UNIT = "de.locster.jpa.h2file";
+    private static final String PERSISTENCE_UNIT = "de.locster.jpa.mariaDB";
 
     private static DBController instance;
 
