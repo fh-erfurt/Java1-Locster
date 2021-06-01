@@ -1,15 +1,20 @@
 package de.teamLocster.domains;
 
-import de.teamLocster.storages.UserRepository;
+import de.teamLocster.enums.OnlineStatus;
+import de.teamLocster.enums.PrivacyStatus;
+import de.teamLocster.enums.RelationshipStatus;
+import de.teamLocster.enums.Sex;
+import de.teamLocster.guestbook.GuestbookEntry;
+import de.teamLocster.statistics.ProfileStatistic;
+import de.teamLocster.user.UserRepository;
+import de.teamLocster.user.PersonalInfo;
+import de.teamLocster.user.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
@@ -57,6 +62,36 @@ public class UserTest {
         // WHEN
         Assertions.assertThat(result).isNotNull().isNotEmpty().allMatch(Objects::nonNull);
         Assertions.assertThat(idsOfPersisted).isNotNull().isNotEmpty().allMatch(Objects::nonNull);
+    }
+
+    @Test
+    void findById() {
+        String firstName = "Monika";
+        String lastName = "Muster";
+
+        PersonalInfo pi = new PersonalInfo(firstName, lastName, "Muster city", new Date(), "Beispiel", RelationshipStatus.SINGLE, "pseudo path", Sex.FEMALE);
+        ProfileStatistic ps = new ProfileStatistic();
+        HashSet<GuestbookEntry> book = new HashSet<>();
+
+        User testUser = new User("monika@normal.de", "5Ül2e_L3b3Rwur5t", "Ich bin die Monika", pi, ps, "Na moin ihr Gesichter!", PrivacyStatus.PUBLIC, OnlineStatus.ONLINE, book);
+
+        //ad.setUser(testUser);
+
+        Long id = repository.save(testUser);
+
+        User result = repository.findBy(id).get();
+
+        Assertions.assertThat(result.getPersonalInfo().getFirstName() + result.getPersonalInfo().getLastName()).isEqualTo(firstName + lastName).withFailMessage("NAMES DON'T EQUAL");
+        Assertions.assertThat(result.getPersonalInfo()).isEqualTo(pi).withFailMessage("ACCOUNT DETAILS DON'T EQUAL");
+        Assertions.assertThat(result).isEqualTo(testUser).withFailMessage("USER DOESN'T EQUAL");
+    }
+
+    @Test
+    void findById2() {
+        List<User> result = repository.findAll();
+        for(User user : result) {
+            System.out.println(user.getPersonalInfo().getFirstName());
+        }
     }
 
 }
