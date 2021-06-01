@@ -6,12 +6,13 @@
   box-sizing: inherit;
 }
 body {
-  background-color: #3CB5EE;
+  background-color: #3cb5ee;
+  font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
 }
 .container {
   width: 800px;
   margin: auto;
-  background-color:  #63BEE8;
+  background-color: #63bee8;
 
   /* test */
 
@@ -27,7 +28,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 .post {
   border: 2px solid #fed700;
@@ -37,7 +37,72 @@ body {
 
 /* profile structure */
 
-.profile {
+/* collapsible profile infos */
+
+.collapsible {
+  cursor: pointer;
+  border: none;
+  padding: 0 15px;
+  background-color: #fff3b1;
+  color: #3cb5ee;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.info .content {
+  display: none;
+  overflow: hidden;
+  background-color: #fff3b1;
+}
+
+.ProfileInfosHeader {
+  display: flex;
+  flex-direction: column;
+}
+.group1 {
+  display: flex;
+  justify-content: center;
+}
+.group2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.visitor {
+  display: flex;
+  flex-direction: initial;
+  justify-content: center;
+}
+
+.content .group {
+  display: flex;
+  flex-direction: inherit;
+}
+
+.content .profileinfo {
+  padding: 2px;
+  margin: 8px;
+}
+
+.content .profileInfoIcons {
+  width: 35px;
+}
+
+.content .profileinfo p {
+  margin: 3px;
+  padding: 3px;
+  text-align: center;
+}
+
+.profileInfosFooter {
+  display: flex;
+  flex-direction: column;
+}
+
+.profileInfosFooter p {
+  padding: 5px;
+  margin: 5px;
 }
 
 .profile_pic {
@@ -47,7 +112,7 @@ body {
   margin-bottom: 10px;
 }
 
-.profile-info-wrapper{
+.profile-info-wrapper {
   display: flex;
   flex-direction: row;
 }
