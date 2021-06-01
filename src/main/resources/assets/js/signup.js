@@ -24,7 +24,7 @@ function onPasswordChanged() {
         let hasLowerCase    = password.match(/[a-z]/m);
         let hasUpperCase    = password.match(/[A-Z]/m);
         let hasNumber       = password.match(/[0-9]/m);
-        let hasSpecial      = password.match(/[@$!%*?&]/m);
+        let hasSpecial      = password.match(/[@#^!"'§$%&/()=*\-+,.;:_<>?|\\{}\[\]]/m);
 
 
         if (hasLength && hasLowerCase && hasUpperCase && hasNumber && hasSpecial) {
