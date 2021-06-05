@@ -32,7 +32,7 @@
             <property name="javax.persistence.jdbc.user" value="root"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB103Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/> <!-- create-drop -->
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/> <!-- create-drop / update -->
         </properties>
     </persistence-unit>
 </persistence>
