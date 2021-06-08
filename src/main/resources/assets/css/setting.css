@@ -1,0 +1,112 @@
+/* general structure */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  background-color: #3cb5ee;
+  font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+}
+.container {
+  width: 800px;
+  margin: auto;
+  background-color: #63bee8;
+  display: flex;
+  flex-direction: column;
+}
+
+.settingBox {
+  background-color: #fff3b1;
+  margin: 2%;
+  border: 2px solid #fed700;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settingBox .title h2 {
+  padding: 10px 0 30px 15px;
+}
+
+/* inputs form */
+
+.inputs {
+  padding-left: 15px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+  width: 416px;
+  background-color: #fffbe3;
+  border-radius: 25px;
+  border: solid #fed700;
+  margin-top: 2%;
+  padding: 15px;
+  font-size: 16px;
+  color: #5e6472;
+  outline: none;
+  border-width: 2px;
+  transition: 0.2s linear;
+}
+
+.privacy {
+  width: 512px;
+  background-color: #fffbe3;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 40px 50px 15px;
+  padding-left: 15px;
+  border-radius: 25px;
+  border: solid #fed700;
+}
+
+.privacy .title h3 {
+  padding: 10px 0 30px 0;
+}
+
+.privacyBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.selection {
+  display: flex;
+  flex-direction: initial;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.selection img {
+  padding-right: 10px; /*test*/
+  width: 35px;
+  height: 35px;
+}
+
+.selection label {
+  max-width: 300px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 15px;
+}
+
+.profileDeleteBtn {
+  width: 350px;
+  height: 77px;
+  background-color: #ab2524;
+  border: solid #08dcff;
+  color: #fff;
+  font-size: larger;
+  border-radius: 25px;
+}
+
+.submit img {
+  width: 70px;
+  height: 70px;
+}

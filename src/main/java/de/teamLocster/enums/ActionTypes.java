@@ -5,5 +5,5 @@ public enum ActionTypes
     VISIT,
     FRIEND_REQUEST,
     FRIEND_ACKNOWLEDGEMENT,
-    BLOCKED
+    BLOCK
 }
