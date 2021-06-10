@@ -9,63 +9,7 @@
     <title>Einstellungen</title>
   </head>
   <body>
-    <nav>
-      <div class="logo-wrapper">
-        <a href="#">
-          <img src="../assets/images/locsterLogo_Weiss.png" class="logo" />
-        </a>
-      </div>
-
-      <!-- search -->
-
-      <form>
-        <div class="input-group">
-          <input type="text" placeholder="Search" />
-          <div class="input-group-btn">
-            <button type="submit">
-              <img src="../assets/icons/glass.png" class="search-icon" />
-            </button>
-          </div>
-        </div>
-      </form>
-
-      <div class="icon-wrapper">
-        <a href="#">
-          <img src="../assets/icons/speechbubble.png" class="icon" />
-        </a>
-        <a href="#">
-          <img src="../assets/icons/group.png" class="icon" />
-        </a>
-        <a href="#">
-          <img src="../assets/icons/people.png" class="icon" />
-        </a>
-
-        <!-- dropdown -->
-
-        <div class="dropdown">
-          <button class="dropbtn">
-            <a href="#">
-              <img src="../assets/icons/person.png" class="icon" />
-            </a>
-          </button>
-          <div class="dropdown-content sb1">
-            <a href="#">
-              <img src="../assets/icons/person.png" class="icon_dropbtn" />
-              <p>Profil</p>
-            </a>
-            <a href="./setting.html">
-              <img src="../assets/icons/gear.png" class="icon_dropbtn" />
-              <p>Einstellungen</p>
-            </a>
-            <a href="./login.html">
-              <img src="../assets/icons/logout.png" class="icon_dropbtn" />
-              <p>Logout</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
+  <header th:replace="fragments/header"></header>
     <!-- Setting -->
 
   <div class="container">
