@@ -110,3 +110,8 @@ body {
   width: 70px;
   height: 70px;
 }
+
+.submitBtn {
+  background: none;
+  border: none;
+}
