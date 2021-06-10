@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head">
+<head th:replace="fragments/head">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="../assets/css/signup.css">
@@ -10,45 +10,45 @@
 </head>
 
 <body>
-    <div class="link"> <a href="./login.html" title="go to Login">Schon Teil der Crew? Hier geht's zum Log-In</a> </div>
+<div class="link"> <a href="./login.html" title="go to Login">Schon Teil der Crew? Hier geht's zum Log-In</a> </div>
 
-    <div class="content-wraper-image">
-        <div class="image">
-            <img src="../assets/images/locsterLogo_Gruen.png" alt="Logo">
-        </div>
-        <div class="form-text-container">
-            <div class="form">
-                <form>
-                    <div class="inputs">
-                        <input type="text" placeholder="Vorname" name="firstName" required>
-                        <input type="text" placeholder="Nachname" name="lastName" required>
-                        <input type="text" placeholder="Dein Geburtsdatum" name="birthday" required>
-                        <input type="text" placeholder="Geschlecht" name="gender" required>
-                        <input type="email" placeholder="Deine Email-Adresse" name="email" required>
-                        <input type="password" placeholder="Ein sicheres Passwort" name="password" onkeyup="onPasswordChanged()" required>
-                        <div>
-                            <p>Das Passwort muss mindestens
-                                <span class="length-8">8 Zeichen</span> enthalten,
-                                davon mindestens <br>
-                                <span class="major">1 Großbuchstabe</span>,
-                                <span class="minor">1 Kleinbuchstabe</span>,
-                                <span class="number">1 Zahl</span>,
-                                <span class="special">1 Sonderzeichen</span>.
-                            </p>
-                        </div>
-                        <input type="password" placeholder="Passwort wiederholen" name="passwordRepeat" onkeyup="onPasswordRepeatChanged()" required>
-                    </div>
-                    <div class="checkbox-button-container">
-                        <div class="submitButton">
-                            <button class="btn" type="submit">Login</button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
+<div class="content-wraper-image">
+    <div class="image">
+        <img src="../assets/images/locsterLogo_Gruen.png" alt="Logo">
     </div>
+    <div class="form-text-container">
+        <div class="form">
+            <form>
+                <div class="inputs">
+                    <input type="text" placeholder="Vorname" name="firstName" required>
+                    <input type="text" placeholder="Nachname" name="lastName" required>
+                    <input type="text" placeholder="Dein Geburtsdatum" name="birthday" required>
+                    <input type="text" placeholder="Geschlecht" name="gender" required>
+                    <input type="email" placeholder="Deine Email-Adresse" name="email" required>
+                    <input type="password" placeholder="Ein sicheres Passwort" name="password" onkeyup="onPasswordChanged()" required>
+                    <div>
+                        <p>Das Passwort muss mindestens
+                            <span class="length-8">8 Zeichen</span> enthalten,
+                            davon mindestens <br>
+                            <span class="major">1 Großbuchstabe</span>,
+                            <span class="minor">1 Kleinbuchstabe</span>,
+                            <span class="number">1 Zahl</span>,
+                            <span class="special">1 Sonderzeichen</span>.
+                        </p>
+                    </div>
+                    <input type="password" placeholder="Passwort wiederholen" name="passwordRepeat" onkeyup="onPasswordRepeatChanged()" required>
+                </div>
+                <div class="checkbox-button-container">
+                    <div class="submitButton">
+                        <button class="btn" type="submit">Login</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
 
 
 </body>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head">
+  <link rel="stylesheet" href="../assets/css/navigation.css" />
+  <link rel="stylesheet" href="../assets/css/settings.css" />
+  <title>Einstellungen</title>
+</head>
+
+<body>
+<header th:replace="fragments/header"></header>
+<!-- Setting -->
+
+<div class="container">
+  <div class="settingBox">
+
+    <div class="title">
+      <h2>Einstellungen</h2>
+    </div>
+
+    <form action="#">
+
+      <div class="inputs">
+        <input type="email" placeholder="Email-Adresse ändern">
+        <input type="password" placeholder="Passwort ändern">
+      </div>
+
+      <div class="privacy">
+        <div class="title">
+          <h3>Privatssphäre</h3>
+        </div>
+
+        <div class="privacyBody">
+          <div class="selection">
+            <img src="../assets/icons/lock_closed.png" alt="logo">
+            <label for="privacy1">
+              Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
+              +Statistiken anschauen
+            </label>
+            <div class="checkbox">
+              <input type="checkbox" name="privacy" id="privacy1" value="#">
+            </div>
+          </div>
+          <div class="selection">
+            <img src="../assets/icons/lock_open.png" alt="logo">
+            <label for="privacy2">
+              Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
+              +Statistiken anschauen
+            </label>
+            <div class="checkbox">
+              <input type="checkbox" name="privacy" id="privacy2" value="#">
+            </div>
+          </div>
+          <div class="selection">
+            <img src="../assets/icons/world.png" alt="logo">
+            <label for="privacy3">
+              Jeder darf mir schreiben (Gästebuch und Chat) <br>
+              +Statistiken anschauen
+            </label>
+            <div class="checkbox">
+              <input type="checkbox" name="privacy" id="privacy3" value="#">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="delete">
+          <button class="profileDeleteBtn">Profil löschen</button>
+        </div>
+        <div class="submit">
+          <button class="submitBtn"><img src="../assets/icons/accept.png" alt="logo"></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
