@@ -1,6 +1,5 @@
-package de.teamLocster.servingwebcontent;
+package de.teamLocster.controller;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
