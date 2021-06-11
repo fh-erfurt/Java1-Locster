@@ -20,4 +20,10 @@ public class GreetingController {
         return "login";
     }
 
+    @GetMapping("/signUp")
+    public String signUp() {
+        return "signUp";
+    }
+
+
 }
