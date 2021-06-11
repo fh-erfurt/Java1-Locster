@@ -12,3 +12,13 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+function displayprofileEdit() {
+  document.getElementById("profileInfoBox").style.display = "none";
+  document.getElementById("profileEdit").style.display = "flex";
+}
+
+function displayprofileInfo() {
+  document.getElementById("profileInfoBox").style.display = "flex";
+  document.getElementById("profileEdit").style.display = "none";
+}

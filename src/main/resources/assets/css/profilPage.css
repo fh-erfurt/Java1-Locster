@@ -20,6 +20,12 @@ body {
   flex-direction: column;
   /* end test */
 }
+
+/* profileInfo & profileEdit */
+#profileEdit {
+  display: none;
+}
+
 .box {
   background-color: #fff3b1;
   margin: 2%;
