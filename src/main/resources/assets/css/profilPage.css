@@ -26,6 +26,52 @@ body {
   display: none;
 }
 
+.editFields form {
+  border-radius: 25px;
+  max-width: 500px;
+}
+
+.editFields input[type="text"],
+.editFields input[type="date"] {
+  border-radius: 25px;
+  border: solid #08dcff;
+  margin-top: 2%;
+  padding: 15px;
+  font-size: 16px;
+  color: #5e6472;
+  outline: none;
+  border-width: 2px;
+  transition: 0.2s linear;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: initial;
+  padding: 10px;
+  padding-left: 15px;
+  margin-left: 100px;
+}
+
+.profileDeleteBtn {
+  width: 300px;
+  height: 77px;
+  background-color: #ab2524;
+  border: solid #08dcff;
+  color: #fff;
+  font-size: larger;
+  border-radius: 25px;
+}
+
+.submit {
+  margin-top: 100px;
+  margin-right: 10px;
+}
+
+.submit img {
+  width: 70px;
+  height: 70px;
+}
+
 .box {
   background-color: #fff3b1;
   margin: 2%;

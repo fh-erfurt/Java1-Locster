@@ -152,105 +152,52 @@
         </div>
       </div>
 
-      <div class="box profile" id="profileEdit">
-        <div class="profile-info-wrapper">
-          <div class="info">
-            <h2 class="profile_name">Crab Daddy</h2>
-            <h2 class="profile_city">aus Erdurt</h2>
-            <button type="button" class="collapsible">mehr Infos</button>
-            <div class="content">
-              <div class="ProfileInfosHeader">
-                <div class="group1">
-                  <div class="birthday group profileinfo">
-                    <img
-                      class="profileInfoIcons"
-                      src="../assets/icons/cake.svg"
-                      alt="cake"
-                    />
-                    <p>01.01.1990</p>
-                  </div>
-                  <div class="gender group profileinfo">
-                    <img
-                      class="profileInfoIcons"
-                      src="../assets/icons/genders-gender-svgrepo-com.svg"
-                      alt="icon"
-                    />
-                    <p>Mann</p>
-                  </div>
-                </div>
-                <div class="group2">
-                  <div class="relationship group profileinfo">
-                    <img
-                      class="profileInfoIcons"
-                      src="../assets/icons/heart-thin.svg"
-                      alt="heart"
-                    />
-                    <p>Single</p>
-                  </div>
-                  <div class="job group profileinfo">
-                    <img
-                      class="profileInfoIcons"
-                      src="../assets/icons/job-seeker.svg"
-                      alt="job"
-                    />
-                    <p>Fischer</p>
-                  </div>
-                </div>
-                <div class="visitor profileinfo">
-                  <img
-                    class="profileInfoIcons"
-                    src="../assets/icons/guest-traveler.svg"
-                    alt="icon"
-                  />
-                  <p>523</p>
-                </div>
-              </div>
-              <div class="profileInfosFooter">
-                <div class="lastVisitor">
-                  <p>letzter Besucher: Crab Kid</p>
-                </div>
-                <div class="newFriend">
-                  <p>neuester Freund: Crab Kong</p>
-                </div>
-                <div class="oldFriend">
-                  <p>ältester Freund: Crab Mommy</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="icon-edit-content">
-          <img
-            src="../assets/icons/pen.png"
-            alt="pen"
-            onclick="displayprofileInfo()"
-          />
-        </div>
-      </div>
-
-      <div class="box profile-edit">
+      <div class="box profile-edit" id="profileEdit">
         <div class="editFields">
-          <input type="text" id="firstName" name="firstName" value="Vorname">
-          <input type="text" id="lastName" name="lastName" value="Nachname">
-              <div class="genderButtons">
-                  <button type="button">Geschlecht</button>
-                    <input type="radio" id="male" name="gender" value="male">
-                      <label for="male">männlich</label><br>
-                   <input type="radio" id="female" name="gender" value="female">
-                      <label for="female">weiblich</label><br>
-                   <input type="radio" id="diverse" name="gender" value="diverse">
-                      <label for="diverse">divers</label><br>
-              </div>
-          <input type="text" id="region" name="region" value="Wohnort">
-          <input type="text" id="occupation" name="occupation" value="Beruf">
-          <input type="date" id="birthday" name="birthday" value="birthday">
-      </div>
-      <div class="profilepictureButton">
-        <button type="button">Profilbild ändern</button>
-        <button type="button">Profilbild löschen</button>
-      </div>
-        <div class="submit">
-          <button class="submitBtn"><img src="../assets/icons/accept.png" alt="logo"></button>
+          <form action="#">
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value="Vorname"
+            />
+            <input type="text" id="lastName" name="lastName" value="Nachname" />
+            <div class="genderButtons">
+              <label for="gender">Choose a gender:</label>
+              <select name="gender" id="gender">
+                <option value="männlich">männlich</option>
+                <option value="female">female</option>
+                <option value="diverse">diverse</option>
+              </select>
+            </div>
+            <input type="text" id="region" name="region" value="Wohnort" />
+            <input
+              type="text"
+              id="occupation"
+              name="occupation"
+              value="Beruf"
+            />
+            <input type="date" id="birthday" name="birthday" value="birthday" />
+          </form>
+        </div>
+        <div class="buttons">
+          <div class="delete">
+            <button class="profileDeleteBtn" type="button">
+              Profilbild ändern
+            </button>
+            <button class="profileDeleteBtn" type="button">
+              Profilbild löschen
+            </button>
+          </div>
+          <div class="submit">
+            <button class="submitBtn">
+              <img
+                src="../assets/icons/accept.png"
+                alt="logo"
+                onclick="displayprofileInfo()"
+              />
+            </button>
+          </div>
         </div>
       </div>
 
