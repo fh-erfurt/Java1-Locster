@@ -4,6 +4,7 @@ import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -20,10 +21,11 @@ public class GreetingController {
         return "login";
     }
 
-    @GetMapping("/signUp")
+    @GetMapping("/signup")
     public String signUp() {
-        return "signUp";
+        return "signup";
     }
+
 
 
 }
