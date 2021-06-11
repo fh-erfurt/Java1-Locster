@@ -28,13 +28,19 @@ body {
 
 .editFields form {
   border-radius: 25px;
-  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .editFields input[type="text"],
-.editFields input[type="date"] {
+.editFields input[type="date"],
+.editFields .genderButtons {
+  width: 40%;
+  background-color: #fffbe3;
   border-radius: 25px;
-  border: solid #08dcff;
+  border: solid #fed700;
   margin-top: 2%;
   padding: 15px;
   font-size: 16px;
@@ -45,21 +51,28 @@ body {
 }
 
 .buttons {
+  width: 100%;
   display: flex;
-  flex-direction: initial;
-  padding: 10px;
-  padding-left: 15px;
-  margin-left: 100px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.buttonsBtn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 15px;
 }
 
-.profileDeleteBtn {
-  width: 300px;
-  height: 77px;
+.profileBtn {
+  width: 250px;
+  height: 60px;
   background-color: #ab2524;
   border: solid #08dcff;
   color: #fff;
   font-size: larger;
   border-radius: 25px;
+  margin-top: 2%;
+  margin: 10px;
 }
 
 .submit {
