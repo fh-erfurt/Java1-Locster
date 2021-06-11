@@ -28,10 +28,35 @@ public class UITest {
 
     @Test
     void signUpTest() {
-        driver.get("http://localhost:8080/signUp");
+        driver.get("http://localhost:8080/signup");
 
-        WebElement input = driver.findElement(By.tagName("input"));
-        input.sendKeys("Selenium");
+        String firstNameInput = "Max";
+        String lastNameInput = "Mustermann";
+        String birthDateInput = "01.04.1991";
+        String sexInput = "männlich";
+        String emailInput = "max.mustermann@fh-erfurt.de";
+        String passwordInput = "Hallo123.@!";
+
+        WebElement firstName = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[1]"));
+        WebElement lastName = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[2]"));
+        WebElement birthDate = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[3]"));
+        WebElement sex = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[4]"));
+        WebElement email = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[5]"));
+        WebElement password = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[6]"));
+        WebElement passwordValidator = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[1]/input[7]"));
+        WebElement submitButton = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div/form/div[2]/div/button"));
+
+        firstName.sendKeys(firstNameInput);
+        lastName.sendKeys(lastNameInput);
+        birthDate.sendKeys(birthDateInput);
+        sex.sendKeys(sexInput);
+        email.sendKeys(emailInput);
+        password.sendKeys(passwordInput);
+        passwordValidator.sendKeys(passwordInput);
+
+        submitButton.click();
+
+
     }
 
 }
