@@ -1,6 +1,5 @@
-package de.teamLocster.servingwebcontent;
+package de.teamLocster.controller;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,11 +12,6 @@ public class GreetingController {
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
-    }
-
-    @GetMapping("/login")
-    public String login() {
-        return "login";
     }
 
 }
