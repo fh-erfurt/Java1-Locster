@@ -12,7 +12,7 @@
 <!-- Homepage -->
 
 <div class="container">
-  <div class="box profile">
+  <div class="box profile" id="profileInfoBox">
     <div class="profile-info-wrapper">
       <div class="pic">
         <img
@@ -87,7 +87,62 @@
       </div>
     </div>
     <div class="icon-edit-content">
-      <img src="../assets/icons/pen.png" alt="pen" />
+      <img
+              src="../assets/icons/pen.png"
+              alt="pen"
+              onclick="displayprofileEdit()"
+      />
+    </div>
+  </div>
+
+  <div class="box profile-edit" id="profileEdit">
+    <div class="editFields">
+      <form action="#">
+        <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value="Vorname"
+        />
+        <input type="text" id="lastName" name="lastName" value="Nachname" />
+        <input type="date" id="birthday" name="birthday" value="birthday" />
+        <div class="genderButtons">
+          <label for="gender">Choose a gender:</label>
+          <select name="gender" id="gender">
+            <option value="männlich">männlich</option>
+            <option value="female">female</option>
+            <option value="diverse">diverse</option>
+          </select>
+        </div>
+        <input type="text" id="region" name="region" value="Wohnort" />
+        <input
+                type="text"
+                id="relationship"
+                name="relationship"
+                value="Glücklich getrennt"
+        />
+        <input
+                type="text"
+                id="occupation"
+                name="occupation"
+                value="Beruf"
+        />
+      </form>
+    </div>
+    <div class="buttons">
+      <div class="buttonsBtn">
+        <button class="profileBtn" type="button">Profilbild ändern</button>
+        <button class="profileBtn" type="button">Profilbild löschen</button>
+      </div>
+      <div class="submit">
+        <button class="submitBtn">
+          <img
+                  src="../assets/icons/accept.png"
+                  alt="logo"
+                  onclick="displayprofileInfo()"
+          />
+        </button>
+      </div>
     </div>
   </div>
 
