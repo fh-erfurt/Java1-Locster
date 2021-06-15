@@ -20,6 +20,71 @@ body {
   flex-direction: column;
   /* end test */
 }
+
+/* profileInfo & profileEdit */
+#profileEdit {
+  display: none;
+}
+
+.editFields form {
+  border-radius: 25px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.editFields input[type="text"],
+.editFields input[type="date"],
+.editFields .genderButtons {
+  width: 40%;
+  background-color: #fffbe3;
+  border-radius: 25px;
+  border: solid #fed700;
+  margin-top: 2%;
+  padding: 15px;
+  font-size: 16px;
+  color: #5e6472;
+  outline: none;
+  border-width: 2px;
+  transition: 0.2s linear;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.buttonsBtn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  margin-left: 15px;
+}
+
+.profileBtn {
+  width: 250px;
+  height: 60px;
+  background-color: #ab2524;
+  border: solid #08dcff;
+  color: #fff;
+  font-size: larger;
+  border-radius: 25px;
+  margin-top: 2%;
+  margin: 10px;
+}
+
+.submit {
+  margin-top: 100px;
+  margin-right: 10px;
+}
+
+.submit img {
+  width: 70px;
+  height: 70px;
+}
+
 .box {
   background-color: #fff3b1;
   margin: 2%;
