@@ -36,9 +36,9 @@ body {
   padding-left: 15px;
 }
 
-input[type="email"],
-input[type="password"],
-input[type="text"] {
+.inputs input[type="email"],
+.inputs input[type="password"],
+.inputs input[type="text"] {
   width: 416px;
   background-color: #fffbe3;
   border-radius: 25px;
@@ -109,4 +109,9 @@ input[type="text"] {
 .submit img {
   width: 70px;
   height: 70px;
+}
+
+.submitBtn {
+  background: none;
+  border: none;
 }

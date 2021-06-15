@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/navigation.css" />
+    <link rel="stylesheet" href="../assets/css/setting.css" />
+    <title>Einstellungen</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo-wrapper">
+        <a href="#">
+          <img src="../assets/images/locsterLogo_Weiss.png" class="logo" />
+        </a>
+      </div>
+
+      <!-- search -->
+
+      <form>
+        <div class="input-group">
+          <input type="text" placeholder="Search" />
+          <div class="input-group-btn">
+            <button type="submit">
+              <img src="../assets/icons/glass.png" class="search-icon" />
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="icon-wrapper">
+        <a href="#">
+          <img src="../assets/icons/speechbubble.png" class="icon" />
+        </a>
+        <a href="#">
+          <img src="../assets/icons/group.png" class="icon" />
+        </a>
+        <a href="#">
+          <img src="../assets/icons/people.png" class="icon" />
+        </a>
+
+        <!-- dropdown -->
+
+        <div class="dropdown">
+          <button class="dropbtn">
+            <a href="#">
+              <img src="../assets/icons/person.png" class="icon" />
+            </a>
+          </button>
+          <div class="dropdown-content sb1">
+            <a href="#">
+              <img src="../assets/icons/person.png" class="icon_dropbtn" />
+              <p>Profil</p>
+            </a>
+            <a href="./setting.html">
+              <img src="../assets/icons/gear.png" class="icon_dropbtn" />
+              <p>Einstellungen</p>
+            </a>
+            <a href="./login.html">
+              <img src="../assets/icons/logout.png" class="icon_dropbtn" />
+              <p>Logout</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Setting -->
+
+  <div class="container">
+    <div class="settingBox">
+
+      <div class="title">
+        <h2>Einstellungen</h2>
+      </div>
+
+      <form action="#">
+
+        <div class="inputs">
+          <input type="email" placeholder="Email-Adresse ändern">
+          <input type="password" placeholder="Passwort ändern">
+        </div>
+
+        <div class="privacy">
+          <div class="title">
+            <h3>Privatssphäre</h3>
+          </div>
+
+          <div class="privacyBody">
+
+            <div class="selection">
+              <img src="../assets/icons/lock_closed.png" alt="logo">
+              <label for="privacy1">
+                Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
+                +Statistiken anschauen
+              </label>
+              <div class="checkbox">
+                <input type="radio" name="privacy" id="privacy1" value="#">
+              </div>
+            </div>
+
+            <div class="selection">
+              <img src="../assets/icons/lock_open.png" alt="logo">
+              <label for="privacy2">
+                Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
+                +Statistiken anschauen
+              </label>
+              <div class="checkbox">
+                <input type="radio" name="privacy" id="privacy2" value="#">
+              </div>
+            </div>
+
+            <div class="selection">
+              <img src="../assets/icons/world.png" alt="logo">
+              <label for="privacy3">
+                Jeder darf mir schreiben (Gästebuch und Chat) <br>
+                +Statistiken anschauen
+              </label>
+              <div class="checkbox">
+                <input type="radio" name="privacy" id="privacy3" value="#">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="buttons">
+          <div class="delete">
+            <button class="profileDeleteBtn">Profil löschen</button>
+          </div>
+          <div class="submit">
+            <button class="submitBtn"><img src="../assets/icons/accept.svg" alt="logo"></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
