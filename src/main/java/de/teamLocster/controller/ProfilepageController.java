@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ProfilePageController {
-    @GetMapping("/profilePage")
+public class ProfilepageController {
+    @GetMapping("/profilepage")
     public String profilePage () {
-        return "profilePage";
+        return "profilepage";
     }
 }
