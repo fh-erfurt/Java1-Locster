@@ -1,4 +1,4 @@
-package de.teamLocster.controller;
+package de.teamLocster;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
