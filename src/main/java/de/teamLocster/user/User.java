@@ -31,11 +31,10 @@ public class User extends BaseEntity
     private String firstName;
     private String lastName;
     private String region;
-    private Date birthDay;    // TODO Date?
+    private Date birthDay;
     private String occupation;
     @Enumerated(EnumType.ORDINAL)
     private RelationshipStatus relationshipStatus;
-    private String profilePicture; // String?
     @Enumerated(EnumType.ORDINAL)
     private Sex sex;
 
@@ -43,7 +42,7 @@ public class User extends BaseEntity
     @Lob
     private Byte[] profilePicture; // TODO client muss Dateityp kennen
     */
-
+    private String profilePicture;
     // @Lob CLOB in DB für Kodierung von Umlauten bzw. deutschen Zeichen
     private String profileText;
     private String personalStatus;

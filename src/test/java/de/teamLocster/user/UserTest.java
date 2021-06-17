@@ -9,16 +9,19 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.*;
 
 public class UserTest {
 
-    UserRepository repository;
+    OldUserRepository repository;
+    UserService userService;
 
     @BeforeEach
     public void beforeEach() {
-        repository = new UserRepository();
+        repository = new OldUserRepository();
+        userService = new UserService();
     }
 
     @AfterEach
@@ -67,13 +70,15 @@ public class UserTest {
 
         HashSet<GuestbookEntry> book = new HashSet<>();
 
-        User testUser = new User("monika@normal.de", "5Ül2e_L3b3Rwur5t", firstName, lastName, "Muster city", new Date(), "Beispiel", rs, "pseudo path", Sex.FEMALE, "Ich bin die Monika", "Na moin ihr Gesichter!", PrivacyStatus.PUBLIC, OnlineStatus.ONLINE, book);
+        Date birthDay = new Date();
+
+        User testUser = new User("monika@normal.de", "5Ül2e_L3b3Rwur5t", firstName, lastName, "Muster city", birthDay, "Beispiel", rs, Sex.FEMALE, "pseudo path", "Ich bin die Monika", "Na moin ihr Gesichter!", PrivacyStatus.PUBLIC, OnlineStatus.ONLINE, book);
 
         //ad.setUser(testUser);
 
-        Long id = repository.save(testUser);
+        userService.saveUser(testUser);
 
-        User result = repository.findBy(id).get();
+        User result = repository.findBy(testUser.getId()).get();
 
         Assertions.assertThat(result.getFirstName() + result.getLastName()).isEqualTo(firstName + lastName).withFailMessage("NAMES DON'T EQUAL");
         Assertions.assertThat(result.getRelationshipStatus()).isEqualTo(rs).withFailMessage("Relationship Status doesn't equal");
