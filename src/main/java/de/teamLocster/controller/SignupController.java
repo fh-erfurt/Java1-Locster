@@ -15,7 +15,7 @@ import javax.transaction.Transactional;
 @Controller
 public class SignupController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public SignupController(UserRepository userRepository)
