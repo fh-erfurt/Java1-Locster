@@ -52,7 +52,4 @@ public class User extends BaseEntity
     private OnlineStatus onlineStatus;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<GuestbookEntry> guestbook = new HashSet<>();
-    /*
-    @OneToMany(mappedBy = "sender OR receiver")  // TODO how to map friendships
-    private Set<Friendship> friends = new HashSet<>(); */
 }

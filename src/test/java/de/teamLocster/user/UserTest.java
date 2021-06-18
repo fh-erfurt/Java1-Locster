@@ -16,12 +16,10 @@ import java.util.*;
 public class UserTest {
 
     OldUserRepository repository;
-    UserService userService;
 
     @BeforeEach
     public void beforeEach() {
         repository = new OldUserRepository();
-        userService = new UserService();
     }
 
     @AfterEach
@@ -76,7 +74,7 @@ public class UserTest {
 
         //ad.setUser(testUser);
 
-        userService.saveUser(testUser);
+        repository.save(testUser);
 
         User result = repository.findBy(testUser.getId()).get();
 

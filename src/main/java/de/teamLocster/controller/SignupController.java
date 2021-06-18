@@ -1,16 +1,27 @@
 package de.teamLocster.controller;
 
 import de.teamLocster.user.User;
+import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.transaction.Transactional;
+
+@Transactional
 @Controller
 public class SignupController {
 
-    private final UserService userService = new UserService();
+    private UserService userService;
+
+    @Autowired
+    public SignupController(UserRepository userRepository)
+    {
+        this.userService = new UserService(userRepository);
+    }
 
     @GetMapping("/signup")
     public String signUp () {
@@ -32,13 +43,11 @@ public class SignupController {
         {
             User user = new User();
             user.setEMailAddress("blablub");
-            //user.setFirstName(firstName);
-            userService.saveUser(user);
-            /* if (userRepository.registerNewUser()) //(firstName, lastName, birthday, gender, email, password))
+            if (userService.registerNewUser(firstName, lastName, birthday, gender, email, password))
             {
                 target = "login";
-            }*/
+            }
         }
-        return "login";
+        return target;
     }
 }
