@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
 
-<head th:replace="fragments/head">
-    <link rel="stylesheet" href="../assets/css/login.css">
+<head th:replace="fragments/head"></head>
+
+<head>
+    <link th:href = "@{/css/login.css}" rel="stylesheet">
+    <script type="text/javascript" th:src = "@{/js/login.js}"></script>
+    <title>Login.de.Login</title>
 </head>
 
 <body>
-<div class="link"> <a href="./signup.html" title="go to SignUp">Noch nicht Teil der Crew? Hier geht's zum Registration</a> </div>
+
+
+<div class="link"> <a href="signup" title="go to SignUp">Noch nicht Teil der Crew? Hier geht's zum Registration</a> </div>
 
 <div class="content-wraper-image">
     <div class="image">
-        <img src="../assets/images/locsterLogo_Gruen.png" alt="Logo">
+        <img src = "images/locsterLogo_Gruen.png" alt="Logo">
     </div>
     <div class="form-text-container">
         <div class="text">
@@ -41,7 +47,6 @@
     </div>
 
 </div>
-
 
 </body>
 
