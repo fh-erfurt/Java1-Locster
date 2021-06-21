@@ -24,8 +24,11 @@
                 Hey Du! Da bist du ja wieder! Schnell unten einloggen und neue Leute aus deiner City kennlernen ;)
             </p>
         </div>
+        <div th:if="${invalidCredentials}" class="alert alert-danger">
+             User or Password is wrong
+        </div>
         <div class="form">
-            <form>
+            <form th:action="@{/login}" th:object="${loginForm}" method="post">
                 <div class="inputs">
                     <input type="email" placeholder="Deine Email-Adresse" name="email" required>
                     <input type="password" placeholder="Dein Passwort" name="password" required>
