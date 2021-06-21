@@ -21,6 +21,9 @@ public class LoginController {
     @RequestMapping(value ="/login", method=RequestMethod.POST )
     public String login(@ModelAttribute (name="User") User user, Model model) {
 
+        user.setEMailAddress("admin@gmail.com");
+        user.setPasswordHash("admin");
+
         String email = user.getEMailAddress();
         String password = user.getPasswordHash();
 
@@ -28,9 +31,13 @@ public class LoginController {
             // if username and password is correct, we are returning homepage
             return "profilepage";
         }
-        // if username or password is wrong
-        model.addAttribute("invalidCredentials", true);
-        //returning again login page
-        return "login";
+        else
+        {
+            // if username or password is wrong
+            model.addAttribute("invalidCredentials", true);
+            //returning again login page
+            return "login";
+        }
+
     }
 }
