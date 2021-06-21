@@ -1,7 +1,7 @@
 package de.teamLocster.controller;
 
+import de.teamLocster.core.BaseRepository;
 import de.teamLocster.user.User;
-import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ public class SignupController {
     private final UserService userService;
 
     @Autowired
-    public SignupController(UserRepository userRepository)
+    public SignupController(BaseRepository<User> userRepository)
     {
         this.userService = new UserService(userRepository);
     }
@@ -45,7 +45,7 @@ public class SignupController {
             user.setEMailAddress("blablub");
             if (userService.registerNewUser(firstName, lastName, birthday, gender, email, password))
             {
-                target = "login";
+                target = "login"; // todo redirect
             }
         }
         return target;
