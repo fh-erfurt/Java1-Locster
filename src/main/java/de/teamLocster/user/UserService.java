@@ -1,8 +1,9 @@
 package de.teamLocster.user;
 
+import de.teamLocster.core.BaseRepository;
+import de.teamLocster.core.BaseService;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
-import de.teamLocster.enums.RelationshipStatus;
 import de.teamLocster.enums.Sex;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,25 +17,24 @@ import java.util.Locale;
 
 @Slf4j
 @Service
-public class UserService {
-
-    private UserRepository userRepository;
+public class UserService extends BaseService<User>
+{
     SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 
     @Autowired
-    public UserService(UserRepository userRepository)
+    public UserService(BaseRepository<User> userRepository)
     {
-        this.userRepository = userRepository;
+        super(userRepository);
     }
 
     public List<User> findAllUsers() {
         List<User> users = new ArrayList<>();
-        userRepository.findAll().forEach(users::add); // todo refactor
+        repository.findAll().forEach(users::add); // todo refactor
         return users;
     }
 
     public Long saveUser(User user) {
-        return userRepository.save(user).getId();
+        return repository.save(user).getId();
     }
 
     public boolean registerNewUser(

@@ -1,30 +1,40 @@
 package de.teamLocster.user;
 
+import de.teamLocster.core.BaseRepository;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.RelationshipStatus;
 import de.teamLocster.enums.Sex;
 import de.teamLocster.guestbook.GuestbookEntry;
 import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;
 
+@SpringBootTest
 public class UserTest {
 
-    OldUserRepository repository;
+    // TODO: was wollen wir vom User testen?
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    BaseRepository<User> repository;
 
     @BeforeEach
     public void beforeEach() {
-        repository = new OldUserRepository();
+
     }
 
     @AfterEach
     public void afterEach() {
-        repository.deleteAll();
+        repository.deleteAll(); // todo
     }
 
     @Test
@@ -33,7 +43,7 @@ public class UserTest {
         User given = new User();
 
         // WHEN
-        Long result = repository.save(given);
+        Long result = userService.saveUser(given);
 
         // THEN
         Assertions.assertThat(result)
@@ -48,8 +58,8 @@ public class UserTest {
         User given2 = new User();
 
         List<Long> idsOfPersisted = new ArrayList<>();
-        idsOfPersisted.add(repository.save(given1));
-        idsOfPersisted.add(repository.save(given2));
+        idsOfPersisted.add(repository.save(given1).getId());
+        idsOfPersisted.add(repository.save(given2).getId());
 
         // WHEN
         List<User> result = repository.findAll();
@@ -70,25 +80,31 @@ public class UserTest {
 
         Date birthDay = new Date();
 
-        User testUser = new User("monika@normal.de", "5Ül2e_L3b3Rwur5t", firstName, lastName, "Muster city", birthDay, "Beispiel", rs, Sex.FEMALE, "pseudo path", "Ich bin die Monika", "Na moin ihr Gesichter!", PrivacyStatus.PUBLIC, OnlineStatus.ONLINE, book);
-
-        //ad.setUser(testUser);
+        User testUser = new User(
+                "monika@normal.de",
+                "5Ül2e_L3b3Rwur5t",
+                firstName,
+                lastName,
+                "Muster city",
+                birthDay,
+                "Beispiel",
+                rs,
+                Sex.FEMALE,
+                "pseudo path",
+                "Ich bin die Monika",
+                "Na moin ihr Gesichter!",
+                PrivacyStatus.PUBLIC,
+                OnlineStatus.ONLINE,
+                book
+        );
 
         repository.save(testUser);
 
-        User result = repository.findBy(testUser.getId()).get();
+        User result = repository.findById(testUser.getId()).get();
 
-        Assertions.assertThat(result.getFirstName() + result.getLastName()).isEqualTo(firstName + lastName).withFailMessage("NAMES DON'T EQUAL");
-        Assertions.assertThat(result.getRelationshipStatus()).isEqualTo(rs).withFailMessage("Relationship Status doesn't equal");
-        Assertions.assertThat(result).isEqualTo(testUser).withFailMessage("USER DOESN'T EQUAL");
-    }
-
-    @Test
-    void findById2() {
-        List<User> result = repository.findAll();
-        for(User user : result) {
-            System.out.println(user.getFirstName());
-        }
+        Assertions.assertThat(result.getFirstName() + result.getLastName()).isEqualTo(firstName + lastName);
+        Assertions.assertThat(result.getRelationshipStatus()).isEqualTo(rs);
+        Assert.assertEquals(testUser, result);
     }
 }
 
