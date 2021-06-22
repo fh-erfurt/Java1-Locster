@@ -31,11 +31,10 @@ public class User extends BaseEntity
     private String firstName;
     private String lastName;
     private String region;
-    private Date birthDay;    // TODO Date?
+    private Date birthDay;
     private String occupation;
     @Enumerated(EnumType.ORDINAL)
     private RelationshipStatus relationshipStatus;
-    private String profilePicture; // String?
     @Enumerated(EnumType.ORDINAL)
     private Sex sex;
 
@@ -43,7 +42,7 @@ public class User extends BaseEntity
     @Lob
     private Byte[] profilePicture; // TODO client muss Dateityp kennen
     */
-
+    private String profilePicture;
     // @Lob CLOB in DB für Kodierung von Umlauten bzw. deutschen Zeichen
     private String profileText;
     private String personalStatus;
@@ -53,7 +52,4 @@ public class User extends BaseEntity
     private OnlineStatus onlineStatus;
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<GuestbookEntry> guestbook = new HashSet<>();
-    /*
-    @OneToMany(mappedBy = "sender OR receiver")  // TODO how to map friendships
-    private Set<Friendship> friends = new HashSet<>(); */
 }

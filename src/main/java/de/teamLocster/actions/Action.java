@@ -1,7 +1,7 @@
 package de.teamLocster.actions;
 
 import de.teamLocster.core.BaseEntity;
-import de.teamLocster.enums.ActionTypes;
+import de.teamLocster.enums.ActionType;
 import de.teamLocster.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,5 +23,5 @@ public class Action extends BaseEntity
     private User affected;
     // @Column() hier können constraints rein
     @Enumerated(EnumType.ORDINAL)
-    private ActionTypes actionType;
+    private ActionType actionType;
 }

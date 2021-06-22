@@ -1,33 +1,85 @@
 package de.teamLocster.user;
 
+import de.teamLocster.actions.Action;
+import de.teamLocster.core.BaseRepository;
+import de.teamLocster.core.BaseService;
+import de.teamLocster.enums.OnlineStatus;
+import de.teamLocster.enums.PrivacyStatus;
+import de.teamLocster.enums.Sex;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
 
 @Slf4j
-@SpringBootApplication
-public class UserService {
+@Service
+public class UserService extends BaseService<User>
+{
+    BaseRepository<Action> actionRepository;
+    SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 
-    private static final Logger log = LoggerFactory.getLogger(UserService.class);
-
-    public static void main(String[] args) {
-        SpringApplication.run(UserService.class);
+    @Autowired
+    public UserService(BaseRepository<User> userRepository)
+    {
+        super(userRepository);
     }
 
-    @Bean
-    public CommandLineRunner demo() {
-        return (args) -> {
-            log.info("|----------------------|");
-            log.info("|----------------------|");
-            log.info("|----------------------|");
-            log.info("|----Hello World!------|");
-            log.info("|----------------------|");
-            log.info("|----------------------|");
-            log.info("|----------------------|");
-        };
+    public Long saveUser(User user) {
+        return repository.save(user).getId();
+    }
+
+    public boolean registerNewUser(
+            String firstName,
+            String lastName,
+            String birthday,
+            String sex,
+            String email,
+            String password
+    ) {
+        try {
+            // TODO passwortsicherheit und andere anforderungen prüfen DEFAULT VALUES IN ENUMS
+            // city (required?)
+            // occupation (required?)
+            // beziehungsstatus (required?)
+            // sex (select? default?)
+            // privatssphäre (default?)
+            // onlinestatus (default?)
+            User userToRegister = new User(
+                    email,
+                    Integer.toString(password.hashCode()),
+                    firstName,
+                    lastName,
+                    null,
+                    formatter.parse(birthday),
+                    null,
+                    null,
+                    "männlich".equals(sex) ? Sex.MALE : Sex.FEMALE, // TODO
+                    "pseudo/path",
+                    "Apparently, this user prefers to keep an air of mystery about them.",
+                    "Hey, I'm using Locster!",
+                    PrivacyStatus.PRIVATE, // TODO
+                    OnlineStatus.ONLINE,
+                    new HashSet<>()
+            );
+
+            saveUser(userToRegister);
+            return true;
+        }
+        catch (Exception e) {
+            // TODO LOGGING
+            System.out.println("EXCEPTION  |  " + e.toString());
+            return false;
+        }
+    }
+
+    public List<User> getFriendsOfUser(User user) {
+        List<User> friends = new ArrayList<>();
+        actionRepository.findAll().stream().filter(a -> a.getActor().equals(user)).forEach(a -> friends.add(a.getAffected()));
+        return friends;
     }
 }
