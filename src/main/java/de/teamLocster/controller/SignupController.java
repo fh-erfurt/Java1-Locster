@@ -33,7 +33,7 @@ public class SignupController {
             @RequestParam(name="firstName", required=true)String firstName,
             @RequestParam(name="lastName", required=true)String lastName,
             @RequestParam(name="birthday", required=true)String birthday,
-            @RequestParam(name="gender", required=true)String gender,
+            @RequestParam(name="gender", required=true)String sex,
             @RequestParam(name="email", required=true)String email,
             @RequestParam(name="password", required=true)String password,
             @RequestParam(name="passwordRepeat", required=true)String passwordRepeat
@@ -41,9 +41,7 @@ public class SignupController {
         String target = "signup";
         if(password.equals(passwordRepeat))
         {
-            User user = new User();
-            user.setEMailAddress("blablub");
-            if (userService.registerNewUser(firstName, lastName, birthday, gender, email, password))
+            if (userService.registerNewUser(firstName, lastName, birthday, sex, email, password))
             {
                 target = "login"; // todo redirect
             }

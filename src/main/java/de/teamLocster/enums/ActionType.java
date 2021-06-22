@@ -1,6 +1,6 @@
 package de.teamLocster.enums;
 
-public enum ActionTypes
+public enum ActionType
 {
     VISIT,
     FRIEND_REQUEST,
