@@ -106,6 +106,18 @@ public class UserTest {
         Assertions.assertThat(result.getRelationshipStatus()).isEqualTo(rs);
         Assert.assertEquals(testUser, result);
     }
+
+    @Test
+    void getFriends() {
+        User user1 = new User();
+        user1.setFirstName("Uno");
+        User user2 = new User();
+        user2.setFirstName("Dos");
+        User user3 = new User();
+        user3.setFirstName("Tres");
+
+
+    }
 }
 
 

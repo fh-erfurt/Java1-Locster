@@ -1,5 +1,6 @@
 package de.teamLocster.user;
 
+import de.teamLocster.actions.Action;
 import de.teamLocster.core.BaseRepository;
 import de.teamLocster.core.BaseService;
 import de.teamLocster.enums.OnlineStatus;
@@ -19,18 +20,13 @@ import java.util.Locale;
 @Service
 public class UserService extends BaseService<User>
 {
+    BaseRepository<Action> actionRepository;
     SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 
     @Autowired
     public UserService(BaseRepository<User> userRepository)
     {
         super(userRepository);
-    }
-
-    public List<User> findAllUsers() {
-        List<User> users = new ArrayList<>();
-        repository.findAll().forEach(users::add); // todo refactor
-        return users;
     }
 
     public Long saveUser(User user) {
@@ -41,7 +37,7 @@ public class UserService extends BaseService<User>
             String firstName,
             String lastName,
             String birthday,
-            String gender,
+            String sex,
             String email,
             String password
     ) {
@@ -62,7 +58,7 @@ public class UserService extends BaseService<User>
                     formatter.parse(birthday),
                     null,
                     null,
-                    "männlich".equals(gender) ? Sex.MALE : Sex.FEMALE, // TODO
+                    "männlich".equals(sex) ? Sex.MALE : Sex.FEMALE, // TODO
                     "pseudo/path",
                     "Apparently, this user prefers to keep an air of mystery about them.",
                     "Hey, I'm using Locster!",
@@ -71,21 +67,19 @@ public class UserService extends BaseService<User>
                     new HashSet<>()
             );
 
-            Long id = saveUser(userToRegister);
-
-            // TODO LOGGING
-            // User result = findBy(id).get();
-            //System.out.println(result.getBirthDay());
+            saveUser(userToRegister);
             return true;
         }
         catch (Exception e) {
-
             // TODO LOGGING
             System.out.println("EXCEPTION  |  " + e.toString());
-            for (StackTraceElement el : e.getStackTrace()) {
-                System.out.println(el.toString());
-            }
             return false;
         }
+    }
+
+    public List<User> getFriendsOfUser(User user) {
+        List<User> friends = new ArrayList<>();
+        actionRepository.findAll().stream().filter(a -> a.getActor().equals(user)).forEach(a -> friends.add(a.getAffected()));
+        return friends;
     }
 }
