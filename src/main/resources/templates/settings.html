@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head">
-  <link rel="stylesheet" href="../assets/css/navigation.css" />
-  <link rel="stylesheet" href="../assets/css/settings.css" />
-  <title>Einstellungen</title>
+<head th:replace="fragments/head"></head>
+
+<head>
+  <link th:href = "@{/css/settings.css}" rel="stylesheet">
+  <title>Login.de.Settings</title>
 </head>
 
 <body>
-<header th:replace="fragments/header"></header>
+<header th:replace="fragments/nav"></header>
 <!-- Setting -->
 
 <div class="container">
@@ -33,7 +34,7 @@
         <div class="privacyBody">
 
           <div class="selection">
-            <img src="../assets/icons/lock_closed.png" alt="logo">
+            <img src="icons/lock_closed.png" alt="logo">
             <label for="privacy1">
               Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
               +Statistiken anschauen
@@ -44,7 +45,7 @@
           </div>
 
           <div class="selection">
-            <img src="../assets/icons/lock_open.png" alt="logo">
+            <img src="icons/lock_open.png" alt="logo">
             <label for="privacy2">
               Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
               +Statistiken anschauen
@@ -55,7 +56,7 @@
           </div>
 
           <div class="selection">
-            <img src="../assets/icons/world.png" alt="logo">
+            <img src="icons/world.png" alt="logo">
             <label for="privacy3">
               Jeder darf mir schreiben (Gästebuch und Chat) <br>
               +Statistiken anschauen
@@ -72,7 +73,7 @@
           <button class="profileDeleteBtn">Profil löschen</button>
         </div>
         <div class="submit">
-          <button class="submitBtn"><img src="../assets/icons/accept.svg" alt="logo"></button>
+          <button class="submitBtn"><img src="icons/accept.svg" alt="logo"></button>
         </div>
       </div>
     </form>
