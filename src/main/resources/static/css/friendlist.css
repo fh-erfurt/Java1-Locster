@@ -1,6 +1,20 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #3cb5ee;
+  font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 800px;
+  margin: auto;
+  background-color: #63bee8;
+
+  /* test */
+
+  display: flex;
+  flex-direction: column;
+  /* end test */
 }
 
 ul {
@@ -11,7 +25,7 @@ ul {
   box-sizing: border-box;
   box-shadow: 0 0 15px;
   border-radius: 30px;
-  background-color: #FFF3B1;
+  background-color: #fff3b1;
 }
 
 ul li {
@@ -19,15 +33,11 @@ ul li {
   padding: 10px 20px;
   margin: 5px 0;
   transition: 0.5s;
-  background-color: #FED700;
+  background-color: #fed700;
 }
 
-ul li header {
- background-color: #FED700;
-}
-
-.contentFriendRequests {
- background-color: #FFF3B1;
+.header {
+  background-color: #fff3b1;
 }
 
 .contentFriendRequests ul li span:nth-child(1) {
