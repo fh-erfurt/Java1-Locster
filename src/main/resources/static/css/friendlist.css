@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  position: relative;
+  width: 750px;
+  margin: 100px auto 0;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px;
+  border-radius: 30px;
+}
+
+ul li {
+  display: flex;
+  padding: 10px 20px;
+  margin: 5px 0;
+  transition: 0.5s;
+}
+
+ul li span:nth-child(1) {
+  width: 100px;
+}
+ul li span:nth-child(2) {
+  width: 140px;
+}
+ul li span:nth-child(3) {
+  width: 100px;
+}
+ul li span:nth-child(4) {
+  width: 140px;
+}
+ul li span:nth-child(5) {
+  width: 100px;
+}
+ul li span:nth-child(6) {
+  width: 100px;
+}
+
+li span {
+  text-align: center;
+}
