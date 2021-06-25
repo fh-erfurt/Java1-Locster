@@ -17,7 +17,8 @@ body {
   /* end test */
 }
 
-ul {
+.contentFriendRequests ul,
+.contentFriend ul {
   position: relative;
   width: 750px;
   margin: 100px auto 0;
@@ -28,15 +29,18 @@ ul {
   background-color: #fff3b1;
 }
 
-ul li {
+.contentFriendRequests ul li,
+.contentFriend ul li {
   display: flex;
   padding: 10px 20px;
   margin: 5px 0;
   transition: 0.5s;
   background-color: #fed700;
+  border-radius: 10px;
 }
 
-.header {
+.contentFriendRequests .header,
+.contentFriend .header {
   background-color: #fff3b1;
 }
 
@@ -72,6 +76,12 @@ ul li {
   width: 200px;
 }
 
-li span {
+.contentFriendRequests li span,
+.contentFriend li span {
   text-align: center;
+}
+
+.icon img {
+  width: 30px;
+  height: 30px;
 }
