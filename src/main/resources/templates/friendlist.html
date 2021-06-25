@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/head"></head>
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/friendlist.css" />
 
-    <title>friendlist</title>
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
+
+    <title>Login.de.friendlist</title>
   </head>
   <body>
+    <!-- navbar -->
+    <header th:replace="fragments/nav"></header>
+
     <div class="container">
       <div class="contentFriendRequests">
         <div class="list">
@@ -108,11 +114,11 @@
               <span class="name">Ali Aal</span>
               <span class="FriendsSince">23.05.2005</span>
               <span class="icon">
-                 <img
-                         class="unfriendIcon"
-                         src="../static/icons/unfriend.svg"
-                         alt="icon"
-                 />
+                <img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
+                />
               </span>
               <span class="status">single</span>
             </li>
@@ -120,70 +126,77 @@
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
               <span class="icon">
-<img
-        class="unfriendIcon"
-        src="../static/icons/unfriend.svg"
-        alt="icon"
-/>              </span>
+                <img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
+                />
+              </span>
               <span class="status">single</span>
             </li>
             <li>
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
-              <span class="icon"><img
-                      class="unfriendIcon"
-                      src="../static/icons/unfriend.svg"
-                      alt="icon"
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
               /></span>
               <span class="status">single</span>
             </li>
             <li>
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
-              <span class="icon"><img
-                      class="unfriendIcon"
-                      src="../static/icons/unfriend.svg"
-                      alt="icon"
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
               /></span>
               <span class="status">single</span>
             </li>
             <li>
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
-              <span class="icon"><img
-                      class="unfriendIcon"
-                      src="../static/icons/unfriend.svg"
-                      alt="icon"
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
               /></span>
               <span class="status">single</span>
             </li>
             <li>
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
-              <span class="icon"><img
-                      class="unfriendIcon"
-                      src="../static/icons/unfriend.svg"
-                      alt="icon"
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
               /></span>
               <span class="status">single</span>
             </li>
             <li>
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
-              <span class="icon"><img
-                      class="unfriendIcon"
-                      src="../static/icons/unfriend.svg"
-                      alt="icon"
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
               /></span>
               <span class="status">single</span>
             </li>
             <li>
               <span class="name">Tilda Tentakel</span>
               <span class="FriendsSince">25</span>
-              <span class="icon"><img
-                      class="unfriendIcon"
-                      src="../static/icons/unfriend.svg"
-                      alt="icon"
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="../static/icons/unfriend.svg"
+                  alt="icon"
               /></span>
               <span class="status">single</span>
             </li>
