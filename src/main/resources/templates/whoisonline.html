@@ -2,31 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href = "@{/css/whoisonline.css}" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name:</th>
-            <th>Alter:</th>
-            <th>Geschlecht:</th>
-            <th>Beziehungsstatus:</th>
-            <th>Region:</th>
-            <th> </th>
-            <th> </th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="u: ${user}">
-                <td th:text="${u.firstName + ' ' + u.lastName}"></td>
-                <td th:text="${u.birthDay}"></td>
-                <td th:text="${u.sex}"></td>
-                <td th:text="${u.relationshipStatus}"></td>
-                <td th:text="${u.region}"></td>
+    <!-- navbar -->
+    <header th:replace="fragments/nav"></header>
+
+    <div class="container">
+        <h2>Wer ist Online?</h2>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name:</th>
+                <th>Alter:</th>
+                <th>Geschlecht:</th>
+                <th>Beziehungsstatus:</th>
+                <th>Region:</th>
+                <th> </th>
+                <th> </th>
             </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <tr th:each="u: ${user}">
+                    <td th:text="${u.firstName + ' ' + u.lastName}"></td>
+                    <td th:text="${u.birthDay}"></td>
+                    <td th:text="${u.sex}"></td>
+                    <td th:text="${u.relationshipStatus}"></td>
+                    <td th:text="${u.region}"></td>
+                    <td>
+                        <img
+                                class="email"
+                                src="icons/email.svg"
+                                alt="email"
+                        />
+                    </td>
+                    <td>
+                        <img
+                                class="addfriend"
+                                src="icons/addfriend.svg"
+                                alt="addfriend"
+                        />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
