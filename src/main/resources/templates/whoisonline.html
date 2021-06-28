@@ -10,44 +10,47 @@
     <header th:replace="fragments/nav"></header>
 
     <div class="container">
-        <h2>Wer ist Online?</h2>
+        <div class="box">
 
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Name:</th>
-                <th>Alter:</th>
-                <th>Geschlecht:</th>
-                <th>Beziehungsstatus:</th>
-                <th>Region:</th>
-                <th> </th>
-                <th> </th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr th:each="u: ${user}">
-                    <td th:text="${u.firstName + ' ' + u.lastName}"></td>
-                    <td th:text="${u.birthDay}"></td>
-                    <td th:text="${u.sex}"></td>
-                    <td th:text="${u.relationshipStatus}"></td>
-                    <td th:text="${u.region}"></td>
-                    <td>
-                        <img
-                                class="email"
-                                src="icons/email.svg"
-                                alt="email"
-                        />
-                    </td>
-                    <td>
-                        <img
-                                class="addfriend"
-                                src="icons/addfriend.svg"
-                                alt="addfriend"
-                        />
-                    </td>
+            <h2>Wer ist Online?</h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name:</th>
+                    <th>Alter:</th>
+                    <th>Geschlecht:</th>
+                    <th>Beziehungsstatus:</th>
+                    <th>Region:</th>
+                    <th> </th>
+                    <th> </th>
                 </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <tr th:each="u: ${user}">
+                        <td th:text="${u.firstName + ' ' + u.lastName}"></td>
+                        <td th:text="${u.birthDay}"></td>
+                        <td th:text="${u.sex}"></td>
+                        <td th:text="${u.relationshipStatus}"></td>
+                        <td th:text="${u.region}"></td>
+                        <td>
+                            <img
+                                    class="email"
+                                    src="icons/email.svg"
+                                    alt="email"
+                            />
+                        </td>
+                        <td>
+                            <img
+                                    class="addfriend"
+                                    src="icons/addfriend.svg"
+                                    alt="addfriend"
+                            />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </body>

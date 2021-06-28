@@ -18,3 +18,24 @@ body {
   display: flex;
   flex-direction: column;
 }
+.box {
+  background-color: #fff3b1;
+  margin: 2%;
+  border: 2px solid #fed700;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box h2 {
+    background-color: #ffe557;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.table thead tr > th {
+    text-align: left;
+}
