@@ -1,7 +1,5 @@
 package de.teamLocster.user;
 
-import de.teamLocster.actions.Action;
-import de.teamLocster.core.BaseRepository;
 import de.teamLocster.core.BaseService;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
@@ -11,22 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 
 @Slf4j
 @Service
 public class UserService extends BaseService<User>
 {
-    BaseRepository<Action> actionRepository;
+    UserRepository userRepository;
+
     SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
 
     @Autowired
-    public UserService(BaseRepository<User> userRepository)
+    public UserService(UserRepository userRepository)
     {
-        super(userRepository);
+        this.userRepository = userRepository;
     }
 
     public boolean registerNewUser(
@@ -63,7 +60,7 @@ public class UserService extends BaseService<User>
                     new HashSet<>()
             );
 
-            repository.save(userToRegister);
+            userRepository.save(userToRegister);
             return true;
         }
         catch (Exception e) {

@@ -25,7 +25,7 @@ public class UserTest {
     UserService userService;
 
     @Autowired
-    BaseRepository<User> repository;
+    UserRepository repository;
 
     @BeforeEach
     public void beforeEach() {
@@ -34,7 +34,7 @@ public class UserTest {
 
     @AfterEach
     public void afterEach() {
-        repository.deleteAll(); // todo
+        repository.deleteAll();
     }
 
     @Test
@@ -43,7 +43,7 @@ public class UserTest {
         User given = new User();
 
         // WHEN
-        Long result = userService.save(given);
+        Long result = repository.save(given).getId();
 
         // THEN
         Assertions.assertThat(result)
@@ -105,18 +105,6 @@ public class UserTest {
         Assertions.assertThat(result.getFirstName() + result.getLastName()).isEqualTo(firstName + lastName);
         Assertions.assertThat(result.getRelationshipStatus()).isEqualTo(rs);
         Assert.assertEquals(testUser, result);
-    }
-
-    @Test
-    void getFriends() {
-        User user1 = new User();
-        user1.setFirstName("Uno");
-        User user2 = new User();
-        user2.setFirstName("Dos");
-        User user3 = new User();
-        user3.setFirstName("Tres");
-
-
     }
 }
 

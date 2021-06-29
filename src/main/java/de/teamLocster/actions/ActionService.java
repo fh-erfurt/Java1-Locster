@@ -1,56 +1,63 @@
 package de.teamLocster.actions;
 
-import de.teamLocster.core.BaseRepository;
 import de.teamLocster.core.BaseService;
 import de.teamLocster.enums.ActionType;
 import de.teamLocster.user.User;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Slf4j
 @Service
 public class ActionService extends BaseService<Action>
 {
-    public ActionService(BaseRepository<Action> actionRepository)
+    ActionRepository actionRepository;
+
+
+
+    @Autowired
+    public ActionService(ActionRepository actionRepository)
     {
-        super(actionRepository);
+        this.actionRepository = actionRepository;
     }
 
     public void sendFriendRequest(User actor, User affected) {
-        repository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
+        actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
     }
 
-    public void blockUser(User actor, User affected) {
-        repository.save(new Action(actor, affected, ActionType.BLOCK));
+    public List<User> getReceivedFriendRequests(User user) {
+        List<User> requestingUsers = new ArrayList<>();
+        actionRepository.findByActionTypeAndAffectedId(ActionType.FRIEND_REQUEST, user.getId()).forEach(r -> requestingUsers.add(r.getActor()));
+        return requestingUsers;
     }
 
-    public List<User> getFriendsOfUser(User user) {
+    public void acceptFriendRequest(User actor, User affected) {
+        Action friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, actor.getId(), affected.getId());
+        if (friendRequest != null) {
+            actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
+            // actionRepository.delete(friendRequest); // TODO sollen Anfragen nach Bestätigung gelöscht werden?
+        }
+    }
+
+    public List<User> getFriends(User user) {
         List<User> friends = new ArrayList<>();
-        Stream<Action> friendships = repository.findAll().stream().filter(a -> a.getActionType().equals(ActionType.FRIEND_ACKNOWLEDGEMENT));
         // get friends where given user is the actor
-        friendships.filter(f -> f.getActor().getId().equals(user.getId())).forEach(f -> friends.add(f.getAffected()));
+        actionRepository.findByActionTypeAndActorId(ActionType.FRIEND_ACKNOWLEDGEMENT, user.getId()).forEach(f -> friends.add(f.getAffected()));
         // get friends where given user is the affected
-        friendships.filter(f -> f.getAffected().getId().equals(user.getId())).forEach(f -> friends.add(f.getActor()));
+        actionRepository.findByActionTypeAndAffectedId(ActionType.FRIEND_ACKNOWLEDGEMENT, user.getId()).forEach(f -> friends.add(f.getActor()));
         return friends;
     }
 
-    public List<User> getReceivedFriendRequestsOfUser(User user) {
-        List<User> friendRequests = new ArrayList<>();
-        repository.findAll().stream().filter(a -> a
-                .getActionType().equals(ActionType.FRIEND_REQUEST) && a.getAffected().getId().equals(user.getId()))
-                .forEach(r -> friendRequests.add(r.getActor()));
-        return friendRequests;
+    public void blockUser(User actor, User affected) {
+        actionRepository.save(new Action(actor, affected, ActionType.BLOCK));
     }
 
-    public List<User> getBlockedUsersOfUser(User user) {
+    public List<User> getBlockedUsers(User user) {
         List<User> blockedUsers = new ArrayList<>();
-        repository.findAll().stream().filter(a -> a
-                .getActionType().equals(ActionType.BLOCK) && a.getAffected().getId().equals(user.getId()))
-                .forEach(r -> blockedUsers.add(r.getActor()));
+        actionRepository.findByActionTypeAndActorId(ActionType.BLOCK,user.getId()).forEach(r -> blockedUsers.add(r.getAffected()));
         return blockedUsers;
     }
 }
