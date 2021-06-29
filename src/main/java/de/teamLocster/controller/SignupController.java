@@ -2,6 +2,7 @@ package de.teamLocster.controller;
 
 import de.teamLocster.core.BaseRepository;
 import de.teamLocster.user.User;
+import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ public class SignupController {
     private final UserService userService;
 
     @Autowired
-    public SignupController(BaseRepository<User> userRepository)
+    public SignupController(UserRepository userRepository)
     {
         this.userService = new UserService(userRepository);
     }
