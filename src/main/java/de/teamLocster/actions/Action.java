@@ -17,9 +17,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Action extends BaseEntity
 {
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private User actor;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User affected;
     // @Column() hier können constraints rein
     @Enumerated(EnumType.ORDINAL)

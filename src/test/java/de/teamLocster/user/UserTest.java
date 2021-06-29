@@ -43,7 +43,7 @@ public class UserTest {
         User given = new User();
 
         // WHEN
-        Long result = userService.saveUser(given);
+        Long result = userService.save(given);
 
         // THEN
         Assertions.assertThat(result)

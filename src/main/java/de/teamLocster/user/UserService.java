@@ -29,10 +29,6 @@ public class UserService extends BaseService<User>
         super(userRepository);
     }
 
-    public Long saveUser(User user) {
-        return repository.save(user).getId();
-    }
-
     public boolean registerNewUser(
             String firstName,
             String lastName,
@@ -67,7 +63,7 @@ public class UserService extends BaseService<User>
                     new HashSet<>()
             );
 
-            saveUser(userToRegister);
+            repository.save(userToRegister);
             return true;
         }
         catch (Exception e) {
@@ -75,11 +71,5 @@ public class UserService extends BaseService<User>
             System.out.println("EXCEPTION  |  " + e.toString());
             return false;
         }
-    }
-
-    public List<User> getFriendsOfUser(User user) {
-        List<User> friends = new ArrayList<>();
-        actionRepository.findAll().stream().filter(a -> a.getActor().equals(user)).forEach(a -> friends.add(a.getAffected()));
-        return friends;
     }
 }

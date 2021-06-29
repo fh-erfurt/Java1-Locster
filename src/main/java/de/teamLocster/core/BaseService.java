@@ -15,4 +15,8 @@ public class BaseService<E extends BaseEntity>
     {
         this.repository = repository;
     }
+
+    public Long save(E entity) {
+        return repository.save(entity).getId();
+    }
 }
