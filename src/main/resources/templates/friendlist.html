@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/head"></head>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
+
+    <title>Login.de.friendlist</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <header th:replace="fragments/nav"></header>
+
+    <div class="container">
+      <div class="contentFriendRequests">
+        <div class="list">
+          <ul>
+            <li class="header">
+              <h2>Freundschaftsanfragen (3)</h2>
+            </li>
+            <li class="infos">
+              <span class="name">Name:</span>
+              <span class="age">Alter:</span>
+              <span class="gender">Geschlecht:</span>
+              <span class="relationship">Beziehungstatus:</span>
+              <span class="region">Region:</span>
+            </li>
+            <li class="infos">
+              <span class="name">Tilda Tentakel</span>
+              <span class="age">25</span>
+              <span class="gender">m</span>
+              <span class="relationship">single</span>
+              <span class="region">erfurt</span>
+
+              <span class="icon">
+                <img
+                  class="acceptFriendIcon"
+                  src="icons/accept.svg"
+                  alt="icon"
+                />
+              </span>
+
+              <span class="icon">
+                <img
+                  class="notAcceptFriendIcon"
+                  src="icons/accept.svg"
+                  alt="icon"
+                />
+              </span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="age">25</span>
+              <span class="gender">m</span>
+              <span class="relationship">single</span>
+              <span class="region">erfurt</span>
+              <span class="icon">
+                <img
+                  class="acceptFriendIcon"
+                  src="icons/accept.svg"
+                  alt="icon"
+                />
+              </span>
+
+              <span class="icon">
+                <img
+                  class="notAcceptFriendIcon"
+                  src="icons/accept.svg"
+                  alt="icon"
+                />
+              </span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="age">25</span>
+              <span class="gender">m</span>
+              <span class="relationship">single</span>
+              <span class="region">erfurt</span>
+              <span class="icon">
+                <img
+                  class="acceptFriendIcon"
+                  src="icons/accept.svg"
+                  alt="icon"
+                />
+              </span>
+              <span class="icon">
+                <img
+                  class="notAcceptFriendIcon"
+                  src="icons/accept.svg"
+                  alt="icon"
+                />
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="contentFriend">
+        <div class="list">
+          <ul>
+            <li class="header">
+              <h2>Meine Freunde (179)</h2>
+            </li>
+            <li>
+              <span class="name">Name:</span>
+              <span class="FriendsSince">Freunde seit:</span>
+              <span class="icon">Freund entfernen</span>
+            </li>
+            <li>
+              <span class="name">Ali Aal</span>
+              <span class="FriendsSince">23.05.2005</span>
+              <span class="icon">
+                <img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+                />
+              </span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon">
+                <img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+                />
+              </span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+              /></span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+              /></span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+              /></span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+              /></span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+              /></span>
+              <span class="status">single</span>
+            </li>
+            <li>
+              <span class="name">Tilda Tentakel</span>
+              <span class="FriendsSince">25</span>
+              <span class="icon"
+                ><img
+                  class="unfriendIcon"
+                  src="icons/unfriend.svg"
+                  alt="icon"
+              /></span>
+              <span class="status">single</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
