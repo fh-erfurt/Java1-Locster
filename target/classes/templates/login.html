@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
+  <head th:replace="fragments/head"></head>
 
-<head th:replace="fragments/head">
+  <head>
     <title>Login.de.Login</title>
-</head>
+  </head>
 
-<head>
-    <title>Login.de.Login</title>
-</head>>
-
-<body>
-
-
-<div class="link"> <a href="signup" title="go to SignUp">Noch nicht Teil der Crew? Hier geht's zum Registration</a> </div>
-
-<div class="content-wraper-image">
-    <div class="image">
-        <img src = "images/locsterLogo_Gruen.png" alt="Logo">
+  <body>
+    <div class="link">
+      <a href="signup" title="go to SignUp"
+        >Noch nicht Teil der Crew? Hier geht's zum Registration</a
+      >
     </div>
-    <div class="form-text-container">
+
+    <div class="content-wraper-image">
+      <div class="image">
+        <img src="images/locsterLogo_Gruen.png" alt="Logo" />
+      </div>
+      <div class="form-text-container">
         <div class="text">
-            <p>
-                Hey Du! Da bist du ja wieder! Schnell unten einloggen und neue Leute aus deiner City kennlernen ;)
-            </p>
+          <p>
+            Hey Du! Da bist du ja wieder! Schnell unten einloggen und neue Leute
+            aus deiner City kennlernen ;)
+          </p>
         </div>
         <div th:if="${invalidCredentials}" class="alert alert-danger">
-             User or Password is wrong
+          User or Password is wrong
         </div>
         <div class="form">
-            <form th:action="@{/login}" th:object="${loginForm}" method="post">
-                <div class="inputs">
-                    <input type="email" placeholder="Deine Email-Adresse" name="email" required>
-                    <input type="password" placeholder="Dein Passwort" name="password" required>
-                </div>
-                <div class="checkbox-button-container">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" checked="checked" name="Remember"> Eingeloggt bleiben
-                        </label>
-                    </div>
-                    <div class="submitButton">
-
-                        <button class="btn" type="submit">Login</button>
-                    </div>
-                </div>
-
-            </form>
+          <form th:action="@{/login}" th:object="${loginForm}" method="post">
+            <div class="inputs">
+              <input
+                type="email"
+                placeholder="Deine Email-Adresse"
+                name="email"
+                required
+              />
+              <input
+                type="password"
+                placeholder="Dein Passwort"
+                name="password"
+                required
+              />
+            </div>
+            <div class="checkbox-button-container">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" checked="checked" name="Remember" />
+                  Eingeloggt bleiben
+                </label>
+              </div>
+              <div class="submitButton">
+                <button class="btn" type="submit">Login</button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
 
-</div>
-
-</body>
-
+    <!-- footer -->
+    <footer th:replace="fragments/footer"></footer>
+  </body>
 </html>
