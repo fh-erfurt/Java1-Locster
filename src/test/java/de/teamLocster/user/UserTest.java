@@ -1,19 +1,20 @@
 package de.teamLocster.user;
 
-import de.teamLocster.core.BaseRepository;
+import static org.junit.Assert.assertEquals;
+
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.RelationshipStatus;
 import de.teamLocster.enums.Sex;
 import de.teamLocster.guestbook.GuestbookEntry;
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 @SpringBootTest
@@ -76,9 +77,7 @@ public class UserTest {
 
         RelationshipStatus rs = RelationshipStatus.SINGLE;
 
-        HashSet<GuestbookEntry> book = new HashSet<>();
-
-        Date birthDay = new Date();
+        Timestamp birthDay = new Timestamp(1L);
 
         User testUser = new User(
                 "monika@normal.de",
@@ -94,18 +93,16 @@ public class UserTest {
                 "Ich bin die Monika",
                 "Na moin ihr Gesichter!",
                 PrivacyStatus.PUBLIC,
-                OnlineStatus.ONLINE,
-                book
+                OnlineStatus.ONLINE
         );
 
         repository.save(testUser);
 
         User result = repository.findById(testUser.getId()).get();
 
-        Assertions.assertThat(result.getFirstName() + result.getLastName()).isEqualTo(firstName + lastName);
         Assertions.assertThat(result.getRelationshipStatus()).isEqualTo(rs);
-        Assert.assertEquals(testUser, result);
+        assertEquals("Name of user should be equal.", firstName + lastName, result.getFirstName() + result.getLastName());
+        assertEquals("Birthday of user should be equal.", birthDay, result.getBirthDay());
+        assertEquals("Relationship status of user should be equal.", rs, result.getRelationshipStatus());
     }
 }
-
-

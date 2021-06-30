@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Locale;
@@ -19,6 +20,7 @@ public class UserService extends BaseService<User>
     UserRepository userRepository;
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+    // formatter.parse(birthday) TODO
 
     @Autowired
     public UserService(UserRepository userRepository)
@@ -48,7 +50,7 @@ public class UserService extends BaseService<User>
                     firstName,
                     lastName,
                     null,
-                    formatter.parse(birthday),
+                    Timestamp.valueOf(birthday),
                     null,
                     null,
                     "männlich".equals(sex) ? Sex.MALE : Sex.FEMALE, // TODO
@@ -56,8 +58,7 @@ public class UserService extends BaseService<User>
                     "Apparently, this user prefers to keep an air of mystery about them.",
                     "Hey, I'm using Locster!",
                     PrivacyStatus.PRIVATE, // TODO
-                    OnlineStatus.ONLINE,
-                    new HashSet<>()
+                    OnlineStatus.ONLINE
             );
 
             userRepository.save(userToRegister);

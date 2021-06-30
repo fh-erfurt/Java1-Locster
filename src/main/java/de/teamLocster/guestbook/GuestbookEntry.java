@@ -22,12 +22,10 @@ public class GuestbookEntry extends BaseEntity
 {
 
     @ManyToOne
-    @JoinColumn(name = "creator", referencedColumnName = "id")
     private User creator;
     @ManyToOne
-    @JoinColumn(name = "user", referencedColumnName = "id")
     private User user;
-    private String text;
+    private String content;
     private Date sentAt;
     private Date editedAt;
     private boolean edited;

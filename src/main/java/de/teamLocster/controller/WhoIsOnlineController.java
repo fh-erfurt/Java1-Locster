@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
@@ -24,7 +25,7 @@ public class WhoIsOnlineController {
                         "Matthias",
                         "Gabel",
                         "Muster city",
-                        new Date(1994,1,4),
+                        Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
                         "Beispiel",
                         RelationshipStatus.SINGLE,
                         Sex.FEMALE,
@@ -32,8 +33,7 @@ public class WhoIsOnlineController {
                         "Ich bin die Monika",
                         "Na moin ihr Gesichter!",
                         PrivacyStatus.PUBLIC,
-                        OnlineStatus.ONLINE,
-                        new HashSet<>()
+                        OnlineStatus.ONLINE
                 ),
                 new User(
                         "molham.al.khodari@@fh-erfurt.de",
@@ -41,7 +41,7 @@ public class WhoIsOnlineController {
                         "Molham",
                         "Al-Khodari",
                         "Muster city",
-                        new Date(1995,1,1),
+                        Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
                         "Beispiel",
                         RelationshipStatus.SINGLE,
                         Sex.FEMALE,
@@ -49,8 +49,7 @@ public class WhoIsOnlineController {
                         "Ich bin die Monika",
                         "Na moin ihr Gesichter!",
                         PrivacyStatus.PUBLIC,
-                        OnlineStatus.ONLINE,
-                        new HashSet<>()
+                        OnlineStatus.ONLINE
                 ),
                 new User(
                         "saskia.wohlers@fh-erfurt.de",
@@ -58,7 +57,7 @@ public class WhoIsOnlineController {
                         "Saskia",
                         "Wohlers",
                         "Muster city",
-                        new Date(),
+                        Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
                         "Beispiel",
                         RelationshipStatus.SINGLE,
                         Sex.FEMALE,
@@ -66,8 +65,7 @@ public class WhoIsOnlineController {
                         "Ich bin die Monika",
                         "Na moin ihr Gesichter!",
                         PrivacyStatus.PUBLIC,
-                        OnlineStatus.ONLINE,
-                        new HashSet<>()
+                        OnlineStatus.ONLINE
                 ),
                 new User(
                         "dirk.hofmann@fh-erfurt.de",
@@ -75,7 +73,7 @@ public class WhoIsOnlineController {
                         "Dirk",
                         "Hofmann",
                         "Muster city",
-                        new Date(1992,1,1),
+                        Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
                         "Beispiel",
                         RelationshipStatus.SINGLE,
                         Sex.FEMALE,
@@ -83,8 +81,7 @@ public class WhoIsOnlineController {
                         "Ich bin die Monika",
                         "Na moin ihr Gesichter!",
                         PrivacyStatus.PUBLIC,
-                        OnlineStatus.ONLINE,
-                        new HashSet<>()
+                        OnlineStatus.ONLINE
                 ),
                 new User(
                         "jakob.gensel@fh-erfurt.de",
@@ -92,7 +89,7 @@ public class WhoIsOnlineController {
                         "Jakob",
                         "Gensel",
                         "Muster city",
-                        new Date(1993,1,1),
+                        Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
                         "Beispiel",
                         RelationshipStatus.SINGLE,
                         Sex.FEMALE,
@@ -100,8 +97,7 @@ public class WhoIsOnlineController {
                         "Ich bin die Monika",
                         "Na moin ihr Gesichter!",
                         PrivacyStatus.PUBLIC,
-                        OnlineStatus.ONLINE,
-                        new HashSet<>()
+                        OnlineStatus.ONLINE
                 )
         ));
         return ("whoisonline");

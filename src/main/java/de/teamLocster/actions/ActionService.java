@@ -35,7 +35,7 @@ public class ActionService extends BaseService<Action>
     }
 
     public void acceptFriendRequest(User actor, User affected) {
-        Action friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, actor.getId(), affected.getId());
+        Action friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, affected.getId(), actor.getId());
         if (friendRequest != null) {
             actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
             // actionRepository.delete(friendRequest); // TODO sollen Anfragen nach Bestätigung gelöscht werden?

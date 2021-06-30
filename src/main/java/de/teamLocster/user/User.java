@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -31,7 +32,7 @@ public class User extends BaseEntity
     private String firstName;
     private String lastName;
     private String region;
-    private Date birthDay;
+    private Timestamp birthDay;
     private String occupation;
     @Enumerated(EnumType.ORDINAL)
     private RelationshipStatus relationshipStatus;
@@ -50,6 +51,4 @@ public class User extends BaseEntity
     private PrivacyStatus privacyStatus;
     @Enumerated(EnumType.ORDINAL)
     private OnlineStatus onlineStatus;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private Set<GuestbookEntry> guestbook = new HashSet<>();
 }

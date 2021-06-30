@@ -1,5 +1,8 @@
 package de.teamLocster.actions;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -55,8 +58,8 @@ public class ActionTest {
         List<Long> ids = new ArrayList<>();
         for(User fr : requests) ids.add(fr.getId());
 
-        assert ids.contains(user1.getId());
-        assert ids.contains(user3.getId());
+        assertTrue("User1 should appear in User2's friend requests", ids.contains(user1.getId()));
+        assertTrue("User3 should appear in User2's friend requests", ids.contains(user3.getId()));
     }
 
     @Test
@@ -79,10 +82,10 @@ public class ActionTest {
         List<Long> ids3 = new ArrayList<>();
         friendsOfUser3.forEach(f -> ids3.add(f.getId()));
 
-        assert ids1.contains(user2.getId());
-        assert ids1.contains(user3.getId());
-        assert ids2.contains(user1.getId());
-        assert ids3.contains(user1.getId());
+        assertTrue("User3 should appear in User1's friends", ids1.contains(user3.getId()));
+        assertTrue("User1 should appear in User2's friends", ids2.contains(user1.getId()));
+        assertTrue("User1 should appear in User3's friends", ids3.contains(user1.getId()));
+        assertTrue("User2 should appear in User1's friends", ids1.contains(user2.getId()));
     }
 
     @Test
