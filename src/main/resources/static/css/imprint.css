@@ -4,3 +4,7 @@
 .box p {
     padding: 10px 0;
 }
+
+.box li {
+    list-style-type: none;
+}
