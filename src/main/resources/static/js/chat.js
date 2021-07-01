@@ -7,10 +7,10 @@ let friends = {
     name: "",
   },
   chat = {
-    container: document.querySelector(".container .right"),
+    chatContainer: document.querySelector(".chatContainer .right"),
     current: null,
     person: null,
-    name: document.querySelector(".container .right .top .name"),
+    name: document.querySelector(".chatContainer .right .top .name"),
   };
 
 friends.all.forEach((f) => {
@@ -22,10 +22,10 @@ friends.all.forEach((f) => {
 function setAciveChat(f) {
   friends.list.querySelector(".active").classList.remove("active");
   f.classList.add("active");
-  chat.current = chat.container.querySelector(".active-chat");
+  chat.current = chat.chatContainer.querySelector(".active-chat");
   chat.person = f.getAttribute("data-chat");
   chat.current.classList.remove("active-chat");
-  chat.container
+  chat.chatContainer
     .querySelector('[data-chat="' + chat.person + '"]')
     .classList.add("active-chat");
   friends.name = f.querySelector(".name").innerText;
