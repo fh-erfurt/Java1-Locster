@@ -28,6 +28,7 @@ public class UserService extends BaseService<User>
         this.userRepository = userRepository;
     }
 
+    // TODO return User?
     public boolean registerNewUser(
             String firstName,
             String lastName,

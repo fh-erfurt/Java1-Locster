@@ -16,16 +16,14 @@ public class ActionService extends BaseService<Action>
 {
     ActionRepository actionRepository;
 
-
-
     @Autowired
     public ActionService(ActionRepository actionRepository)
     {
         this.actionRepository = actionRepository;
     }
 
-    public void sendFriendRequest(User actor, User affected) {
-        actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
+    public Action sendFriendRequest(User actor, User affected) {
+        return actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
     }
 
     public List<User> getReceivedFriendRequests(User user) {
@@ -34,12 +32,14 @@ public class ActionService extends BaseService<Action>
         return requestingUsers;
     }
 
-    public void acceptFriendRequest(User actor, User affected) {
+    public Action acceptFriendRequest(User actor, User affected) {
+        Action result = null;
         Action friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, affected.getId(), actor.getId());
         if (friendRequest != null) {
-            actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
+            result = actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
             // actionRepository.delete(friendRequest); // TODO sollen Anfragen nach Bestätigung gelöscht werden?
         }
+        return result;
     }
 
     public List<User> getFriends(User user) {
@@ -51,8 +51,8 @@ public class ActionService extends BaseService<Action>
         return friends;
     }
 
-    public void blockUser(User actor, User affected) {
-        actionRepository.save(new Action(actor, affected, ActionType.BLOCK));
+    public Action blockUser(User actor, User affected) {
+        return actionRepository.save(new Action(actor, affected, ActionType.BLOCK));
     }
 
     public List<User> getBlockedUsers(User user) {

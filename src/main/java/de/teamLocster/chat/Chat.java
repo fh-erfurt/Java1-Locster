@@ -22,7 +22,7 @@ public class Chat extends BaseEntity
     private String name;
     @ManyToMany
     @JoinTable(
-            name = "users_in_chats",                           // TODO time of read
+            name = "users_in_chats",
             joinColumns = @JoinColumn(name="chat"),
             inverseJoinColumns = @JoinColumn(name="user")
     )

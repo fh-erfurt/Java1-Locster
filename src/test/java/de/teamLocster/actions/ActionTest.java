@@ -1,7 +1,7 @@
 package de.teamLocster.actions;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
