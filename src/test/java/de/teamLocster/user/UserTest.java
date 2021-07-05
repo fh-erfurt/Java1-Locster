@@ -35,7 +35,9 @@ public class UserTest {
 
     @AfterEach
     public void afterEach() {
-        repository.deleteAll();
+        System.out.println("HIER GEHTS NOCH KLAR");
+        // repository.deleteAll();
+        System.out.println("HIER WIRD ALLES GELöSCHT");
     }
 
     @Test
@@ -93,7 +95,8 @@ public class UserTest {
                 "Ich bin die Monika",
                 "Na moin ihr Gesichter!",
                 PrivacyStatus.PUBLIC,
-                OnlineStatus.ONLINE
+                OnlineStatus.ONLINE,
+                true
         );
 
         repository.save(testUser);

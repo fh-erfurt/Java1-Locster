@@ -3,7 +3,6 @@ package de.teamLocster.user;
 import de.teamLocster.core.BaseEntity;
 import de.teamLocster.enums.RelationshipStatus;
 import de.teamLocster.enums.Sex;
-import de.teamLocster.guestbook.GuestbookEntry;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import lombok.AllArgsConstructor;
@@ -13,9 +12,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Entity
@@ -51,4 +47,5 @@ public class User extends BaseEntity
     private PrivacyStatus privacyStatus;
     @Enumerated(EnumType.ORDINAL)
     private OnlineStatus onlineStatus;
+    Boolean isOnline;
 }

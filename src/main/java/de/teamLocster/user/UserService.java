@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 
 @Slf4j
@@ -59,7 +61,8 @@ public class UserService extends BaseService<User>
                     "Apparently, this user prefers to keep an air of mystery about them.",
                     "Hey, I'm using Locster!",
                     PrivacyStatus.PRIVATE, // TODO
-                    OnlineStatus.ONLINE
+                    OnlineStatus.ONLINE,
+                    false
             );
 
             userRepository.save(userToRegister);
@@ -70,5 +73,17 @@ public class UserService extends BaseService<User>
             System.out.println("EXCEPTION  |  " + e.toString());
             return false;
         }
+    }
+
+    public List<User> whoIsOnline() {
+        return userRepository.findByIsOnlineTrue();
+    }
+
+    public List<PublicUser> whoIsOnlinePublic() {
+        List<PublicUser> onlineUsers = new ArrayList<>();
+        for(User user : userRepository.findByIsOnlineTrue()) {
+            onlineUsers.add(new PublicUser(user));
+        }
+        return onlineUsers;
     }
 }
