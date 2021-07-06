@@ -1,0 +1,10 @@
+.box h1 {
+    padding: 20px 0;
+}
+.box p {
+    padding: 10px 0;
+}
+
+.box li {
+    list-style-type: none;
+}

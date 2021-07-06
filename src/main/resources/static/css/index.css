@@ -1,12 +1,42 @@
+/* general structure */
+
 *,
 *:before,
 *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #3cb5ee;
+    font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 800px;
+    margin: auto;
+    background-color: #63bee8;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box {
+    background-color: #fff3b1;
+    margin: 2%;
+    border: 2px solid #fed700;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* alert messages success, info and danger */

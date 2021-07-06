@@ -1,26 +1,3 @@
-/* general structure */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-body {
-  background-color: #3cb5ee;
-  font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
-}
-.container {
-  width: 800px;
-  margin: auto;
-  background-color: #63bee8;
-
-  /* test */
-
-  display: flex;
-  flex-direction: column;
-  /* end test */
-}
-
 /* profileInfo & profileEdit */
 #profileEdit {
   display: none;
@@ -83,16 +60,6 @@ body {
 .submit img {
   width: 70px;
   height: 70px;
-}
-
-.box {
-  background-color: #fff3b1;
-  margin: 2%;
-  border: 2px solid #fed700;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .post {
   border: 2px solid #fed700;

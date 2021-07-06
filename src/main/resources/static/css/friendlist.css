@@ -1,22 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #3cb5ee;
-  font-family: "DejaVu Sans", Arial, Helvetica, sans-serif;
-}
-
-.container {
-  width: 800px;
-  margin: auto;
-  background-color: #63bee8;
-
-  /* test */
-
-  display: flex;
-  flex-direction: column;
-  /* end test */
-}
-
 .contentFriendRequests ul,
 .contentFriend ul {
   position: relative;
