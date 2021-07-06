@@ -44,8 +44,8 @@ public class ActionTest {
 
     @AfterEach
     public void afterEach() {
-        actionRepository.deleteAll();
-        userRepository.deleteAll();
+        // actionRepository.deleteAll();
+        // userRepository.deleteAll();
     }
 
     @Test

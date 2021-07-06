@@ -35,9 +35,7 @@ public class UserTest {
 
     @AfterEach
     public void afterEach() {
-        System.out.println("HIER GEHTS NOCH KLAR");
         // repository.deleteAll();
-        System.out.println("HIER WIRD ALLES GELöSCHT");
     }
 
     @Test
