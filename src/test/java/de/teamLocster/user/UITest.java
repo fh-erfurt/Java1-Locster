@@ -60,4 +60,25 @@ public class UITest {
 
     }
 
+    @Test
+    void logInTest() {
+        driver.get("http://localhost:8080/login");
+
+        String emailInput = "monika@normal.de";
+        String passwordInput = "MeinGeilesPassword123!";
+
+
+        WebElement email = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/form/div[1]/input[1]"));
+        WebElement password = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/form/div[1]/input[2]"));
+        WebElement submitButton = driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[2]/form/div[2]/div[2]/button"));
+
+        email.sendKeys(emailInput);
+        password.sendKeys(passwordInput);
+
+
+        submitButton.click();
+
+
+    }
+
 }
