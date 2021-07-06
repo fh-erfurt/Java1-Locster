@@ -3,7 +3,6 @@ package de.teamLocster.user;
 import de.teamLocster.core.BaseEntity;
 import de.teamLocster.enums.RelationshipStatus;
 import de.teamLocster.enums.Sex;
-import de.teamLocster.guestbook.GuestbookEntry;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import lombok.AllArgsConstructor;
@@ -12,9 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.sql.Timestamp;
 
 
 @Entity
@@ -31,7 +28,7 @@ public class User extends BaseEntity
     private String firstName;
     private String lastName;
     private String region;
-    private Date birthDay;
+    private Timestamp birthDay;
     private String occupation;
     @Enumerated(EnumType.ORDINAL)
     private RelationshipStatus relationshipStatus;
@@ -50,6 +47,5 @@ public class User extends BaseEntity
     private PrivacyStatus privacyStatus;
     @Enumerated(EnumType.ORDINAL)
     private OnlineStatus onlineStatus;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private Set<GuestbookEntry> guestbook = new HashSet<>();
+    Boolean isOnline;
 }

@@ -8,8 +8,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 
 @Slf4j
@@ -19,6 +22,7 @@ public class UserService extends BaseService<User>
     UserRepository userRepository;
 
     SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+    // formatter.parse(birthday) TODO
 
     @Autowired
     public UserService(UserRepository userRepository)
@@ -26,6 +30,7 @@ public class UserService extends BaseService<User>
         this.userRepository = userRepository;
     }
 
+    // TODO return User?
     public boolean registerNewUser(
             String firstName,
             String lastName,
@@ -48,7 +53,7 @@ public class UserService extends BaseService<User>
                     firstName,
                     lastName,
                     null,
-                    formatter.parse(birthday),
+                    Timestamp.valueOf(birthday),
                     null,
                     null,
                     "männlich".equals(sex) ? Sex.MALE : Sex.FEMALE, // TODO
@@ -57,7 +62,7 @@ public class UserService extends BaseService<User>
                     "Hey, I'm using Locster!",
                     PrivacyStatus.PRIVATE, // TODO
                     OnlineStatus.ONLINE,
-                    new HashSet<>()
+                    false
             );
 
             userRepository.save(userToRegister);
@@ -68,5 +73,17 @@ public class UserService extends BaseService<User>
             System.out.println("EXCEPTION  |  " + e.toString());
             return false;
         }
+    }
+
+    public List<User> whoIsOnline() {
+        return userRepository.findByIsOnlineTrue();
+    }
+
+    public List<PublicUser> whoIsOnlinePublic() {
+        List<PublicUser> onlineUsers = new ArrayList<>();
+        for(User user : userRepository.findByIsOnlineTrue()) {
+            onlineUsers.add(new PublicUser(user));
+        }
+        return onlineUsers;
     }
 }

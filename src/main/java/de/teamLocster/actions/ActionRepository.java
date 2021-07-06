@@ -16,9 +16,4 @@ public interface ActionRepository extends BaseRepository<Action>
     List<Action> findByActionTypeAndAffectedId(ActionType actionType, Long affectedId);
 
     Action findByActionTypeAndActorIdAndAffectedId(ActionType actionType, Long actorId, Long affectedId);
-
-    /*
-    @Query("SELECT actor FROM Action WHERE Action.actionType = ?1 and affected = ?2")
-    List<User> findFriends(ActionType actionType, User affected);
-    */
 }
