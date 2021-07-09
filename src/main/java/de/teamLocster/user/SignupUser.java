@@ -1,5 +1,6 @@
 package de.teamLocster.user;
 
+import de.teamLocster.enums.Sex;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,7 +30,7 @@ public class SignupUser
 
     @NotNull
     @NotEmpty
-    private String sex;
+    private Sex sex;
 
     @Email
     @NotNull

@@ -54,7 +54,7 @@ public class UserService extends BaseService<User>
                     userDto.getFirstName(),
                     userDto.getLastName(),
                     null,
-                    Timestamp.valueOf(userDto.getBirthday()),
+                    Timestamp.valueOf(userDto.getBirthday() + " 00:00:00"),
                     null,
                     null,
                     "männlich".equals(userDto.getSex()) ? Sex.MALE : Sex.FEMALE, // TODO

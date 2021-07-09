@@ -45,20 +45,21 @@
                  th:text="${error}">Validation error</p>
               <input
                       th:field="*{birthday}"
-                      type="text"
+                      type="date"
                       placeholder="Dein Geburtsdatum"
                       name="birthday"
                       required
               />
               <p th:each="error : ${#fields.errors('birthday')}"
                  th:text="${error}">Validation error</p>
-              <input
+              <select
                       th:field="*{sex}"
-                      type="text"
-                      placeholder="Geschlecht"
                       name="sex"
                       required
-              />
+              >
+                <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}"
+                        th:value="${sexOpt}" th:text="${sexOpt}"></option>
+              </select>
               <p th:each="error : ${#fields.errors('sex')}"
                  th:text="${error}">Validation error</p>
               <input
