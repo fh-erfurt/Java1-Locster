@@ -35,7 +35,7 @@ public class UserService extends BaseService<User>
     // TODO return User?
     public void registerNewUser(SignupUser userDto, Errors errors) throws UserAlreadyExistException
     {
-        if (userRepository.findByeMailAddress(userDto.getEmail()) != null) {
+        if (!userRepository.findByeMailAddress(userDto.getEmail()).isEmpty()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmail());
         }
         try {

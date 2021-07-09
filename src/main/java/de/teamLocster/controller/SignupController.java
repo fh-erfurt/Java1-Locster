@@ -52,13 +52,14 @@ public class SignupController {
 
         try {
             userService.registerNewUser(userDto, errors);
-        } catch (UserAlreadyExistException uaeEx) {
-            ModelAndView mav = new ModelAndView();
+        } catch (Exception uaeEx) { // TODO UserAlreadyExistException
+            ModelAndView mav = new ModelAndView("signup");
             mav.addObject("message", "An account for that email address already exists.");
+            System.out.println(uaeEx.getMessage());
             return mav;
         }
 
-        String target = errors.hasErrors() ? "login" : "signup";
+        String target = errors.hasErrors() ? "signup" : "login";
 
         return new ModelAndView(target, "user", userDto);
     }

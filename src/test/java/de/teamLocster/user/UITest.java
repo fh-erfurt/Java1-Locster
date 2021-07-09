@@ -33,7 +33,7 @@ public class UITest {
 
         String firstNameInput = "Max";
         String lastNameInput = "Mustermann";
-        String birthDateInput = "01.04.1991";
+        String birthDateInput = "1991-04-01 00:00:00";
         String sexInput = "männlich";
         String emailInput = "max.mustermann@fh-erfurt.de";
         String passwordInput = "Hallo123.@!";

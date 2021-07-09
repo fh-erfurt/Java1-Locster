@@ -20,6 +20,7 @@
       <div class="image">
         <img src="images/locsterLogo_Gruen.png" alt="Logo" />
       </div>
+      <div class="message" th:text="${message}"></div>
       <div class="form-text-container">
         <div class="form">
           <form th:action="@{/signup}" th:object="${user}" method="POST" enctype="utf8">
