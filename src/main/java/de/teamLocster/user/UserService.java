@@ -1,12 +1,14 @@
 package de.teamLocster.user;
 
 import de.teamLocster.core.BaseService;
+import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.Sex;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -31,15 +33,14 @@ public class UserService extends BaseService<User>
     }
 
     // TODO return User?
-    public boolean registerNewUser(
-            String firstName,
-            String lastName,
-            String birthday,
-            String sex,
-            String email,
-            String password
-    ) {
+    public void registerNewUser(SignupUser userDto, Errors errors) throws UserAlreadyExistException
+    {
+        if (userRepository.findByEMailAddress(userDto.getEmail()) != null) {
+            throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmail());
+        }
         try {
+            // TODO ADD ERRORS TO ERRORS!!
+
             // TODO passwortsicherheit und andere anforderungen prüfen DEFAULT VALUES IN ENUMS
             // city (required?)
             // occupation (required?)
@@ -48,15 +49,15 @@ public class UserService extends BaseService<User>
             // privatssphäre (default?)
             // onlinestatus (default?)
             User userToRegister = new User(
-                    email,
-                    Integer.toString(password.hashCode()),
-                    firstName,
-                    lastName,
+                    userDto.getEmail(),
+                    Integer.toString(userDto.getPassword().hashCode()),
+                    userDto.getFirstName(),
+                    userDto.getLastName(),
                     null,
-                    Timestamp.valueOf(birthday),
+                    Timestamp.valueOf(userDto.getBirthday()),
                     null,
                     null,
-                    "männlich".equals(sex) ? Sex.MALE : Sex.FEMALE, // TODO
+                    "männlich".equals(userDto.getSex()) ? Sex.MALE : Sex.FEMALE, // TODO
                     "pseudo/path",
                     "Apparently, this user prefers to keep an air of mystery about them.",
                     "Hey, I'm using Locster!",
@@ -66,12 +67,12 @@ public class UserService extends BaseService<User>
             );
 
             userRepository.save(userToRegister);
-            return true;
+            return;
         }
         catch (Exception e) {
             // TODO LOGGING
             System.out.println("EXCEPTION  |  " + e.toString());
-            return false;
+            return;
         }
     }
 
