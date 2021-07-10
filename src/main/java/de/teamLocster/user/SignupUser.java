@@ -35,7 +35,7 @@ public class SignupUser
     @Email
     @NotNull
     @NotEmpty
-    private String email;
+    private String emailAddress;
 
     @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$", message = "Password unsafe")
     @NotNull

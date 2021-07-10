@@ -8,5 +8,5 @@ public interface UserRepository extends BaseRepository<User>
 {
     List<User> findByIsOnlineTrue();
 
-    List<User> findByeMailAddress(String emailAddress);
+    List<User> findByEmailAddress(String emailAddress);
 }
