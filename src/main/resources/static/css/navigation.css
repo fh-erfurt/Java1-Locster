@@ -1,17 +1,23 @@
-nav {
+.navigation {
   background: #087aaf;
+  height: 60px;
+}
+
+.navContainer {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .logo-wrapper {
-  padding-left: 20px;
+  font-size: 20px;
 }
 
 .logo {
-  width: 275px;
+  width: 150px;
 }
 
 .icon-wrapper {
@@ -20,7 +26,7 @@ nav {
 }
 
 .icon {
-  height: 50px;
+  height: 30px;
 }
 
 .icon-wrapper a {
@@ -42,7 +48,7 @@ nav {
   align-items: center;
   width: 375px;
   max-width: 375px;
-  height: 55px;
+  height: 40px;
 }
 
 .input-group input {
@@ -104,12 +110,12 @@ nav {
   position: absolute;
   background-color: transparent;
   /* min-width: 160px; */
-  width: 350px;
+  width: 250px;
   z-index: 1;
-  right: 2px;
+  right: 10px;
   left: auto;
-  padding-top: 30px;
-  padding-right: 30px;
+  padding-top: 20px;
+  padding-right: 20px;
 }
 
 /* Links inside the dropdown */
@@ -127,8 +133,7 @@ nav {
 .dropdown-content a p {
   color: #ffffff;
   margin-left: 20px;
-  margin-top: 18px;
-  font-size: larger;
+  margin-top: 9px;
 }
 
 /* Add a grey background color to dropdown links on hover */
@@ -143,6 +148,6 @@ nav {
 
 /*Icons size in the dropdown menu*/
 .icon_dropbtn {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }

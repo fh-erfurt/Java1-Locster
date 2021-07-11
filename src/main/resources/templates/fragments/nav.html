@@ -1,6 +1,8 @@
 <link th:href = "@{/css/navigation.css}" rel="stylesheet">
 
-<nav th:fragment="nav">
+<nav th:fragment="nav" class="navigation">
+    <div class="navContainer">
+
     <div class="logo-wrapper">
         <a href="#">
             <img src="images/locsterLogo_Weiss.png" class="logo" />
@@ -21,13 +23,13 @@
     </form>
 
     <div class="icon-wrapper">
-        <a href="#">
+        <a href="/chat">
             <img src="icons/speechbubble.png" class="icon" />
         </a>
-        <a href="#">
+        <a href="/whoisonline">
             <img src="icons/group.png" class="icon" />
         </a>
-        <a href="#">
+        <a href="/friendlist">
             <img src="icons/people.png" class="icon" />
         </a>
 
@@ -40,19 +42,20 @@
                 </a>
             </button>
             <div class="dropdown-content sb1">
-                <a href="#">
+                <a href="/profilepage">
                     <img src="icons/person.png" class="icon_dropbtn" />
                     <p>Profil</p>
                 </a>
-                <a href="settings">
+                <a href="/settings">
                     <img src="icons/gear.png" class="icon_dropbtn" />
                     <p>Einstellungen</p>
                 </a>
-                <a href="login">
+                <a href="/login">
                     <img src="icons/logout.png" class="icon_dropbtn" />
                     <p>Logout</p>
                 </a>
             </div>
         </div>
+    </div>
     </div>
 </nav>

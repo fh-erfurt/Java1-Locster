@@ -1,16 +1,18 @@
-.contentFriendRequests ul,
+.listWith6ChildContent ul,
 .contentFriend ul {
   position: relative;
   width: 750px;
-  margin: 100px auto 0;
+  margin: 30px auto 0;
   padding: 10px;
   box-sizing: border-box;
   box-shadow: 0 0 15px;
   border-radius: 30px;
   background-color: #fff3b1;
+  border: 2px solid #fed700;
+
 }
 
-.contentFriendRequests ul li,
+.listWith6ChildContent ul li,
 .contentFriend ul li {
   display: flex;
   padding: 10px 20px;
@@ -20,27 +22,27 @@
   border-radius: 10px;
 }
 
-.contentFriendRequests .header,
+.listWith6ChildContent .header,
 .contentFriend .header {
   background-color: #fff3b1;
 }
 
-.contentFriendRequests ul li span:nth-child(1) {
+.listWith6ChildContent ul li span:nth-child(1) {
   width: 100px;
 }
-.contentFriendRequests ul li span:nth-child(2) {
+.listWith6ChildContent ul li span:nth-child(2) {
   width: 140px;
 }
-.contentFriendRequests ul li span:nth-child(3) {
+.listWith6ChildContent ul li span:nth-child(3) {
   width: 100px;
 }
-.contentFriendRequests ul li span:nth-child(4) {
+.listWith6ChildContent ul li span:nth-child(4) {
   width: 140px;
 }
-.contentFriendRequests ul li span:nth-child(5) {
+.listWith6ChildContent ul li span:nth-child(5) {
   width: 100px;
 }
-.contentFriendRequests ul li span:nth-child(6) {
+.listWith6ChildContent ul li span:nth-child(6) {
   width: 100px;
 }
 
@@ -57,7 +59,7 @@
   width: 200px;
 }
 
-.contentFriendRequests li span,
+.listWith6ChildContent li span,
 .contentFriend li span {
   text-align: center;
 }

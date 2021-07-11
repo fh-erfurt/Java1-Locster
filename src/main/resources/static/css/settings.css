@@ -1,13 +1,4 @@
-.settingBox {
-  background-color: #fff3b1;
-  margin: 2%;
-  border: 2px solid #fed700;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-}
-
-.settingBox .title h2 {
+.box .title h2 {
   padding: 10px 0 30px 15px;
 }
 
@@ -61,9 +52,8 @@
 }
 
 .selection img {
-  padding-right: 10px; /*test*/
-  width: 35px;
-  height: 35px;
+  padding-right: 10px;
+  height: 30px;
 }
 
 .selection label {
@@ -78,8 +68,8 @@
 }
 
 .profileDeleteBtn {
-  width: 350px;
-  height: 77px;
+  width: 250px;
+  height: 57px;
   background-color: #ab2524;
   border: solid #08dcff;
   color: #fff;

@@ -2,56 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head"></head>
 <head>
-    <link th:href = "@{/css/whoisonline.css}" rel="stylesheet">
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
     <title>Title</title>
 </head>
 <body>
     <!-- navbar -->
     <header th:replace="fragments/nav"></header>
 
-    <div class="whoisonline-container">
-        <div class="whoisonline-box">
+    <div class="container">
+        <div class="listWith6ChildContent">
+            <div class="list">
+                <ul>
+                    <li>
+                        <h2>Wer ist Online?</h2>
+                    </li>
+                    <li class="infos">
+                        <span class="name">Name:</span>
+                        <span class="age">Alter:</span>
+                        <span class="gender">Geschlecht:</span>
+                        <span class="relationship">Beziehungstatus:</span>
+                        <span class="region">Region:</span>
+                    </li>
+                    <li th:each="u: ${user}" class="infos">
+                        <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
+                        <span th:text="${u.birthDay}" class="age"></span>
+                        <span th:text="${u.sex}" class="gender"></span>
+                        <span th:text="${u.relationshipStatus}" class="relationship"></span>
+                        <span th:text="${u.region}" class="region"></span>
 
-            <h2>Wer ist Online?</h2>
+                        <span class="icon">
+                <img
+                        class="acceptFriendIcon"
+                        src="icons/accept.svg"
+                        alt="icon"
+                />
+              </span>
 
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Name:</th>
-                    <th>Alter:</th>
-                    <th>Geschlecht:</th>
-                    <th>Beziehungsstatus:</th>
-                    <th>Region:</th>
-                    <th> </th>
-                    <th> </th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="u: ${user}">
-                        <td th:text="${u.firstName + ' ' + u.lastName}"></td>
-                        <td th:text="${u.birthDay}"></td>
-                        <td th:text="${u.sex}"></td>
-                        <td th:text="${u.relationshipStatus}"></td>
-                        <td th:text="${u.region}"></td>
-                        <td>
-                            <img
-                                    class="email"
-                                    src="icons/email.svg"
-                                    alt="email"
-                            />
-                        </td>
-                        <td>
-                            <img
-                                    class="addfriend"
-                                    src="icons/addfriend.svg"
-                                    alt="addfriend"
-                            />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        <span class="icon">
+                <img
+                        class="notAcceptFriendIcon"
+                        src="icons/accept.svg"
+                        alt="icon"
+                />
+              </span>
+                    </li>
+
+                </ul>
+
+            </div>
         </div>
     </div>
-
 </body>
 </html>
