@@ -1,33 +1,37 @@
 package de.teamLocster.controller;
 
 import de.teamLocster.user.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginController {
 
-    //to get login form page
-    @RequestMapping(value = "/login", method= RequestMethod.GET)
+    @GetMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
     public String getLoginForm() {
         //return html page name
         return "login";
     }
 
-    //checking for login credentials
-    @RequestMapping(value ="/login", method=RequestMethod.POST )
-    public String login(@ModelAttribute (name="User") User user, Model model) {
+    /*
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String login(
+            HttpServletRequest request,
+            Model model
+    ) {
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-        user.setEMailAddress("admin@gmail.com");
-        user.setPasswordHash("admin");
+        boolean isAdmin ="admin@gmail.com".equals(email) && "admin".equals(password);
+        boolean isRegisteredUser = false;
 
-        String email = user.getEMailAddress();
-        String password = user.getPasswordHash();
-
-        if("admin@gmail.com".equals(email) && "admin".equals(password)) {
+        if(isAdmin || isRegisteredUser) {
             // if username and password is correct, we are returning homepage
             return "profilepage";
         }
@@ -38,6 +42,5 @@ public class LoginController {
             //returning again login page
             return "login";
         }
-
-    }
+    } */
 }

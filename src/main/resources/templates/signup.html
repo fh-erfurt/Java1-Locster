@@ -20,47 +20,67 @@
       <div class="image">
         <img src="images/locsterLogo_Gruen.png" alt="Logo" />
       </div>
+      <div class="message" th:text="${message}"></div>
       <div class="form-text-container">
         <div class="form">
-          <form method="post">
+          <form th:action="@{/signup}" th:object="${user}" method="POST" enctype="utf8">
             <div class="inputs">
               <input
-                type="text"
-                placeholder="Vorname"
-                name="firstName"
-                required
+                      th:field="*{firstName}"
+                      type="text"
+                      placeholder="Vorname"
+                      name="firstName"
+                      required
               />
+              <p th:each="error : ${#fields.errors('firstName')}"
+                 th:text="${error}">Validation error</p>
               <input
-                type="text"
-                placeholder="Nachname"
-                name="lastName"
-                required
+                      th:field="*{lastName}"
+                      type="text"
+                      placeholder="Nachname"
+                      name="lastName"
+                      required
               />
+              <p th:each="error : ${#fields.errors('lastName')}"
+                 th:text="${error}">Validation error</p>
               <input
-                type="text"
-                placeholder="Dein Geburtsdatum"
-                name="birthday"
-                required
+                      th:field="*{birthday}"
+                      type="date"
+                      placeholder="Dein Geburtsdatum"
+                      name="birthday"
+                      required
               />
+              <p th:each="error : ${#fields.errors('birthday')}"
+                 th:text="${error}">Validation error</p>
+              <select
+                      th:field="*{sex}"
+                      name="sex"
+                      required
+              >
+                <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}"
+                        th:value="${sexOpt}" th:text="${sexOpt}"></option>
+              </select>
+              <p th:each="error : ${#fields.errors('sex')}"
+                 th:text="${error}">Validation error</p>
               <input
-                type="text"
-                placeholder="Geschlecht"
-                name="gender"
-                required
+                      th:field="*{emailAddress}"
+                      type="email"
+                      placeholder="Deine Email-Adresse"
+                      name="emailAddress"
+                      required
               />
+              <p th:each="error : ${#fields.errors('emailAddress')}"
+                 th:text="${error}">Validation error</p>
               <input
-                type="email"
-                placeholder="Deine Email-Adresse"
-                name="email"
-                required
+                      th:field="*{password}"
+                      type="password"
+                      placeholder="Ein sicheres Passwort"
+                      name="password"
+                      onkeyup="onPasswordChanged()"
+                      required
               />
-              <input
-                type="password"
-                placeholder="Ein sicheres Passwort"
-                name="password"
-                onkeyup="onPasswordChanged()"
-                required
-              />
+              <p th:each="error : ${#fields.errors('password')}"
+                 th:text="${error}">Validation error</p>
               <div>
                 <p>
                   Das Passwort muss mindestens
@@ -73,12 +93,15 @@
                 </p>
               </div>
               <input
-                type="password"
-                placeholder="Passwort wiederholen"
-                name="passwordRepeat"
-                onkeyup="onPasswordRepeatChanged()"
-                required
+                      th:field="*{passwordRepeat}"
+                      type="password"
+                      placeholder="Passwort wiederholen"
+                      name="passwordRepeat"
+                      onkeyup="onPasswordRepeatChanged()"
+                      required
               />
+              <p th:each="error : ${#fields.errors('passwordRepeat')}"
+                 th:text="${error}">Validation error</p>
             </div>
             <div class="checkbox-button-container">
               <div class="submitButton">

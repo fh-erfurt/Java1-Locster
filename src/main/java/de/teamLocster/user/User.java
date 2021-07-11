@@ -22,7 +22,7 @@ import java.sql.Timestamp;
 public class User extends BaseEntity
 {
 
-    private String eMailAddress;
+    private String emailAddress;
     private String passwordHash;
 
     private String firstName;

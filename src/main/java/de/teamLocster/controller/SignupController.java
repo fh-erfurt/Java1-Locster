@@ -1,16 +1,24 @@
 package de.teamLocster.controller;
 
-import de.teamLocster.core.BaseRepository;
-import de.teamLocster.user.User;
+import de.teamLocster.core.errors.UserAlreadyExistException;
+import de.teamLocster.user.SignupUser;
 import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 @Transactional
 @Controller
@@ -25,28 +33,34 @@ public class SignupController {
     }
 
     @GetMapping("/signup")
-    public String signUp () {
+    @ResponseStatus(HttpStatus.OK)
+    public String showSignupForm (WebRequest request, Model model) {
+        System.out.println("signup get loaded");
+        SignupUser userDto = new SignupUser();
+        model.addAttribute("user", userDto);
         return "signup";
     }
 
     @PostMapping("/signup")
-    public String signUp(
-            @RequestParam(name="firstName", required=true)String firstName,
-            @RequestParam(name="lastName", required=true)String lastName,
-            @RequestParam(name="birthday", required=true)String birthday,
-            @RequestParam(name="gender", required=true)String sex,
-            @RequestParam(name="email", required=true)String email,
-            @RequestParam(name="password", required=true)String password,
-            @RequestParam(name="passwordRepeat", required=true)String passwordRepeat
-    ) {
-        String target = "signup";
-        if(password.equals(passwordRepeat))
-        {
-            if (userService.registerNewUser(firstName, lastName, birthday, sex, email, password))
-            {
-                target = "login"; // todo redirect
-            }
+    @ResponseStatus(HttpStatus.CREATED)
+    public ModelAndView signUp(
+            @ModelAttribute("user") @Valid SignupUser userDto,
+            HttpServletRequest request,
+            Errors errors) {
+
+        System.out.println("signup post received");
+
+        try {
+            userService.registerNewUser(userDto, errors);
+        } catch (Exception uaeEx) { // TODO UserAlreadyExistException
+            ModelAndView mav = new ModelAndView("signup");
+            mav.addObject("message", "An account for that email address already exists.");
+            System.out.println(uaeEx.getMessage());
+            return mav;
         }
-        return target;
+
+        String target = errors.hasErrors() ? "signup" : "login";
+
+        return new ModelAndView(target, "user", userDto);
     }
 }
