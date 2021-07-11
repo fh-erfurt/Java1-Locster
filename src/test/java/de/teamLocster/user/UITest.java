@@ -77,8 +77,6 @@ public class UITest {
 
 
         submitButton.click();
-
-
     }
 
 }
