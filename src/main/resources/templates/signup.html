@@ -63,13 +63,13 @@
               <p th:each="error : ${#fields.errors('sex')}"
                  th:text="${error}">Validation error</p>
               <input
-                      th:field="*{email}"
+                      th:field="*{emailAddress}"
                       type="email"
                       placeholder="Deine Email-Adresse"
-                      name="email"
+                      name="emailAddress"
                       required
               />
-              <p th:each="error : ${#fields.errors('email')}"
+              <p th:each="error : ${#fields.errors('emailAddress')}"
                  th:text="${error}">Validation error</p>
               <input
                       th:field="*{password}"

@@ -57,22 +57,20 @@ public class UserService extends BaseService<User>
                     Timestamp.valueOf(userDto.getBirthday() + " 00:00:00"),
                     null,
                     null,
-                    "männlich".equals(userDto.getSex()) ? Sex.MALE : Sex.FEMALE, // TODO
+                    userDto.getSex(),
                     "pseudo/path",
                     "Apparently, this user prefers to keep an air of mystery about them.",
                     "Hey, I'm using Locster!",
-                    PrivacyStatus.PRIVATE, // TODO
+                    PrivacyStatus.PRIVATE,
                     OnlineStatus.ONLINE,
                     false
             );
 
             userRepository.save(userToRegister);
-            return;
         }
         catch (Exception e) {
             // TODO LOGGING
             System.out.println("EXCEPTION  |  " + e.toString());
-            return;
         }
     }
 

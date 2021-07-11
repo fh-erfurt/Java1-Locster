@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class LoginController {
 
-    //to get login form page
     @GetMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public String getLoginForm() {
@@ -19,7 +18,7 @@ public class LoginController {
         return "login";
     }
 
-    //checking for login credentials
+    /*
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public String login(
@@ -29,7 +28,10 @@ public class LoginController {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        if("admin@gmail.com".equals(email) && "admin".equals(password)) {
+        boolean isAdmin ="admin@gmail.com".equals(email) && "admin".equals(password);
+        boolean isRegisteredUser = false;
+
+        if(isAdmin || isRegisteredUser) {
             // if username and password is correct, we are returning homepage
             return "profilepage";
         }
@@ -40,6 +42,5 @@ public class LoginController {
             //returning again login page
             return "login";
         }
-
-    }
+    } */
 }
