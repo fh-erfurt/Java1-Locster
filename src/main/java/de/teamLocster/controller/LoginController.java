@@ -25,7 +25,7 @@ public class LoginController {
             HttpServletRequest request,
             Model model
     ) {
-        String email = request.getParameter("email");
+        String email = request.getParameter("emailAddress");
         String password = request.getParameter("password");
 
         boolean isAdmin ="admin@gmail.com".equals(email) && "admin".equals(password);

@@ -21,7 +21,6 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class User extends BaseEntity
 {
-
     private String emailAddress;
     private String passwordHash;
 
