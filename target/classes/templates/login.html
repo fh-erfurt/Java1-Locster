@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" class="h-100">
   <head th:replace="fragments/head"></head>
 
   <head>
@@ -25,22 +26,24 @@
             aus deiner City kennlernen ;)
           </p>
         </div>
-        <div th:if="${invalidCredentials}" class="alert alert-danger">
+        <div th:if="${param.error}" class="alert alert-danger">
           User or Password is wrong
         </div>
         <div class="form">
-          <form th:action="@{/login}" method="post">
+          <form th:action="@{/login}" th:object="${loginForm}" method="post">
             <div class="inputs">
               <input
                 type="email"
                 placeholder="Deine Email-Adresse"
                 name="email"
+                th:field="*{email}"
                 required
               />
               <input
                 type="password"
                 placeholder="Dein Passwort"
                 name="password"
+                th:field="*{password}"
                 required
               />
             </div>
