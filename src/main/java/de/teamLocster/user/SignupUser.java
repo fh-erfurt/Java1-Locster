@@ -4,10 +4,7 @@ import de.teamLocster.enums.Sex;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 /**
  * Data Transfer Object to send registration information to backend
@@ -17,29 +14,27 @@ import javax.validation.constraints.Pattern;
 public class SignupUser
 {
     @NotNull
-    @NotEmpty
+    @Size(min=1, message = "firstName must not be empty")
     private String firstName;
 
     @NotNull
-    @NotEmpty
+    @Size(min=1, message = "Lastname must not be empty")
     private String lastName;
 
     @NotNull
-    @NotEmpty
     private String birthday;
 
     @NotNull
-    @NotEmpty
     private Sex sex;
 
     @Email
     @NotNull
-    @NotEmpty
+    @Size(min=1, message = "emailAddress must not be empty")
     private String emailAddress;
 
     @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$", message = "Password unsafe")
     @NotNull
-    @NotEmpty
+    @Size(min=1, message = "password must not be empty")
     private String password;
     private String passwordRepeat;
 }
