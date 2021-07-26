@@ -23,7 +23,7 @@
       <div class="message" th:text="${message}"></div>
       <div class="form-text-container">
         <div class="form">
-          <form th:action="@{/signup}" th:object="${newUser}" method="POST" enctype="utf8">
+          <form th:action="@{/signup}" th:object="${signupUser}" method="POST" enctype="utf8">
             <div class="inputs">
               <input
                       type="text"

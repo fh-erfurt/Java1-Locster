@@ -33,9 +33,10 @@ public class UserService extends BaseService<User>
     }
 
     // TODO return User?
-    public void registerNewUser(SignupUser userDto, Errors errors) throws UserAlreadyExistException
+    public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException
     {
-        if (!userRepository.findByEmailAddress(userDto.getEmailAddress()).isEmpty()) {
+        // TODO NULL CHECK
+        if ( userRepository.findByEmailAddress(userDto.getEmailAddress()) != null) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
         try {
@@ -69,7 +70,7 @@ public class UserService extends BaseService<User>
             userRepository.save(userToRegister);
         }
         catch (Exception e) {
-            // TODO LOGGING
+            // TODO LOGGING handle timestamp error better
             System.out.println("EXCEPTION  |  " + e.toString());
         }
     }

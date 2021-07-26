@@ -32,52 +32,49 @@ public class SignupController {
 
     @GetMapping("/signup")
     @ResponseStatus(HttpStatus.OK)
-    public String showSignupForm (Model model) {
+    public ModelAndView showSignupForm (
+            Model model
+    ) {
         System.out.println("signup get loaded");
-        model.addAttribute("title", "newUser");
-        model.addAttribute("newUser",new SignupUser());
-        return "signup";
+        model.addAttribute(new SignupUser());
+        return new ModelAndView("signup");
     }
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public ModelAndView signUp(
             @ModelAttribute @Valid SignupUser userDto,
-            Errors errors, Model model) {
+            Errors errors,
+            Model model
+    ) {
 
-        if(errors.hasErrors()) for (ObjectError e : errors.getAllErrors()) System.out.println( e.toString() + " " + e.getDefaultMessage());
+        if(errors.hasErrors()) for (ObjectError e : errors.getAllErrors()) System.out.println(e.getCodes()[1] + " | " + e.getDefaultMessage());
 
+        System.out.println("signup post received");
 
         if (errors.hasErrors()) {
             System.out.println("error!");
-            model.addAttribute("title", "newUser");
-            model.addAttribute("errors", errors);
-            model.addAttribute("newUser", new SignupUser());
-
             return new ModelAndView("signup");
         }
 
-
         else {
-            System.out.println("signup post received");
             System.out.println(userDto.getFirstName());
             System.out.println(userDto.getLastName());
             System.out.println(userDto.getEmailAddress());
+            System.out.println(userDto.getBirthday());
 
 
             try {
-                userService.registerNewUser(userDto, errors);
+                userService.registerNewUser(userDto);
             } catch (Exception uaeEx) { // TODO UserAlreadyExistException
                 ModelAndView mav = new ModelAndView("signup");
                 mav.addObject("message", "An account for that email address already exists.");
-                System.out.println(uaeEx.getMessage());
+                System.out.println(uaeEx);
                 return mav;
             }
 
             String target = errors.hasErrors() ? "signup" : "login";
-
             return new ModelAndView(target, "user", userDto);
         }
-
     }
 }
