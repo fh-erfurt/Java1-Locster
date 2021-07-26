@@ -37,7 +37,7 @@ public class SignupUser
     @Size(min=1, message = "Bitte eine gültige Email-Adresse angeben!")
     private String emailAddress;
 
-    @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$", message = "Password unsafe")
+    @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#^!'§$%&/()=*\\-+,.;:_<>?|]).{8,}$", message = "Password unsafe")
     @NotNull
     @Size(min=1, message = "password must not be empty")
     private String password;
