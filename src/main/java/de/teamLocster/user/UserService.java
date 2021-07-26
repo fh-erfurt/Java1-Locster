@@ -7,6 +7,8 @@ import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.Sex;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 
@@ -23,8 +25,7 @@ public class UserService extends BaseService<User>
 {
     UserRepository userRepository;
 
-    SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-    // formatter.parse(birthday) TODO
+    PasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Autowired
     public UserService(UserRepository userRepository)
@@ -40,18 +41,9 @@ public class UserService extends BaseService<User>
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
         try {
-            // TODO ADD ERRORS TO ERRORS!!
-
-            // TODO passwortsicherheit und andere anforderungen prüfen DEFAULT VALUES IN ENUMS
-            // city (required?)
-            // occupation (required?)
-            // beziehungsstatus (required?)
-            // sex (select? default?)
-            // privatssphäre (default?)
-            // onlinestatus (default?)
             User userToRegister = new User(
                     userDto.getEmailAddress(),
-                    Integer.toString(userDto.getPassword().hashCode()),
+                    encoder.encode(userDto.getPassword()),
                     userDto.getFirstName(),
                     userDto.getLastName(),
                     null,

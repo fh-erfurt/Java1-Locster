@@ -1,8 +1,15 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+>
 <head th:replace="fragments/head"></head>
 <body>
 <p th:text="'Hello, ' + ${name} + '!'" />
 <input type="text">
+<span sec:authorize="isAuthenticated()" style="display: inline-block;">
+          | USER: <span sec:authentication="name"></span> |
+          Roles: <span sec:authentication="principal.authorities"></span> |
+          <a th:href="@{/logout}">Abmelden</a>
+        </span>
 </body>
 </html>

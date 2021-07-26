@@ -1,5 +1,6 @@
 package de.teamLocster.security.config;
 
+import de.teamLocster.security.auth.AuthProvider;
 import de.teamLocster.security.web.LoggingAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,15 +14,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter
+{
+    @Autowired
+    private AuthProvider authProvider;
 
     @Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-        // return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 
     @Override
@@ -36,16 +39,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/img/**",
                         "/webjars/**",
                         "/signup",
-                        "/profilepage",
-                        "/**")
+                        "/profilepage")
                 .permitAll()
-                .antMatchers("/whoisonline/**").hasRole("USER").anyRequest().authenticated()
+                .antMatchers("/**")
+                    .fullyAuthenticated()
+                    .anyRequest()
+                    .authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("emailAddress")
                     .passwordParameter("password")
                     .failureUrl("/login?error")
+                    .defaultSuccessUrl("/whoisonline")
                 .permitAll()
                 .and()
                 .logout()
@@ -56,16 +62,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .exceptionHandling()
-                .accessDeniedHandler(accessDeniedHandler)
-                .and();
-                // .authenticationProvider();
+                .accessDeniedHandler(accessDeniedHandler);
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user@x").password("{noop}password22").roles("USER")
-                .and()
-                .withUser("manager@x").password("password").roles("MANAGER");
+        auth.authenticationProvider(authProvider);
     }
 }
