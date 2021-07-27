@@ -26,8 +26,8 @@
         />
       </div>
       <div class="info">
-        <h2 class="profile_name" th:text="*{firstName + ' ' + lastName}"></h2>
-        <h2 class="profile_city">aus Erfurt</h2>
+        <h2 class="profile_name" th:text="${firstName + ' ' + lastName}"></h2>
+        <h2 class="profile_city" th:text="${city}"></h2>
         <button type="button" class="collapsible">mehr Infos</button>
         <div class="content">
           <div class="ProfileInfosHeader">
@@ -38,7 +38,7 @@
                         src="icons/cake.svg"
                         alt="cake"
                 />
-                <p>01.01.1990</p>
+                <p th:text="${birthday}"></p>
               </div>
               <div class="gender group profileinfo">
                 <img
@@ -46,7 +46,7 @@
                         src="icons/genders-gender-svgrepo-com.svg"
                         alt="icon"
                 />
-                <p>Mann</p>
+                <p th:text="${sex}"></p>
               </div>
             </div>
             <div class="group2">
@@ -56,7 +56,7 @@
                         src="icons/heart-thin.svg"
                         alt="heart"
                 />
-                <p>Single</p>
+                <p th:text="${relationship}"></p>
               </div>
               <div class="job group profileinfo">
                 <img
@@ -64,7 +64,7 @@
                         src="icons/job-seeker.svg"
                         alt="job"
                 />
-                <p>Fischer</p>
+                <p th:text="${job}"></p>
               </div>
             </div>
             <div class="visitor profileinfo">
@@ -151,16 +151,7 @@
   </div>
 
   <div class="box status">
-    <p class="status">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-      perferendis voluptatem, enim blanditiis recusandae molestiae earum
-      sunt, consectetur repellat rem distinctio iure neque quibusdam fugit,
-      est facilis doloribus. Nulla, culpa. Lorem ipsum dolor sit amet
-      consectetur adipisicing elit. Iste perferendis voluptatem, enim
-      blanditiis recusandae molestiae earum sunt, consectetur repellat rem
-      distinctio iure neque quibusdam fugit, est facilis doloribus. Nulla,
-      culpa.
-    </p>
+    <p class="status" th:text="${status}"></p>
     <div class="icon-edit-content">
       <img src="icons/pen.png" alt="pen" />
     </div>

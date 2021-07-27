@@ -35,8 +35,9 @@ public class ProfilepageController {
             model.addAttribute("city", user.getRegion());
             model.addAttribute("birthday", user.getBirthDay());
             model.addAttribute("sex", user.getSex());
-            model.addAttribute("state", user.getRelationshipStatus());
-            model.addAttribute("city", user.getOccupation());
+            model.addAttribute("relationship", user.getRelationshipStatus());
+            model.addAttribute("job", user.getOccupation());
+            model.addAttribute("status", user.getProfileText());
             //ToDo: get Anzahl Besucher
             //ToDo: get letzter Besucher
             //ToDo: get neuster Freund
