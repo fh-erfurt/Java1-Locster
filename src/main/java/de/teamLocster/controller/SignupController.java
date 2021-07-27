@@ -53,13 +53,13 @@ public class SignupController {
         else {
             try {
                 userService.registerNewUser(userDto);
+                return new ModelAndView("login");
             } catch (Exception uaeEx) { // TODO UserAlreadyExistException
                 ModelAndView mav = new ModelAndView("signup");
                 mav.addObject("message", "Für diese Email-Adresse existiert bereits ein Profil.");
                 System.out.println(uaeEx); // TODO LOGGING
                 return mav;
             }
-            return new ModelAndView("login");
         }
     }
 }

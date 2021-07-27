@@ -1,6 +1,5 @@
 package de.teamLocster.controller;
 
-import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.RelationshipStatus;
@@ -15,9 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
 @Controller
@@ -38,7 +36,7 @@ public class WhoIsOnlineController {
                     "Matthias",
                     "Gabel",
                     "Muster city",
-                    Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
+                    LocalDate.parse("1994-01-04"),
                     "Beispiel",
                     RelationshipStatus.SINGLE,
                     Sex.FEMALE,
@@ -55,7 +53,7 @@ public class WhoIsOnlineController {
                     "Molham",
                     "Al-Khodari",
                     "Muster city",
-                    Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
+                    LocalDate.parse("1994-01-04"),
                     "Beispiel",
                     RelationshipStatus.SINGLE,
                     Sex.FEMALE,
@@ -72,7 +70,7 @@ public class WhoIsOnlineController {
                     "Saskia",
                     "Wohlers",
                     "Muster city",
-                    Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
+                    LocalDate.parse("1994-01-04"),
                     "Beispiel",
                     RelationshipStatus.SINGLE,
                     Sex.FEMALE,
@@ -89,7 +87,7 @@ public class WhoIsOnlineController {
                     "Dirk",
                     "Hofmann",
                     "Muster city",
-                    Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
+                    LocalDate.parse("1994-01-04"),
                     "Beispiel",
                     RelationshipStatus.SINGLE,
                     Sex.FEMALE,
@@ -106,7 +104,7 @@ public class WhoIsOnlineController {
                     "Jakob",
                     "Gensel",
                     "Muster city",
-                    Timestamp.valueOf("1994-1-4 02:00:00.000000000"),
+                    LocalDate.parse("1994-01-04"),
                     "Beispiel",
                     RelationshipStatus.SINGLE,
                     Sex.FEMALE,

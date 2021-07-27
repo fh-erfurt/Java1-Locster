@@ -5,16 +5,13 @@ import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
-import de.teamLocster.enums.Sex;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.Errors;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 @Slf4j
@@ -45,7 +42,7 @@ public class UserService extends BaseService<User>
                     userDto.getFirstName(),
                     userDto.getLastName(),
                     null,
-                    Timestamp.valueOf(userDto.getBirthday() + " 00:00:00"),
+                    LocalDate.parse(userDto.getBirthday()),
                     null,
                     null,
                     userDto.getSex(),
