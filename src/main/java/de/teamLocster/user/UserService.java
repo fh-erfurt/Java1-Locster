@@ -2,6 +2,7 @@ package de.teamLocster.user;
 
 import de.teamLocster.core.BaseService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
+import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.Sex;
@@ -14,10 +15,7 @@ import org.springframework.validation.Errors;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -37,7 +35,7 @@ public class UserService extends BaseService<User>
     public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException
     {
         // TODO NULL CHECK
-        if ( userRepository.findByEmailAddress(userDto.getEmailAddress()) != null) {
+        if ( userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
         try {
@@ -77,5 +75,13 @@ public class UserService extends BaseService<User>
             onlineUsers.add(new PublicUser(user));
         }
         return onlineUsers;
+    }
+
+    public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {
+        Optional<User> data = userRepository.findByEmailAddress(emailAddress);
+        if(data.isPresent()) {
+            return data.get();
+        }
+        throw new UserNotFoundException("No user with this email address was found in the database!");
     }
 }

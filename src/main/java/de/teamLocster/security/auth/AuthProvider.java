@@ -31,7 +31,7 @@ public class AuthProvider implements AuthenticationProvider
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String)authentication.getCredentials();
-        User user = userRepository.findByEmailAddress(username);
+        User user = userRepository.findByEmailAddress(username).get(); // TODO USE SERVICE and TRY CATCH
 
         boolean authenticated = user != null && passwordEncoder.matches(password, user.getPasswordHash());
         // TODO try catch
