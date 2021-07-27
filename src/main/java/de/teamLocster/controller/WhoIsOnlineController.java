@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Timestamp;
 import java.util.Arrays;
@@ -118,8 +119,9 @@ public class WhoIsOnlineController {
             ));
 
     @GetMapping("/whoisonline")
-    String getUser(Model model) {
+    public ModelAndView getWhoisonline(Model model) {
+        model.addAttribute("title", "Locster.de.Who_Is_Online");
         model.addAttribute("user", userService.whoIsOnlinePublic());
-        return ("whoisonline");
+        return new ModelAndView("whoisonline");
     }
 }

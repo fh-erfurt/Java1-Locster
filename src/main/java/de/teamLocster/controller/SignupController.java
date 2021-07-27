@@ -36,6 +36,7 @@ public class SignupController {
             Model model
     ) {
         System.out.println("signup get loaded");
+        model.addAttribute("title", "Locster.de.SignUp");
         model.addAttribute(new SignupUser());
         return new ModelAndView("signup");
     }
