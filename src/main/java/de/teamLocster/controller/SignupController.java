@@ -35,7 +35,6 @@ public class SignupController {
     public ModelAndView showSignupForm (
             Model model
     ) {
-        System.out.println("signup get loaded");
         model.addAttribute("title", "Locster.de.SignUp");
         model.addAttribute(new SignupUser());
         return new ModelAndView("signup");
@@ -48,34 +47,19 @@ public class SignupController {
             Errors errors,
             Model model
     ) {
-
-        if(errors.hasErrors()) for (ObjectError e : errors.getAllErrors()) System.out.println(e.getCodes()[1] + " | " + e.getDefaultMessage());
-
-        System.out.println("signup post received");
-
         if (errors.hasErrors()) {
-            System.out.println("error!");
             return new ModelAndView("signup");
         }
-
         else {
-            System.out.println(userDto.getFirstName());
-            System.out.println(userDto.getLastName());
-            System.out.println(userDto.getEmailAddress());
-            System.out.println(userDto.getBirthday());
-
-
             try {
                 userService.registerNewUser(userDto);
             } catch (Exception uaeEx) { // TODO UserAlreadyExistException
                 ModelAndView mav = new ModelAndView("signup");
-                mav.addObject("message", "An account for that email address already exists.");
-                System.out.println(uaeEx);
+                mav.addObject("message", "Für diese Email-Adresse existiert bereits ein Profil.");
+                System.out.println(uaeEx); // TODO LOGGING
                 return mav;
             }
-
-            String target = errors.hasErrors() ? "signup" : "login";
-            return new ModelAndView(target, "user", userDto);
+            return new ModelAndView("login");
         }
     }
 }
