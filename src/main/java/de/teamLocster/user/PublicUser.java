@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -30,7 +31,7 @@ public class PublicUser
     private String firstName;
     private String lastName;
 
-    Timestamp birthDay;
+    LocalDate birthDay;
 
     private RelationshipStatus relationshipStatus;
     private Sex sex;

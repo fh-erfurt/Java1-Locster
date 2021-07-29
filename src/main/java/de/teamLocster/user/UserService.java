@@ -2,20 +2,17 @@ package de.teamLocster.user;
 
 import de.teamLocster.core.BaseService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
+import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
-import de.teamLocster.enums.Sex;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.Errors;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
+import java.time.LocalDate;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -23,8 +20,7 @@ public class UserService extends BaseService<User>
 {
     UserRepository userRepository;
 
-    SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-    // formatter.parse(birthday) TODO
+    PasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Autowired
     public UserService(UserRepository userRepository)
@@ -33,28 +29,20 @@ public class UserService extends BaseService<User>
     }
 
     // TODO return User?
-    public void registerNewUser(SignupUser userDto, Errors errors) throws UserAlreadyExistException
+    public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException
     {
-        if (!userRepository.findByEmailAddress(userDto.getEmailAddress()).isEmpty()) {
+        // TODO NULL CHECK
+        if ( userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
         try {
-            // TODO ADD ERRORS TO ERRORS!!
-
-            // TODO passwortsicherheit und andere anforderungen prüfen DEFAULT VALUES IN ENUMS
-            // city (required?)
-            // occupation (required?)
-            // beziehungsstatus (required?)
-            // sex (select? default?)
-            // privatssphäre (default?)
-            // onlinestatus (default?)
             User userToRegister = new User(
                     userDto.getEmailAddress(),
-                    Integer.toString(userDto.getPassword().hashCode()),
+                    encoder.encode(userDto.getPassword()),
                     userDto.getFirstName(),
                     userDto.getLastName(),
                     null,
-                    Timestamp.valueOf(userDto.getBirthday() + " 00:00:00"),
+                    LocalDate.parse(userDto.getBirthday()),
                     null,
                     null,
                     userDto.getSex(),
@@ -69,7 +57,7 @@ public class UserService extends BaseService<User>
             userRepository.save(userToRegister);
         }
         catch (Exception e) {
-            // TODO LOGGING
+            // TODO LOGGING handle timestamp error better
             System.out.println("EXCEPTION  |  " + e.toString());
         }
     }
@@ -84,5 +72,13 @@ public class UserService extends BaseService<User>
             onlineUsers.add(new PublicUser(user));
         }
         return onlineUsers;
+    }
+
+    public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {
+        Optional<User> data = userRepository.findByEmailAddress(emailAddress);
+        if(data.isPresent()) {
+            return data.get();
+        }
+        throw new UserNotFoundException("No user with this email address was found in the database!");
     }
 }

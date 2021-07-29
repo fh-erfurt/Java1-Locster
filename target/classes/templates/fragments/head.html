@@ -1,5 +1,5 @@
-<head th:fragment="head">
-
+<head th:fragment="head" xmlns:th="http://www.w3.org/1999/xhtml">
+    <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,5 +11,7 @@
     <meta name="author" content="">
 
     <link rel="stylesheet" th:href="@{/css/index.css}">
+
+    <title th:text="${title}"></title>
 
 </head>

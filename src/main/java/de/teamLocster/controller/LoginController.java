@@ -1,21 +1,22 @@
 package de.teamLocster.controller;
 
-import de.teamLocster.user.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class LoginController {
 
     @GetMapping("/login")
     @ResponseStatus(HttpStatus.OK)
-    public String getLoginForm() {
+    public ModelAndView getLoginForm(Model model)
+    {
+        model.addAttribute("title", "Locster.de.Login");
         //return html page name
-        return "login";
+        return new ModelAndView("login");
     }
 
     /*
@@ -25,7 +26,7 @@ public class LoginController {
             HttpServletRequest request,
             Model model
     ) {
-        String email = request.getParameter("email");
+        String email = request.getParameter("emailAddress");
         String password = request.getParameter("password");
 
         boolean isAdmin ="admin@gmail.com".equals(email) && "admin".equals(password);

@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.*;
 
 @SpringBootTest
@@ -77,7 +78,7 @@ public class UserTest {
 
         RelationshipStatus rs = RelationshipStatus.SINGLE;
 
-        Timestamp birthDay = new Timestamp(1L);
+        LocalDate birthDay = LocalDate.ofYearDay(1990,200);
 
         User testUser = new User(
                 "monika@normal.de",

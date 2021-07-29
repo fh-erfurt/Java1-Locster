@@ -9,10 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -34,33 +32,34 @@ public class SignupController {
 
     @GetMapping("/signup")
     @ResponseStatus(HttpStatus.OK)
-    public String showSignupForm (WebRequest request, Model model) {
-        System.out.println("signup get loaded");
-        SignupUser userDto = new SignupUser();
-        model.addAttribute("user", userDto);
-        return "signup";
+    public ModelAndView showSignupForm (
+            Model model
+    ) {
+        model.addAttribute("title", "Locster.de.SignUp");
+        model.addAttribute(new SignupUser());
+        return new ModelAndView("signup");
     }
 
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public ModelAndView signUp(
-            @ModelAttribute("user") @Valid SignupUser userDto,
-            HttpServletRequest request,
-            Errors errors) {
-
-        System.out.println("signup post received");
-
-        try {
-            userService.registerNewUser(userDto, errors);
-        } catch (Exception uaeEx) { // TODO UserAlreadyExistException
-            ModelAndView mav = new ModelAndView("signup");
-            mav.addObject("message", "An account for that email address already exists.");
-            System.out.println(uaeEx.getMessage());
-            return mav;
+            @ModelAttribute @Valid SignupUser userDto,
+            Errors errors,
+            Model model
+    ) {
+        if (errors.hasErrors()) {
+            return new ModelAndView("signup");
         }
-
-        String target = errors.hasErrors() ? "signup" : "login";
-
-        return new ModelAndView(target, "user", userDto);
+        else {
+            try {
+                userService.registerNewUser(userDto);
+                return new ModelAndView("login");
+            } catch (Exception uaeEx) { // TODO UserAlreadyExistException
+                ModelAndView mav = new ModelAndView("signup");
+                mav.addObject("message", "Für diese Email-Adresse existiert bereits ein Profil.");
+                System.out.println(uaeEx); // TODO LOGGING
+                return mav;
+            }
+        }
     }
 }

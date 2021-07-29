@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalDate;
 
 
 @Entity
@@ -21,14 +21,14 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class User extends BaseEntity
 {
-
+    @Column(unique = true)
     private String emailAddress;
     private String passwordHash;
 
     private String firstName;
     private String lastName;
     private String region;
-    private Timestamp birthDay;
+    private LocalDate birthDay;
     private String occupation;
     @Enumerated(EnumType.ORDINAL)
     private RelationshipStatus relationshipStatus;
