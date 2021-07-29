@@ -1,11 +1,8 @@
 package de.teamLocster.user;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import de.teamLocster.enums.Sex;
-import jdk.jfr.Timestamp;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 
@@ -37,9 +34,14 @@ public class SignupUser
     @Size(min=1, message = "Bitte eine gültige Email-Adresse angeben!")
     private String emailAddress;
 
-    @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#^!'§$%&/()=*\\-+,.;:_<>?|]).{8,}$", message = "Password unsafe")
+    @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#^!'§$%&/()=*\\-+,.;:_<>?|]).{8,}$", message = "Passwort unsicher!")
     @NotNull
-    @Size(min=1, message = "password must not be empty")
+    @Size(min=1, message = "Passwort darf nicht leer sein!")
     private String password;
     private String passwordRepeat;
+
+    @AssertTrue(message = "Passwörter müssen übereinstimmen!")
+    public boolean repeatedPasswordEquals() {
+        return password != null && this.password.equals(this.passwordRepeat);
+    }
 }

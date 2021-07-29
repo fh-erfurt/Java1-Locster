@@ -53,7 +53,6 @@ public class UserService extends BaseService<User>
                     OnlineStatus.ONLINE,
                     false
             );
-
             userRepository.save(userToRegister);
         }
         catch (Exception e) {
