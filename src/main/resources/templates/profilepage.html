@@ -15,7 +15,7 @@
 
 <!-- Homepage -->
 
-<div class="container">
+<div class="container" th:object="${loggedInUser}">
   <div class="box profile" id="profileInfoBox">
     <div class="profile-info-wrapper">
       <div class="pic">
@@ -26,8 +26,8 @@
         />
       </div>
       <div class="info">
-        <h2 class="profile_name" th:text="${firstName + ' ' + lastName}"></h2>
-        <h2 class="profile_city" th:text="${city}"></h2>
+        <h2 class="profile_name" th:text="*{firstName + ' ' + lastName}"></h2>
+        <h2 class="profile_city" th:text="*{region}"></h2>
         <button type="button" class="collapsible">mehr Infos</button>
         <div class="content">
           <div class="ProfileInfosHeader">
@@ -38,7 +38,7 @@
                         src="icons/cake.svg"
                         alt="cake"
                 />
-                <p th:text="${birthday}"></p>
+                <p th:text="*{birthDay}"></p>
               </div>
               <div class="gender group profileinfo">
                 <img
@@ -46,7 +46,7 @@
                         src="icons/genders-gender-svgrepo-com.svg"
                         alt="icon"
                 />
-                <p th:text="${sex}"></p>
+                <p th:text="*{sex}"></p>
               </div>
             </div>
             <div class="group2">
@@ -56,7 +56,7 @@
                         src="icons/heart-thin.svg"
                         alt="heart"
                 />
-                <p th:text="${relationship}"></p>
+                <p th:text="*{relationshipStatus}"></p>
               </div>
               <div class="job group profileinfo">
                 <img
@@ -64,7 +64,7 @@
                         src="icons/job-seeker.svg"
                         alt="job"
                 />
-                <p th:text="${job}"></p>
+                <p th:text="*{occupation}"></p>
               </div>
             </div>
             <div class="visitor profileinfo">
@@ -101,57 +101,40 @@
 
   <div class="box profile-edit" id="profileEdit">
     <div class="editFields">
-      <form action="#">
-        <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value="Vorname"
-        />
-        <input type="text" id="lastName" name="lastName" value="Nachname" />
-        <input type="date" id="birthday" name="birthday" value="birthday" />
+      <form action="#" th:action="@{/saveUser}" th:object="${updateUser}" method="post">
+        <input type="text" id="firstName" name="firstName" th:field="*{firstName}" placeholder="Vorname" />
+        <input type="text" id="lastName" name="lastName" th:field="*{lastName}" placeholder="Nachname" />
+        <input type="date" id="birthday" name="birthday" th:field="*{birthDay}" placeholder="Geburtstag" />
+
         <div class="genderButtons">
           <label for="gender">Choose a gender:</label>
-          <select name="gender" id="gender">
+          <select name="gender" id="gender" th:field="*{sex}">
             <option value="männlich">männlich</option>
             <option value="female">female</option>
             <option value="diverse">diverse</option>
           </select>
         </div>
-        <input type="text" id="region" name="region" value="Wohnort" />
-        <input
-                type="text"
-                id="relationship"
-                name="relationship"
-                value="Glücklich getrennt"
-        />
-        <input
-                type="text"
-                id="occupation"
-                name="occupation"
-                value="Beruf"
-        />
+
+        <input type="text" id="region" name="region" th:field="*{region}"/>
+        <input type="text" id="relationship" name="relationship" th:field="*{relationshipStatus}" />
+        <input  id="occupation" name="occupation" th:field="*{occupation}" />
+
+        <div class="buttons">
+          <div class="buttonsBtn">
+            <button class="profileBtn" type="button">Profilbild ändern</button>
+            <button class="profileBtn" type="button">Profilbild löschen</button>
+          </div>
+          <div class="submit">
+            <button class="submitBtn" type="submit"> <img src="icons/accept.svg" alt="logo" onclick="displayprofileInfo()" /> </button>
+          </div>
+        </div>
+
       </form>
-    </div>
-    <div class="buttons">
-      <div class="buttonsBtn">
-        <button class="profileBtn" type="button">Profilbild ändern</button>
-        <button class="profileBtn" type="button">Profilbild löschen</button>
-      </div>
-      <div class="submit">
-        <button class="submitBtn">
-          <img
-                  src="icons/accept.svg"
-                  alt="logo"
-                  onclick="displayprofileInfo()"
-          />
-        </button>
-      </div>
     </div>
   </div>
 
   <div class="box status">
-    <p class="status" th:text="${status}"></p>
+    <p class="status" th:text="*{profileText}"></p>
     <div class="icon-edit-content">
       <img src="icons/pen.png" alt="pen" />
     </div>

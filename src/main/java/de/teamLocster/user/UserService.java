@@ -7,10 +7,12 @@ import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -62,6 +64,56 @@ public class UserService extends BaseService<User>
         }
     }
 
+    /*
+    public void updateUser( SignupUser userDto){
+        return userService.getUserByEmailAddress(newUser.getEmailAddress())
+                .map(user -> {
+                    user.setFirstname(newUser.getFirstname());
+                    user.setLastname(newUser.getLastname());
+                    user.setDob(newUser.getDob());
+                    user.setEmail(newUser.getEmail());
+                    user.setPhone(newUser.getPhone());
+                    return userRepository.save(user);
+                })
+                .orElseGet(() -> {
+                    newUser.setId(id);
+                    return userRepository.save(newUser);
+                });
+    }
+
+     */
+
+        /*
+    public void updateUserInfo(User user) {
+        try {
+            user = new User(
+                    user.getEmailAddress(),
+                    encoder.encode(user.getPasswordHash()),
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getRegion(),
+                    LocalDate.parse(user.getBirthDay()),
+                    user.getOccupation(),
+                    null,
+                    user.getSex(),
+                    "pseudo/path",
+                    "Apparently, this user prefers to keep an air of mystery about them.",
+                    "Hey, I'm using Locster!",
+                    PrivacyStatus.PRIVATE,
+                    OnlineStatus.ONLINE,
+                    false
+            );
+
+            userRepository.save(user);
+        }
+        catch (Exception e) {
+            // TODO LOGGING handle timestamp error better
+            System.out.println("EXCEPTION  |  " + e.toString());
+        }
+    }
+
+     */
+
     public List<User> whoIsOnline() {
         return userRepository.findByIsOnlineTrue();
     }
@@ -81,4 +133,5 @@ public class UserService extends BaseService<User>
         }
         throw new UserNotFoundException("No user with this email address was found in the database!");
     }
+
 }

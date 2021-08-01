@@ -73,7 +73,8 @@
 
 /* The dropdown container */
 .dropdown {
-  overflow: hidden;
+  position: relative;
+  display: inline-block;
 }
 
 /* Dropdown button */
