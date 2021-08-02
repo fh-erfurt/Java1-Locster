@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -40,6 +38,14 @@ public class SettingsController {
         catch (UserNotFoundException unfE) {
             return new ModelAndView("redirect:/");
         }
+    }
+
+    @PutMapping(path = "userId")
+    public void updateUserInSetting(
+            @PathVariable("userId") Long userId,
+            @RequestParam(required = false) String email,
+            @RequestParam(required = false) String password) {
+        userService.updateUserInSetting(userId,email,password);
     }
 
     @GetMapping("/updateUser")
@@ -76,5 +82,10 @@ public class SettingsController {
             redirectAttributes.addFlashAttribute("messege","");
             return new ModelAndView("redirect:/");
         }
+    }
+
+    @DeleteMapping(path = "userId")
+    public void deleteUser(@PathVariable("userId") Long userId) {
+        userService.deleteUser(userId);
     }
 }

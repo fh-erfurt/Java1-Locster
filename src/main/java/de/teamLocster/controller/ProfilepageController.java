@@ -18,7 +18,7 @@ public class ProfilepageController {
 
     UserService userService;
 
-    UserRepository userRepository;
+    UserRepository userRepository;  // das ist nicht ganz richtig...
 
     @Autowired
     ProfilepageController(UserService userService) {
@@ -31,6 +31,7 @@ public class ProfilepageController {
                 .findById(id)
                 .orElseThrow(() -> new UserNotFoundException("No Persons found for id " + id)));
     }
+
 
     @GetMapping("/profilepage")
     public ModelAndView profilePage (Authentication authentication, Model model) {

@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.*;
@@ -28,6 +29,10 @@ public class UserService extends BaseService<User>
     public UserService(UserRepository userRepository)
     {
         this.userRepository = userRepository;
+    }
+
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
 
     // TODO return User?
@@ -134,4 +139,31 @@ public class UserService extends BaseService<User>
         throw new UserNotFoundException("No user with this email address was found in the database!");
     }
 
+    public void deleteUser(Long userId) {
+        boolean exists = userRepository.existsById(userId);
+        if(!exists) {
+            throw new IllegalStateExeption("User with id " + userId + " does not exists");
+        }
+        userRepository.deleteById(userId);
+
+    }
+
+    @Transactional
+    public void updateUserInSetting(Long userId, String email, String password) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalStateExeption("User with id " + userId + " dose not exist");
+
+                if (email != null && email.length() > 0 && !Objects.equals(user.getEmailAddress(),email)) {
+                    Optional<User> userOptional = userRepository.findByEmailAddress(email);
+                    if(userOptional.isPresent()) {
+                        throw new IllegalStateExeption("email taken");
+                    }
+            user.setEmailAddress(email);
+        }
+                /* das stimmt nicht */
+                if (password != null && password.length() > 0) {
+                    user.setPasswordHash(password);
+                }
+
+    }
 }
