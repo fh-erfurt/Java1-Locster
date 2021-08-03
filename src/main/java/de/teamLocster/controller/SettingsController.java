@@ -24,18 +24,15 @@ public class SettingsController {
     }
 
     @GetMapping("/settings")
-    public ModelAndView settings (Authentication authentication, Model model)
-    {
+    public ModelAndView settings(Authentication authentication, Model model) {
         model.addAttribute("title", "Locster.de.Settings");
         String userEmail = authentication.getName();
-        try
-        {
+        try {
             User user = userService.getUserByEmailAddress(userEmail);
             model.addAttribute("loggedInUser", user);
 
             return new ModelAndView("settings");
-        }
-        catch (UserNotFoundException unfE) {
+        } catch (UserNotFoundException unfE) {
             return new ModelAndView("redirect:/");
         }
     }
@@ -44,30 +41,28 @@ public class SettingsController {
     public void updateUserInSetting(
             @PathVariable("userId") Long userId,
             @RequestParam(required = false) String email,
-            @RequestParam(required = false) String password) {
-        userService.updateUserInSetting(userId,email,password);
+            @RequestParam(required = false) String password) throws UserNotFoundException {
+        userService.updateUserInSetting(userId, email, password);
     }
 
-    @GetMapping("/updateUser")
-    public String updateUser(Model model, RedirectAttributes redirectAttributes, Authentication authentication) {
+    @GetMapping("/updateUserInSetting")
+    public String updateUserInSetting(Model model, RedirectAttributes redirectAttributes, Authentication authentication) {
 
         String userEmail = authentication.getName();
         try {
             User user = userService.getUserByEmailAddress(userEmail);
-            model.addAttribute("updateUser",user);
-            return "updateUser";
-        }catch (UserNotFoundException unfE)
-        {
-            redirectAttributes.addFlashAttribute("messege","");
+            model.addAttribute("updateUserInSetting", user);
+            return "updateUserInSetting";
+        } catch (UserNotFoundException unfE) {
+            redirectAttributes.addFlashAttribute("messege", "");
             return "redirect:/";
         }
     }
 
-    @PostMapping("/saveUser")
-    public ModelAndView saveUser(@ModelAttribute("updateUser") User updateUser,
-                           RedirectAttributes redirectAttributes,
-                           Authentication authentication)
-    {
+    @PostMapping("/saveUserInSetting")
+    public ModelAndView saveUserInSetting(@ModelAttribute("updateUserInSetting") User updateUser,
+                                          RedirectAttributes redirectAttributes,
+                                          Authentication authentication) {
         String userEmail = authentication.getName();
         try {
             User user = userService.getUserByEmailAddress(userEmail);
@@ -77,15 +72,14 @@ public class SettingsController {
 
             userRepository.save(user);
             return new ModelAndView("redirect:/settings");
-        } catch (UserNotFoundException unfE)
-        {
-            redirectAttributes.addFlashAttribute("messege","");
+        } catch (UserNotFoundException unfE) {
+            redirectAttributes.addFlashAttribute("messege", "");
             return new ModelAndView("redirect:/");
         }
     }
 
     @DeleteMapping(path = "userId")
-    public void deleteUser(@PathVariable("userId") Long userId) {
+    public void deleteUserInSetting(@PathVariable("userId") Long userId) throws UserNotFoundException {
         userService.deleteUser(userId);
     }
 }

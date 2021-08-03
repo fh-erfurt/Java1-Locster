@@ -112,7 +112,6 @@ public class UserService extends BaseService<User>
             userRepository.save(user);
         }
         catch (Exception e) {
-            // TODO LOGGING handle timestamp error better
             System.out.println("EXCEPTION  |  " + e.toString());
         }
     }
@@ -139,24 +138,24 @@ public class UserService extends BaseService<User>
         throw new UserNotFoundException("No user with this email address was found in the database!");
     }
 
-    public void deleteUser(Long userId) {
+    public void deleteUser(Long userId) throws UserNotFoundException {
         boolean exists = userRepository.existsById(userId);
         if(!exists) {
-            throw new IllegalStateExeption("User with id " + userId + " does not exists");
+            throw new UserNotFoundException("User with id " + userId + " does not exists");
         }
         userRepository.deleteById(userId);
 
     }
 
     @Transactional
-    public void updateUserInSetting(Long userId, String email, String password) {
+    public void updateUserInSetting(Long userId, String email, String password) throws UserNotFoundException {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalStateExeption("User with id " + userId + " dose not exist");
+                .orElseThrow(() -> new UserNotFoundException("User with id " + userId + " dose not exist"));
 
                 if (email != null && email.length() > 0 && !Objects.equals(user.getEmailAddress(),email)) {
                     Optional<User> userOptional = userRepository.findByEmailAddress(email);
                     if(userOptional.isPresent()) {
-                        throw new IllegalStateExeption("email taken");
+                        throw new UserNotFoundException("email taken");
                     }
             user.setEmailAddress(email);
         }
@@ -165,5 +164,10 @@ public class UserService extends BaseService<User>
                     user.setPasswordHash(password);
                 }
 
+    }
+
+    public void updateUser(User user) {
+
+        userRepository.save(user);
     }
 }

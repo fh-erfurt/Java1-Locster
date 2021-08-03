@@ -73,7 +73,7 @@
 
     <div class="box profile-edit" id="profileEdit">
         <div class="editFields">
-            <form action="#" th:action="@{/saveUser}" method="post">
+            <form action="#" th:action="@{/profilepage}" method="post">
                 <input type="text" id="firstName" name="firstName" th:field="*{firstName}" placeholder="Vorname"/>
                 <input type="text" id="lastName" name="lastName" th:field="*{lastName}" placeholder="Nachname"/>
                 <input type="date" id="birthday" name="birthday" th:field="*{birthDay}" placeholder="Geburtstag"/>
@@ -89,7 +89,7 @@
 
                 <input type="text" id="region" name="region" th:field="*{region}"/>
                 <input type="text" id="relationship" name="relationship" th:field="*{relationshipStatus}"/>
-                <input id="occupation" name="occupation" th:field="*{occupation}"/>
+                <input type="text" id="occupation" name="occupation" th:field="*{occupation}"/>
 
                 <div class="buttons">
                     <div class="buttonsBtn">

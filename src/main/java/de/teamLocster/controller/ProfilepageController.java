@@ -54,22 +54,8 @@ public class ProfilepageController {
         }
     }
 
-    @GetMapping("/updateUser")
-    public String updateUser( Model model, RedirectAttributes redirectAttributes,Authentication authentication) {
-
-        String userEmail = authentication.getName();
-        try {
-            User user = userService.getUserByEmailAddress(userEmail);
-            model.addAttribute("updateUser", user);
-            return "updateUser";
-        } catch (UserNotFoundException e) {
-            redirectAttributes.addFlashAttribute("messege", "");
-            return "redirect:/profilepage";
-        }
-    }
-
-    @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("updateUser") User updateUser,
+    @PostMapping("/profilepage")
+    public String updateUser(@ModelAttribute("loggedInUser") User updateUser,
                            RedirectAttributes redirectAttributes,
                            Authentication authentication)
     {
@@ -85,7 +71,8 @@ public class ProfilepageController {
             user.setOccupation(updateUser.getOccupation());
             user.setRelationshipStatus(updateUser.getRelationshipStatus());
 
-            userRepository.save(user);
+            userService.updateUser(user);
+
             return "redirect:/profilepage";
         } catch (UserNotFoundException e)
         {
@@ -94,6 +81,7 @@ public class ProfilepageController {
         }
     }
 
+    /*
     @PutMapping(path = "/update/{id}", produces = "application/json")
     ResponseEntity<User> updateUser(@PathVariable Long id,@RequestBody User newUser) {
         return userRepository.findById(id)
@@ -113,6 +101,8 @@ public class ProfilepageController {
                     return ResponseEntity.ok(this.userRepository.save(newUser));
                 });
     }
+
+     */
 
     @DeleteMapping("/delete/{id}")
     void deleteUser(@PathVariable Long id) {
