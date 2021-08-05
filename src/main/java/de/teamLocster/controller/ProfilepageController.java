@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
+
 @Controller
 public class ProfilepageController {
 
@@ -66,7 +68,7 @@ public class ProfilepageController {
             user.setFirstName(updateUser.getFirstName());
             user.setLastName(updateUser.getLastName());
             user.setRegion(updateUser.getRegion());
-            user.setBirthDay(updateUser.getBirthDay());
+            /* user.setBirthDay(LocalDate.parse(updateUser.getBirthDay())); */
             user.setSex(updateUser.getSex());
             user.setOccupation(updateUser.getOccupation());
             user.setRelationshipStatus(updateUser.getRelationshipStatus());

@@ -74,21 +74,27 @@
     <div class="box profile-edit" id="profileEdit">
         <div class="editFields">
             <form action="#" th:action="@{/profilepage}" method="post">
-                <input type="text" id="firstName" name="firstName" th:field="*{firstName}" placeholder="Vorname"/>
-                <input type="text" id="lastName" name="lastName" th:field="*{lastName}" placeholder="Nachname"/>
-                <input type="date" id="birthday" name="birthday" th:field="*{birthDay}" placeholder="Geburtstag"/>
+                <input type="text" th:field="*{firstName}" placeholder="Vorname"/>
+                <input type="text" th:field="*{lastName}" placeholder="Nachname"/>
+                <input type="date" th:field="*{birthDay}" placeholder="Geburtstag"/>
 
                 <div class="genderButtons">
-                    <label for="gender">Choose a gender:</label>
-                    <select name="gender" id="gender" th:field="*{sex}">
-                        <option value="männlich">männlich</option>
-                        <option value="female">female</option>
-                        <option value="diverse">diverse</option>
+                    <label th:for="sex">Choose a gender:</label>
+                    <select
+                            th:field="*{sex}"
+                    >
+                        <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}"
+                                th:value="${sexOpt}" th:text="${sexOpt}"></option>
                     </select>
                 </div>
 
                 <input type="text" id="region" name="region" th:field="*{region}"/>
-                <input type="text" id="relationship" name="relationship" th:field="*{relationshipStatus}"/>
+                <select
+                        th:field="*{relationshipStatus}"
+                >
+                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}"
+                            th:value="${relationshipStatusOpt}" th:text="${relationshipStatusOpt}"></option>
+                </select>
                 <input type="text" id="occupation" name="occupation" th:field="*{occupation}"/>
 
                 <div class="buttons">
