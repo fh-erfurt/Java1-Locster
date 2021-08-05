@@ -21,13 +21,8 @@ import java.util.List;
 @Controller
 public class WhoIsOnlineController {
 
-    private final UserService userService;
-
     @Autowired
-    public WhoIsOnlineController(UserRepository userRepository)
-    {
-        this.userService = new UserService(userRepository);
-    }
+    private UserService userService;
 
     List<User> testUsers = Arrays.asList(
             new User(

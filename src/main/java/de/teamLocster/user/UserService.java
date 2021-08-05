@@ -18,15 +18,10 @@ import java.util.*;
 @Service
 public class UserService extends BaseService<User>
 {
+    @Autowired
     UserRepository userRepository;
 
     PasswordEncoder encoder = new BCryptPasswordEncoder();
-
-    @Autowired
-    public UserService(UserRepository userRepository)
-    {
-        this.userRepository = userRepository;
-    }
 
     // TODO return User?
     public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException

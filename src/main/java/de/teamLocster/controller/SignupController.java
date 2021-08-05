@@ -22,13 +22,8 @@ import javax.validation.Valid;
 @Controller
 public class SignupController {
 
-    private final UserService userService;
-
     @Autowired
-    public SignupController(UserRepository userRepository)
-    {
-        this.userService = new UserService(userRepository);
-    }
+    private UserService userService;
 
     @GetMapping("/signup")
     @ResponseStatus(HttpStatus.OK)
