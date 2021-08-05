@@ -7,10 +7,13 @@ import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -26,8 +29,7 @@ public class UserService extends BaseService<User>
     // TODO return User?
     public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException
     {
-        // TODO NULL CHECK
-        if ( userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
+        if (userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
         try {
@@ -74,5 +76,53 @@ public class UserService extends BaseService<User>
             return data.get();
         }
         throw new UserNotFoundException("No user with this email address was found in the database!");
+    }
+
+    public void deleteUser(Long userId) throws UserNotFoundException {
+        boolean exists = userRepository.existsById(userId);
+        if(!exists) {
+            throw new UserNotFoundException("User with id " + userId + " does not exists");
+        }
+        userRepository.deleteById(userId);
+
+    }
+
+    @Transactional
+    public void updateUserInSetting(Long userId, String email, String password) throws UserNotFoundException {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("User with id " + userId + " dose not exist"));
+
+                if (email != null && email.length() > 0 && !Objects.equals(user.getEmailAddress(),email)) {
+                    Optional<User> userOptional = userRepository.findByEmailAddress(email);
+                    if(userOptional.isPresent()) {
+                        throw new UserNotFoundException("email taken");
+                    }
+            user.setEmailAddress(email);
+        }
+                /* das stimmt nicht */
+                if (password != null && password.length() > 0) {
+                    user.setPasswordHash(password);
+                }
+
+    }
+
+    public void updateUser(String userEmail, SettingsUser userDto) throws UserNotFoundException, UserAlreadyExistException {
+
+        if (!userEmail.equals(userDto.getEmailAddress()) && userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
+            throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
+        }
+        User user = getUserByEmailAddress(userEmail);
+
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setRegion(userDto.getRegion());
+        user.setBirthDay(LocalDate.parse(userDto.getBirthday()));
+        user.setSex(userDto.getSex());
+        user.setOccupation(userDto.getOccupation());
+        user.setRelationshipStatus(userDto.getRelationshipStatus());
+        user.setEmailAddress(userDto.getEmailAddress());
+        user.setPasswordHash(encoder.encode(userDto.getPassword()));
+
+        userRepository.save(user);
     }
 }

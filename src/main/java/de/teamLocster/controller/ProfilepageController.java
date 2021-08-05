@@ -1,27 +1,38 @@
 package de.teamLocster.controller;
 
 import de.teamLocster.core.errors.UserNotFoundException;
+import de.teamLocster.user.SettingsUser;
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Optional;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class ProfilepageController {
 
     UserService userService;
 
+    UserRepository userRepository;  // das ist nicht ganz richtig...
+
     @Autowired
     ProfilepageController(UserService userService) {
         this.userService = userService;
     }
+
+    @GetMapping(path = "/{id}")
+    ResponseEntity<User> findById(@PathVariable(value = "id") Long id) throws UserNotFoundException {
+        return ResponseEntity.ok(this.userRepository
+                .findById(id)
+                .orElseThrow(() -> new UserNotFoundException("No Persons found for id " + id)));
+    }
+
 
     @GetMapping("/profilepage")
     public ModelAndView profilePage (Authentication authentication, Model model) {
@@ -30,14 +41,8 @@ public class ProfilepageController {
         try
         {
             User user = userService.getUserByEmailAddress(userEmail);
-            model.addAttribute("firstName", user.getFirstName());
-            model.addAttribute("lastName", user.getLastName());
-            model.addAttribute("city", user.getRegion());
-            model.addAttribute("birthday", user.getBirthDay());
-            model.addAttribute("sex", user.getSex());
-            model.addAttribute("relationship", user.getRelationshipStatus());
-            model.addAttribute("job", user.getOccupation());
-            model.addAttribute("status", user.getProfileText());
+            model.addAttribute("loggedInUser", user);
+
             //ToDo: get Anzahl Besucher
             //ToDo: get letzter Besucher
             //ToDo: get neuster Freund
@@ -49,5 +54,34 @@ public class ProfilepageController {
             return new ModelAndView("redirect:/"); //ToDo Error page!
         }
     }
+
+    /*
+    @PutMapping(path = "/update/{id}", produces = "application/json")
+    ResponseEntity<User> updateUser(@PathVariable Long id,@RequestBody User newUser) {
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setFirstName(newUser.getFirstName());
+                    user.setLastName(newUser.getLastName());
+                    user.setRegion(newUser.getRegion());
+                    user.setBirthDay(newUser.getBirthDay());
+                    user.setSex(newUser.getSex());
+                    user.setOccupation(newUser.getOccupation());
+                    user.setRelationshipStatus(newUser.getRelationshipStatus());
+
+                    return ResponseEntity.ok(this.userRepository.save(user));
+                })
+                .orElseGet(() -> {
+                    newUser.setId(id);
+                    return ResponseEntity.ok(this.userRepository.save(newUser));
+                });
+    }
+
+     */
+
+    @DeleteMapping("/delete/{id}")
+    void deleteUser(@PathVariable Long id) {
+        this.userRepository.deleteById(id);
+    }
+
 
 }
