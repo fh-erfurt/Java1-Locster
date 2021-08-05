@@ -66,50 +66,6 @@
                 </div>
             </div>
         </div>
-        <div class="icon-edit-content">
-            <img src="icons/pen.png" alt="pen" onclick="displayprofileEdit()"/>
-        </div>
-    </div>
-
-    <div class="box profile-edit" id="profileEdit">
-        <div class="editFields">
-            <form action="#" th:action="@{/profilepage}" method="post">
-                <input type="text" th:field="*{firstName}" placeholder="Vorname"/>
-                <input type="text" th:field="*{lastName}" placeholder="Nachname"/>
-                <input type="date" th:field="*{birthDay}" placeholder="Geburtstag"/>
-
-                <div class="genderButtons">
-                    <label th:for="sex">Choose a gender:</label>
-                    <select
-                            th:field="*{sex}"
-                    >
-                        <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}"
-                                th:value="${sexOpt}" th:text="${sexOpt}"></option>
-                    </select>
-                </div>
-
-                <input type="text" id="region" name="region" th:field="*{region}"/>
-                <select
-                        th:field="*{relationshipStatus}"
-                >
-                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}"
-                            th:value="${relationshipStatusOpt}" th:text="${relationshipStatusOpt}"></option>
-                </select>
-                <input type="text" id="occupation" name="occupation" th:field="*{occupation}"/>
-
-                <div class="buttons">
-                    <div class="buttonsBtn">
-                        <button class="profileBtn" type="button">Profilbild ändern</button>
-                        <button class="profileBtn" type="button">Profilbild löschen</button>
-                    </div>
-                    <div class="submit">
-                        <button class="submitBtn" type="submit"><img src="icons/accept.svg" alt="logo"
-                                                                     onclick="displayprofileInfo()"/></button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
     </div>
 
     <div class="box status">

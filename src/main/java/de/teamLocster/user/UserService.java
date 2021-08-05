@@ -38,8 +38,7 @@ public class UserService extends BaseService<User>
     // TODO return User?
     public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException
     {
-        // TODO NULL CHECK
-        if ( userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
+        if (userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
         try {
@@ -166,7 +165,22 @@ public class UserService extends BaseService<User>
 
     }
 
-    public void updateUser(User user) {
+    public void updateUser(String userEmail, SettingsUser userDto) throws UserNotFoundException, UserAlreadyExistException {
+
+        if (!userEmail.equals(userDto.getEmailAddress()) && userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
+            throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
+        }
+        User user = getUserByEmailAddress(userEmail);
+
+        user.setFirstName(userDto.getFirstName());
+        user.setLastName(userDto.getLastName());
+        user.setRegion(userDto.getRegion());
+        user.setBirthDay(LocalDate.parse(userDto.getBirthday()));
+        user.setSex(userDto.getSex());
+        user.setOccupation(userDto.getOccupation());
+        user.setRelationshipStatus(userDto.getRelationshipStatus());
+        user.setEmailAddress(userDto.getEmailAddress());
+        user.setPasswordHash(encoder.encode(userDto.getPassword()));
 
         userRepository.save(user);
     }

@@ -1,6 +1,7 @@
 package de.teamLocster.controller;
 
 import de.teamLocster.core.errors.UserNotFoundException;
+import de.teamLocster.user.SettingsUser;
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
@@ -12,8 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.time.LocalDate;
 
 @Controller
 public class ProfilepageController {
@@ -53,33 +52,6 @@ public class ProfilepageController {
         }
         catch (UserNotFoundException unfE) {
             return new ModelAndView("redirect:/"); //ToDo Error page!
-        }
-    }
-
-    @PostMapping("/profilepage")
-    public String updateUser(@ModelAttribute("loggedInUser") User updateUser,
-                           RedirectAttributes redirectAttributes,
-                           Authentication authentication)
-    {
-        String userEmail = authentication.getName();
-        try {
-            User user = userService.getUserByEmailAddress(userEmail);
-
-            user.setFirstName(updateUser.getFirstName());
-            user.setLastName(updateUser.getLastName());
-            user.setRegion(updateUser.getRegion());
-            /* user.setBirthDay(LocalDate.parse(updateUser.getBirthDay())); */
-            user.setSex(updateUser.getSex());
-            user.setOccupation(updateUser.getOccupation());
-            user.setRelationshipStatus(updateUser.getRelationshipStatus());
-
-            userService.updateUser(user);
-
-            return "redirect:/profilepage";
-        } catch (UserNotFoundException e)
-        {
-            redirectAttributes.addFlashAttribute("messege","");
-            return "redirect:/";
         }
     }
 
