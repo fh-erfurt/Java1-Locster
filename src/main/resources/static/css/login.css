@@ -3,7 +3,7 @@ body {
     background: linear-gradient(45deg, #05c5e4, #b1ffd7, #f6fddf);
     background-size: 1000% 1000%;
     animation: colors 10s ease infinite;
-    padding: 30px;
+    padding: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -38,11 +38,11 @@ body {
 }
 
 .image img {
-    width: 600px;
+    width: 500px;
 }
 
 .form-text-container {
-    width: 500px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
