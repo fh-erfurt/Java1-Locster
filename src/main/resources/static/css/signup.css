@@ -15,3 +15,24 @@
 .inputs div p .length-8, .major, .minor, .number, .special {
     color: red;
 }
+
+.userSelect {
+
+    width: 50%;
+    height: 45px;
+    background-color: white;
+    border-radius: 25px;
+    border: solid #08DCFF;
+    margin-top: 2%;
+    padding: 0 15px;
+    font-size: 16px;
+    color: #5E6472;
+    outline: none;
+    border-width: 2px;
+    transition: 0.2s linear;
+}
+
+select:focus {
+    transform: translateX(-2px);
+    border-radius: 5px;
+}

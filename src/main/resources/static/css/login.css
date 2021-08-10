@@ -38,7 +38,7 @@ body {
 }
 
 .image img {
-    width: 730px;
+    width: 600px;
 }
 
 .form-text-container {
@@ -58,14 +58,14 @@ body {
     border-radius: 25px;
 }
 
-
 /* inputs form */
 
 input[type=email],
 input[type=password],
-input[type=text] {
+input[type=text],
+input[type=date] {
     width: 100%;
-    height: 50px;
+    height: 45px;
     background-color: white;
     border-radius: 25px;
     border: solid #08DCFF;
@@ -84,7 +84,6 @@ input[type=text] {
 input[type=text] {
     width: 49%;
 }
-
 
 /* focus */
 
