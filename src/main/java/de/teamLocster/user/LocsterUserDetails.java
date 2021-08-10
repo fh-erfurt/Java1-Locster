@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * "UserDetails" implementation to handle user authorities and data.
+ *
+ * @author  Jakob Gensel
+ * @see     de.teamLocster.user.LocsterUserDetailsService
+ */
+
 @Getter
 public class LocsterUserDetails implements UserDetails
 {

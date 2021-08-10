@@ -1,9 +1,7 @@
 package de.teamLocster.security.config;
 
 import de.teamLocster.security.auth.AuthProvider;
-import de.teamLocster.user.LocsterUserDetailsService;
 import de.teamLocster.security.web.LoggingAccessDeniedHandler;
-import de.teamLocster.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -15,18 +13,27 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+/**
+ * This class is used for security configuration like access and authorization.
+ *
+ * @author  Jakob Gensel
+ * @see     de.teamLocster.security.auth.AuthProvider
+ * @see     de.teamLocster.user.LocsterUserDetailsService
+ */
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
-    private static final int EXPIRATION_TIME_OF_COOKIE = 20; //3600 * 24 * 7 * 2;
+    private static final int EXPIRATION_TIME_OF_COOKIE = 20; // TODO (2 weeks) 3600 * 24 * 7 * 2;
 
-    @Qualifier("locsterUserDetailsService")
     @Autowired
+    @Qualifier("locsterUserDetailsService")
     private UserDetailsService userDetailsService;
 
     @Autowired
     private AuthProvider authProvider;
 
+    // TODO probably not needed
     @Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
 

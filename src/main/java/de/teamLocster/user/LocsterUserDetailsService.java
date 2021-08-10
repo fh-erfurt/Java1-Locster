@@ -9,21 +9,19 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+/**
+ * "UserDetailsService" implementation to handle user details in sessions.
+ *
+ * @author  Jakob Gensel
+ * @see     de.teamLocster.security.config.SecurityConfig
+ */
+
 @Slf4j
 @Service
 public class LocsterUserDetailsService implements UserDetailsService
 {
     @Autowired
     private UserRepository userRepository;
-
-    /*
-    @Autowired
-    public LocsterUserDetailsService(UserRepository userRepository)
-    {
-        this.userRepository = userRepository;
-    }
-
-     */
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
