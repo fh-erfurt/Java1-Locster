@@ -3,22 +3,37 @@ package de.teamLocster.security.config;
 import de.teamLocster.security.auth.AuthProvider;
 import de.teamLocster.security.web.LoggingAccessDeniedHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+/**
+ * This class is used for security configuration like access and authorization.
+ *
+ * @author  Jakob Gensel
+ * @see     de.teamLocster.security.auth.AuthProvider
+ * @see     de.teamLocster.user.LocsterUserDetailsService
+ */
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
+    private static final int EXPIRATION_TIME_OF_COOKIE = 20; // TODO (2 weeks) 3600 * 24 * 7 * 2;
+
+    @Autowired
+    @Qualifier("locsterUserDetailsService")
+    private UserDetailsService userDetailsService;
+
     @Autowired
     private AuthProvider authProvider;
 
+    // TODO probably not needed
     @Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
 
@@ -32,14 +47,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/css/**",
+                .antMatchers(
+                        "/css/**",
                         "/icons/**",
                         "/images/**",
                         "/js/**",
-                        "/img/**",
-                        "/webjars/**",
-                        "/signup",
-                        "/profilepage")
+                        "/signup"
+                )
                 .permitAll()
                 .antMatchers("/**")
                     .fullyAuthenticated()
@@ -54,7 +68,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                     .defaultSuccessUrl("/whoisonline")
                 .permitAll()
                 .and()
+                .rememberMe()
+                    .rememberMeParameter("remember-login")
+                    .tokenValiditySeconds(EXPIRATION_TIME_OF_COOKIE)
+                    .userDetailsService(userDetailsService)
+                .and()
                 .logout()
+                    .deleteCookies("JSESSIONID")
                     .invalidateHttpSession(true)
                     .clearAuthentication(true)
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
@@ -62,12 +82,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .permitAll()
                 .and()
                 .exceptionHandling()
-                .accessDeniedHandler(accessDeniedHandler);
-    }
-
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authProvider);
+                .accessDeniedHandler(accessDeniedHandler)
+                .and()
+                .authenticationProvider(authProvider);
     }
 }

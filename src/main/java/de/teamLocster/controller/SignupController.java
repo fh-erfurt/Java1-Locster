@@ -1,20 +1,15 @@
 package de.teamLocster.controller;
 
-import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.user.SignupUser;
-import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
@@ -22,13 +17,8 @@ import javax.validation.Valid;
 @Controller
 public class SignupController {
 
-    private final UserService userService;
-
     @Autowired
-    public SignupController(UserRepository userRepository)
-    {
-        this.userService = new UserService(userRepository);
-    }
+    private UserService userService;
 
     @GetMapping("/signup")
     @ResponseStatus(HttpStatus.OK)

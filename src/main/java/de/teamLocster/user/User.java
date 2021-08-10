@@ -13,7 +13,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-
+//@Table?????
 @Entity
 @Getter
 @Setter

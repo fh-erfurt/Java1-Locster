@@ -4,79 +4,120 @@
 <head th:replace="fragments/head"></head>
 
 <head>
-  <link th:href = "@{/css/settings.css}" rel="stylesheet">
+    <link th:href="@{/css/settings.css}" rel="stylesheet">
 </head>
 
 <body>
 <header th:replace="fragments/nav"></header>
 <!-- Setting -->
 
-<div class="container">
-  <div class="box">
 
-    <div class="title">
-      <h2>Einstellungen</h2>
-    </div>
+<div class="container" th:object="${settingsUser}">
+    <div class="box">
 
-    <form action="#">
-
-      <div class="inputs">
-        <input type="email" placeholder="Email-Adresse ändern">
-        <input type="password" placeholder="Passwort ändern">
-      </div>
-
-      <div class="privacy">
         <div class="title">
-          <h3>Privatssphäre</h3>
+            <h2>Einstellungen</h2>
         </div>
 
-        <div class="privacyBody">
+        <form action="#" th:action="@{/settings}" method="post">
 
-          <div class="selection">
-            <img src="icons/lock_closed.png" alt="logo">
-            <label for="privacy1">
-              Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
-              +Statistiken anschauen
-            </label>
-            <div class="checkbox">
-              <input type="radio" name="privacy" id="privacy1" value="#">
+            <div class="inputs">
+                <input type="text" th:field="*{firstName}" placeholder="Vorname"/>
+                <span th:errors="*{firstName}" class="alert alert-danger"></span>
+                <input type="text" th:field="*{lastName}" placeholder="Nachname"/>
+                <span th:errors="*{lastName}" class="alert alert-danger"></span>
+                <input type="date" th:field="*{birthday}" placeholder="Geburtstag"/>
+                <span th:errors="*{birthday}" class="alert alert-danger"></span>
+
+                <label th:for="sex">Choose a gender:</label>
+                <select
+                        th:field="*{sex}"
+                >
+                    <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}"
+                            th:value="${sexOpt}" th:text="${sexOpt}"></option>
+                </select>
+                <span th:errors="*{sex}" class="alert alert-danger"></span>
+
+                <input type="text" th:field="*{region}" placeholder="Ort"/>
+                <span th:errors="*{region}" class="alert alert-danger"></span>
+                <select
+                        th:field="*{relationshipStatus}"
+                >
+                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}"
+                            th:value="${relationshipStatusOpt}" th:text="${relationshipStatusOpt}"></option>
+                </select>
+                <span th:errors="*{relationshipStatus}" class="alert alert-danger"></span>
+                <input type="text" th:field="*{occupation}" placeholder="Beruf"/>
+                <span th:errors="*{occupation}" class="alert alert-danger"></span>
+
+                <!-- TODO trennung zwischen persönlichen und account daten -->
+
+                <input type="email" placeholder="Email-Adresse ändern" th:field="*{emailAddress}">
+                <span th:errors="*{emailAddress}" class="alert alert-danger"></span>
+                <input type="password" placeholder="Passwort ändern" th:field="*{password}">
+                <span th:errors="*{password}" class="alert alert-danger"></span>
+                <input type="password" placeholder="Passwort wiederholen" th:field="*{passwordRepeat}">
+                <span th:errors="*{passwordRepeat}" class="alert alert-danger"></span>
             </div>
-          </div>
 
-          <div class="selection">
-            <img src="icons/lock_open.png" alt="logo">
-            <label for="privacy2">
-              Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
-              +Statistiken anschauen
-            </label>
-            <div class="checkbox">
-              <input type="radio" name="privacy" id="privacy2" value="#">
+            <div class="privacy">
+                <div class="title">
+                    <h3>Privatssphäre</h3>
+                </div>
+
+                <div class="privacyBody">
+
+                    <div class="selection">
+                        <img src="icons/lock_closed.png" alt="logo">
+                        <label for="privacy1">
+                            Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
+                            +Statistiken anschauen
+                        </label>
+                        <div class="checkbox">
+                            <input type="radio" name="privacy" id="privacy1" value="#">
+                        </div>
+                    </div>
+
+                    <div class="selection">
+                        <img src="icons/lock_open.png" alt="logo">
+                        <label for="privacy2">
+                            Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
+                            +Statistiken anschauen
+                        </label>
+                        <div class="checkbox">
+                            <input type="radio" name="privacy" id="privacy2" value="#">
+                        </div>
+                    </div>
+
+                    <div class="selection">
+                        <img src="icons/world.png" alt="logo">
+                        <label for="privacy3">
+                            Jeder darf mir schreiben (Gästebuch und Chat) <br>
+                            +Statistiken anschauen
+                        </label>
+                        <div class="checkbox">
+                            <input type="radio" name="privacy" id="privacy3" value="#">
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          </div>
 
-          <div class="selection">
-            <img src="icons/world.png" alt="logo">
-            <label for="privacy3">
-              Jeder darf mir schreiben (Gästebuch und Chat) <br>
-              +Statistiken anschauen
-            </label>
-            <div class="checkbox">
-              <input type="radio" name="privacy" id="privacy3" value="#">
+
+            <div class="buttons">
+                <div class="buttonsBtn">
+                    <button class="profileBtn" type="button">Profilbild ändern</button>
+                    <button class="profileBtn" type="button">Profilbild löschen</button>
+                </div>
+                <div class="delete">
+                    <button class="profileDeleteBtn">Profil löschen</button>
+                </div>
+                <div class="submit">
+                    <button class="submitBtn"><img src="icons/accept.svg" alt="logo"></button>
+                </div>
             </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="buttons">
-        <div class="delete">
-          <button class="profileDeleteBtn">Profil löschen</button>
-        </div>
-        <div class="submit">
-          <button class="submitBtn"><img src="icons/accept.svg" alt="logo"></button>
-        </div>
-      </div>
-    </form>
-  </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

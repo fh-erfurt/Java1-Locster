@@ -13,6 +13,13 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+/**
+ * "AuthenticationProvider" implementation to authenticate requests and logins.
+ *
+ *
+ * @author  Jakob Gensel
+ * @see     de.teamLocster.security.config.SecurityConfig
+ */
 
 @Component
 public class AuthProvider implements AuthenticationProvider
@@ -42,30 +49,6 @@ public class AuthProvider implements AuthenticationProvider
         return authenticated ? result : null;
     }
 
-    /*
-    private void processFailedAttempts(String username, User user) {
-        Optional<Attempts>
-                userAttempts = attemptsRepository.findAttemptsByUsername(username);
-        if (userAttempts.isEmpty()) {
-            Attempts attempts = new Attempts();
-            attempts.setUsername(username);
-            attempts.setAttempts(1);
-            attemptsRepository.save(attempts);
-        }
-        else {
-            Attempts attempts = userAttempts.get();
-            attempts.setAttempts(attempts.getAttempts() + 1);
-            attemptsRepository.save(attempts);
-
-            if (attempts.getAttempts() + 1 > ATTEMPTS_LIMIT) {
-                user.setAccountNonLocked(false);
-                userRepository.save(user);
-                throw new LockedException("Too many invalid attempts. Account is locked!!");
-            }
-        }
-    }
-
-     */
     @Override
     public boolean supports(Class<?> authentication) {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);

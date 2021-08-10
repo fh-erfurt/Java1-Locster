@@ -45,13 +45,16 @@ function onPasswordChanged() {
     }
 }
 
-
 function onPasswordRepeatChanged() {
     const passwordRepeat = inputPasswordRepeat.value;
     const password = inputPassword.value;
-            if (password === passwordRepeat) {
-                inputPasswordRepeat.style.border = '2px solid green';
-            } else {
-                inputPasswordRepeat.style.border = '2px solid red';
-            }
+    if (password === passwordRepeat) {
+        inputPasswordRepeat.style.border = '2px solid green';
+    } else {
+        inputPasswordRepeat.style.border = '2px solid red';
+    }
+}
+
+function onSubmit() {
+    return inputPassword.value === inputPasswordRepeat.value;
 }
