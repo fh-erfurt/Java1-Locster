@@ -33,9 +33,6 @@ public class AuthProvider implements AuthenticationProvider
     private UserService userService;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
