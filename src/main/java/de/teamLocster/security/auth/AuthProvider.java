@@ -4,7 +4,6 @@ import java.util.*;
 
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.user.User;
-import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -34,7 +33,6 @@ public class AuthProvider implements AuthenticationProvider
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
