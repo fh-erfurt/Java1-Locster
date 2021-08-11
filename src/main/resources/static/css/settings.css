@@ -78,6 +78,8 @@ h2 small {
 .group 			  {
   position:relative;
   margin-bottom:45px;
+  display: inline-grid;
+  margin-left: 20px;
 }
 input, .userSelect				{
   font-size:18px;
