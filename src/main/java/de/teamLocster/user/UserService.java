@@ -58,7 +58,8 @@ public class UserService extends BaseService<User>
     }
 
     public List<User> whoIsOnline() {
-        return userRepository.findByIsOnlineTrue().stream().filter(u -> !u.getOnlineStatus().equals(OnlineStatus.INVISIBLE)).collect(Collectors.toList());
+        // return userRepository.findByIsOnlineTrue().stream().filter(u -> !u.getOnlineStatus().equals(OnlineStatus.INVISIBLE)).collect(Collectors.toList());
+        return userRepository.findByIsOnlineTrueAndOnlineStatusNot(OnlineStatus.INVISIBLE);
     }
 
     public List<PublicUser> whoIsOnlinePublic() {
