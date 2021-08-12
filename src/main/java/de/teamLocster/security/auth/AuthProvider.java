@@ -2,14 +2,18 @@ package de.teamLocster.security.auth;
 
 import java.util.*;
 
+import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.user.User;
-import de.teamLocster.user.UserRepository;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -28,25 +32,31 @@ public class AuthProvider implements AuthenticationProvider
     private UserService userService;
 
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
-
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = (String)authentication.getCredentials();
-        User user = userRepository.findByEmailAddress(username).get(); // TODO USE SERVICE and TRY CATCH
+        try
+        {
+            // get user from DB, if exists (otherwise UserNotFoundException is thrown and converted)
+            User user = userService.getUserByEmailAddress(username);
+            // check if the passwords match and throw BadCredentialsException otherwise
+            if(!passwordEncoder.matches(password, user.getPasswordHash())) {
+                throw new BadCredentialsException("Passwords didn't match!");
+            }
 
-        boolean authenticated = user != null && passwordEncoder.matches(password, user.getPasswordHash());
-        // TODO try catch
+            // create authorities and add user role
+            List<GrantedAuthority> authorities = new ArrayList<>();
+            authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
-        Collection<? extends org.springframework.security.core.GrantedAuthority> grantedAuthorities = authentication.getAuthorities();
-        Authentication result = new UsernamePasswordAuthenticationToken(username, password, grantedAuthorities);
-
-        return authenticated ? result : null;
+            // create and return the authentication
+            return new UsernamePasswordAuthenticationToken(username, password, authorities);
+        }
+        catch (UserNotFoundException unfEx) {
+            throw new UsernameNotFoundException(unfEx.getMessage(), unfEx);
+        }
     }
 
     @Override
