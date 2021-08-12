@@ -58,16 +58,7 @@ public class UserService extends BaseService<User>
     }
 
     public List<User> whoIsOnline() {
-        // return userRepository.findByIsOnlineTrue().stream().filter(u -> !u.getOnlineStatus().equals(OnlineStatus.INVISIBLE)).collect(Collectors.toList());
-        return userRepository.findByIsOnlineTrueAndOnlineStatusNot(OnlineStatus.INVISIBLE);
-    }
-
-    public List<PublicUser> whoIsOnlinePublic() {
-        List<PublicUser> onlineUsers = new ArrayList<>();
-        for(User user : userRepository.findByIsOnlineTrue()) {
-            onlineUsers.add(new PublicUser(user));
-        }
-        return onlineUsers;
+        return userRepository.findByIsOnlineTrueAndOnlineStatus(OnlineStatus.ONLINE);
     }
 
     public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {

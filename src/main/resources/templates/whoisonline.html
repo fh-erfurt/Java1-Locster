@@ -23,11 +23,21 @@
                         <span class="relationship">Beziehungstatus:</span>
                         <span class="region">Region:</span>
                     </li>
-                    <li th:each="u: ${user}" class="infos">
+                    <li th:each="u: ${users}" class="infos">
                         <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
-                        <span th:text="${u.birthDay}" class="age"></span>
-                        <span th:text="${u.sex}" class="gender"></span>
-                        <span th:text="${u.relationshipStatus}" class="relationship"></span>
+                        <span th:text="${u.getAge()}" class="age"></span>
+                        <th:block th:switch="${u.sex}" th:with="S=${T(de.teamLocster.enums.Sex)}">
+                            <span th:case="${S.MALE}">männlich</span>
+                            <span th:case="${S.FEMALE}">weiblich</span>
+                            <span th:case="${S.OTHER}">divers</span>
+                        </th:block>
+                        <th:block th:switch="${u.relationshipStatus}" th:with="RS=${T(de.teamLocster.enums.RelationshipStatus)}">
+                            <span th:case="${RS.SINGLE}">single</span>
+                            <span th:case="${RS.IN_A_RELATIONSHIP}">in einer Bez.</span>
+                            <span th:case="${RS.MARRIED}">verheiratet</span>
+                            <span th:case="${RS.DIVORCED}">geschieden</span>
+                            <span th:case="${RS.ITS_COMPLICATED}">es ist kompliziert</span>
+                        </th:block>
                         <span th:text="${u.region}" class="region"></span>
 
                         <span class="icon">
