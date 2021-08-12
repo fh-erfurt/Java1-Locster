@@ -8,6 +8,7 @@ import de.teamLocster.chat.ChatRepository;
 import de.teamLocster.chat.Message;
 import de.teamLocster.chat.MessageRepository;
 import de.teamLocster.enums.*;
+import de.teamLocster.guestbook.GuestbookEntry;
 import de.teamLocster.guestbook.GuestbookEntryRepository;
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
@@ -20,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -50,10 +52,6 @@ public class InsertDataForSimulatingAndTesting
     @Test
     void a_createTeam()
     {
-        //------------
-        //----USER----
-        //------------
-
         User jakob = new User(
                 "jakob@gensel.de",
                 encoder.encode("JAKOB"),
@@ -327,9 +325,6 @@ public class InsertDataForSimulatingAndTesting
     @Test
     void c_createActions()
     {
-        //---------------
-        //----ACTIONS----
-        //---------------
         Action action1 = new Action(
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
@@ -361,12 +356,107 @@ public class InsertDataForSimulatingAndTesting
         }
     }
 
+
     @Test
-    void d_createChats()
+    void d_createGuestbookEntries() {
+        GuestbookEntry guestbookEntry1 = new GuestbookEntry(
+                userRepository.findByEmailAddress("matthias@gabel.de").get(),
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
+                "Hi schön hier dich hier zu sehen :)",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry2 = new GuestbookEntry(
+                userRepository.findByEmailAddress("jakob@gensel.de").get(),
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
+                "Hab nen schönen Tag!",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry3 = new GuestbookEntry(
+                userRepository.findByEmailAddress("jakob@gensel.de").get(),
+                userRepository.findByEmailAddress("matthias@gabel.de").get(),
+                "Lass mal nachher chatten lol",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry4 = new GuestbookEntry(
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
+                userRepository.findByEmailAddress("matthias@gabel.de").get(),
+                "Immer wieder toll deine Seite zu besuchen!",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry5 = new GuestbookEntry(
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
+                userRepository.findByEmailAddress("saskia@wohlers.de").get(),
+                "Immer wieder toll deine Seite zu besuchen!",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry6 = new GuestbookEntry(
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                "Immer wieder toll deine Seite zu besuchen!",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry7 = new GuestbookEntry(
+                userRepository.findByEmailAddress("jakob@gensel.de").get(),
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                "Mega cooles Profilbild ^^",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry8 = new GuestbookEntry(
+                userRepository.findByEmailAddress("jakob@gensel.de").get(),
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
+                "Mega cooles Profilbild ^^",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry9 = new GuestbookEntry(
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                userRepository.findByEmailAddress("matthias@gabel.de").get(),
+                "Wir studieren ja das gleiche! Nice",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry guestbookEntry10 = new GuestbookEntry(
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                userRepository.findByEmailAddress("saskia@wohlers.de").get(),
+                "Wir studieren ja das gleiche! Nice",
+                new Date(2021, 5, 20),
+                new Date(2021, 5, 21),
+                false
+        );
+
+        GuestbookEntry[] testGuestbookEntries = {guestbookEntry1, guestbookEntry2, guestbookEntry3, guestbookEntry4, guestbookEntry5, guestbookEntry6, guestbookEntry7, guestbookEntry8, guestbookEntry9, guestbookEntry10};
+        for (GuestbookEntry testGuestbookEntry : testGuestbookEntries) {
+            guestbookEntryRepository.save(testGuestbookEntry);
+        }
+    }
+
+    void e_createChats()
     {
-        //---------------------
-        //---------CHAT--------
-        //---------------------
         Set<User> users1 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dirk@hofmann.de").get());
         users1.add(userRepository.findByEmailAddress("dummy6@gensel.de").get());
@@ -455,218 +545,105 @@ public class InsertDataForSimulatingAndTesting
         }
     }
 
-    @Test
-    void e_createGuestbookEntries()
-    {
-        assert false;
-//        //-------------------------
-//        //-----GUESTBOOK_ENTRY-----
-//        //-------------------------
-//        GuestbookEntry guestbookEntry1 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("matthias@gabel.de").get(),
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-//                "Hi schön hier dich hier zu sehen :)",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry2 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("jakob@gensel.de").get(),
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-//                "Hab nen schönen Tag!",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry3 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("jakob@gensel.de").get(),
-//                userRepository.findByEmailAddress("matthias@gabel.de").get(),
-//                "Lass mal nachher chatten lol",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry4 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-//                userRepository.findByEmailAddress("matthias@gabel.de").get(),
-//                "Immer wieder toll deine Seite zu besuchen!",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry5 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-//                userRepository.findByEmailAddress("saskia@wohlers.de").get(),
-//                "Immer wieder toll deine Seite zu besuchen!",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry6 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                "Immer wieder toll deine Seite zu besuchen!",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry7 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("jakob@gensel.de").get(),
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                "Mega cooles Profilbild ^^",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry8 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("jakob@gensel.de").get(),
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-//                "Mega cooles Profilbild ^^",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry9 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                userRepository.findByEmailAddress("matthias@gabel.de").get(),
-//                "Wir studieren ja das gleiche! Nice",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry guestbookEntry10 = new GuestbookEntry(
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                userRepository.findByEmailAddress("saskia@wohlers.de").get(),
-//                "Wir studieren ja das gleiche! Nice",
-//                new Date(2021, 5, 20),
-//                new Date(2021, 5, 21),
-//                false
-//        );
-//
-//        GuestbookEntry[] testGuestbookEntries = {guestbookEntry1, guestbookEntry2, guestbookEntry3, guestbookEntry4, guestbookEntry5, guestbookEntry6, guestbookEntry7, guestbookEntry8, guestbookEntry9, guestbookEntry10};
-//        for(GuestbookEntry testGuestbookEntry : testGuestbookEntries)
-//        {
-//            guestbookEntryRepository.save(testGuestbookEntry);
-//        }
+    void f_createMessages() {
+        Set<User> readBy11 = new HashSet<User>();
+        Message message11 = new Message(
+                userRepository.findByEmailAddress("dirk@hofmann.de").get(), // SENDER
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
+                readBy11, // READ BY
+                "1 geile Nachricht LOL!!!!11!!!1", // MESSAGE
+                new Date(2021,5,10)  // SENT AT
+        );
 
-        //-------------------------
-        //---------Message---------
-        //-------------------------
-//        Set<User> readBy11 = new HashSet<User>();
-//        Message message11 = new Message(
-//                userRepository.findByEmailAddress("dirk@hofmann.de").get(), // SENDER
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
-//                readBy11, // READ BY
-//                "1 geile Nachricht LOL!!!!11!!!1", // MESSAGE
-//                new Date(2021,5,10)  // SENT AT
-//        );
+        Set<User> readBy12 = new HashSet<User>();
+        Message message12 = new Message(
+                userRepository.findByEmailAddress("dummy6@gensel.de").get(), // SENDER
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
+                readBy12, // READ BY
+                "Na Klar!", // MESSAGE
+                new Date(2021,5,10) // SENT AT
+        );
 
-//        Set<User> readBy12 = new HashSet<User>();
-//        Message message12 = new Message(
-//                userRepository.findByEmailAddress("dummy6@gensel.de").get(), // SENDER
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
-//                readBy12, // READ BY
-//                "Na Klar!", // MESSAGE
-//                new Date(2021,5,10) // SENT AT
-//        );
-//
-//        Set<User> readBy13 = new HashSet<User>();
-//        Message message13 = new Message(
-//                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
-//                readBy13,
-//                "HAHHAHAHA DOPPELTEXXXXXXXXXTE lololo bot bot bot",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy14 = new HashSet<User>();
-//        Message message14 = new Message(
-//                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
-//                readBy14,
-//                "tripple text!!!!!!!!! ",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy21 = new HashSet<User>();
-//        Message message21 = new Message(
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("saskia@wohlers.de").get()).get(0),//CHAT
-//                readBy21,
-//                "Moin du Lachs",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy22 = new HashSet<User>();
-//        Message message22 = new Message(
-//                userRepository.findByEmailAddress("saskia@wohlers.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("molham@gabel.de").get()).get(0),//CHAT
-//                readBy22,
-//                "Lachsnacken ",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy31 = new HashSet<User>();
-//        Message message31 = new Message(
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("matthias@gabel.de").get()).get(1),//CHAT
-//                readBy31,
-//                "Hi Matze",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy32 = new HashSet<User>();
-//        Message message32 = new Message(
-//                userRepository.findByEmailAddress("molham@gabel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("matthias@gabel.de").get()).get(1),//CHAT
-//                readBy32,
-//                "Bin ich wirklich der Sender" +
-//                        "",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy33 = new HashSet<User>();
-//        Message message33 = new Message(
-//                userRepository.findByEmailAddress("matthias@gabel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("molham@gabel.de").get()).get(0),//CHAT
-//                readBy33,
-//                "Das weiß wohl keiner, bis wir das gleich getestet haben o_o" +
-//                        "",
-//                new Date(2021,5,10)
-//        );
-//
-//        Set<User> readBy41 = new HashSet<User>();
-//        Message message41 = new Message(
-//                userRepository.findByEmailAddress("matthias@gabel.de").get(),
-//                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
-//                readBy41,
-//                "TEST TEST TEST" +
-//                        "",
-//                new Date(2021,5,10)
-//        );
-//
-//        Message[] testMessages = {message11};
-//        for(Message testMessage : testMessages)
-//        {
-//            messageRepository.save(testMessage);
-//        }
-//
+        Set<User> readBy13 = new HashSet<User>();
+        Message message13 = new Message(
+                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
+                readBy13,
+                "HAHHAHAHA DOPPELTEXXXXXXXXXTE lololo bot bot bot",
+                new Date(2021,5,10)
+        );
 
+        Set<User> readBy14 = new HashSet<User>();
+        Message message14 = new Message(
+                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
+                readBy14,
+                "tripple text!!!!!!!!! ",
+                new Date(2021,5,10)
+        );
 
+        Set<User> readBy21 = new HashSet<User>();
+        Message message21 = new Message(
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("saskia@wohlers.de").get()).get(0),//CHAT
+                readBy21,
+                "Moin du Lachs",
+                new Date(2021,5,10)
+        );
+
+        Set<User> readBy22 = new HashSet<User>();
+        Message message22 = new Message(
+                userRepository.findByEmailAddress("saskia@wohlers.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("molham@gabel.de").get()).get(0),//CHAT
+                readBy22,
+                "Lachsnacken ",
+                new Date(2021,5,10)
+        );
+
+        Set<User> readBy31 = new HashSet<User>();
+        Message message31 = new Message(
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("matthias@gabel.de").get()).get(1),//CHAT
+                readBy31,
+                "Hi Matze",
+                new Date(2021,5,10)
+        );
+
+        Set<User> readBy32 = new HashSet<User>();
+        Message message32 = new Message(
+                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("matthias@gabel.de").get()).get(1),//CHAT
+                readBy32,
+                "Bin ich wirklich der Sender" +
+                        "",
+                new Date(2021,5,10)
+        );
+
+        Set<User> readBy33 = new HashSet<User>();
+        Message message33 = new Message(
+                userRepository.findByEmailAddress("matthias@gabel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("molham@gabel.de").get()).get(0),//CHAT
+                readBy33,
+                "Das weiß wohl keiner, bis wir das gleich getestet haben o_o" +
+                        "",
+                new Date(2021,5,10)
+        );
+
+        Set<User> readBy41 = new HashSet<User>();
+        Message message41 = new Message(
+                userRepository.findByEmailAddress("matthias@gabel.de").get(),
+                chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
+                readBy41,
+                "TEST TEST TEST" +
+                        "",
+                new Date(2021,5,10)
+        );
+
+        Message[] testMessages = {message11};
+        for(Message testMessage : testMessages)
+        {
+            messageRepository.save(testMessage);
+        }
 
     }
-
-
-
-
-
 }
