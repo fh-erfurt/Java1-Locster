@@ -33,7 +33,7 @@
                         </th:block>
                         <th:block th:switch="${u.relationshipStatus}" th:with="RS=${T(de.teamLocster.enums.RelationshipStatus)}">
                             <span th:case="${RS.SINGLE}">single</span>
-                            <span th:case="${RS.IN_A_RELATIONSHIP}">in einer Bez.</span>
+                            <span th:case="${RS.IN_A_RELATIONSHIP}">in einer Beziehung</span>
                             <span th:case="${RS.MARRIED}">verheiratet</span>
                             <span th:case="${RS.DIVORCED}">geschieden</span>
                             <span th:case="${RS.ITS_COMPLICATED}">es ist kompliziert</span>

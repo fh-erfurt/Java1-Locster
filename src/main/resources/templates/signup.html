@@ -35,7 +35,13 @@
                     <span th:errors="*{birthday}" class="alert alert-danger"></span>
 
                     <select th:field="*{sex}" class="userSelect">
-                        <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}" th:value="${sexOpt}" th:text="${sexOpt}"></option>
+                        <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}" th:value="${sexOpt}">
+                            <th:block th:switch="${sexOpt}" th:with="S=${T(de.teamLocster.enums.Sex)}">
+                                <span th:case="${S.MALE}">männlich</span>
+                                <span th:case="${S.FEMALE}">weiblich</span>
+                                <span th:case="${S.OTHER}">divers</span>
+                            </th:block>
+                        </option>
                     </select>
                     <span th:errors="*{sex}" class="alert alert-danger"></span>
 
