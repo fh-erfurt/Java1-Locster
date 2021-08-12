@@ -8,20 +8,24 @@ import de.teamLocster.chat.ChatRepository;
 import de.teamLocster.chat.Message;
 import de.teamLocster.chat.MessageRepository;
 import de.teamLocster.enums.*;
-import de.teamLocster.guestbook.GuestbookEntry;
 import de.teamLocster.guestbook.GuestbookEntryRepository;
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.Alphanumeric.class)
 public class InsertDataForSimulatingAndTesting
 {
     @Autowired
@@ -39,19 +43,20 @@ public class InsertDataForSimulatingAndTesting
     @Autowired
     MessageRepository messageRepository;
 
+    PasswordEncoder encoder = new BCryptPasswordEncoder();
 
-
+    private final LocalDate birthDay = LocalDate.ofYearDay(1990, 200);
 
     @Test
-    void createTeam() {
+    void a_createTeam()
+    {
         //------------
         //----USER----
         //------------
-        LocalDate birthDay = LocalDate.ofYearDay(1990,200);
 
         User jakob = new User(
                 "jakob@gensel.de",
-                "5Ül2e_L3b3Rwur5t",
+                encoder.encode("JAKOB"),
                 "Jakob",
                 "Gensel",
                 "Marbach",
@@ -69,7 +74,7 @@ public class InsertDataForSimulatingAndTesting
 
         User dirk = new User(
                 "dirk@hofmann.de",
-                "5Ül2e_L3b3Rwur5t",
+                encoder.encode("DIRK"),
                 "Dirk",
                 "Hofmann",
                 "Was weiß ich",
@@ -87,7 +92,7 @@ public class InsertDataForSimulatingAndTesting
 
         User saskia = new User(
                 "saskia@wohlers.de",
-                "5Ül2e_L3b3Rwur5t",
+                encoder.encode("SASKIA"),
                 "Saskia",
                 "Wohlers",
                 "Erfurt",
@@ -105,7 +110,7 @@ public class InsertDataForSimulatingAndTesting
 
         User matze = new User(
                 "matthias@gabel.de",
-                "5Ül2e_L3b3Rwur5t",
+                encoder.encode("MATZE"),
                 "Matthias",
                 "Gabel",
                 "Erfurt",
@@ -122,10 +127,10 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User molham = new User(
-                "molham@gabel.de",
-                "5Ül2e_L3b3Rwur5t",
-                "Matthias",
-                "Gabel",
+                "molham@al-khodari.de",
+                encoder.encode("MOLHAM"),
+                "Molham",
+                "Al-Khodari",
                 "Weimar oder so",
                 birthDay,
                 "Softwareentwickler",
@@ -139,12 +144,23 @@ public class InsertDataForSimulatingAndTesting
                 true
         );
 
+        User[] testUsers = {jakob, dirk, saskia, matze, molham};
+        for(User testUser : testUsers)
+        {
+            userRepository.save(testUser);
+        }
+    }
+
+    @Test
+    void b_createAdditionalUsers()
+    {
+
         User dummy1 = new User(
-                "dummy1@gabel.de",
+                "dummy1@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Max",
                 "Mustermann",
-                "München",
+                "offline",
                 birthDay,
                 "Gärtner",
                 RelationshipStatus.SINGLE,
@@ -158,11 +174,11 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User dummy2 = new User(
-                "dummy2@gensel.de",
+                "dummy2@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Tabbi",
                 "Babbi",
-                "Cuxhaven",
+                "offline",
                 birthDay,
                 "Bäcker",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -176,11 +192,11 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User dummy3 = new User(
-                "dummy3@gensel.de",
+                "dummy3@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Peter",
                 "Lustig",
-                "Löwenzahnstadt",
+                "online but invisible",
                 birthDay,
                 "Nix",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -190,15 +206,15 @@ public class InsertDataForSimulatingAndTesting
                 "Ich mag Blumen",
                 PrivacyStatus.PUBLIC,
                 OnlineStatus.INVISIBLE,
-                false
+                true
         );
 
         User dummy4 = new User(
-                "dummy4@gensel.de",
+                "dummy4@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Cola",
                 "Korn",
-                "Mackenstedt",
+                "offline",
                 birthDay,
                 "Getränk",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -212,11 +228,11 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User dummy5 = new User(
-                "dummy5@gensel.de",
+                "dummy5@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Karla",
                 "Columna",
-                "Freiburg",
+                "online but away",
                 birthDay,
                 "Rasende Reporterin",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -226,15 +242,15 @@ public class InsertDataForSimulatingAndTesting
                 "Moin!",
                 PrivacyStatus.PUBLIC,
                 OnlineStatus.AWAY,
-                false
+                true
         );
 
         User dummy6 = new User(
-                "dummy6@gensel.de",
+                "dummy6@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Tito",
                 "Tintenfisch",
-                "Unterdemmeer",
+                "online",
                 birthDay,
                 "Tintenfabrikant",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -248,11 +264,11 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User dummy7 = new User(
-                "dummy7@gensel.de",
+                "dummy7@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Heiko",
                 "Heilbutt",
-                "Unterdemmeer",
+                "online",
                 birthDay,
                 "Fisch",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -266,11 +282,11 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User dummy8 = new User(
-                "dummy8@gensel.de",
+                "dummy8@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Miro",
                 "Matjes",
-                "Unterdemmeer",
+                "offline",
                 birthDay,
                 "Fisch",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -284,11 +300,11 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User dummy9 = new User(
-                "dummy9@gensel.de",
+                "dummy9@dummy.de",
                 "5Ül2e_L3b3Rwur5t",
                 "Lara",
                 "Lurch",
-                "Überdemmeer",
+                "online but busy",
                 birthDay,
                 "Taxifahrer",
                 RelationshipStatus.ITS_COMPLICATED,
@@ -297,16 +313,20 @@ public class InsertDataForSimulatingAndTesting
                 "Ich bin neu hier und würd mich über ein paar neue Freunde freuen! ^^",
                 "tasty tasty",
                 PrivacyStatus.PUBLIC,
-                OnlineStatus.AWAY,
-                false
+                OnlineStatus.BUSY,
+                true
         );
 
-        User[] testUsers = {jakob, dirk, saskia, matze, molham, dummy1, dummy2, dummy3, dummy4, dummy5, dummy6, dummy7, dummy8, dummy9};
-        for(User testUser : testUsers)
+        User[] testUsers = {dummy1, dummy2, dummy3, dummy4, dummy5, dummy6, dummy7, dummy8, dummy9};
+        for (User testUser : testUsers)
         {
             userRepository.save(testUser);
         }
+    }
 
+    @Test
+    void c_createActions()
+    {
         //---------------
         //----ACTIONS----
         //---------------
@@ -317,20 +337,20 @@ public class InsertDataForSimulatingAndTesting
         );
 
         Action action2 = new Action(
-                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
+                userRepository.findByEmailAddress("dummy6@dummy.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 ActionType.FRIEND_REQUEST
         );
 
         Action action3 = new Action(
-                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
+                userRepository.findByEmailAddress("dummy6@dummy.de").get(),
                 userRepository.findByEmailAddress("saskia@wohlers.de").get(),
                 ActionType.BLOCK
         );
 
         Action action4 = new Action(
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-                userRepository.findByEmailAddress("dummy6@gensel.de").get(),
+                userRepository.findByEmailAddress("dummy6@dummy.de").get(),
                 ActionType.FRIEND_ACKNOWLEDGEMENT
         );
 
@@ -339,7 +359,11 @@ public class InsertDataForSimulatingAndTesting
         {
             actionRepository.save(testAction);
         }
+    }
 
+    @Test
+    void d_createChats()
+    {
         //---------------------
         //---------CHAT--------
         //---------------------
@@ -429,7 +453,12 @@ public class InsertDataForSimulatingAndTesting
         {
             chatRepository.save(testChat);
         }
+    }
 
+    @Test
+    void e_createGuestbookEntries()
+    {
+        assert false;
 //        //-------------------------
 //        //-----GUESTBOOK_ENTRY-----
 //        //-------------------------

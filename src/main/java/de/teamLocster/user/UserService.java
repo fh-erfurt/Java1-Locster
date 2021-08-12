@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -57,7 +58,7 @@ public class UserService extends BaseService<User>
     }
 
     public List<User> whoIsOnline() {
-        return userRepository.findByIsOnlineTrue();
+        return userRepository.findByIsOnlineTrue().stream().filter(u -> !u.getOnlineStatus().equals(OnlineStatus.INVISIBLE)).collect(Collectors.toList());
     }
 
     public List<PublicUser> whoIsOnlinePublic() {
