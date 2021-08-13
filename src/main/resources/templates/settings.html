@@ -49,13 +49,7 @@
 
             <div class="group">
                 <select th:field="*{sex}" class="userSelect">
-                    <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}" th:value="${sexOpt}">
-                        <th:block th:switch="${sexOpt}" th:with="S=${T(de.teamLocster.enums.Sex)}">
-                            <span th:case="${S.MALE}">männlich</span>
-                            <span th:case="${S.FEMALE}">weiblich</span>
-                            <span th:case="${S.OTHER}">divers</span>
-                        </th:block>
-                    </option>
+                    <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}" th:value="${sexOpt}" th:text="#{'labels.sex.'+${sexOpt}}"></option>
                 </select>
                 <span class="highlight"></span>
                 <span class="bar"></span>
@@ -75,15 +69,7 @@
             <div class="group">
 
                 <select th:field="*{relationshipStatus}" class="userSelect">
-                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}" th:value="${relationshipStatusOpt}">
-                        <th:block th:switch="${relationshipStatusOpt}" th:with="RS=${T(de.teamLocster.enums.RelationshipStatus)}">
-                            <span th:case="${RS.SINGLE}">single</span>
-                            <span th:case="${RS.IN_A_RELATIONSHIP}">in einer Beziehung</span>
-                            <span th:case="${RS.MARRIED}">verheiratet</span>
-                            <span th:case="${RS.DIVORCED}">geschieden</span>
-                            <span th:case="${RS.ITS_COMPLICATED}">es ist kompliziert</span>
-                        </th:block>
-                    </option>
+                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}" th:value="${relationshipStatusOpt}" th:text="#{'labels.relationshipStatus.'+${relationshipStatusOpt}}"></option>
                 </select>
                 <span class="highlight"></span>
                 <span class="bar"></span>
