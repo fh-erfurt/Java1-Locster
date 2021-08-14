@@ -125,4 +125,13 @@ public class UserService extends BaseService<User>
 
         userRepository.save(user);
     }
+
+    public void updateProfileText(String userEmail, ProfileTextUser userDto) throws UserNotFoundException, UserAlreadyExistException {
+
+        User user = getUserByEmailAddress(userEmail);
+        user.setProfileText(userDto.getProfileText());
+        userRepository.save(user);
+
+
+    }
 }
