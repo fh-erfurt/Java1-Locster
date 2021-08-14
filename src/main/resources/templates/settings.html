@@ -5,119 +5,180 @@
 
 <head>
     <link th:href="@{/css/settings.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <header th:replace="fragments/nav"></header>
 <!-- Setting -->
 
-
 <div class="container" th:object="${settingsUser}">
     <div class="box">
 
         <div class="title">
-            <h2>Einstellungen</h2>
+            <h2> Locster.de <small>Einstellungen</small></h2>
         </div>
 
         <form action="#" th:action="@{/settings}" method="post">
 
-            <div class="inputs">
-                <input type="text" th:field="*{firstName}" placeholder="Vorname"/>
+            <div class="group">
+                <input type="text" th:field="*{firstName}"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Vorname:</label>
                 <span th:errors="*{firstName}" class="alert alert-danger"></span>
-                <input type="text" th:field="*{lastName}" placeholder="Nachname"/>
-                <span th:errors="*{lastName}" class="alert alert-danger"></span>
-                <input type="date" th:field="*{birthday}" placeholder="Geburtstag"/>
-                <span th:errors="*{birthday}" class="alert alert-danger"></span>
+            </div>
 
-                <label th:for="sex">Choose a gender:</label>
-                <select
-                        th:field="*{sex}"
-                >
+
+            <div class="group">
+                <input type="text" th:field="*{lastName}"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Nachname: </label>
+                <span th:errors="*{lastName}" class="alert alert-danger"></span>
+            </div>
+
+
+            <div class="group">
+                <input type="date" th:field="*{birthday}"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Geburtstag: </label>
+                <span th:errors="*{birthday}" class="alert alert-danger"></span>
+            </div>
+
+            <div class="group">
+
+                <select th:field="*{sex}" class="userSelect">
                     <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}"
                             th:value="${sexOpt}" th:text="${sexOpt}"></option>
                 </select>
+                <span class="highlight"></span>
+                <span class="bar"></span>
                 <span th:errors="*{sex}" class="alert alert-danger"></span>
 
-                <input type="text" th:field="*{region}" placeholder="Ort"/>
+            </div>
+
+            <div class="group">
+
+                <input type="text" th:field="*{region}"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Ort: </label>
                 <span th:errors="*{region}" class="alert alert-danger"></span>
-                <select
-                        th:field="*{relationshipStatus}"
-                >
+            </div>
+
+            <div class="group">
+
+                <select th:field="*{relationshipStatus}" class="userSelect">
                     <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}"
                             th:value="${relationshipStatusOpt}" th:text="${relationshipStatusOpt}"></option>
                 </select>
+                <span class="highlight"></span>
+                <span class="bar"></span>
                 <span th:errors="*{relationshipStatus}" class="alert alert-danger"></span>
-                <input type="text" th:field="*{occupation}" placeholder="Beruf"/>
+
+            </div>
+
+            <div class="group">
+
+                <input type="text" th:field="*{occupation}"/>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Beruf: </label>
                 <span th:errors="*{occupation}" class="alert alert-danger"></span>
 
-                <!-- TODO trennung zwischen persönlichen und account daten -->
+            </div>
 
-                <input type="email" placeholder="Email-Adresse ändern" th:field="*{emailAddress}">
+            <!-- TODO trennung zwischen persönlichen und account daten -->
+
+            <div class="group">
+
+                <input type="email" th:field="*{emailAddress}">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label th:for="emailAddress">Email-Adresse: </label>
                 <span th:errors="*{emailAddress}" class="alert alert-danger"></span>
-                <input type="password" placeholder="Passwort ändern" th:field="*{password}">
+
+            </div>
+
+            <div class="group">
+
+                <input type="password" th:field="*{password}">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label th:for="password">Passwort: </label>
                 <span th:errors="*{password}" class="alert alert-danger"></span>
-                <input type="password" placeholder="Passwort wiederholen" th:field="*{passwordRepeat}">
+
+            </div>
+
+            <div class="group">
+
+                <input type="password" th:field="*{passwordRepeat}">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label th:for="passwordRepeat">Passwort wiederholen: </label>
                 <span th:errors="*{passwordRepeat}" class="alert alert-danger"></span>
+
             </div>
 
-            <div class="privacy">
-                <div class="title">
-                    <h3>Privatssphäre</h3>
-                </div>
-
-                <div class="privacyBody">
-
-                    <div class="selection">
-                        <img src="icons/lock_closed.png" alt="logo">
-                        <label for="privacy1">
-                            Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
-                            +Statistiken anschauen
-                        </label>
-                        <div class="checkbox">
-                            <input type="radio" name="privacy" id="privacy1" value="#">
-                        </div>
-                    </div>
-
-                    <div class="selection">
-                        <img src="icons/lock_open.png" alt="logo">
-                        <label for="privacy2">
-                            Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
-                            +Statistiken anschauen
-                        </label>
-                        <div class="checkbox">
-                            <input type="radio" name="privacy" id="privacy2" value="#">
-                        </div>
-                    </div>
-
-                    <div class="selection">
-                        <img src="icons/world.png" alt="logo">
-                        <label for="privacy3">
-                            Jeder darf mir schreiben (Gästebuch und Chat) <br>
-                            +Statistiken anschauen
-                        </label>
-                        <div class="checkbox">
-                            <input type="radio" name="privacy" id="privacy3" value="#">
-                        </div>
-                    </div>
-
-                </div>
+<!--
+    <div class="box">
+        <div class="privacy">
+            <div class="title">
+                <h3>Privatssphäre</h3>
             </div>
 
+            <div class="privacyBody">
 
-            <div class="buttons">
-                <div class="buttonsBtn">
-                    <button class="profileBtn" type="button">Profilbild ändern</button>
-                    <button class="profileBtn" type="button">Profilbild löschen</button>
+                <div class="selection">
+                    <img src="icons/lock_closed.png" alt="logo">
+                    <label for="privacy1">
+                        Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
+                        +Statistiken anschauen
+                    </label>
+                    <div class="checkbox">
+                        <input type="radio" name="privacy" id="privacy1" value="#">
+                    </div>
                 </div>
-                <div class="delete">
-                    <button class="profileDeleteBtn">Profil löschen</button>
+
+                <div class="selection">
+                    <img src="icons/lock_open.png" alt="logo">
+                    <label for="privacy2">
+                        Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
+                        +Statistiken anschauen
+                    </label>
+                    <div class="checkbox">
+                        <input type="radio" name="privacy" id="privacy2" value="#">
+                    </div>
                 </div>
-                <div class="submit">
-                    <button class="submitBtn"><img src="icons/accept.svg" alt="logo"></button>
+
+                <div class="selection">
+                    <img src="icons/world.png" alt="logo">
+                    <label for="privacy3">
+                        Jeder darf mir schreiben (Gästebuch und Chat) <br>
+                        +Statistiken anschauen
+                    </label>
+                    <div class="checkbox">
+                        <input type="radio" name="privacy" id="privacy3" value="#">
+                    </div>
                 </div>
+
             </div>
+        </div>
+
+-->
+        <div class="buttons">
+            <div class="delete">
+                <button class="profileDeleteBtn submitBtn"><i class="fas fa-trash-alt"></i> Profile löschen</button>
+            </div>
+            <div class="submit">
+                <button class="submitBtn"><i class="far fa-check-circle"></i> Speichern</button>
+            </div>
+        </div>
         </form>
     </div>
+</div>
 </div>
 </body>
 </html>
