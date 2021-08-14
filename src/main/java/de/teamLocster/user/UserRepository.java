@@ -14,5 +14,5 @@ public interface UserRepository extends BaseRepository<User>
 
     Optional<User> findByEmailAddress(String emailAddress);
 
-    List<User> findByQuery(String Query);
+//todo    List<User> findByQuery(String Query);
 }

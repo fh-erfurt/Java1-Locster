@@ -70,9 +70,9 @@ public class UserService extends BaseService<User>
         return onlineUsers;
     }
 
-    public List<PublicUser> search(String query) {
+    public List<PublicUser> search() {
         List<PublicUser> userList = new ArrayList<>();
-        for(User user : userRepository.findByQuery(query)) {
+        for(User user : userRepository.findByIsOnlineTrue()) { //Todo userRepository.findByQuery
             userList.add(new PublicUser(user));
         }
         return userList;
