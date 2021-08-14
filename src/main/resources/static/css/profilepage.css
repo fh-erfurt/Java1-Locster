@@ -16,6 +16,10 @@
   border-bottom: 1px solid #757575;
 }
 
+.profileText {
+  resize: none;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;

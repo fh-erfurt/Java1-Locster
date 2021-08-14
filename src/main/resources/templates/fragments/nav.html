@@ -14,12 +14,14 @@
 
     <form>
         <div class="input-group">
-            <input id="searchBar" type="text" placeholder="Search" onchange="onSearchbarChanged()"/>
-            <div class="input-group-btn">
-                <button type="submit">
-                    <img src="icons/glass.png" class="search-icon" />
-                </button>
-            </div>
+            <form action="/search" method="get">
+                <input id="searchBar" type="text" placeholder="Search" onchange="onSearchbarChanged()"/>
+                <div class="input-group-btn">
+                    <button type="submit">
+                        <img src="icons/glass.png" class="search-icon" />
+                    </button>
+                </div>
+            </form>
         </div>
     </form>
 

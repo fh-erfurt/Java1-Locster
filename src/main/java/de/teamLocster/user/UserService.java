@@ -70,6 +70,15 @@ public class UserService extends BaseService<User>
         return onlineUsers;
     }
 
+    public List<PublicUser> search(String query) {
+        List<PublicUser> userList = new ArrayList<>();
+        for(User user : userRepository.findByQuery(query)) {
+            userList.add(new PublicUser(user));
+        }
+        return userList;
+    }
+
+
     public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {
         Optional<User> data = userRepository.findByEmailAddress(emailAddress);
         if(data.isPresent()) {
