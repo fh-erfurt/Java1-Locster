@@ -81,23 +81,10 @@
   font-size: 15px;
 }
 
-.info .content {
-  display: none;
-  overflow: hidden;
-  background-color: #fff3b1;
-}
-
 .ProfileInfosHeader {
   display: flex;
   flex-direction: column;
-}
-.group1 {
-  display: flex;
-  justify-content: center;
-}
-.group2 {
-  display: flex;
-  justify-content: space-between;
+  width: 400px;
 }
 
 .visitor {
@@ -108,10 +95,18 @@
 
 .content .group {
   display: flex;
-  flex-direction: inherit;
+  flex-direction: row;
+  padding-left: 5px;
+  width: 200px;
 }
 
-.content .profileinfo {
+.content .row {
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+}
+
+.content .profileInfo {
   padding: 2px;
   margin: 8px;
 }
@@ -157,9 +152,19 @@
 .profile_name {
   padding: 10px;
 }
+
 .profile_city {
   padding: 10px;
 }
+
+.profile_personal_status {
+  padding: 10px;
+}
+
+.profile_online_status {
+  padding: 10px;
+}
+
 .more_info {
   margin-left: 10px;
   text-decoration: none;
