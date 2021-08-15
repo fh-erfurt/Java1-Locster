@@ -40,7 +40,7 @@ public class FriendlistController {
         try
         {
             actionService.sendFriendRequest(userService.getUserByEmailAddress(authentication.getName()), userService.getUserById(id));
-            return new ModelAndView("redirect:/whoisonline");
+            return new ModelAndView(String.format("redirect:/profilepage/%d", id));
         }
         catch (UserNotFoundException unfEx) {
             System.out.println(unfEx.getMessage());

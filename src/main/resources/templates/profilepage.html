@@ -52,6 +52,19 @@
                 </div>
             </div>
         </div>
+        <div th:if="${!myProfile}">
+            <div th:if="${!isFriend}">
+                <form th:action="@{/friendrequest/{userId}(userId=*{id})}" th:method="put">
+                        <span class="icon">
+                            <button th:if="${openRequest}" type="submit">Freundschaftsanfrage annehmen</button>
+                            <button th:if="${!openRequest}" type="submit">Freundschaftsanfrage senden</button>
+                        </span>
+                </form>
+            </div>
+            <div th:if="${isFriend}">
+                ihr seid befreundet
+            </div>
+        </div>
         <div th:if="${myProfile}" class="icon-edit-content">
             <a href="/settings">
                 <img src="/icons/pen.png" alt="pen"/>

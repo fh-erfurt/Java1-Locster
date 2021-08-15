@@ -333,7 +333,7 @@ public class InsertDataForSimulatingAndTesting
         );
 
         Action action2 = new Action(
-                userRepository.findByEmailAddress("dummy6@dummy.de").get(),
+                userRepository.findByEmailAddress("dummy3@dummy.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 ActionType.FRIEND_REQUEST
         );

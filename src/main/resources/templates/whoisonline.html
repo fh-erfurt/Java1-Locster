@@ -31,14 +31,7 @@
                     <span th:text="#{'labels.relationshipStatus.'+${u.relationshipStatus}}" class="relationship"></span>
                     <span th:text="${u.region}" class="region"></span>
                     <div th:class="'onlinestatus-' + ${u.onlineStatus}"></div>
-                    <form th:action="@{/friendrequest/{userId}(userId=${u.id})}" th:method="put">
-                        <span class="icon">
-                            <button type="submit">
-                                <img class="sendFriendRequestIcon" src="icons/accept.svg" alt="icon"/>
-                            </button>
-                            <!-- TODO ICON -->
-                        </span>
-                    </form>
+                    <a th:href="@{/profilepage/{userId}(userId=${u.id})}">zum Profil</a>
                 </li>
 
             </ul>

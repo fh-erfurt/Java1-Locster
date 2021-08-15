@@ -1,10 +1,10 @@
 package de.teamLocster.controller;
+import de.teamLocster.actions.ActionService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.guestbook.GuestbookEntryService;
 import de.teamLocster.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +25,9 @@ public class ProfilepageController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ActionService actionService;
 
     @Autowired
     GuestbookEntryService guestbookEntryService;
@@ -58,13 +61,16 @@ public class ProfilepageController {
      * @return profilepage of the user
      */
     @GetMapping("/profilepage/{id}")
-    public ModelAndView getProfilePage(@PathVariable(value = "id") Long id, Model model) {
+    public ModelAndView getProfilePage(@PathVariable(value = "id") Long id, Authentication authentication, Model model) {
         try {
-            User user = userService.getUserById(id);
-            model.addAttribute("title", String.format("Profil von %s %s", user.getFirstName(), user.getLastName()));
-            model.addAttribute("profileUser", user);
+            User visitingUser = userService.getUserByEmailAddress(authentication.getName());
+            User visitedUser = userService.getUserById(id);
+            model.addAttribute("title", String.format("Profil von %s %s", visitedUser.getFirstName(), visitedUser.getLastName()));
+            model.addAttribute("profileUser", visitedUser);
             model.addAttribute("myProfile", false);
-            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+            model.addAttribute("isFriend", actionService.isFriend(visitingUser , visitedUser));
+            model.addAttribute("openRequest", actionService.getReceivedFriendRequests(visitingUser).contains(visitedUser));
+            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(visitedUser));
 
             return new ModelAndView("profilepage");
         }
