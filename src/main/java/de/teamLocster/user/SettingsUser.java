@@ -27,6 +27,8 @@ public class SettingsUser
         this.occupation = user.getOccupation();
         this.emailAddress = user.getEmailAddress();
         this.password = null;
+        this.onlineStatus = user.getOnlineStatus();
+        this.personalStatus = user.getPersonalStatus();
     }
 
     @NotNull
