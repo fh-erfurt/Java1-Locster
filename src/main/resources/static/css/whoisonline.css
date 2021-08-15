@@ -40,14 +40,8 @@
     width: 100px;
 }
 
-.onlinestatuscircle {
-  width: 18px;
-  height: 18px;
-  border-radius: 50px;
-  /*online Kreis --grün-- */
-  /*background-color: #00CD00*/
-  /*busy Kreis --rot-- */
-  /*background-color: #CD3700*/
-  /*abwesend Kreis --lila-- */
-  background-color: #ab82ff
-}
+/*online Kreis --grün-- */
+/*background-color: #00CD00*/
+/*busy Kreis --rot-- */
+/*background-color: #CD3700*/
+/*abwesend Kreis --lila-- */

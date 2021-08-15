@@ -1,6 +1,7 @@
 package de.teamLocster.actions;
 
 import de.teamLocster.core.BaseService;
+import de.teamLocster.core.errors.NoFriendRequestPresentException;
 import de.teamLocster.enums.ActionType;
 import de.teamLocster.user.User;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -32,14 +34,14 @@ public class ActionService extends BaseService<Action>
         return requestingUsers;
     }
 
-    public Action acceptFriendRequest(User actor, User affected) {
-        Action result = null;
-        Action friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, affected.getId(), actor.getId());
-        if (friendRequest != null) {
-            result = actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
-            // actionRepository.delete(friendRequest); // TODO sollen Anfragen nach Bestätigung gelöscht werden?
+    public Action acceptFriendRequest(User actor, User affected) throws NoFriendRequestPresentException
+    {
+        Optional<Action> friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, affected.getId(), actor.getId());
+        if (friendRequest.isPresent()) {
+            return actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
+            // actionRepository.delete(friendRequest.get()); // TODO sollen Anfragen nach Bestätigung gelöscht werden?
         }
-        return result;
+        throw new NoFriendRequestPresentException("There was no friend request found from this User");
     }
 
     public List<User> getFriends(User user) {
