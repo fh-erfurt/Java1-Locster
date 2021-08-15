@@ -101,6 +101,8 @@ public class UserService extends BaseService<User>
         user.setRelationshipStatus(userDto.getRelationshipStatus());
         user.setEmailAddress(userDto.getEmailAddress());
         user.setRelationshipStatus(userDto.getRelationshipStatus());
+        user.setPersonalStatus(userDto.getPersonalStatus());
+        user.setOnlineStatus(userDto.getOnlineStatus());
 
         String password = userDto.getPassword();
         if(password != null && !password.isEmpty()) user.setPasswordHash(encoder.encode(password));

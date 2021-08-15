@@ -1,5 +1,4 @@
 .privacy {
-    width: 512px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -7,6 +6,7 @@
     padding-left: 15px;
     border-radius: 25px;
     border: solid #fed700;
+    align-items: center;
 }
 
 .privacy .title h3 {
@@ -37,6 +37,7 @@
 .buttons {
     display: flex;
     justify-content: space-between;
+    justify-content: center;
 
     padding: 10px;
     padding-left: 15px;
@@ -104,7 +105,6 @@ label {
     color: #999;
     font-size: 18px;
     font-weight: normal;
-    position: absolute;
     pointer-events: none;
     left: 5px;
     top: 10px;

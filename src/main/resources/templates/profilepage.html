@@ -14,8 +14,8 @@
 <header th:replace="fragments/nav"></header>
 
 <!-- Homepage -->
+<div class="container" th:object="${loggedInUser}">
 
-<div class="container" th:object="${profileUser}">
     <div class="box profile" id="profileInfoBox">
         <div class="profile-info-wrapper">
             <div class="pic">

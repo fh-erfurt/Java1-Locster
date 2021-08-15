@@ -1,5 +1,6 @@
 package de.teamLocster.user;
 
+import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.RelationshipStatus;
 import de.teamLocster.enums.Sex;
 import lombok.Getter;
@@ -26,6 +27,8 @@ public class SettingsUser
         this.occupation = user.getOccupation();
         this.emailAddress = user.getEmailAddress();
         this.password = null;
+        this.onlineStatus = user.getOnlineStatus();
+        this.personalStatus = user.getPersonalStatus();
     }
 
     @NotNull
@@ -61,4 +64,9 @@ public class SettingsUser
     @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#^!'§$%&/()=*\\-+,.;:_<>?|]).{8,}|$", message = "Password unsafe")
     private String password;
     private String passwordRepeat;
+
+    private String personalStatus;
+
+    @NotNull
+    private OnlineStatus onlineStatus;
 }
