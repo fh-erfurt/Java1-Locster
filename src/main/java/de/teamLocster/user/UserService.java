@@ -72,7 +72,7 @@ public class UserService extends BaseService<User>
 
     public List<PublicUser> search(String query) {
         List<PublicUser> userList = new ArrayList<>();
-        for(User user : userRepository.findAllByFirstNameLikeOrLastNameLikeOrRegionLike(query, query, query))
+        for(User user : userRepository.findAllByKey(query))
         {
             userList.add(new PublicUser(user));
         }
