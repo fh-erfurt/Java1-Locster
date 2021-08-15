@@ -65,7 +65,7 @@ public class InsertDataForSimulatingAndTesting
                 Sex.MALE,
                 "pseudo path",
                 "Ich bin der Jakob",
-                "Spiderman ist nicht der einzige, der klebrige Hnde hat, wenn er im Netz war!",
+                "Spiderman ist nicht der einzige, der klebrige Hände hat, wenn er im Netz war!",
                 PrivacyStatus.PUBLIC,
                 OnlineStatus.ONLINE,
                 true

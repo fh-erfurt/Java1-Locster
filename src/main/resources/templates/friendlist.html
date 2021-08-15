@@ -23,20 +23,13 @@
               <span class="relationship">Beziehungstatus:</span>
               <span class="region">Region:</span>
             </li>
-            <li class="infos">
-              <span class="name">Tilda Tentakel</span>
-              <span class="age">25</span>
-              <span class="gender">m</span>
-              <span class="relationship">single</span>
-              <span class="region">erfurt</span>
-
-              <span class="icon">
-                <img
-                  class="acceptFriendIcon"
-                  src="icons/accept.svg"
-                  alt="icon"
-                />
-              </span>
+            <li th:each="u: ${user}" class="infos">
+              <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
+              <span th:text="${u.birthDay}" class="age"></span>
+              <span th:text="${u.sex}" class="gender"></span>
+              <span th:text="${u.relationshipStatus}" class="relationship"></span>
+              <span th:text="${u.region}" class="region"></span>
+            </li>
 
               <span class="icon">
                 <img
@@ -46,59 +39,17 @@
                 />
               </span>
             </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="age">25</span>
-              <span class="gender">m</span>
-              <span class="relationship">single</span>
-              <span class="region">erfurt</span>
-              <span class="icon">
-                <img
-                  class="acceptFriendIcon"
-                  src="icons/accept.svg"
-                  alt="icon"
-                />
-              </span>
-
-              <span class="icon">
-                <img
-                  class="notAcceptFriendIcon"
-                  src="icons/accept.svg"
-                  alt="icon"
-                />
-              </span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="age">25</span>
-              <span class="gender">m</span>
-              <span class="relationship">single</span>
-              <span class="region">erfurt</span>
-              <span class="icon">
-                <img
-                  class="acceptFriendIcon"
-                  src="icons/accept.svg"
-                  alt="icon"
-                />
-              </span>
-              <span class="icon">
-                <img
-                  class="notAcceptFriendIcon"
-                  src="icons/accept.svg"
-                  alt="icon"
-                />
-              </span>
             </li>
           </ul>
         </div>
       </div>
-
 
       <div class="contentFriend">
         <div class="list">
           <ul>
             <li class="header">
               <h2>Meine Freunde (179)</h2>
+              <input type="text" class="friendsSearchField" value="Suche nach einem bestimmten Freund!"/>
             </li>
             <li>
               <span class="name">Name:</span>
@@ -115,84 +66,6 @@
                   alt="icon"
                 />
               </span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon">
-                <img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-                />
-              </span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon"
-                ><img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-              /></span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon"
-                ><img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-              /></span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon"
-                ><img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-              /></span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon"
-                ><img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-              /></span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon"
-                ><img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-              /></span>
-              <span class="status">single</span>
-            </li>
-            <li>
-              <span class="name">Tilda Tentakel</span>
-              <span class="FriendsSince">25</span>
-              <span class="icon"
-                ><img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-              /></span>
               <span class="status">single</span>
             </li>
           </ul>
