@@ -25,7 +25,7 @@
                 <h2 class="profile_name" th:text="*{firstName + ' ' + lastName}"></h2>
                 <h2 class="profile_city" th:text="*{region}"></h2>
                 <p class="profile_personal_status" th:text="*{personalStatus}"></p>
-                <p class="profile_online_status" th:text="*{onlineStatus}"></p>
+                <p class="profile_online_status" th:text="#{'labels.onlineStatus.'+*{onlineStatus}}"></p>
                 <div class="content">
                     <div class="ProfileInfosHeader">
                         <div class="row">
@@ -35,13 +35,13 @@
                             </div>
                             <div class="gender group profileinfo">
                                 <img class="profileInfoIcons" src="icons/genders-gender-svgrepo-com.svg" alt="icon"/>
-                                <p th:text="*{sex}"></p>
+                                <p th:text="#{'labels.sex.'+*{sex}}"></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="relationship group profileinfo">
                                 <img class="profileInfoIcons" src="icons/heart-thin.svg" alt="heart"/>
-                                <p th:text="*{relationshipStatus}"></p>
+                                <p th:text="#{'labels.relationshipStatus.'+*{relationshipStatus}}"></p>
                             </div>
                             <div class="job group profileinfo">
                                 <img class="profileInfoIcons" src="icons/job-seeker.svg" alt="job"/>

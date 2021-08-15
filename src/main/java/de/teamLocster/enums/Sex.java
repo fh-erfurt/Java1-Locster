@@ -7,5 +7,6 @@ public enum Sex {
 
     MALE,
     FEMALE,
-    OTHER
+    OTHER,
+    NOT_SPECIFIED
 }
