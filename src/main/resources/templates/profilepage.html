@@ -73,8 +73,8 @@
             </div>
             <form action="#" th:action="@{/profilepage}" method="post">
                 <div class="inputs">
-                    <textarea type="text" th:field="*{profileText}" placeholder="Deine Profiltext" autofocus="autofocus"
-                              rows="8" cols="75" maxlength="75"></textarea>
+                    <textarea class="profileText" type="text" th:field="*{profileText}" placeholder="Deine Profiltext" autofocus="autofocus"
+                              rows="8" cols="75" maxlength="255"></textarea>
                     <span class="highlight"></span>
                     <span class="bar"></span>
                     <span th:errors="*{profileText}" class="alert alert-danger"></span>

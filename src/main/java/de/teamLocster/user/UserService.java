@@ -60,6 +60,16 @@ public class UserService extends BaseService<User>
         return userRepository.findByIsOnlineTrueAndOnlineStatus(OnlineStatus.ONLINE);
     }
 
+    public List<PublicUser> search(String query) {
+        List<PublicUser> userList = new ArrayList<>();
+        for(User user : userRepository.findAllByKey(query))
+        {
+            userList.add(new PublicUser(user));
+        }
+        return userList;
+    }
+
+
     public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {
         Optional<User> data = userRepository.findByEmailAddress(emailAddress);
         if(data.isPresent()) {
@@ -124,5 +134,14 @@ public class UserService extends BaseService<User>
         User user = getUserByEmailAddress(userEmail);
         user.setProfileText(userDto.getProfileText());
         userRepository.save(user);
+    }
+
+    public void updateProfileText(String userEmail, ProfileTextUser userDto) throws UserNotFoundException, UserAlreadyExistException {
+
+        User user = getUserByEmailAddress(userEmail);
+        user.setProfileText(userDto.getProfileText());
+        userRepository.save(user);
+
+
     }
 }

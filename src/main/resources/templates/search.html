@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head"></head>
+
+<head>
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
+</head>
+<body>
+<!-- navbar -->
+<header th:replace="fragments/nav"></header>
+
+<div class="container">
+    <div class="listWith6ChildContent">
+        <div class="list">
+            <ul>
+                <li>
+                    <h2>Suche:</h2>
+                </li>
+                <li class="infos">
+                    <span class="name">Name:</span>
+                    <span class="age">Alter:</span>
+                    <span class="gender">Geschlecht:</span>
+                    <span class="relationship">Beziehungstatus:</span>
+                    <span class="region">Region:</span>
+                </li>
+                <li th:each="u: ${user}" class="infos">
+                    <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
+                    <span th:text="${u.birthDay}" class="age"></span>
+                    <span th:text="${u.sex}" class="gender"></span>
+                    <span th:text="${u.relationshipStatus}" class="relationship"></span>
+                    <span th:text="${u.region}" class="region"></span>
+
+                    <span class="icon">
+                <img
+                        class="acceptFriendIcon"
+                        src="icons/accept.svg"
+                        alt="icon"
+                />
+              </span>
+
+                    <span class="icon">
+                <img
+                        class="notAcceptFriendIcon"
+                        src="icons/accept.svg"
+                        alt="icon"
+                />
+              </span>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
