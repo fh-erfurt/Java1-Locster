@@ -5,16 +5,15 @@ import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
+import de.teamLocster.enums.RelationshipStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -39,7 +38,7 @@ public class UserService extends BaseService<User>
                     null,
                     LocalDate.parse(userDto.getBirthday()),
                     null,
-                    null,
+                    RelationshipStatus.NOT_SPECIFIED,
                     userDto.getSex(),
                     "pseudo/path",
                     "Apparently, this user prefers to keep an air of mystery about them.",
@@ -60,13 +59,8 @@ public class UserService extends BaseService<User>
         return userRepository.findByIsOnlineTrueAndOnlineStatus(OnlineStatus.ONLINE);
     }
 
-    public List<PublicUser> search(String query) {
-        List<PublicUser> userList = new ArrayList<>();
-        for(User user : userRepository.findAllByKey(query))
-        {
-            userList.add(new PublicUser(user));
-        }
-        return userList;
+    public List<User> search(String query) {
+        return userRepository.findAllByKey(query);
     }
 
 
@@ -105,7 +99,7 @@ public class UserService extends BaseService<User>
         user.setRelationshipStatus(userDto.getRelationshipStatus());
 
         String password = userDto.getPassword();
-        if(!password.isEmpty()) user.setPasswordHash(encoder.encode(password));
+        if(password != null && !password.isEmpty()) user.setPasswordHash(encoder.encode(password));
 
         userRepository.save(user);
     }
@@ -123,10 +117,7 @@ public class UserService extends BaseService<User>
             user.setIsOnline(false);
             userRepository.save(user);
         }
-        catch (UserNotFoundException unfEx)
-        {
-            // TODO handling when logging out user doesn't exist
-        }
+        catch (UserNotFoundException ignored) {}
     }
     
     public void updateProfileText(String userEmail, ProfileTextUser userDto) throws UserNotFoundException, UserAlreadyExistException {
@@ -134,14 +125,5 @@ public class UserService extends BaseService<User>
         User user = getUserByEmailAddress(userEmail);
         user.setProfileText(userDto.getProfileText());
         userRepository.save(user);
-    }
-
-    public void updateProfileText(String userEmail, ProfileTextUser userDto) throws UserNotFoundException, UserAlreadyExistException {
-
-        User user = getUserByEmailAddress(userEmail);
-        user.setProfileText(userDto.getProfileText());
-        userRepository.save(user);
-
-
     }
 }

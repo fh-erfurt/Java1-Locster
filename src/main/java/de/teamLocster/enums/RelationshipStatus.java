@@ -9,5 +9,6 @@ public enum RelationshipStatus {
     IN_A_RELATIONSHIP,
     MARRIED,
     DIVORCED,
-    ITS_COMPLICATED
+    ITS_COMPLICATED,
+    NOT_SPECIFIED
 }

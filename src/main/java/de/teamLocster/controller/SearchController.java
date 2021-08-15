@@ -19,7 +19,7 @@ public class  SearchController {
             , @RequestParam(value = "q", required = false) String query
     ) {
         model.addAttribute("title", "Locster.de.Search");
-        model.addAttribute("user", userService.search(query));
+        model.addAttribute("users", userService.search(query));
         return new ModelAndView("search");
     }
 }
