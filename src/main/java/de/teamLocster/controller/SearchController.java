@@ -16,10 +16,10 @@ public class  SearchController {
 
     @GetMapping("/search")
     public ModelAndView getSearch(Model model
-//todo            , @RequestParam(value = "q", required = false) String query
+            , @RequestParam(value = "q", required = false) String query
     ) {
         model.addAttribute("title", "Locster.de.Search");
-        model.addAttribute("user", userService.search());
+        model.addAttribute("user", userService.search(query));
         return new ModelAndView("search");
     }
 }
