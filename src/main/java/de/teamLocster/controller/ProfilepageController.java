@@ -28,24 +28,6 @@ public class ProfilepageController {
 
     @Autowired
     GuestbookEntryService guestbookEntryService;
-  
-    @Autowired
-    ProfilepageController(UserService userService) {
-        this.userService = userService;
-    }
-
-    /**
-     * Calls the profilepage with the users information
-     * @param id id of the shown user
-     * @return ResponseEntity.ok
-     * @throws UserNotFoundException Exception with not found id
-     */
-    @GetMapping(path = "/{id}")
-    ResponseEntity<User> findById(@PathVariable(value = "id") Long id) throws UserNotFoundException {
-        return ResponseEntity.ok(this.userRepository
-                .findById(id)
-                .orElseThrow(() -> new UserNotFoundException("No Persons found for id " + id)));
-    }
 
     /**
      * Calls your profilepage if you are logged in
@@ -69,6 +51,12 @@ public class ProfilepageController {
         }
     }
 
+
+    /**
+     * Calls the profilepage with the users information
+     * @param id id of the shown user
+     * @return profilepage of the user
+     */
     @GetMapping("/profilepage/{id}")
     public ModelAndView getProfilePage(@PathVariable(value = "id") Long id, Model model) {
         try {
