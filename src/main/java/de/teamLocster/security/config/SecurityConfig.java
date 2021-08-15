@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
@@ -33,6 +35,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Autowired
     private AuthProvider authProvider;
 
+    @Autowired
+    private LogoutHandler logoutHandler;
+
     // TODO probably not needed
     @Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
@@ -40,6 +45,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public HttpSessionEventPublisher httpSessionEventPublisher() {
+        return new HttpSessionEventPublisher();
     }
 
     @Override
@@ -79,11 +89,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                     .clearAuthentication(true)
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                     .logoutSuccessUrl("/login?logout")
+                    .addLogoutHandler(logoutHandler)
                 .permitAll()
                 .and()
-                .exceptionHandling()
-                .accessDeniedHandler(accessDeniedHandler)
+                .exceptionHandling().accessDeniedHandler(accessDeniedHandler)
                 .and()
-                .authenticationProvider(authProvider);
+                .authenticationProvider(authProvider)
+                .sessionManagement().maximumSessions(2);
     }
 }

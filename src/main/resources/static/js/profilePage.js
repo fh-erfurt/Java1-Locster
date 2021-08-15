@@ -14,11 +14,11 @@ for (i = 0; i < coll.length; i++) {
 }
 
 function displayprofileEdit() {
-  document.getElementById("profileInfoBox").style.display = "none";
-  document.getElementById("profileEdit").style.display = "flex";
+  document.getElementById("status").style.display = "none";
+  document.getElementById("profiltextEdit").style.display = "block";
 }
 
 function displayprofileInfo() {
-  document.getElementById("profileInfoBox").style.display = "flex";
-  document.getElementById("profileEdit").style.display = "none";
+  document.getElementById("status").style.display = "flex";
+  document.getElementById("profiltextEdit").style.display = "none";
 }
