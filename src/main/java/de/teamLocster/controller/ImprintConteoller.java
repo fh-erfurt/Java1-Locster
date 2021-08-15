@@ -5,8 +5,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * @author Jakob Gensel
+ * @version 1.0
+ */
 @Controller
 public class ImprintConteoller {
+    /**
+     * Calls the imprint page
+     * Imprint is a static page
+     * @param model
+     * @return view
+     */
     @GetMapping("/impressum")
     public ModelAndView getImpressum(Model model)
     {

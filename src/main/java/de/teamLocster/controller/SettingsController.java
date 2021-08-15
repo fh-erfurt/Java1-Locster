@@ -19,6 +19,10 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author Molham Al-khodari
+ * @version 1.0
+ */
 @Controller
 public class SettingsController {
 
@@ -30,6 +34,12 @@ public class SettingsController {
         this.userService = userService;
     }
 
+    /**
+     * Calls the settings page
+     * @param authentication user must be logged in
+     * @param model
+     * @return view
+     */
     @GetMapping("/settings")
     public ModelAndView settings(Authentication authentication, Model model) {
         model.addAttribute("title", "Locster.de.Settings");
@@ -44,6 +54,14 @@ public class SettingsController {
         }
     }
 
+    /**
+     * Calls function in {@link UserService} to update the profile text of user
+     * @param userDto profile text
+     * @param errors
+     * @param redirectAttributes
+     * @param authentication user must be logged in
+     * @return view
+     */
     @PostMapping("/settings")
     public String updateUser(@ModelAttribute @Valid SettingsUser userDto,
                              Errors errors,
@@ -74,6 +92,14 @@ public class SettingsController {
         }
     }
 
+    /**
+     * Calls function in {@link UserService} to delete the user
+     * @param user
+     * @param redirectAttributes
+     * @param authentication
+     * @return
+     * @throws UserNotFoundException
+     */
     @PostMapping("delete")
     public String deleteUser(@ModelAttribute User user,
                                    RedirectAttributes redirectAttributes,

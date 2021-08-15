@@ -12,15 +12,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * @author Jakob Gensel
+ * @version 1.0
+ */
 @Controller
 public class FriendlistController {
-
     @Autowired
     ActionService actionService;
 
+    /**
+     * Calls the friendlist page
+     * @param model
+     * @return view
+     */
     @Autowired
     UserService userService;
-
     @GetMapping("/friendlist")
     public ModelAndView profilePage (Model model)
     {

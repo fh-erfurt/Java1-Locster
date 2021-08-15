@@ -13,6 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+/**
+ * @author Molham Al-khodari
+ * @version 1.0
+ */
 @Transactional
 @Controller
 public class SignupController {
@@ -20,6 +24,11 @@ public class SignupController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Calls the signup page
+     * @param model
+     * @return view
+     */
     @GetMapping("/signup")
     @ResponseStatus(HttpStatus.OK)
     public ModelAndView showSignupForm (
@@ -30,6 +39,13 @@ public class SignupController {
         return new ModelAndView("signup");
     }
 
+    /**
+     * Calls function in {@link UserService} to register new user
+     * @param userDto
+     * @param errors
+     * @param model
+     * @return view
+     */
     @PostMapping("/signup")
     @ResponseStatus(HttpStatus.CREATED)
     public ModelAndView signUp(

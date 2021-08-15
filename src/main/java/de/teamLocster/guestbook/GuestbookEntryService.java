@@ -5,9 +5,12 @@ import de.teamLocster.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
+/**
+ * @author
+ * @version 1.0.
+ */
 @Slf4j
 @Service
 public class GuestbookEntryService extends BaseService<GuestbookEntry>
