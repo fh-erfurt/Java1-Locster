@@ -18,8 +18,14 @@ public class CustomLogoutHandler implements LogoutHandler
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response,
                        Authentication authentication) {
-        String email = authentication.getName();
-
-        userService.logout(email);
+        try
+        {
+            String email = authentication.getName();
+            userService.logout(email);
+        }
+        catch (NullPointerException npEx)
+        {
+            System.out.println("User was already logged out");
+        }
     }
 }
