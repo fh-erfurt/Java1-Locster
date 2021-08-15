@@ -36,12 +36,12 @@ public class AuthProvider implements AuthenticationProvider
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String username = authentication.getName();
+        String email = authentication.getName();
         String password = (String)authentication.getCredentials();
         try
         {
             // get user from DB, if exists (otherwise UserNotFoundException is thrown and converted)
-            User user = userService.getUserByEmailAddress(username);
+            User user = userService.getUserByEmailAddress(email);
             // check if the passwords match and throw BadCredentialsException otherwise
             if(!passwordEncoder.matches(password, user.getPasswordHash())) {
                 throw new BadCredentialsException("Passwords didn't match!");
@@ -51,8 +51,11 @@ public class AuthProvider implements AuthenticationProvider
             List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
+            // set user as logged in in database
+            userService.login(email);
+
             // create and return the authentication
-            return new UsernamePasswordAuthenticationToken(username, password, authorities);
+            return new UsernamePasswordAuthenticationToken(email, password, authorities);
         }
         catch (UserNotFoundException unfEx) {
             throw new UsernameNotFoundException(unfEx.getMessage(), unfEx);
