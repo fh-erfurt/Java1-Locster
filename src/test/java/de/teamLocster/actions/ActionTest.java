@@ -3,6 +3,7 @@ package de.teamLocster.actions;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import de.teamLocster.core.errors.NoFriendRequestPresentException;
 import de.teamLocster.user.User;
 import de.teamLocster.user.UserRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -63,7 +64,8 @@ public class ActionTest {
     }
 
     @Test
-    void acceptFriendRequest() {
+    void acceptFriendRequest() throws NoFriendRequestPresentException
+    {
         actionService.sendFriendRequest(user1, user2);
         actionService.sendFriendRequest(user3, user1);
 

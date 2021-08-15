@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ActionRepository extends BaseRepository<Action>
@@ -15,5 +16,5 @@ public interface ActionRepository extends BaseRepository<Action>
 
     List<Action> findByActionTypeAndAffectedId(ActionType actionType, Long affectedId);
 
-    Action findByActionTypeAndActorIdAndAffectedId(ActionType actionType, Long actorId, Long affectedId);
+    Optional<Action> findByActionTypeAndActorIdAndAffectedId(ActionType actionType, Long actorId, Long affectedId);
 }
