@@ -68,3 +68,31 @@
   width: 30px;
   height: 30px;
 }
+
+.onlinestatus-ONLINE {
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  background-color: #00CD00
+}
+
+.onlinestatus-AWAY {
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  background-color: #ab82ff
+}
+
+.onlinestatus-BUSY {
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  background-color: #CD3700
+}
+
+.onlinestatus-OFFLINE {
+  width: 18px;
+  height: 18px;
+  border-radius: 50px;
+  background-color: grey;
+}

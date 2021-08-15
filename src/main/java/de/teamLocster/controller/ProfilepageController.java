@@ -1,6 +1,7 @@
 package de.teamLocster.controller;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
+import de.teamLocster.guestbook.GuestbookEntryService;
 import de.teamLocster.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,12 @@ import javax.validation.Valid;
 @Controller
 public class ProfilepageController {
 
+    @Autowired
     UserService userService;
 
-    UserRepository userRepository;  // das ist nicht ganz richtig...
-
+    @Autowired
+    GuestbookEntryService guestbookEntryService;
+  
     @Autowired
     ProfilepageController(UserService userService) {
         this.userService = userService;
@@ -51,23 +54,34 @@ public class ProfilepageController {
      * @return profile page with your data
      */
     @GetMapping("/profilepage")
-    public ModelAndView profilePage (Authentication authentication, Model model) {
-        model.addAttribute("title", "Your Profile");
-        String userEmail = authentication.getName();
-        try
-        {
-            User user = userService.getUserByEmailAddress(userEmail);
-            model.addAttribute("loggedInUser", user);
-
-            //ToDo: get Anzahl Besucher
-            //ToDo: get letzter Besucher
-            //ToDo: get neuster Freund
-            //ToDo: get ältester Freund
+    public ModelAndView getMyProfilePage(Authentication authentication, Model model) {
+        model.addAttribute("title", "Mein Profil");
+        try {
+            User user = userService.getUserByEmailAddress(authentication.getName());
+            model.addAttribute("profileUser", user);
+            model.addAttribute("myProfile", true);
+            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
 
             return new ModelAndView("profilepage");
         }
         catch (UserNotFoundException unfE) {
-            return new ModelAndView("redirect:/"); //ToDo Error page!
+            return new ModelAndView("redirect:/error/404");
+        }
+    }
+
+    @GetMapping("/profilepage/{id}")
+    public ModelAndView getProfilePage(@PathVariable(value = "id") Long id, Model model) {
+        try {
+            User user = userService.getUserById(id);
+            model.addAttribute("title", String.format("Profil von %s %s", user.getFirstName(), user.getLastName()));
+            model.addAttribute("profileUser", user);
+            model.addAttribute("myProfile", false);
+            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+
+            return new ModelAndView("profilepage");
+        }
+        catch (UserNotFoundException unfE) {
+            return new ModelAndView("redirect:/error/404");
         }
     }
 
@@ -108,15 +122,4 @@ public class ProfilepageController {
             }
         }
     }
-
-    /**
-     * Calls function in {@link UserService} to delete the user with the given id
-     * @param id id of to be deleted user
-     */
-    @DeleteMapping("/delete/{id}")
-    void deleteUser(@PathVariable Long id) {
-        this.userRepository.deleteById(id);
-    }
-
-
 }

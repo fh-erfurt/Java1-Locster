@@ -3,54 +3,48 @@
 <head th:replace="fragments/head"></head>
 
 <head>
-    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
+    <link th:href="@{/css/whoisonline.css}" rel="stylesheet"/>
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet"/>
 </head>
 <body>
-    <!-- navbar -->
-    <header th:replace="fragments/nav"></header>
+<!-- navbar -->
+<header th:replace="fragments/nav"></header>
 
-    <div class="container">
-        <div class="listWith6ChildContent">
-            <div class="list">
-                <ul>
-                    <li>
-                        <h2>Wer ist Online?</h2>
-                    </li>
-                    <li class="infos">
-                        <span class="name">Name:</span>
-                        <span class="age">Alter:</span>
-                        <span class="gender">Geschlecht:</span>
-                        <span class="relationship">Beziehungstatus:</span>
-                        <span class="region">Region:</span>
-                    </li>
-                    <li th:each="u: ${users}" class="infos">
-                        <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
-                        <span th:text="${u.getAge()}" class="age"></span>
-                        <span th:text="#{'labels.sex.'+${u.sex}}" class="gender"></span>
-                        <span th:text="#{'labels.relationshipStatus.'+${u.relationshipStatus}}" class="relationship"></span>
-                        <span th:text="${u.region}" class="region"></span>
-
+<div class="container">
+    <div class="listWith6ChildContent">
+        <div class="list">
+            <ul>
+                <li>
+                    <h2>Wer ist Online?</h2>
+                </li>
+                <li class="infos">
+                    <span class="name">Name:</span>
+                    <span class="age">Alter:</span>
+                    <span class="gender">Geschlecht:</span>
+                    <span class="relationship">Beziehungstatus:</span>
+                    <span class="region">Region:</span>
+                </li>
+                <li th:each="u: ${users}" class="infos">
+                    <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
+                    <span th:text="${u.getAge()}" class="age"></span>
+                    <span th:text="#{'labels.sex.'+${u.sex}}" class="gender"></span>
+                    <span th:text="#{'labels.relationshipStatus.'+${u.relationshipStatus}}" class="relationship"></span>
+                    <span th:text="${u.region}" class="region"></span>
+                    <div th:class="'onlinestatus-' + ${u.onlineStatus}"></div>
+                    <form th:action="@{/friendrequest/{userId}(userId=${u.id})}" th:method="put">
                         <span class="icon">
-                <img
-                        class="acceptFriendIcon"
-                        src="icons/accept.svg"
-                        alt="icon"
-                />
-              </span>
+                            <button type="submit">
+                                <img class="sendFriendRequestIcon" src="icons/accept.svg" alt="icon"/>
+                            </button>
+                            <!-- TODO ICON -->
+                        </span>
+                    </form>
+                </li>
 
-                        <span class="icon">
-                <img
-                        class="notAcceptFriendIcon"
-                        src="icons/accept.svg"
-                        alt="icon"
-                />
-              </span>
-                    </li>
+            </ul>
 
-                </ul>
-
-            </div>
         </div>
     </div>
+</div>
 </body>
 </html>

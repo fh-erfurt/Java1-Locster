@@ -66,10 +66,14 @@ public class UserService extends BaseService<User>
 
     public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {
         Optional<User> data = userRepository.findByEmailAddress(emailAddress);
-        if(data.isPresent()) {
-            return data.get();
-        }
+        if(data.isPresent()) return data.get();
         throw new UserNotFoundException("No user with this email address was found in the database!");
+    }
+
+    public User getUserById(Long id) throws UserNotFoundException {
+        Optional<User> data = userRepository.findById(id);
+        if(data.isPresent()) return data.get();
+        throw new UserNotFoundException("No user with this id was found in the database!");
     }
 
     public void deleteUser(String email) throws UserNotFoundException {
@@ -97,6 +101,8 @@ public class UserService extends BaseService<User>
         user.setRelationshipStatus(userDto.getRelationshipStatus());
         user.setEmailAddress(userDto.getEmailAddress());
         user.setRelationshipStatus(userDto.getRelationshipStatus());
+        user.setPersonalStatus(userDto.getPersonalStatus());
+        user.setOnlineStatus(userDto.getOnlineStatus());
 
         String password = userDto.getPassword();
         if(password != null && !password.isEmpty()) user.setPasswordHash(encoder.encode(password));

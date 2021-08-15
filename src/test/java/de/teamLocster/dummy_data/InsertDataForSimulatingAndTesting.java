@@ -21,6 +21,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -64,7 +65,7 @@ public class InsertDataForSimulatingAndTesting
                 Sex.MALE,
                 "pseudo path",
                 "Ich bin der Jakob",
-                "Spiderman ist nicht der einzige, der klebrige Hnde hat, wenn er im Netz war!",
+                "Spiderman ist nicht der einzige, der klebrige Hände hat, wenn er im Netz war!",
                 PrivacyStatus.PUBLIC,
                 OnlineStatus.ONLINE,
                 true
@@ -363,8 +364,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 "Hi schön hier dich hier zu sehen :)",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -372,8 +373,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("jakob@gensel.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 "Hab nen schönen Tag!",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -381,8 +382,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("jakob@gensel.de").get(),
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 "Lass mal nachher chatten lol",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -390,8 +391,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 "Immer wieder toll deine Seite zu besuchen!",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -399,8 +400,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 userRepository.findByEmailAddress("saskia@wohlers.de").get(),
                 "Immer wieder toll deine Seite zu besuchen!",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -408,8 +409,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 "Immer wieder toll deine Seite zu besuchen!",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -417,8 +418,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("jakob@gensel.de").get(),
                 userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 "Mega cooles Profilbild ^^",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -426,8 +427,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("jakob@gensel.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
                 "Mega cooles Profilbild ^^",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -435,8 +436,8 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 "Wir studieren ja das gleiche! Nice",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
@@ -444,12 +445,21 @@ public class InsertDataForSimulatingAndTesting
                 userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 userRepository.findByEmailAddress("saskia@wohlers.de").get(),
                 "Wir studieren ja das gleiche! Nice",
-                new Date(2021, 5, 20),
-                new Date(2021, 5, 21),
+                getDateOf(2021, 5, 20),
+                getDateOf(2021, 5, 21),
                 false
         );
 
-        GuestbookEntry[] testGuestbookEntries = {guestbookEntry1, guestbookEntry2, guestbookEntry3, guestbookEntry4, guestbookEntry5, guestbookEntry6, guestbookEntry7, guestbookEntry8, guestbookEntry9, guestbookEntry10};
+        GuestbookEntry guestbookEntry11 = new GuestbookEntry(
+                userRepository.findByEmailAddress("molham@al-khodari.de").get(),
+                userRepository.findByEmailAddress("jakob@gensel.de").get(),
+                "Gott, sieht dein Bild scheiße aus! (hab das gleiche)",
+                getDateOf(2021, Calendar.JULY, 20),
+                getDateOf(2021, Calendar.AUGUST, 14),
+                true
+        );
+
+        GuestbookEntry[] testGuestbookEntries = {guestbookEntry1, guestbookEntry2, guestbookEntry3, guestbookEntry4, guestbookEntry5, guestbookEntry6, guestbookEntry7, guestbookEntry8, guestbookEntry9, guestbookEntry10, guestbookEntry11};
         for (GuestbookEntry testGuestbookEntry : testGuestbookEntries) {
             guestbookEntryRepository.save(testGuestbookEntry);
         }
@@ -645,5 +655,9 @@ public class InsertDataForSimulatingAndTesting
             messageRepository.save(testMessage);
         }
 
+    }
+
+    Date getDateOf(int year, int month, int date) {
+        return new Date(year - 1900, month, date);
     }
 }

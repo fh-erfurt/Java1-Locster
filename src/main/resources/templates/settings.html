@@ -48,7 +48,8 @@
 
             <div class="group">
                 <select th:field="*{sex}" class="userSelect">
-                    <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}" th:value="${sexOpt}" th:text="#{'labels.sex.'+${sexOpt}}"></option>
+                    <option th:each="sexOpt : ${T(de.teamLocster.enums.Sex).values()}" th:value="${sexOpt}"
+                            th:text="#{'labels.sex.'+${sexOpt}}"></option>
                 </select>
                 <span class="highlight"></span>
                 <span class="bar"></span>
@@ -68,7 +69,9 @@
             <div class="group">
 
                 <select th:field="*{relationshipStatus}" class="userSelect">
-                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}" th:value="${relationshipStatusOpt}" th:text="#{'labels.relationshipStatus.'+${relationshipStatusOpt}}"></option>
+                    <option th:each="relationshipStatusOpt : ${T(de.teamLocster.enums.RelationshipStatus).values()}"
+                            th:value="${relationshipStatusOpt}"
+                            th:text="#{'labels.relationshipStatus.'+${relationshipStatusOpt}}"></option>
                 </select>
                 <span class="highlight"></span>
                 <span class="bar"></span>
@@ -86,8 +89,6 @@
 
             </div>
 
-            <!-- TODO trennung zwischen persönlichen und account daten -->
-
             <div class="group">
 
                 <input type="email" th:field="*{emailAddress}">
@@ -95,6 +96,29 @@
                 <span class="bar"></span>
                 <label th:for="emailAddress">Email-Adresse: </label>
                 <span th:errors="*{emailAddress}" class="alert alert-danger"></span>
+
+            </div>
+
+            <div class="group">
+
+                <input type="text" th:field="*{personalStatus}">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label th:for="personalStatus">persönlicher Status: </label>
+                <span th:errors="*{personalStatus}" class="alert alert-danger"></span>
+
+            </div>
+
+            <div class="group">
+
+                <select th:field="*{onlineStatus}" class="userSelect">
+                    <option th:each="onlineStatusOpt : ${T(de.teamLocster.enums.OnlineStatus).values()}"
+                            th:value="${onlineStatusOpt}"
+                            th:text="#{'labels.onlineStatus.'+${onlineStatusOpt}}"></option>
+                </select>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <span th:errors="*{onlineStatus}" class="alert alert-danger"></span>
 
             </div>
 
@@ -118,61 +142,59 @@
 
             </div>
 
-            <!--
-                <div class="box">
-                    <div class="privacy">
-                        <div class="title">
-                            <h3>Privatssphäre</h3>
-                        </div>
+            <div class="privacy">
+                <div class="title">
+                    <h3>Privatssphäre</h3>
+                </div>
 
-                        <div class="privacyBody">
+                <div class="privacyBody">
 
-                            <div class="selection">
-                                <img src="icons/lock_closed.png" alt="logo">
-                                <label for="privacy1">
-                                    Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
-                                    +Statistiken anschauen
-                                </label>
-                                <div class="checkbox">
-                                    <input type="radio" name="privacy" id="privacy1" value="#">
-                                </div>
-                            </div>
-
-                            <div class="selection">
-                                <img src="icons/lock_open.png" alt="logo">
-                                <label for="privacy2">
-                                    Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
-                                    +Statistiken anschauen
-                                </label>
-                                <div class="checkbox">
-                                    <input type="radio" name="privacy" id="privacy2" value="#">
-                                </div>
-                            </div>
-
-                            <div class="selection">
-                                <img src="icons/world.png" alt="logo">
-                                <label for="privacy3">
-                                    Jeder darf mir schreiben (Gästebuch und Chat) <br>
-                                    +Statistiken anschauen
-                                </label>
-                                <div class="checkbox">
-                                    <input type="radio" name="privacy" id="privacy3" value="#">
-                                </div>
-                            </div>
-
+                    <div class="selection">
+                        <img src="icons/lock_closed.png" alt="logo">
+                        <label for="privacy1">
+                            Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
+                            +Statistiken anschauen
+                        </label>
+                        <div class="checkbox">
+                            <input type="radio" name="privacy" id="privacy1" value="#">
                         </div>
                     </div>
 
-            -->
-            <div class="buttons">
-                <div class="submit">
-                    <button class="submitBtn"><i class="far fa-check-circle"></i> Speichern</button>
+                    <div class="selection">
+                        <img src="icons/lock_open.png" alt="logo">
+                        <label for="privacy2">
+                            Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
+                            +Statistiken anschauen
+                        </label>
+                        <div class="checkbox">
+                            <input type="radio" name="privacy" id="privacy2" value="#">
+                        </div>
+                    </div>
+
+                    <div class="selection">
+                        <img src="icons/world.png" alt="logo">
+                        <label for="privacy3">
+                            Jeder darf mir schreiben (Gästebuch und Chat) <br>
+                            +Statistiken anschauen
+                        </label>
+                        <div class="checkbox">
+                            <input type="radio" name="privacy" value="#" id="privacy3">
+                        </div>
+                    </div>
                 </div>
             </div>
+
+                <div class="buttons">
+                    <div class="submit">
+                        <button class="submitBtn"><i class="far fa-check-circle"></i> Speichern</button>
+                    </div>
+                </div>
         </form>
-        <form action="#" th:action="@{/delete}" method="post" >
-            <div class="delete">
-                <button class="profileDeleteBtn submitBtn"><i class="fas fa-trash-alt"></i> Profile löschen</button>
+        <form action="#" th:action="@{/delete}" method="post">
+            <div class="buttons">
+                <div class="delete">
+                    <button class="profileDeleteBtn submitBtn"><i class="fas fa-trash-alt"></i> Profile löschen</button>
+                </div>
             </div>
         </form>
     </div>

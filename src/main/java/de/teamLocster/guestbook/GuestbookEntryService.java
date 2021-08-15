@@ -1,9 +1,11 @@
 package de.teamLocster.guestbook;
 
 import de.teamLocster.core.BaseService;
+import de.teamLocster.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 /**
  * @author
@@ -18,5 +20,13 @@ public class GuestbookEntryService extends BaseService<GuestbookEntry>
     @Autowired
     GuestbookEntryService(GuestbookEntryRepository guestbookEntryRepository) {
         this.guestbookEntryRepository = guestbookEntryRepository;
+    }
+
+    public List<GuestbookEntry> getReceivedGuestbookEntriesOfUser(User user) {
+        return guestbookEntryRepository.findByUserId(user.getId());
+    }
+
+    public List<GuestbookEntry> getCreatedGuestbookEntriesOfUser(User user) {
+        return guestbookEntryRepository.findByCreatorId(user.getId());
     }
 }
