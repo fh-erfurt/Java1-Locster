@@ -6,10 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-
+/**
+ * @author Jakob Gensel
+ * @version 1.0
+ */
 @Controller
 public class LoginController {
 
+    /**
+     * Calls the login page
+     * Login is the start page
+     * You can log in or go to {@link SignupController}
+     * @param model
+     * @return view
+     */
     @GetMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     public ModelAndView getLoginForm(Model model)
