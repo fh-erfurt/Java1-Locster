@@ -15,7 +15,7 @@
 
 <!-- Homepage -->
 
-<div class="container" th:object="${loggedInUser}">
+<div class="container" th:object="${profileUser}">
     <div class="box profile" id="profileInfoBox">
         <div class="profile-info-wrapper">
             <div class="pic">
@@ -48,7 +48,7 @@
                                 <p th:text="*{occupation}"></p>
                             </div>
                         </div>
-                        <div class="icon-edit-content">
+                        <div th:if="${myProfile}" class="icon-edit-content">
                             <a href="/settings">
                                 <img src="/icons/pen.png" alt="pen"/>
                             </a>
@@ -61,7 +61,7 @@
 
     <div class="box status" id="status" title="Profiltext bearbeiten">
         <p class="status" th:text="*{profileText}"></p>
-        <div class="icon-edit-content" onclick = "displayprofileEdit()">
+        <div th:if="${myProfile}" class="icon-edit-content" onclick = "displayprofileEdit()">
             <img src="/icons/pen.png" alt="pen"/>
         </div>
     </div>
@@ -111,17 +111,13 @@
                     </p>
                 </div>
             </div>
-            <div class="post">
+            <div th:each="entry: ${guestbookEntries}" class="post">
                 <div class="sender">
-                    <p class="">Crab Mommy schrieb dir am 01.01.1991:</p>
+                    <p th:text="${entry.creator.firstName} + ' ' + ${entry.creator.lastName} + ' schrieb dir am ' + ${#dates.format(entry.sentAt, 'dd. MMMMMMMMMMMM yyyy')} + ':'"></p>
                 </div>
                 <div class="message">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                        perferendis voluptatem, enim blanditiis recusandae molestiae
-                        earum sunt, consectetur repellat rem distinctio iure neque
-                        quibusdam fugit, est facilis doloribus. Nulla, culpa.
-                    </p>
+                    <p th:text="${entry.content}"></p>
+                    <p th:if="${entry.edited}" th:text="'(bearbeitet am: ' + ${#dates.format(entry.editedAt, 'dd. MMMMMMMMMMMM yyyy')} + ')'" style="font-size: smaller"></p>
                 </div>
             </div>
         </div>
@@ -132,7 +128,7 @@
         </div>
     </div>
 
-    <div class="box guestbook">
+    <div th:if="${myProfile}" class="box guestbook">
         <div class="guestbook">
             <h2>Meine Gästebucheinträge</h2>
 
