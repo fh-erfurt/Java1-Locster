@@ -143,7 +143,7 @@ public class SettingsController {
 
      */
 
-    @DeleteMapping("settings")
+    @PostMapping("delete")
     public String deleteUser(@ModelAttribute User user,
                                    RedirectAttributes redirectAttributes,
                                    Authentication authentication) throws UserNotFoundException {
