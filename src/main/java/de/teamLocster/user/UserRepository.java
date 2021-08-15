@@ -11,7 +11,7 @@ public interface UserRepository extends BaseRepository<User>
 {
     List<User> findByIsOnlineTrue();
 
-    List<User> findByIsOnlineTrueAndOnlineStatusNot(OnlineStatus onlineStatus);
+    List<User> findByIsOnlineTrueAndOnlineStatus(OnlineStatus onlineStatus);
 
     Optional<User> findByEmailAddress(String emailAddress);
 

@@ -12,6 +12,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 //@Table?????
 @Entity
@@ -48,4 +49,8 @@ public class User extends BaseEntity
     @Enumerated(EnumType.ORDINAL)
     private OnlineStatus onlineStatus;
     Boolean isOnline;
+
+    public int getAge() {
+        return LocalDate.now().minusDays(birthDay.toEpochDay()).getYear() - 1970;
+    }
 }

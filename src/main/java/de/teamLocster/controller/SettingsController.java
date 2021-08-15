@@ -16,6 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class SettingsController {
@@ -72,6 +74,7 @@ public class SettingsController {
         }
     }
 
+    /*
     @PutMapping(path = "userId")
     public void updateUserInSetting(
             @PathVariable("userId") Long userId,
@@ -79,7 +82,9 @@ public class SettingsController {
             @RequestParam(required = false) String password) throws UserNotFoundException {
         userService.updateUserInSetting(userId, email, password);
     }
+     */
 
+    /*
     @GetMapping("/updateUserInSetting")
     public String updateUserInSetting(Model model, RedirectAttributes redirectAttributes, Authentication authentication) {
 
@@ -94,6 +99,9 @@ public class SettingsController {
         }
     }
 
+     */
+
+    /*
     @PostMapping("/saveUserInSetting")
     public ModelAndView saveUserInSetting(@ModelAttribute("updateUserInSetting") User updateUser,
                                           RedirectAttributes redirectAttributes,
@@ -113,8 +121,46 @@ public class SettingsController {
         }
     }
 
-    @DeleteMapping(path = "userId")
+     */
+
+    /*
     public void deleteUserInSetting(@PathVariable("userId") Long userId) throws UserNotFoundException {
         userService.deleteUser(userId);
+*/
+
+    /*
+    @DeleteMapping("/user/{id}")
+    public Map<String, Boolean> deleteUser(
+            @PathVariable(value = "id") Long userId) throws Exception {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new UserNotFoundException("User not found on :: "+ userId));
+
+        userRepository.delete(user);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
+    }
+
+     */
+
+    @PostMapping("delete")
+    public String deleteUser(@ModelAttribute User user,
+                                   RedirectAttributes redirectAttributes,
+                                   Authentication authentication) throws UserNotFoundException {
+
+            String email = authentication.getName();
+            try
+            {
+                userService.deleteUser(email);
+                return "redirect:/login";
+            }
+            catch (UserNotFoundException e1)
+            {
+                redirectAttributes.addFlashAttribute("message", "USER NOT FOUND");
+                return "redirect:/";
+            }
+
     }
 }
+
+
