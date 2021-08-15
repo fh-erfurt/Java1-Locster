@@ -16,7 +16,7 @@ public class WhoIsOnlineController {
     @GetMapping("/whoisonline")
     public ModelAndView getWhoisonline(Model model) {
         model.addAttribute("title", "Locster.de.Who_Is_Online");
-        model.addAttribute("user", userService.whoIsOnlinePublic());
+        model.addAttribute("users", userService.whoIsOnline());
         return new ModelAndView("whoisonline");
     }
 }

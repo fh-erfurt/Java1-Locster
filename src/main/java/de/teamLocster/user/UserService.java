@@ -26,8 +26,7 @@ public class UserService extends BaseService<User>
     PasswordEncoder encoder = new BCryptPasswordEncoder();
 
     // TODO return User?
-    public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException
-    {
+    public void registerNewUser(SignupUser userDto) throws UserAlreadyExistException {
         if (userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
         }
@@ -58,16 +57,7 @@ public class UserService extends BaseService<User>
     }
 
     public List<User> whoIsOnline() {
-        // return userRepository.findByIsOnlineTrue().stream().filter(u -> !u.getOnlineStatus().equals(OnlineStatus.INVISIBLE)).collect(Collectors.toList());
-        return userRepository.findByIsOnlineTrueAndOnlineStatusNot(OnlineStatus.INVISIBLE);
-    }
-
-    public List<PublicUser> whoIsOnlinePublic() {
-        List<PublicUser> onlineUsers = new ArrayList<>();
-        for(User user : userRepository.findByIsOnlineTrue()) {
-            onlineUsers.add(new PublicUser(user));
-        }
-        return onlineUsers;
+        return userRepository.findByIsOnlineTrueAndOnlineStatus(OnlineStatus.ONLINE);
     }
 
     public User getUserByEmailAddress(String emailAddress) throws UserNotFoundException {
@@ -121,17 +111,37 @@ public class UserService extends BaseService<User>
         user.setOccupation(userDto.getOccupation());
         user.setRelationshipStatus(userDto.getRelationshipStatus());
         user.setEmailAddress(userDto.getEmailAddress());
-        user.setPasswordHash(encoder.encode(userDto.getPassword()));
+        user.setRelationshipStatus(userDto.getRelationshipStatus());
+
+        String password = userDto.getPassword();
+        if(!password.isEmpty()) user.setPasswordHash(encoder.encode(password));
 
         userRepository.save(user);
     }
 
+    public void login(String email) throws UserNotFoundException {
+        User user = getUserByEmailAddress(email);
+        user.setIsOnline(true);
+        userRepository.save(user);
+    }
+
+    public void logout(String email) {
+        try
+        {
+            User user = getUserByEmailAddress(email);
+            user.setIsOnline(false);
+            userRepository.save(user);
+        }
+        catch (UserNotFoundException unfEx)
+        {
+            // TODO handling when logging out user doesn't exist
+        }
+    }
+    
     public void updateProfileText(String userEmail, ProfileTextUser userDto) throws UserNotFoundException, UserAlreadyExistException {
 
         User user = getUserByEmailAddress(userEmail);
         user.setProfileText(userDto.getProfileText());
         userRepository.save(user);
-
-
     }
 }
