@@ -118,60 +118,62 @@
 
             </div>
 
-<!--
-    <div class="box">
-        <div class="privacy">
-            <div class="title">
-                <h3>Privatssphäre</h3>
+            <!--
+                <div class="box">
+                    <div class="privacy">
+                        <div class="title">
+                            <h3>Privatssphäre</h3>
+                        </div>
+
+                        <div class="privacyBody">
+
+                            <div class="selection">
+                                <img src="icons/lock_closed.png" alt="logo">
+                                <label for="privacy1">
+                                    Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
+                                    +Statistiken anschauen
+                                </label>
+                                <div class="checkbox">
+                                    <input type="radio" name="privacy" id="privacy1" value="#">
+                                </div>
+                            </div>
+
+                            <div class="selection">
+                                <img src="icons/lock_open.png" alt="logo">
+                                <label for="privacy2">
+                                    Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
+                                    +Statistiken anschauen
+                                </label>
+                                <div class="checkbox">
+                                    <input type="radio" name="privacy" id="privacy2" value="#">
+                                </div>
+                            </div>
+
+                            <div class="selection">
+                                <img src="icons/world.png" alt="logo">
+                                <label for="privacy3">
+                                    Jeder darf mir schreiben (Gästebuch und Chat) <br>
+                                    +Statistiken anschauen
+                                </label>
+                                <div class="checkbox">
+                                    <input type="radio" name="privacy" id="privacy3" value="#">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+            -->
+            <div class="buttons">
+                <div class="submit">
+                    <button class="submitBtn"><i class="far fa-check-circle"></i> Speichern</button>
+                </div>
             </div>
-
-            <div class="privacyBody">
-
-                <div class="selection">
-                    <img src="icons/lock_closed.png" alt="logo">
-                    <label for="privacy1">
-                        Nur Freunde dürfen mir schreiben (Gästebuch und Chat) <br>
-                        +Statistiken anschauen
-                    </label>
-                    <div class="checkbox">
-                        <input type="radio" name="privacy" id="privacy1" value="#">
-                    </div>
-                </div>
-
-                <div class="selection">
-                    <img src="icons/lock_open.png" alt="logo">
-                    <label for="privacy2">
-                        Freundes Freunde dürfen mir schreiben (Gästebuch und Chat)<br>
-                        +Statistiken anschauen
-                    </label>
-                    <div class="checkbox">
-                        <input type="radio" name="privacy" id="privacy2" value="#">
-                    </div>
-                </div>
-
-                <div class="selection">
-                    <img src="icons/world.png" alt="logo">
-                    <label for="privacy3">
-                        Jeder darf mir schreiben (Gästebuch und Chat) <br>
-                        +Statistiken anschauen
-                    </label>
-                    <div class="checkbox">
-                        <input type="radio" name="privacy" id="privacy3" value="#">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
--->
-        <div class="buttons">
+        </form>
+        <form action="#" th:action="@{/delete}" method="post" >
             <div class="delete">
                 <button class="profileDeleteBtn submitBtn"><i class="fas fa-trash-alt"></i> Profile löschen</button>
             </div>
-            <div class="submit">
-                <button class="submitBtn"><i class="far fa-check-circle"></i> Speichern</button>
-            </div>
-        </div>
         </form>
     </div>
 </div>
