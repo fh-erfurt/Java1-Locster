@@ -406,7 +406,7 @@ public class InsertDataForSimulatingAndTesting
 
         GuestbookEntry guestbookEntry6 = new GuestbookEntry(
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
-                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 "Immer wieder toll deine Seite zu besuchen!",
                 new Date(2021, 5, 20),
                 new Date(2021, 5, 21),
@@ -415,7 +415,7 @@ public class InsertDataForSimulatingAndTesting
 
         GuestbookEntry guestbookEntry7 = new GuestbookEntry(
                 userRepository.findByEmailAddress("jakob@gensel.de").get(),
-                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 "Mega cooles Profilbild ^^",
                 new Date(2021, 5, 20),
                 new Date(2021, 5, 21),
@@ -432,7 +432,7 @@ public class InsertDataForSimulatingAndTesting
         );
 
         GuestbookEntry guestbookEntry9 = new GuestbookEntry(
-                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 "Wir studieren ja das gleiche! Nice",
                 new Date(2021, 5, 20),
@@ -441,7 +441,7 @@ public class InsertDataForSimulatingAndTesting
         );
 
         GuestbookEntry guestbookEntry10 = new GuestbookEntry(
-                userRepository.findByEmailAddress("molham@gabel.de").get(),
+                userRepository.findByEmailAddress("molham@al-khodari.de").get(),
                 userRepository.findByEmailAddress("saskia@wohlers.de").get(),
                 "Wir studieren ja das gleiche! Nice",
                 new Date(2021, 5, 20),

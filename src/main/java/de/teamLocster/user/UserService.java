@@ -137,4 +137,11 @@ public class UserService extends BaseService<User>
             // TODO handling when logging out user doesn't exist
         }
     }
+    
+    public void updateProfileText(String userEmail, ProfileTextUser userDto) throws UserNotFoundException, UserAlreadyExistException {
+
+        User user = getUserByEmailAddress(userEmail);
+        user.setProfileText(userDto.getProfileText());
+        userRepository.save(user);
+    }
 }

@@ -68,10 +68,39 @@
         </div>
     </div>
 
-    <div class="box status">
+    <div class="box status" id="status" title="Profiltext bearbeiten">
         <p class="status" th:text="*{profileText}"></p>
-        <div class="icon-edit-content">
+        <div class="icon-edit-content" onclick = "displayprofileEdit()">
             <img src="icons/pen.png" alt="pen"/>
+        </div>
+    </div>
+
+    <div class="profiltextEdit" id="profiltextEdit">
+        <div class="box">
+            <div class="title">
+                <h2> Profiltext bearbeiten </h2>
+            </div>
+            <form action="#" th:action="@{/profilepage}" method="post">
+                <div class="inputs">
+                    <textarea type="text" th:field="*{profileText}" placeholder="Deine Profiltext" autofocus="autofocus"
+                              rows="8" cols="75" maxlength="75"></textarea>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <span th:errors="*{profileText}" class="alert alert-danger"></span>
+                </div>
+                <div class="buttons">
+                    <div class="submit">
+                        <button type="button" class="submitBtn" onclick="displayprofileInfo()"><i class="fas fa-trash-alt"></i>
+                            Abbrechen
+                        </button>
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="submitBtn" onclick="displayprofileInfo()"><i class="far fa-check-circle"></i>
+                            Speichern
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 

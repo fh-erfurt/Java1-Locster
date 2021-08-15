@@ -1,6 +1,36 @@
 /* profileInfo & profileEdit */
-#profileEdit {
+.profiltextEdit {
   display: none;
+}
+
+.profiltextEdit .title {
+  padding: 20px;
+}
+
+.profiltextEdit form input {
+  font-size: 14px;
+  padding: 5px;
+  display: block;
+  width: 600px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px;
+  padding-left: 15px;
+
+}
+
+.submitBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 5px;
 }
 
 .editFields form {
@@ -167,6 +197,7 @@
 .icon-edit-content {
   align-self: flex-end;
   margin: 0 15px 10px 0;
+  cursor: pointer;
 }
 
 .icon-edit-content img {
