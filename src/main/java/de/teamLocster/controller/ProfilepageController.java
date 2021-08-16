@@ -3,9 +3,9 @@ import de.teamLocster.actions.ActionService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.guestbook.GuestbookEntryService;
-import de.teamLocster.guestbook.UserPost;
 import de.teamLocster.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -83,21 +83,23 @@ public class ProfilepageController {
         }
     }
 
-    /* das funktioniert nicht
+
     @PostMapping("/guesbookentry/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, @ModelAttribute @Valid UserPost userPost, Model model) {
+    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpRequest request) {
         try
         {
-            User visitingUser = userService.getUserByEmailAddress(authentication.getName());
+            User postingUser = userService.getUserByEmailAddress(authentication.getName());
             User visitedUser = userService.getUserById(id);
-            String content = userPost.getContent();
+            String content = request.getMethodValue();
 
-            model.addAttribute("post", guestbookEntryService.getReceivedGuestbookEntriesOfUser(visitedUser));
+            System.out.println(content);
 
 
-
+            /*
             userService.sendPost(userService.getUserByEmailAddress(authentication.getName()), userService.getUserById(id), content);
+            */
+
             return new ModelAndView(String.format("redirect:/profilepage/%d", id));
         }
         catch (UserNotFoundException unfEx) {
@@ -105,8 +107,6 @@ public class ProfilepageController {
             return new ModelAndView("redirect:/profilepage");
         }
     }
-
-     */
 
 
     /**
