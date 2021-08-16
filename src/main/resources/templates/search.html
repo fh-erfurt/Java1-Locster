@@ -31,22 +31,7 @@
                     <span th:text="${u.region}" class="region"></span>
                     <div th:if="${u.isOnline && u.onlineStatus != T(de.teamLocster.enums.OnlineStatus).INVISIBLE}" th:class="'onlinestatus-' + ${u.onlineStatus}"></div>
                     <div th:if="${!u.isOnline || u.onlineStatus == T(de.teamLocster.enums.OnlineStatus).INVISIBLE}" th:class="onlinestatus-OFFLINE"></div>
-
-                    <span class="icon">
-                <img
-                        class="acceptFriendIcon"
-                        src="icons/accept.svg"
-                        alt="icon"
-                />
-              </span>
-
-                    <span class="icon">
-                <img
-                        class="notAcceptFriendIcon"
-                        src="icons/accept.svg"
-                        alt="icon"
-                />
-              </span>
+                    <a th:href="@{/profilepage/{userId}(userId=${u.id})}">zum Profil</a>
                 </li>
 
             </ul>

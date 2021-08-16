@@ -45,7 +45,8 @@ public class ProfilepageController {
             User user = userService.getUserByEmailAddress(authentication.getName());
             model.addAttribute("profileUser", user);
             model.addAttribute("myProfile", true);
-            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+            model.addAttribute("receivedGuestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+            model.addAttribute("createdGuestbookEntries", guestbookEntryService.getCreatedGuestbookEntriesOfUser(user));
 
             return new ModelAndView("profilepage");
         }
@@ -65,12 +66,13 @@ public class ProfilepageController {
         try {
             User visitingUser = userService.getUserByEmailAddress(authentication.getName());
             User visitedUser = userService.getUserById(id);
+            if(visitingUser.getId().equals(id)) return new ModelAndView("redirect:/profilepage");
             model.addAttribute("title", String.format("Profil von %s %s", visitedUser.getFirstName(), visitedUser.getLastName()));
             model.addAttribute("profileUser", visitedUser);
             model.addAttribute("myProfile", false);
             model.addAttribute("isFriend", actionService.isFriend(visitingUser , visitedUser));
             model.addAttribute("openRequest", actionService.getReceivedFriendRequests(visitingUser).contains(visitedUser));
-            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(visitedUser));
+            model.addAttribute("receivedGuestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(visitedUser));
 
             return new ModelAndView("profilepage");
         }
