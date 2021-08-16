@@ -19,7 +19,7 @@
     <div class="box profile" id="profileInfoBox">
         <div class="profile-info-wrapper">
             <div class="pic">
-                <img class="profile_pic" src="/images/profilePic.png" alt="profile_pic"/>
+                <img class="profile_pic" th:src="*{profilePicture}" alt="profile_pic"/>
             </div>
             <div class="info">
                 <h2 class="profile_name" th:text="*{firstName + ' ' + lastName}"></h2>

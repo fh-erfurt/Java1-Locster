@@ -88,7 +88,7 @@ public class UserTest {
                 "Beispiel",
                 rs,
                 Sex.FEMALE,
-                "pseudo path",
+                "images/profilePic.png",
                 "Ich bin die Monika",
                 "Na moin ihr Gesichter!",
                 PrivacyStatus.PUBLIC,
