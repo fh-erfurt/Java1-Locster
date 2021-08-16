@@ -1,9 +1,12 @@
 package de.teamLocster.user;
 
+import de.teamLocster.actions.Action;
 import de.teamLocster.actions.ActionRepository;
 import de.teamLocster.core.BaseService;
+import de.teamLocster.core.errors.NoFriendRequestPresentException;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
+import de.teamLocster.enums.ActionType;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.RelationshipStatus;
@@ -159,4 +162,16 @@ public class UserService extends BaseService<User>
         user.setProfileText(userDto.getProfileText());
         userRepository.save(user);
     }
+
+    /* das funktioniert nicht
+    public void sendPost(User actor, User affected, String content) {
+        try {
+            guestbookEntryRepository.save(new GuestbookEntry(content, actor, affected));
+            return;
+        }
+        catch (UserNotFoundException ignored) {}
+    }
+
+     */
+
 }

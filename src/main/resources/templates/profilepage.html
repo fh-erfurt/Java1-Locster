@@ -111,6 +111,28 @@
         </div>
     </div>
 
+    <!--new post-->
+
+    <div th:if="${!myProfile}" class="box guestbook">
+        <div class="guestbook">
+            <h2>neue Beitrag:</h2>
+            <form th:action="@{/guesbookentry/{userId}(userId=*{id})}" th:method="post">
+                <div class="new post">
+                    <div class="message">
+                        <textarea placeholder="was geht up!"
+                                  autofocus="autofocus"
+                                  rows="8" cols="75" maxlength="255" ></textarea>
+                    </div>
+                    <div class="submit">
+                        <button class="submitBtn"><i class="far fa-check-circle"></i> Senden</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--end new post-->
+
     <div class="box guestbook">
         <div class="guestbook">
             <h2>Gästebuch</h2>
@@ -145,11 +167,13 @@
                     <p th:text="${createdEntry.content}"></p>
                     <p th:if="${createdEntry.edited}"
                        th:text="'(bearbeitet am: ' + ${#dates.format(createdEntry.editedAt, 'dd. MMMMMMMMMMMM yyyy')} + ')'"
-                       style="font-size: smaller"></p>
+                       style="font-size: smaller">
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <script type="text/javascript" src="/js/profilePage.js"></script>
