@@ -95,20 +95,16 @@ public class ProfilepageController {
 
             String content = request.getParameter("content");
 
-            System.out.println(content);
-
-
             guestbookEntryService.sendPost(postingUser, visitedUser, content);
 
 
-            return new ModelAndView("redirect:/profilepage/" + id);
+            return new ModelAndView("redirect:/profilepage");
         }
         catch (UserNotFoundException unfEx) {
             System.out.println(unfEx.getMessage());
-            return new ModelAndView("redirect:/profilepage");
+            return new ModelAndView("profilepage");
         }
     }
-
 
     /**
      * Calls function in {@link UserService} to update the profile text of user
