@@ -80,12 +80,13 @@ public class UserService extends BaseService<User>
         throw new UserNotFoundException("No user with this id was found in the database!");
     }
 
-    public void deleteUser(String email) throws UserNotFoundException {
+    public void deleteUser(String email) throws UserNotFoundException, IOException {
         boolean exists = userRepository.findByEmailAddress(email).isPresent();
         if(!exists) {
             throw new UserNotFoundException("User with email " + email + " does not exists");
         }
         User user = getUserByEmailAddress(email);
+        FileUploadUtilities.deleteFile(user.getProfilePicture());
         userRepository.deleteById(user.getId());
     }
 

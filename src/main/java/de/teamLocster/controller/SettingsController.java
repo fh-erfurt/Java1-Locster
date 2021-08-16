@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,7 +106,7 @@ public class SettingsController {
     @PostMapping("delete")
     public String deleteUser(@ModelAttribute User user,
                                    RedirectAttributes redirectAttributes,
-                                   Authentication authentication) throws UserNotFoundException {
+                                   Authentication authentication) throws UserNotFoundException, IOException {
 
             String email = authentication.getName();
             try

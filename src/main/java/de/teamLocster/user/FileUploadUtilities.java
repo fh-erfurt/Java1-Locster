@@ -30,8 +30,12 @@ public class FileUploadUtilities {
         Path uploadPath = Paths.get("profile-picture");
 
         if(!Files.exists(uploadPath)) return;
-        Path filePath = uploadPath.resolve(fileName);
-        Files.deleteIfExists(filePath);
+        try {
+            Path filePath = uploadPath.resolve(fileName);
+            Files.deleteIfExists(filePath);
+        } catch (IOException ioException) {
+            throw new IOException("Could not save image file: " + fileName, ioException);
+        }
     }
 
 }
