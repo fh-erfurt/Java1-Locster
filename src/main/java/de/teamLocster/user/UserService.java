@@ -1,11 +1,14 @@
 package de.teamLocster.user;
 
+import de.teamLocster.actions.ActionRepository;
 import de.teamLocster.core.BaseService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.RelationshipStatus;
+import de.teamLocster.guestbook.GuestbookEntry;
+import de.teamLocster.guestbook.GuestbookEntryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,6 +28,10 @@ public class UserService extends BaseService<User>
 {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    GuestbookEntryRepository guestbookEntryRepository;
+    @Autowired
+    ActionRepository actionRepository;
 
     PasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -86,6 +93,11 @@ public class UserService extends BaseService<User>
             throw new UserNotFoundException("User with email " + email + " does not exists");
         }
         User user = getUserByEmailAddress(email);
+        guestbookEntryRepository.deleteAll(guestbookEntryRepository.findByUserId(user.getId()));
+        guestbookEntryRepository.deleteAll(guestbookEntryRepository.findByCreatorId(user.getId()));
+        actionRepository.deleteAll(actionRepository.findByActorId(user.getId()));
+        actionRepository.deleteAll(actionRepository.findByAffectedId(user.getId()));
+
         FileUploadUtilities.deleteFile(user.getProfilePicture());
         userRepository.deleteById(user.getId());
     }
