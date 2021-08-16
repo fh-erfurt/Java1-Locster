@@ -97,8 +97,8 @@ public class UserService extends BaseService<User>
         guestbookEntryRepository.deleteAll(guestbookEntryRepository.findByCreatorId(user.getId()));
         actionRepository.deleteAll(actionRepository.findByActorId(user.getId()));
         actionRepository.deleteAll(actionRepository.findByAffectedId(user.getId()));
-
         FileUploadUtilities.deleteFile(user.getProfilePicture());
+
         userRepository.deleteById(user.getId());
     }
 
