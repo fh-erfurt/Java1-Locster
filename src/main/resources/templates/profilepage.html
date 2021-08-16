@@ -111,6 +111,28 @@
         </div>
     </div>
 
+    <!--new post-->
+
+    <div th:if="${!myProfile}" class="box guestbook">
+        <div class="guestbook">
+            <h2>neue Beitrag:</h2>
+            <form th:action="@{/guesbookentry/{userId}(userId=*{id})}" th:method="post">
+                <div class="new post">
+                    <div class="message">
+                        <textarea placeholder="was geht up!"
+                                  autofocus="autofocus"
+                                  rows="8" cols="75" maxlength="255" ></textarea>
+                    </div>
+                    <div class="submit">
+                        <button class="submitBtn"><i class="far fa-check-circle"></i> Senden</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--end new post-->
+
     <div class="box guestbook">
         <div class="guestbook">
             <h2>Gästebuch</h2>
@@ -156,6 +178,10 @@
                 </div>
                 <div class="message">
                     <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+                        perferendis voluptatem, enim blanditiis recusandae molestiae
+                        earum sunt, consectetur repellat rem distinctio iure neque
+                        quibusdam fugit, est facilis doloribus. Nulla, culpa.
                     </p>
                 </div>
             </div>
@@ -166,6 +192,7 @@
             </a>
         </div>
     </div>
+
 </div>
 
 <script type="text/javascript" src="/js/profilePage.js"></script>

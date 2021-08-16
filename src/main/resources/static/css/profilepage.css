@@ -86,8 +86,8 @@
 }
 
 .submit {
-  margin-top: 100px;
-  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .submit img {
@@ -235,4 +235,5 @@
 
 .message {
   padding: 5px;
+  display: grid;
 }
