@@ -19,7 +19,7 @@
     <div class="box profile" id="profileInfoBox">
         <div class="profile-info-wrapper">
             <div class="pic">
-                <img class="profile_pic" src="/images/profilePic.png" alt="profile_pic"/>
+                <img class="profile_pic" th:src="*{profilePicture}" alt="profile_pic"/>
             </div>
             <div class="info">
                 <h2 class="profile_name" th:text="*{firstName + ' ' + lastName}"></h2>
@@ -136,27 +136,14 @@
     <div class="box guestbook">
         <div class="guestbook">
             <h2>Gästebuch</h2>
-            <div class="post">
+            <div th:each="receivedEntry: ${receivedGuestbookEntries}" class="post">
                 <div class="sender">
-                    <p class="">Crab Mommy schrieb dir am 01.01.1991:</p>
+                    <p th:text="${receivedEntry.creator.firstName} + ' ' + ${receivedEntry.creator.lastName} + ' schrieb dir am ' + ${#dates.format(receivedEntry.sentAt, 'dd. MMMMMMMMMMMM yyyy')} + ':'"></p>
                 </div>
                 <div class="message">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                        perferendis voluptatem, enim blanditiis recusandae molestiae
-                        earum sunt, consectetur repellat rem distinctio iure neque
-                        quibusdam fugit, est facilis doloribus. Nulla, culpa.
-                    </p>
-                </div>
-            </div>
-            <div th:each="entry: ${guestbookEntries}" class="post">
-                <div class="sender">
-                    <p th:text="${entry.creator.firstName} + ' ' + ${entry.creator.lastName} + ' schrieb dir am ' + ${#dates.format(entry.sentAt, 'dd. MMMMMMMMMMMM yyyy')} + ':'"></p>
-                </div>
-                <div class="message">
-                    <p th:text="${entry.content}"></p>
-                    <p th:if="${entry.edited}"
-                       th:text="'(bearbeitet am: ' + ${#dates.format(entry.editedAt, 'dd. MMMMMMMMMMMM yyyy')} + ')'"
+                    <p th:text="${receivedEntry.content}"></p>
+                    <p th:if="${receivedEntry.edited}"
+                       th:text="'(bearbeitet am: ' + ${#dates.format(receivedEntry.editedAt, 'dd. MMMMMMMMMMMM yyyy')} + ')'"
                        style="font-size: smaller"></p>
                 </div>
             </div>
@@ -172,24 +159,18 @@
         <div class="guestbook">
             <h2>Meine Gästebucheinträge</h2>
 
-            <div class="post">
+            <div th:each="createdEntry: ${createdGuestbookEntries}" class="post">
                 <div class="sender">
-                    <p class="">Du schriebst Crab Kid am 01.01.1991:</p>
+                    <p th:text="${createdEntry.creator.firstName} + ' ' + ${createdEntry.creator.lastName} + ' schrieb dir am ' + ${#dates.format(createdEntry.sentAt, 'dd. MMMMMMMMMMMM yyyy')} + ':'"></p>
                 </div>
                 <div class="message">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-                        perferendis voluptatem, enim blanditiis recusandae molestiae
-                        earum sunt, consectetur repellat rem distinctio iure neque
-                        quibusdam fugit, est facilis doloribus. Nulla, culpa.
+                    <p th:text="${createdEntry.content}"></p>
+                    <p th:if="${createdEntry.edited}"
+                       th:text="'(bearbeitet am: ' + ${#dates.format(createdEntry.editedAt, 'dd. MMMMMMMMMMMM yyyy')} + ')'"
+                       style="font-size: smaller">
                     </p>
                 </div>
             </div>
-        </div>
-        <div class="icon-edit-content">
-            <a href="/settings">
-                <img src="/icons/pen.png" alt="pen"/>
-            </a>
         </div>
     </div>
 
