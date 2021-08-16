@@ -11,10 +11,14 @@ import de.teamLocster.guestbook.GuestbookEntry;
 import de.teamLocster.guestbook.GuestbookEntryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -47,7 +51,7 @@ public class UserService extends BaseService<User>
                     null,
                     RelationshipStatus.NOT_SPECIFIED,
                     userDto.getSex(),
-                    "pseudo/path",
+                    "images/profilePic.png",
                     "Apparently, this user prefers to keep an air of mystery about them.",
                     "Hey, I'm using Locster!",
                     PrivacyStatus.PRIVATE,
@@ -83,7 +87,7 @@ public class UserService extends BaseService<User>
         throw new UserNotFoundException("No user with this id was found in the database!");
     }
 
-    public void deleteUser(String email) throws UserNotFoundException {
+    public void deleteUser(String email) throws UserNotFoundException, IOException {
         boolean exists = userRepository.findByEmailAddress(email).isPresent();
         if(!exists) {
             throw new UserNotFoundException("User with email " + email + " does not exists");
@@ -93,11 +97,12 @@ public class UserService extends BaseService<User>
         guestbookEntryRepository.deleteAll(guestbookEntryRepository.findByCreatorId(user.getId()));
         actionRepository.deleteAll(actionRepository.findByActorId(user.getId()));
         actionRepository.deleteAll(actionRepository.findByAffectedId(user.getId()));
+        FileUploadUtilities.deleteFile(user.getProfilePicture());
 
         userRepository.deleteById(user.getId());
     }
 
-    public void updateUser(String userEmail, SettingsUser userDto) throws UserNotFoundException, UserAlreadyExistException {
+    public void updateUser(String userEmail, SettingsUser userDto, MultipartFile multipartFile) throws UserNotFoundException, UserAlreadyExistException {
 
         if (!userEmail.equals(userDto.getEmailAddress()) && userRepository.findByEmailAddress(userDto.getEmailAddress()).isPresent()) {
             throw new UserAlreadyExistException("There already exists an account with that email address: " + userDto.getEmailAddress());
@@ -118,6 +123,16 @@ public class UserService extends BaseService<User>
 
         String password = userDto.getPassword();
         if(password != null && !password.isEmpty()) user.setPasswordHash(encoder.encode(password));
+
+        if(!multipartFile.isEmpty()) {
+            try {
+                String filename = "picture-" + user.getId() + "." + StringUtils.getFilenameExtension(multipartFile.getOriginalFilename());
+                FileUploadUtilities.saveFile(filename, multipartFile);
+                user.setProfilePicture("/profile-picture/" + filename);
+            } catch(IOException ioException) {
+                //TODO Do whatever you want :P
+            }
+        }
 
         userRepository.save(user);
     }

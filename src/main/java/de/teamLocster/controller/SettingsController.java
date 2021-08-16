@@ -12,10 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,6 +66,7 @@ public class SettingsController {
      */
     @PostMapping("/settings")
     public String updateUser(@ModelAttribute @Valid SettingsUser userDto,
+                             @RequestParam("profilePicture") MultipartFile multipartFile,
                              Errors errors,
                              RedirectAttributes redirectAttributes,
                              Authentication authentication)
@@ -76,7 +79,7 @@ public class SettingsController {
             String oldEmail = authentication.getName();
             try
             {
-                userService.updateUser(oldEmail, userDto);
+                userService.updateUser(oldEmail, userDto, multipartFile);
                 return "redirect:/profilepage";
             }
             catch (UserNotFoundException e1)
@@ -103,7 +106,7 @@ public class SettingsController {
     @PostMapping("delete")
     public String deleteUser(@ModelAttribute User user,
                                    RedirectAttributes redirectAttributes,
-                                   Authentication authentication) throws UserNotFoundException {
+                                   Authentication authentication) throws UserNotFoundException, IOException {
 
             String email = authentication.getName();
             try
