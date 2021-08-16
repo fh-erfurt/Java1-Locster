@@ -116,7 +116,7 @@
     <div th:if="${!myProfile}" class="box guestbook">
         <div class="guestbook">
             <h2>neue Beitrag:</h2>
-            <form th:action="@{/guesbookentry/{userId}(userId=*{id})}"  th:method="post">
+            <form th:action="@{/guesbookentry/{userId}(userId=*{id})}" th:method="post">
                 <div class="new post">
                     <div class="message">
                         <textarea name="content" placeholder="was geht up!"

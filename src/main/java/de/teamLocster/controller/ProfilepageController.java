@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
@@ -86,21 +87,21 @@ public class ProfilepageController {
 
     @PostMapping("/guesbookentry/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpRequest request) {
+    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpServletRequest request) {
         try
         {
             User postingUser = userService.getUserByEmailAddress(authentication.getName());
             User visitedUser = userService.getUserById(id);
-            String content = request.getMethodValue();
+
+            String content = request.getParameter("content");
 
             System.out.println(content);
 
 
-            /*
-            userService.sendPost(userService.getUserByEmailAddress(authentication.getName()), userService.getUserById(id), content);
-            */
+            guestbookEntryService.sendPost(postingUser, visitedUser, content);
 
-            return new ModelAndView(String.format("redirect:/profilepage/%d", id));
+
+            return new ModelAndView("redirect:/profilepage/" + id);
         }
         catch (UserNotFoundException unfEx) {
             System.out.println(unfEx.getMessage());

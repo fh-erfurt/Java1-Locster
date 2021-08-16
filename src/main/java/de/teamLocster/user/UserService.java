@@ -1,20 +1,15 @@
 package de.teamLocster.user;
 
-import de.teamLocster.actions.Action;
 import de.teamLocster.actions.ActionRepository;
 import de.teamLocster.core.BaseService;
-import de.teamLocster.core.errors.NoFriendRequestPresentException;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
-import de.teamLocster.enums.ActionType;
 import de.teamLocster.enums.OnlineStatus;
 import de.teamLocster.enums.PrivacyStatus;
 import de.teamLocster.enums.RelationshipStatus;
-import de.teamLocster.guestbook.GuestbookEntry;
 import de.teamLocster.guestbook.GuestbookEntryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,7 +18,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -162,16 +158,5 @@ public class UserService extends BaseService<User>
         user.setProfileText(userDto.getProfileText());
         userRepository.save(user);
     }
-
-    /* das funktioniert nicht
-    public void sendPost(User actor, User affected, String content) {
-        try {
-            guestbookEntryRepository.save(new GuestbookEntry(content, actor, affected));
-            return;
-        }
-        catch (UserNotFoundException ignored) {}
-    }
-
-     */
 
 }
