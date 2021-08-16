@@ -21,7 +21,6 @@ public class Action extends BaseEntity
     private User actor;
     @ManyToOne(fetch = FetchType.LAZY)
     private User affected;
-    // @Column() hier können constraints rein
     @Enumerated(EnumType.ORDINAL)
     private ActionType actionType;
 }

@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head th:replace="fragments/head"></head>
+<head th:replace="fragments/head"></head>
 
-  <head>
-    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- navbar -->
-    <header th:replace="fragments/nav"></header>
+<head>
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- navbar -->
+<header th:replace="fragments/nav"></header>
 
-    <div class="container">
-      <div class="listWith6ChildContent">
+<div class="container">
+    <div class="listWith6ChildContent">
         <div class="list">
-          <ul>
-            <li class="header">
-              <h2>Freundschaftsanfragen (3)</h2>
-            </li>
-            <li class="infos">
-              <span class="name">Name:</span>
-              <span class="age">Alter:</span>
-              <span class="gender">Geschlecht:</span>
-              <span class="relationship">Beziehungstatus:</span>
-              <span class="region">Region:</span>
-            </li>
-            <li th:each="u: ${user}" class="infos">
-              <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
-              <span th:text="${u.birthDay}" class="age"></span>
-              <span th:text="${u.sex}" class="gender"></span>
-              <span th:text="${u.relationshipStatus}" class="relationship"></span>
-              <span th:text="${u.region}" class="region"></span>
-            </li>
-
-              <span class="icon">
-                <img
-                  class="notAcceptFriendIcon"
-                  src="icons/accept.svg"
-                  alt="icon"
-                />
-              </span>
-            </li>
-            </li>
-          </ul>
+            <ul>
+                <li class="header">
+                    <h2>Freundschaftsanfragen (3)</h2>
+                </li>
+                <li class="infos">
+                    <span class="name">Name:</span>
+                    <span class="age">Alter:</span>
+                    <span class="gender">Geschlecht:</span>
+                    <span class="relationship">Beziehungstatus:</span>
+                    <span class="region">Region:</span>
+                </li>
+                <li th:each="fr: ${friendRequests}" class="infos">
+                    <span th:text="${fr.firstName + ' ' + fr.lastName}" class="name"></span>
+                    <span th:text="${fr.getAge()}" class="age"></span>
+                    <span th:text="#{'labels.sex.'+${fr.sex}}" class="gender"></span>
+                    <span th:text="#{'labels.relationshipStatus.'+${fr.relationshipStatus}}"
+                          class="relationship"></span>
+                    <span th:text="${fr.region}" class="region"></span>
+                    <div th:if="${fr.isOnline && fr.onlineStatus != T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
+                         th:class="'onlinestatus-' + ${fr.onlineStatus}"></div>
+                    <div th:if="${!fr.isOnline || fr.onlineStatus == T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
+                         th:class="onlinestatus-OFFLINE"></div>
+                    <a th:href="@{/profilepage/{userId}(userId=${fr.id})}">zum Profil</a>
+                    <form th:action="@{/friendrequest/{userId}(userId=${fr.id})}" th:method="put">
+                        <span class="icon">
+                            <button type="submit">
+                                <img class="acceptFriendIcon" src="icons/accept.svg" alt="icon"/>
+                            </button>
+                        </span>
+                    </form>
+                </li>
+                </li>
+                </li>
+            </ul>
         </div>
-      </div>
-
-      <div class="contentFriend">
-        <div class="list">
-          <ul>
-            <li class="header">
-              <h2>Meine Freunde (179)</h2>
-              <input type="text" class="friendsSearchField" value="Suche nach einem bestimmten Freund!"/>
-            </li>
-            <li>
-              <span class="name">Name:</span>
-              <span class="FriendsSince">Freunde seit:</span>
-              <span class="icon">Freund entfernen</span>
-            </li>
-            <li>
-              <span class="name">Ali Aal</span>
-              <span class="FriendsSince">23.05.2005</span>
-              <span class="icon">
-                <img
-                  class="unfriendIcon"
-                  src="icons/unfriend.svg"
-                  alt="icon"
-                />
-              </span>
-              <span class="status">single</span>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </body>
+
+    <div class="contentFriend">
+        <div class="list">
+            <ul>
+                <li class="header">
+                    <h2>Meine Freunde (179)</h2>
+                </li>
+                <li>
+                    <span class="name">Name:</span>
+                    <span class="region">Region:</span>
+                    <span class="icon">Freund entfernen</span>
+                </li>
+                <li th:each="f: ${friends}" class="infos">
+                    <span th:text="${f.firstName + ' ' + f.lastName}" class="name"></span>
+                    <span th:text="${f.region}" class="region"></span>
+                    <form th:action="@{/removefriend/{userId}(userId=${f.id})}" th:method="post">
+                        <span class="icon">
+                            <button type="submit">
+                                <img class="unfriendIcon" src="icons/unfriend.svg" alt="icon"/>
+                            </button>
+                        </span>
+                    </form>
+                    <span th:text="#{'labels.relationshipStatus.'+${f.relationshipStatus}}" class="relationship"></span>
+                    <div th:if="${f.isOnline && f.onlineStatus != T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
+                         th:class="'onlinestatus-' + ${f.onlineStatus}"></div>
+                    <div th:if="${!f.isOnline || f.onlineStatus == T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
+                         th:class="onlinestatus-OFFLINE"></div>
+                    <a th:href="@{/profilepage/{userId}(userId=${f.id})}">zum Profil</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
 </html>

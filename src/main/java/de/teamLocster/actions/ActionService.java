@@ -2,6 +2,7 @@ package de.teamLocster.actions;
 
 import de.teamLocster.core.BaseService;
 import de.teamLocster.core.errors.NoFriendRequestPresentException;
+import de.teamLocster.core.errors.UsersAreNotFriendsException;
 import de.teamLocster.enums.ActionType;
 import de.teamLocster.user.User;
 import lombok.extern.slf4j.Slf4j;
@@ -52,8 +53,8 @@ public class ActionService extends BaseService<Action>
         Optional<Action> friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, affected.getId(), actor.getId());
         if (friendRequest.isPresent()) {
             actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
+            actionRepository.deleteById(friendRequest.get().getId());
             return;
-            // actionRepository.deleteById(friendRequest.get().getId()); // TODO sollen Anfragen nach Bestätigung gelöscht werden?
         }
         throw new NoFriendRequestPresentException("There was no friend request found from this User");
     }
@@ -69,6 +70,19 @@ public class ActionService extends BaseService<Action>
 
     public boolean isFriend(User user1, User user2) {
         return getFriends(user1).contains(user2);
+    }
+
+    private Optional<Action> getFriendshipAcknowledgementAction(Long actorId, Long affectedId) {
+        Optional<Action> data1 = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_ACKNOWLEDGEMENT, actorId, affectedId);
+        Optional<Action> data2 = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_ACKNOWLEDGEMENT, affectedId, actorId);
+        return data1.isPresent() ? data1 : data2;
+    }
+
+    public void removeFriend(User actor, User affected) throws UsersAreNotFriendsException {
+        Optional<Action> friendship = getFriendshipAcknowledgementAction(actor.getId(), affected.getId());
+        if(isFriend(actor, affected) && friendship.isPresent()) {
+            actionRepository.delete(friendship.get());
+        }
     }
 
     public Action blockUser(User actor, User affected) {
