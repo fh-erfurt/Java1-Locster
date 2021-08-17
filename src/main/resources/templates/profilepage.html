@@ -119,7 +119,7 @@
             <form th:action="@{/guesbookentry/{userId}(userId=*{id})}" th:method="post">
                 <div class="new post">
                     <div class="message">
-                        <textarea placeholder="was geht up!"
+                        <textarea name="content" placeholder="was geht up!"
                                   autofocus="autofocus"
                                   rows="8" cols="75" maxlength="255" ></textarea>
                     </div>

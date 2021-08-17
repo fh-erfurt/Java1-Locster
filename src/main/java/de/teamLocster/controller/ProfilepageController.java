@@ -3,9 +3,9 @@ import de.teamLocster.actions.ActionService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.guestbook.GuestbookEntryService;
-import de.teamLocster.guestbook.UserPost;
 import de.teamLocster.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
@@ -83,31 +84,26 @@ public class ProfilepageController {
         }
     }
 
-    /* das funktioniert nicht
+
     @PostMapping("/guesbookentry/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, @ModelAttribute @Valid UserPost userPost, Model model) {
+    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpServletRequest request) throws UserNotFoundException {
         try
         {
-            User visitingUser = userService.getUserByEmailAddress(authentication.getName());
+            User postingUser = userService.getUserByEmailAddress(authentication.getName());
             User visitedUser = userService.getUserById(id);
-            String content = userPost.getContent();
+            String content = request.getParameter("content");
 
-            model.addAttribute("post", guestbookEntryService.getReceivedGuestbookEntriesOfUser(visitedUser));
+            guestbookEntryService.sendPost(postingUser, visitedUser, content);
 
+            return new ModelAndView ("redirect:/profilepage/" + id);
 
-
-            userService.sendPost(userService.getUserByEmailAddress(authentication.getName()), userService.getUserById(id), content);
-            return new ModelAndView(String.format("redirect:/profilepage/%d", id));
         }
         catch (UserNotFoundException unfEx) {
             System.out.println(unfEx.getMessage());
-            return new ModelAndView("redirect:/profilepage");
+            return new ModelAndView ("redirect:/error/404");
+
         }
     }
-
-     */
-
 
     /**
      * Calls function in {@link UserService} to update the profile text of user
