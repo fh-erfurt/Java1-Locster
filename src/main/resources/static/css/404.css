@@ -1,25 +1,38 @@
 h2 {
 text-align: center;
 font-size: 40px;
-color: red;
 }
 
-p {
-position: relative;
-left: 500px;
-font-size: 23px;
-top: 20px;
-color: red;
+.container {
+    display: flex;
+    min-height: 500px;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 500px;
+}
+
+.title {
+    padding: 20px 0 20px 0;
+}
+
+.errorText {
+    padding: 20px 0 20px 0;
+    width: 390px
 }
 
 .linktopfp {
-position: relative;
-left: 720px;
-top: 550px;
-font-size: 20px;
+    border: solid 1px black;
+    margin: 20px 0 20px 0;
+    padding: 5px;
+    background: aliceblue;
+
 }
 
-.crabgif {
-position: relative;
-left: 550px;
+.errorImg img {
+    padding: 5px;
+    width: 400px;
+    height: 360px;
 }

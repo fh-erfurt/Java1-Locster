@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head"></head>
+
 <head>
-    <link th:href="@{/css/404.css}" rel="stylesheet" />
-    <meta charset="UTF-8">
+    <link th:href="@{/css/404.css}" rel="stylesheet"/>
     <title>404 Page Not Found</title>
 </head>
 <body>
-<h2>404 Error</h2>
-<p>Yer not supposed to be here, mate. Back off or the stab crab will get you >:( </p>
-<div class="linktopfp"><a href="/profilepage.html">click here to run for your life</a></div>
-<img src="/images/NLSf.gif" alt="attack on crab" width="570" height="460" class="crabgif">
+
+<!-- navbar -->
+<header th:replace="fragments/nav"></header>
+
+<div class="container">
+    <div class="box">
+        <div class="title">
+            <h2>404 Error</h2>
+        </div>
+        <div class="alert-danger errorText">
+            <p>Du solltest nicht hier sein, Kumpel. Zieh dich zurück oder die Stichkrabbe erwischt dich >:( </p>
+        </div>
+        <div class="errorImg">
+            <img src="/images/NLSf.gif" alt="attack on crab">
+        </div>
+        <div class="linktopfp">
+            <a href="/profilepage">click here to run for your life</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -35,19 +35,6 @@ public class ProfilepageController {
     }
 
     /**
-     * Calls the profilepage with the users information
-     * @param id id of the shown user
-     * @return ResponseEntity.ok
-     * @throws UserNotFoundException Exception with not found id
-     */
-    @GetMapping(path = "/{id}")
-    ResponseEntity<User> findById(@PathVariable(value = "id") Long id) throws UserNotFoundException {
-        return ResponseEntity.ok(this.userRepository
-                .findById(id)
-                .orElseThrow(() -> new UserNotFoundException("No Persons found for id " + id)));
-    }
-
-    /**
      * Calls your profilepage if you are logged in
      * @param authentication user must be logged in
      * @param model
