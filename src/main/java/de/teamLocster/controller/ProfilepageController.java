@@ -86,23 +86,22 @@ public class ProfilepageController {
 
 
     @PostMapping("/guesbookentry/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpServletRequest request) {
+    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpServletRequest request) throws UserNotFoundException {
         try
         {
             User postingUser = userService.getUserByEmailAddress(authentication.getName());
             User visitedUser = userService.getUserById(id);
-
             String content = request.getParameter("content");
 
             guestbookEntryService.sendPost(postingUser, visitedUser, content);
 
+            return new ModelAndView ("redirect:/profilepage/" + id);
 
-            return new ModelAndView("redirect:/profilepage");
         }
         catch (UserNotFoundException unfEx) {
             System.out.println(unfEx.getMessage());
-            return new ModelAndView("profilepage");
+            return new ModelAndView ("redirect:/error/404");
+
         }
     }
 
