@@ -22,67 +22,20 @@
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-
+  width: 100%;
   padding: 10px;
-  padding-left: 15px;
-
 }
-
 .submitBtn {
-  background: none;
-  border: none;
   font-size: 20px;
   cursor: pointer;
-  box-shadow: 0 0 5px;
-}
-
-.editFields form {
-  border-radius: 25px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.editFields input[type="text"],
-.editFields input[type="date"],
-.editFields .genderButtons {
-  width: 40%;
-  background-color: #fffbe3;
-  border-radius: 25px;
-  border: solid #fed700;
-  margin-top: 2%;
-  padding: 15px;
-  font-size: 16px;
-  color: #5e6472;
-  outline: none;
-  border-width: 2px;
-  transition: 0.2s linear;
-}
-.buttons {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.buttonsBtn {
-  display: flex;
-  flex-direction: column;
-  margin-top: 2%;
-  margin-left: 15px;
-}
-
-.profileBtn {
-  width: 250px;
-  height: 60px;
-  background-color: #ab2524;
-  border: solid #08dcff;
-  color: #fff;
-  font-size: larger;
-  border-radius: 25px;
-  margin-top: 2%;
-  margin: 10px;
+  height: 30px;
+  border-radius: 50px;
+  border-color: #2988ce;
+  background-color: #0088ff;
+  color: white;
+  box-shadow: 1px 1px 4px #000000;
 }
 
 .submit {
@@ -90,41 +43,12 @@
   flex-direction: column;
 }
 
-.submit img {
-  width: 70px;
-  height: 70px;
-}
-.post {
-  border: 2px solid #fed700;
-  border-radius: 15px;
-  margin-bottom: 15px;
-}
-
-/* profile structure */
-
-/* collapsible profile infos */
-
-.collapsible {
-  cursor: pointer;
-  border: none;
-  padding: 0 15px;
-  background-color: #fff3b1;
-  color: #3cb5ee;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
+/* profile structure*/
 
 .ProfileInfosHeader {
   display: flex;
   flex-direction: column;
   width: 400px;
-}
-
-.visitor {
-  display: flex;
-  flex-direction: initial;
-  justify-content: center;
 }
 
 .content .group {
@@ -224,7 +148,12 @@
 .guestbook h2 {
   padding: 6px;
 }
+
 .post {
+  border: 2px solid #fed700;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  width: 700px;
   padding: 10px;
   background-color: cornsilk;
 }
@@ -255,19 +184,8 @@ border-radius: 50px;
 border-color: #2988ce;
 background-color: #0088ff;
 color: white;
-font-style: bold;
 box-shadow: 1px 1px 4px #000000;
 position: relative;
 left: 250px;
 margin-bottom: 20px;
-}
-
-.submitBtn {
-height: 30px;
-border-radius: 50px;
-border-color: #2988ce;
-background-color: #0088ff;
-color: white;
-font-style: bold;
-box-shadow: 1px 1px 4px #000000;
 }
