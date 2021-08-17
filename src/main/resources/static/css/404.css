@@ -1,0 +1,38 @@
+h2 {
+text-align: center;
+font-size: 40px;
+}
+
+.container {
+    display: flex;
+    min-height: 500px;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 500px;
+}
+
+.errorTitle {
+    padding: 20px 0 20px 0;
+}
+
+.errorText {
+    padding: 20px 0 20px 0;
+    width: 390px
+}
+
+.linktopfp {
+    border: solid 1px black;
+    margin: 20px 0 20px 0;
+    padding: 5px;
+    background: aliceblue;
+
+}
+
+.errorImg img {
+    padding: 5px;
+    width: 400px;
+    height: 360px;
+}
