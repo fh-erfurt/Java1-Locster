@@ -16,6 +16,7 @@
 <!-- Homepage -->
 <div class="container" th:object="${profileUser}">
 
+    <!-- profile Info Box -->
     <div class="box profile" id="profileInfoBox">
         <div class="profile-info-wrapper">
             <div class="pic">
@@ -52,6 +53,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- friendrequest -->
         <div th:if="${!myProfile}">
             <div th:if="${!isFriend}">
                 <form th:action="@{/friendrequest/{userId}(userId=*{id})}" th:method="put">
@@ -63,10 +66,13 @@
                             </span>
                 </form>
             </div>
+
             <div th:if="${isFriend}">
                 ihr seid befreundet
             </div>
         </div>
+
+        <!-- edit icon -->
         <div th:if="${myProfile}" class="icon-edit-content">
             <a href="/settings">
                 <img src="/icons/pen.png" alt="pen"/>
@@ -74,6 +80,7 @@
         </div>
     </div>
 
+    <!-- status box -->
     <div class="box status" id="status" title="Profiltext bearbeiten">
         <p class="status" th:text="*{profileText}"></p>
         <div th:if="${myProfile}" class="icon-edit-content" onclick="displayprofileEdit()">
@@ -81,6 +88,7 @@
         </div>
     </div>
 
+    <!-- edit status box -->
     <div class="profiltextEdit" id="profiltextEdit">
         <div class="box">
             <div class="title">
@@ -89,9 +97,11 @@
             <form action="#" th:action="@{/profilepage}" method="post">
                 <div class="inputs">
                     <label>
-    <textarea class="profileText" type="text" th:field="*{profileText}" placeholder="Dein Profiltext"
-              autofocus="autofocus"
-              rows="8" cols="75" maxlength="255"></textarea>
+                    <textarea class="profileText" type="text" th:field="*{profileText}" placeholder="Dein Profiltext"
+                              autofocus="autofocus"
+                              rows="8" cols="75" maxlength="255">
+
+                    </textarea>
                     </label>
                     <span class="highlight"></span>
                     <span class="bar"></span>
@@ -116,7 +126,6 @@
     </div>
 
     <!--new post-->
-
     <div th:if="${!myProfile}" class="box guestbook">
         <div class="guestbook">
             <h2>Schreib einen Beitrag:</h2>
@@ -138,8 +147,7 @@
         </div>
     </div>
 
-    <!--end new post-->
-
+    <!-- guestbook box -->
     <div class="box guestbook">
         <div class="guestbook">
             <h2>Gästebuch</h2>
@@ -157,6 +165,7 @@
         </div>
     </div>
 
+    <!-- guestbook box -->
     <div th:if="${myProfile}" class="box guestbook">
         <div class="guestbook">
             <h2>Meine Gästebucheinträge</h2>
@@ -175,7 +184,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <script type="text/javascript" src="/js/profilePage.js"></script>
