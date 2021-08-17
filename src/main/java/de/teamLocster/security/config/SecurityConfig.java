@@ -64,7 +64,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                         "/icons/**",
                         "/images/**",
                         "/js/**",
-                        "/signup"
+                        "/signup",
+                        "/impressum",
+                        "/datenschutz"
                 )
                 .permitAll()
                 .antMatchers("/**")

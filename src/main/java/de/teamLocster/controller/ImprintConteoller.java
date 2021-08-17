@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @author Jakob Gensel
+ * @author Molham Al-khodari
  * @version 1.0
  */
 @Controller

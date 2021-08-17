@@ -8,3 +8,7 @@
 .box li {
     list-style-type: none;
 }
+
+.container {
+    height: 570px;
+}
