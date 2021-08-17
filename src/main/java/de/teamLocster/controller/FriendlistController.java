@@ -2,6 +2,8 @@ package de.teamLocster.controller;
 
 import de.teamLocster.actions.ActionService;
 import de.teamLocster.core.errors.UserNotFoundException;
+import de.teamLocster.core.errors.UsersAreNotFriendsException;
+import de.teamLocster.user.User;
 import de.teamLocster.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -13,11 +15,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @author Jakob Gensel
  * @version 1.0
  */
 @Controller
 public class FriendlistController {
+
     @Autowired
     ActionService actionService;
 
@@ -29,22 +31,44 @@ public class FriendlistController {
     @Autowired
     UserService userService;
     @GetMapping("/friendlist")
-    public ModelAndView profilePage (Model model)
+    public ModelAndView profilePage (Model model, Authentication authentication)
     {
-        model.addAttribute("title", "Locter.de.Friendlist");
-        return new ModelAndView("friendlist");
+        try
+        {
+            User user = userService.getUserByEmailAddress(authentication.getName());
+            model.addAttribute("title", "Meine Freunde");
+            model.addAttribute("friendRequests", actionService.getReceivedFriendRequests(user));
+            model.addAttribute("friends", actionService.getFriends(user));
+            return new ModelAndView("friendlist");
+        }
+        catch (UserNotFoundException unfEx) {
+            return new ModelAndView("redirect:/error/404");
+        }
     }
 
     @PostMapping("/friendrequest/{id}")
     public ModelAndView sendFriendRequest(@PathVariable(value = "id") Long id, Authentication authentication) {
-        try
-        {
-            actionService.sendFriendRequest(userService.getUserByEmailAddress(authentication.getName()), userService.getUserById(id));
-            return new ModelAndView("redirect:/whoisonline");
+        try {
+            User requestingUser = userService.getUserByEmailAddress(authentication.getName());
+            if (!requestingUser.getId().equals(id)) {
+                actionService.sendFriendRequest(requestingUser, userService.getUserById(id));
+            }
+            return new ModelAndView("redirect:/profilepage/" + id);
         }
         catch (UserNotFoundException unfEx) {
-            System.out.println(unfEx.getMessage());
+            return new ModelAndView("redirect:/error/404");
+        }
+    }
+
+    @PostMapping("/removefriend/{id}")
+    public ModelAndView removeFriend(@PathVariable(value = "id") Long id, Authentication authentication) {
+        try {
+            User requestingUser = userService.getUserByEmailAddress(authentication.getName());
+            actionService.removeFriend(requestingUser, userService.getUserById(id));
             return new ModelAndView("redirect:/friendlist");
+        }
+        catch (UserNotFoundException | UsersAreNotFriendsException ex) {
+            return new ModelAndView("redirect:/error/404");
         }
     }
 }

@@ -18,7 +18,7 @@
             <h2> Locster.de <small>Einstellungen</small></h2>
         </div>
 
-        <form action="#" th:action="@{/settings}" method="post">
+        <form action="#" th:action="@{/settings}" method="post" enctype="multipart/form-data">
 
             <div class="group">
                 <input type="text" th:field="*{firstName}"/>
@@ -119,6 +119,15 @@
                 <span class="highlight"></span>
                 <span class="bar"></span>
                 <span th:errors="*{onlineStatus}" class="alert alert-danger"></span>
+
+            </div>
+
+            <div class="group">
+
+                <input type="file" id="profile-picture" name="profilePicture" accept="image/*">
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label th:for="profile-picture">Profilbild: </label>
 
             </div>
 

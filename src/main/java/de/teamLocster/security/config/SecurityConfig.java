@@ -17,6 +17,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * This class is used for security configuration like access and authorization.
+ * - login configuration
+ * - page access configuration
+ * - configuration where logout should be handled
  *
  * @author  Jakob Gensel
  * @see     de.teamLocster.security.auth.AuthProvider
@@ -26,7 +29,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter
 {
-    private static final int EXPIRATION_TIME_OF_COOKIE = 20; // TODO (2 weeks) 3600 * 24 * 7 * 2;
+    private static final int EXPIRATION_TIME_OF_COOKIE = 3600 * 24 * 7 * 2;
 
     @Autowired
     @Qualifier("locsterUserDetailsService")
@@ -38,7 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Autowired
     private LogoutHandler logoutHandler;
 
-    // TODO probably not needed
     @Autowired
     private LoggingAccessDeniedHandler accessDeniedHandler;
 
@@ -95,6 +97,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler)
                 .and()
                 .authenticationProvider(authProvider)
-                .sessionManagement().maximumSessions(2);
+                .sessionManagement().maximumSessions(1);
     }
 }

@@ -40,7 +40,7 @@ public class User extends BaseEntity
     @Lob
     private Byte[] profilePicture; // TODO client muss Dateityp kennen
     */
-    private String profilePicture;
+    private String profilePicture = "images/profilePic.png";
     // @Lob CLOB in DB für Kodierung von Umlauten bzw. deutschen Zeichen
     private String profileText;
     private String personalStatus;

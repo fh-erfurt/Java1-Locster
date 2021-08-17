@@ -2,6 +2,7 @@ package de.teamLocster.actions;
 
 import de.teamLocster.core.BaseService;
 import de.teamLocster.core.errors.NoFriendRequestPresentException;
+import de.teamLocster.core.errors.UsersAreNotFriendsException;
 import de.teamLocster.enums.ActionType;
 import de.teamLocster.user.User;
 import lombok.extern.slf4j.Slf4j;
@@ -16,16 +17,24 @@ import java.util.Optional;
 @Service
 public class ActionService extends BaseService<Action>
 {
+    @Autowired
     ActionRepository actionRepository;
 
-    @Autowired
-    public ActionService(ActionRepository actionRepository)
-    {
-        this.actionRepository = actionRepository;
-    }
-
-    public Action sendFriendRequest(User actor, User affected) {
-        return actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
+    /**
+     * method used to send friend request
+     * if there is already a request present in the opposite direction, it just gets accepted
+     * if there is already a request present in the same direction, nothing is done
+     * @param actor the user sending the request
+     * @param affected the user that gets requested
+     */
+    public void sendFriendRequest(User actor, User affected) {
+        try {
+            acceptFriendRequest(actor, affected);
+        }
+        catch (NoFriendRequestPresentException nfrEx) {
+            Optional<Action> sentRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, actor.getId(), affected.getId());
+            if(sentRequest.isEmpty()) actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
+        }
     }
 
     public List<User> getReceivedFriendRequests(User user) {
@@ -34,12 +43,18 @@ public class ActionService extends BaseService<Action>
         return requestingUsers;
     }
 
-    public Action acceptFriendRequest(User actor, User affected) throws NoFriendRequestPresentException
-    {
+    /**
+     *
+     * @param actor
+     * @param affected
+     * @throws NoFriendRequestPresentException if there is no friend request
+     */
+    public void acceptFriendRequest(User actor, User affected) throws NoFriendRequestPresentException {
         Optional<Action> friendRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, affected.getId(), actor.getId());
         if (friendRequest.isPresent()) {
-            return actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
-            // actionRepository.delete(friendRequest.get()); // TODO sollen Anfragen nach Bestätigung gelöscht werden?
+            actionRepository.save(new Action(actor, affected, ActionType.FRIEND_ACKNOWLEDGEMENT));
+            actionRepository.deleteById(friendRequest.get().getId());
+            return;
         }
         throw new NoFriendRequestPresentException("There was no friend request found from this User");
     }
@@ -51,6 +66,23 @@ public class ActionService extends BaseService<Action>
         // get friends where given user is the affected
         actionRepository.findByActionTypeAndAffectedId(ActionType.FRIEND_ACKNOWLEDGEMENT, user.getId()).forEach(f -> friends.add(f.getActor()));
         return friends;
+    }
+
+    public boolean isFriend(User user1, User user2) {
+        return getFriends(user1).contains(user2);
+    }
+
+    private Optional<Action> getFriendshipAcknowledgementAction(Long actorId, Long affectedId) {
+        Optional<Action> data1 = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_ACKNOWLEDGEMENT, actorId, affectedId);
+        Optional<Action> data2 = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_ACKNOWLEDGEMENT, affectedId, actorId);
+        return data1.isPresent() ? data1 : data2;
+    }
+
+    public void removeFriend(User actor, User affected) throws UsersAreNotFriendsException {
+        Optional<Action> friendship = getFriendshipAcknowledgementAction(actor.getId(), affected.getId());
+        if(isFriend(actor, affected) && friendship.isPresent()) {
+            actionRepository.delete(friendship.get());
+        }
     }
 
     public Action blockUser(User actor, User affected) {

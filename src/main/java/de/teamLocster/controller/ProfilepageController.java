@@ -1,10 +1,12 @@
 package de.teamLocster.controller;
+import de.teamLocster.actions.ActionService;
 import de.teamLocster.core.errors.UserAlreadyExistException;
 import de.teamLocster.core.errors.UserNotFoundException;
 import de.teamLocster.guestbook.GuestbookEntryService;
 import de.teamLocster.user.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +15,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
 /**
- * @author Jakob Gensel
+ * @author Jakob Gensel, Molham Al-khodari
  * @version 1.0
  */
 @Controller
@@ -27,12 +30,10 @@ public class ProfilepageController {
     UserService userService;
 
     @Autowired
-    GuestbookEntryService guestbookEntryService;
-  
+    ActionService actionService;
+
     @Autowired
-    ProfilepageController(UserService userService) {
-        this.userService = userService;
-    }
+    GuestbookEntryService guestbookEntryService;
 
     /**
      * Calls your profilepage if you are logged in
@@ -47,7 +48,8 @@ public class ProfilepageController {
             User user = userService.getUserByEmailAddress(authentication.getName());
             model.addAttribute("profileUser", user);
             model.addAttribute("myProfile", true);
-            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+            model.addAttribute("receivedGuestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+            model.addAttribute("createdGuestbookEntries", guestbookEntryService.getCreatedGuestbookEntriesOfUser(user));
 
             return new ModelAndView("profilepage");
         }
@@ -56,19 +58,50 @@ public class ProfilepageController {
         }
     }
 
+
+    /**
+     * Calls the profilepage with the users information
+     * @param id id of the shown user
+     * @return profilepage of the user
+     */
     @GetMapping("/profilepage/{id}")
-    public ModelAndView getProfilePage(@PathVariable(value = "id") Long id, Model model) {
+    public ModelAndView getProfilePage(@PathVariable(value = "id") Long id, Authentication authentication, Model model) {
         try {
-            User user = userService.getUserById(id);
-            model.addAttribute("title", String.format("Profil von %s %s", user.getFirstName(), user.getLastName()));
-            model.addAttribute("profileUser", user);
+            User visitingUser = userService.getUserByEmailAddress(authentication.getName());
+            User visitedUser = userService.getUserById(id);
+            if(visitingUser.getId().equals(id)) return new ModelAndView("redirect:/profilepage");
+            model.addAttribute("title", String.format("Profil von %s %s", visitedUser.getFirstName(), visitedUser.getLastName()));
+            model.addAttribute("profileUser", visitedUser);
             model.addAttribute("myProfile", false);
-            model.addAttribute("guestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(user));
+            model.addAttribute("isFriend", actionService.isFriend(visitingUser , visitedUser));
+            model.addAttribute("openRequest", actionService.getReceivedFriendRequests(visitingUser).contains(visitedUser));
+            model.addAttribute("receivedGuestbookEntries", guestbookEntryService.getReceivedGuestbookEntriesOfUser(visitedUser));
 
             return new ModelAndView("profilepage");
         }
         catch (UserNotFoundException unfE) {
             return new ModelAndView("redirect:/error/404");
+        }
+    }
+
+
+    @PostMapping("/guesbookentry/{id}")
+    public ModelAndView sendPost(@PathVariable(value = "id") Long id, Authentication authentication, HttpServletRequest request) throws UserNotFoundException {
+        try
+        {
+            User postingUser = userService.getUserByEmailAddress(authentication.getName());
+            User visitedUser = userService.getUserById(id);
+            String content = request.getParameter("content");
+
+            guestbookEntryService.sendPost(postingUser, visitedUser, content);
+
+            return new ModelAndView ("redirect:/profilepage/" + id);
+
+        }
+        catch (UserNotFoundException unfEx) {
+            System.out.println(unfEx.getMessage());
+            return new ModelAndView ("redirect:/error/404");
+
         }
     }
 
@@ -109,4 +142,5 @@ public class ProfilepageController {
             }
         }
     }
+
 }
