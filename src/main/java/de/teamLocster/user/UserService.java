@@ -47,7 +47,7 @@ public class UserService extends BaseService<User> {
                 null,
                 RelationshipStatus.NOT_SPECIFIED,
                 userDto.getSex(),
-                "images/profilePic.png",
+                "/images/profilePic.png",
                 "Apparently, this user prefers to keep an air of mystery about them.",
                 "Hey, I'm using Locster!",
                 PrivacyStatus.PRIVATE,

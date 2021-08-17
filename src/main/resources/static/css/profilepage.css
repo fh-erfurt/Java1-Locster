@@ -100,6 +100,13 @@
   margin-bottom: 15px;
 }
 
+.pic img{
+  width: 200px; /* width of container */
+  height: 200px; /* height of container */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* profile structure */
 
 /* collapsible profile infos */

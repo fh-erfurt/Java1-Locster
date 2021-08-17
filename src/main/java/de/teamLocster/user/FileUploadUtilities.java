@@ -29,12 +29,11 @@ public class FileUploadUtilities {
     public static void deleteFile(String fileName) throws IOException {
         Path uploadPath = Paths.get("profile-picture");
 
-        if(!Files.exists(uploadPath)) return;
         try {
-            Path filePath = uploadPath.resolve(fileName);
+            Path filePath = uploadPath.resolve(fileName.substring("/profile-picture/".length()));
             Files.deleteIfExists(filePath);
         } catch (IOException ioException) {
-            throw new IOException("Could not save image file: " + fileName, ioException);
+            throw new IOException("Could not delete image file: " + fileName, ioException);
         }
     }
 
