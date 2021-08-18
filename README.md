@@ -419,7 +419,10 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 
 <details>
 <summary>Datenpersistierung</summary>
+	
 ## Datenpersistierung
+	
+Um die Daten zu sichern existiert eine Datenbankanbindung.
 </details>
 	
 <details>
@@ -428,6 +431,8 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 ## Registrierung
 	
 Um Locster nutzen zu können, muss man sich vorher registrieren.
+	
+![SignUp](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/SignUp.png)
 	
 Man gibt folgendes an:
 * Name und Vorname
@@ -447,6 +452,10 @@ Zur Übersicht gibt es im Browser bereits ein Feedback, was noch beim Passwort f
 ## Login/Logout
 	
 Hat man bereits einen Account, kann man sich nun einloggen. Oben rechts gibt es einen Verweis auf die Registrierung.
+	
+![LogIn](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/LogIn.png)
+	
+Eingeloggt kann man sich jederzeit wieder ausloggen.
 </details>
 	
 <details>
@@ -454,35 +463,89 @@ Hat man bereits einen Account, kann man sich nun einloggen. Oben rechts gibt es 
 	
 ## Navigation
 	
-
-</details>
-
-<details>
-<summary>Profilverwaltung</summary>
-## Profilverwaltung
+Oben in der Navigationsleiste kann man leicht wechseln zwischen:
+* Chat
+* Wer ist Online?
+* Freundschaften
+* eigenem Profil
+* Einstellungen
+* Logout
+	
 </details>
 
 <details>
 <summary>Wer ist Online?</summary>
+	
 ## Wer ist Online?
+	
+![Wer ist Online](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Who_Is_Online.png)
+	
+Hier sieht man alle Nutzer aufgelistet, die gerade online sind.
+Es sind ein paar Information zu jedem Nutzer aufgelistet.
+Von hier aus kann man auf die verschiedenen Profile der Nutzer gelangen.
+</details>	
+
+<details>
+<summary>Freundschaften</summary>
+	
+## Freundschaften
+	
+![Freunde](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Freunde.png)
+	
+Auf dieser Seite sieht man alle eingegangenen Freundschaftsanfragen und alle bestätigten Freundschaften.
+Hier kann man erhaltene Freundschaftsanfragen annehmen oder ablehnen.
+Bestätigte Freunde kann man besuchen und entfernen.
+Um einer anderen Person eine Freundschaftsanfrage zu stellen, muss man auf das Profil der Person gelangen. Nur dort kann man eine Anfrage stellen.
+
+</details>	
+	
+<details>
+<summary>Eigenes Profil</summary>
+	
+## Profilansicht
+	
+![Mein Profil](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Mein_Profil.png)
+	
+Im ersten Abschnitt sind die persönliches Informationen zu sehen, wie Name oder Geburtstag.
+Der zweite Abscnhitt ist der ist der persönliche Profiltext, der dort auch gleich bearbeitet werden kann.
+Danach kommen Gäastebucheinträge von Personen, die dein Profil besucht haben.
+Am Schluss und nur für einen selbst sichtbar sind die eigen verfassten Gästebucheinträge.
+	
+## Profilverwaltung
+	
+![Einstellungen](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Settings.png)	
+	
+Man gelangt hier hin entweder über das Stift-Icon im ersten Abschnitt oder über Einstellungen.
+Hier kann man seine persönlichen Daten ändern, einen Status einstellen, seinen online Status ändern, sein Passwort ändern und ein Profilbild hochladen.
+Ganz unten lässt sich das Profil aich löschen.
+
 </details>
 
 <details>
 <summary>Gästebucheinträge</summary>
-## Gästebucheinträge
-</details>
 	
-<details>
-<summary>Freundschaften</summary>
-## Freundschaften
+## Gästebucheinträge
+
+Wenn man das Profil einer anderen Person besucht, kann man dort einen netten Eintrag hinterlassen.
+	
+![Anderes Profil](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Anderes_Profil.png)	
+
 </details>
 
 <details>
 <summary>Suchfunktion</summary>
+	
 ## Suchfunktion
+	
+Bei der Suche werden alle Personennamen und Ort durchgegangen.
 </details>
 	
 <details>
 <summary>Verschiedenes</summary>
+	
 ## Verschiedenes
+	
+Es existiert eine Chatseite, jedoch ohne Funktionalität.
+Das Impressum, eine Datenschutzerklärung und eine 404-Seite snd ebfalls vorhanden.
+	
 </details>
