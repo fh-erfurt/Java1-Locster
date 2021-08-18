@@ -344,18 +344,31 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 
 </details>
 	
-## Ausblick Java2
+## Java2
+	
 <details>
+	
 <summary>Funktionalitäten</summary>
+	
 ## Datenpersistierung
+	
 ## Registrierung
+	
 ## Login/Logout
+	
 ## Navigation
+	
 ## Profilverwaltung
+	
 ## "Wer ist Online?"
+	
 ## Gästebucheinträge
+	
 ## Freundschaften
+	
 ## Suchfunktion
+	
 </details>
+	
 </details>
 
