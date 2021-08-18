@@ -24,14 +24,16 @@
                     <span class="relationship">Beziehungstatus:</span>
                     <span class="region">Region:</span>
                 </li>
+
                 <li th:each="u: ${users}" class="infos">
-                    <span th:text="${u.firstName + ' ' + u.lastName}" class="name"></span>
+                    <a th:href="@{/profilepage/{userId}(userId=${u.id})}">
+                        <span th:text="${u.firstName + ' ' + u.lastName}" class="name tags"></span>
+                    </a>
                     <span th:text="${u.getAge()}" class="age"></span>
                     <span th:text="#{'labels.sex.'+${u.sex}}" class="gender"></span>
                     <span th:text="#{'labels.relationshipStatus.'+${u.relationshipStatus}}" class="relationship"></span>
                     <span th:text="${u.region}" class="region"></span>
                     <div th:class="'onlinestatus-' + ${u.onlineStatus}"></div>
-                    <a th:href="@{/profilepage/{userId}(userId=${u.id})}">zum Profil</a>
                 </li>
 
             </ul>
