@@ -23,12 +23,10 @@ body {
 .container {
     width: 800px;
     height: auto;
-    min-height: 670px;
     margin: auto;
     background-color: #63bee8;
     display: flex;
     flex-direction: column;
-
 }
 
 .box {
