@@ -345,10 +345,9 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 </details>
 	
 ## Java2
+
 	
-<details>
-	
-<summary>Funktionalitäten</summary>
+## Funktionalitäten
 
 <details>
 <summary>Datenpersistierung</summary>
@@ -357,6 +356,7 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 	
 <details>
 <summary>Registrierung</summary>
+	
 ## Registrierung
 	
 Um Locster nutzen zu können, muss man sich vorher registrieren.
@@ -411,8 +411,6 @@ Zur Übersicht gibt es im Browser bereits ein Feedback, was noch beim Passwort f
 <details>
 <summary>Verschiedenes</summary>
 ## Verschiedenes
-</details>
-		
 </details>
 	
 </details>
