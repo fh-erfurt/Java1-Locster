@@ -349,25 +349,43 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 <details>
 	
 <summary>Funktionalitäten</summary>
+
+<details>
+<summary>## Datenpersistierung</summary>
+</details>
 	
-## Datenpersistierung
+<details>
+<summary>## Registrierung</summary>
+</details>
+
+<details>
+<summary>## Login/Logout</summary>
+</details>
 	
-## Registrierung
+<details>
+<summary>## Navigation</summary>
+</details>
+
+<details>
+<summary>## Profilverwaltung</summary>
+</details>
+
+<details>
+<summary>## Wer ist Online?</summary>
+</details>
+
+<details>
+<summary>## Gästebucheinträge</summary>
+</details>
 	
-## Login/Logout
-	
-## Navigation
-	
-## Profilverwaltung
-	
-## "Wer ist Online?"
-	
-## Gästebucheinträge
-	
-## Freundschaften
-	
-## Suchfunktion
-	
+<details>
+<summary>## Freundschaften</summary>
+</details>
+
+<details>
+<summary>## Suchfunktion</summary>
+</details>
+		
 </details>
 	
 </details>
