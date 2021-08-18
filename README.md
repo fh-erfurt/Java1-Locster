@@ -490,7 +490,7 @@ Von hier aus kann man auf die verschiedenen Profile der Nutzer gelangen.
 	
 ## Freundschaften
 	
-![Freunde](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Freunde.png)
+![Freunde](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/Freunde .png)
 	
 Auf dieser Seite sieht man alle eingegangenen Freundschaftsanfragen und alle bestätigten Freundschaften.
 Hier kann man erhaltene Freundschaftsanfragen annehmen oder ablehnen.
