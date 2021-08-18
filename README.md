@@ -407,5 +407,3 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     private Example example = Example.value1;
      
 <br>
-	
-
