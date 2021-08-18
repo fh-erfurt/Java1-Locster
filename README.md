@@ -351,39 +351,66 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 <summary>Funktionalitäten</summary>
 
 <details>
-<summary>## Datenpersistierung</summary>
+<summary>Datenpersistierung</summary>
+## Datenpersistierung
 </details>
 	
 <details>
-<summary>## Registrierung</summary>
+<summary>Registrierung</summary>
+## Registrierung
+	
+Um Locster nutzen zu können, muss man sich vorher registrieren.
+	
+Man gibt folgendes an:
+* Name und Vorname
+* Alter
+* Geschlecht
+* E-Mail
+* Passwort
+	
+Das Passwort muss aus mindestens acht Zeichen, davon ein Großbuchstabe, ein Kleinbuchstabe, eine Zahl und einem Sonderzeichen bestehen. 
+Zur Übersicht gibt es im Browser bereits ein Feedback, was noch beim Passwort fehlt. 
+
 </details>
 
 <details>
-<summary>## Login/Logout</summary>
+<summary>Login/Logout</summary>
+## Login/Logout
 </details>
 	
 <details>
-<summary>## Navigation</summary>
+<summary>Navigation</summary>
+## Navigation
 </details>
 
 <details>
-<summary>## Profilverwaltung</summary>
+<summary>Profilverwaltung</summary>
+## Profilverwaltung
 </details>
 
 <details>
-<summary>## Wer ist Online?</summary>
+<summary>Wer ist Online?</summary>
+## Wer ist Online?
 </details>
 
 <details>
-<summary>## Gästebucheinträge</summary>
+<summary>Gästebucheinträge</summary>
+## Gästebucheinträge
 </details>
 	
 <details>
-<summary>## Freundschaften</summary>
+<summary>Freundschaften</summary>
+## Freundschaften
 </details>
 
 <details>
-<summary>## Suchfunktion</summary>
+<summary>Suchfunktion</summary>
+## Suchfunktion
+</details>
+	
+<details>
+<summary>Verschiedenes</summary>
+## Verschiedenes
 </details>
 		
 </details>
