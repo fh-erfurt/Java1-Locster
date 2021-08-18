@@ -345,10 +345,17 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 </details>
 	
 ## Ausblick Java2
-
-* Für das kommende Semester haben wir uns bereits folgende Ziele gesetzt:
-    * **Datenbank für die Speicherung der Nutzerdaten**
-    * **Nutzeroberfläche/Webseite**
-
+<details>
+<summary>Funktionalitäten</summary>
+	## Datenpersistierung
+	## Registrierung
+	## Login/Logout
+	## Navigation
+	## Profilverwaltung
+	## "Wer ist Online?"
+	## Gästebucheinträge
+	## Freundschaften
+	## Suchfunktion
+</details>
 </details>
 
