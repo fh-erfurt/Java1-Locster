@@ -26,16 +26,20 @@
   justify-content: space-between;
   width: 100%;
   padding: 10px;
-}
-.submitBtn {
-  font-size: 20px;
   cursor: pointer;
-  height: 30px;
-  border-radius: 50px;
-  border-color: #2988ce;
-  background-color: #0088ff;
-  color: white;
-  box-shadow: 1px 1px 4px #000000;
+}
+
+.submitBtn {
+height: 30px;
+width: 200px;
+border-radius: 50px;
+border-color: #2988ce;
+background-color: #0088ff;
+color: white;
+box-shadow: 1px 1px 4px #000000;
+position: relative;
+margin-bottom: 20px;
+cursor: pointer;
 }
 
 .submit {
@@ -202,6 +206,48 @@ border-color: #2988ce;
 background-color: #0088ff;
 color: white;
 box-shadow: 1px 1px 4px #000000;
+position: relative;
+left: 250px;
+margin-bottom: 20px;
+cursor: pointer;
+}
+
+.submitBtnProfiletext {
+height: 30px;
+width: 200px;
+border-radius: 50px;
+border-color: #2988ce;
+background-color: #0088ff;
+color: white;
+box-shadow: 1px 1px 4px #000000;
+position: relative;
+margin-bottom: 20px;
+cursor: pointer;
+}
+
+.submitBtnGästebuch {
+height: 30px;
+width: 200px;
+border-radius: 50px;
+border-color: #2988ce;
+background-color: #0088ff;
+color: white;
+box-shadow: 1px 1px 4px #000000;
+position: relative;
+left: 250px;
+top: 10px;
+margin-bottom: 20px;
+}
+
+.youAreFriends {
+text-align: center;
+height: 30px;
+width: 200px;
+padding-top: 6px;
+border: 5px;
+border-radius: 50px;
+background-color: #ff96b2;
+color: white;
 position: relative;
 left: 250px;
 margin-bottom: 20px;
