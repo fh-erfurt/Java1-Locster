@@ -14,13 +14,13 @@
         <div class="list">
             <ul>
                 <li class="header">
-                    <h2>Freundschaftsanfragen (3)</h2>
+                    <h2>Freundschaftsanfragen</h2>
                 </li>
                 <li class="infos">
                     <span class="name">Name:</span>
                     <span class="age">Alter:</span>
                     <span class="gender">Geschlecht:</span>
-                    <span class="relationship">Beziehungstatus:</span>
+                    <span class="relationship">Beziehungsstatus:</span>
                     <span class="region">Region:</span>
                 </li>
                 <li th:each="fr: ${friendRequests}" class="infos">
@@ -53,24 +53,27 @@
         <div class="list">
             <ul>
                 <li class="header">
-                    <h2>Meine Freunde (179)</h2>
+                    <h2>Meine Freunde</h2>
                 </li>
                 <li>
                     <span class="name">Name:</span>
                     <span class="region">Region:</span>
+                    <span class="icon">Beziehungsstatus:</span>
                     <span class="icon">Freund entfernen</span>
+
                 </li>
                 <li th:each="f: ${friends}" class="infos">
                     <span th:text="${f.firstName + ' ' + f.lastName}" class="name"></span>
                     <span th:text="${f.region}" class="region"></span>
+
+                    <span th:text="#{'labels.relationshipStatus.'+${f.relationshipStatus}}" class="relationship"></span>
                     <form th:action="@{/removefriend/{userId}(userId=${f.id})}" th:method="post">
                         <span class="icon">
-                            <button type="submit">
+                            <button type="submit" class="unfriendBtn">
                                 <img class="unfriendIcon" src="icons/unfriend.svg" alt="icon"/>
                             </button>
                         </span>
                     </form>
-                    <span th:text="#{'labels.relationshipStatus.'+${f.relationshipStatus}}" class="relationship"></span>
                     <div th:if="${f.isOnline && f.onlineStatus != T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
                          th:class="'onlinestatus-' + ${f.onlineStatus}"></div>
                     <div th:if="${!f.isOnline || f.onlineStatus == T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"

@@ -50,11 +50,29 @@
 }
 
 .submitBtn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 0 5px;
+height: 30px;
+width: 200px;
+border-radius: 50px;
+border-color: #2988ce;
+background-color: #0088ff;
+color: white;
+box-shadow: 1px 1px 4px #000000;
+position: relative;
+bottom: 15px;
+cursor: pointer;
+}
+
+.profileDeleteBtn {
+height: 30px;
+width: 200px;
+border-radius: 50px;
+border-color: #cc0000;
+background-color: #ff0000;
+color: white;
+box-shadow: 1px 1px 4px #000000;
+position: relative;
+bottom: 15px;
+cursor: pointer;
 }
 
 
