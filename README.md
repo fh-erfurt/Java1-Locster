@@ -347,15 +347,15 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 ## Ausblick Java2
 <details>
 <summary>Funktionalitäten</summary>
-	## Datenpersistierung
-	## Registrierung
-	## Login/Logout
-	## Navigation
-	## Profilverwaltung
-	## "Wer ist Online?"
-	## Gästebucheinträge
-	## Freundschaften
-	## Suchfunktion
+## Datenpersistierung
+## Registrierung
+## Login/Logout
+## Navigation
+## Profilverwaltung
+## "Wer ist Online?"
+## Gästebucheinträge
+## Freundschaften
+## Suchfunktion
 </details>
 </details>
 
