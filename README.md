@@ -375,12 +375,18 @@ Zur Übersicht gibt es im Browser bereits ein Feedback, was noch beim Passwort f
 
 <details>
 <summary>Login/Logout</summary>
+	
 ## Login/Logout
+	
+Hat man bereits einen Account, kann man sich nun einloggen. Oben rechts gibt es einen Verweis auf die Registrierung.
 </details>
 	
 <details>
 <summary>Navigation</summary>
+	
 ## Navigation
+	
+
 </details>
 
 <details>
