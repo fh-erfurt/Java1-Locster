@@ -219,6 +219,7 @@ Die Klasse **GuestbookEntry**  enthält den Speicherort für die Einträge im G�
 Über *registerUser* im **UserService** werden neue User angelegt. 
 	
 </details>
+</details>
 
 ## Codestyle
 
@@ -306,6 +307,7 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 	<li>Enums werden in <strong>UpperCamelCase</strong> geschrieben</li>
 </ul>
 	
+</details>
 </details>
 	
 ## Funktionalitäten
