@@ -12,10 +12,10 @@
 Im Rahmen des Java1 Projektes haben wir uns mit dem grundlegenden Klassenaufbau sowie der Umsetzung verschiedener Funktionen unseres sozialen Netzwerkes beschäftigt. Zudem haben wir uns mit den Arbeitsabläufen und der Organisation unseres Codes auseinandergesetzt. <br>
 Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich kennenlernen, gegenseitig als Freunde hinzufügen, miteinander chatten und Gästebucheinträge schreiben können. 
 
-### Aktueller Stand (Todo)
+### Aktueller Stand
 
 Wir haben ein kleines soziales Netzwerk erstellt, auf dem sich Users registrieren und anmelden können.
-Grundlegende Funktionen, wie Erstellen von Beiträgen, suche nach User, Freundschaftsanfrage senden bzw. empfangen, Konto löschen ist komplett integriert und funktioniert.
+Grundlegende Funktionen, wie Erstellen von Beiträgen, suche nach User, Freundschaftsanfrage senden bzw. empfangen, Konto verwaltung ist komplett integriert und funktioniert.
 Dazu kann man sein eigenes Profil frei gestalten und anpassen.
 
 Chat wurde in finale Fassung übernommen, da diese Funktionen den Ramen gesprengt hätten.
