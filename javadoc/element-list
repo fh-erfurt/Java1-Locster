@@ -1,0 +1,13 @@
+de.teamLocster
+de.teamLocster.actions
+de.teamLocster.chat
+de.teamLocster.controller
+de.teamLocster.core
+de.teamLocster.core.errors
+de.teamLocster.dummy_data
+de.teamLocster.enums
+de.teamLocster.guestbook
+de.teamLocster.security.auth
+de.teamLocster.security.config
+de.teamLocster.security.web
+de.teamLocster.user
