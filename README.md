@@ -37,7 +37,7 @@ In unserem Stammverzeichnis findet man folgendes:
 * **profile-picture** - 
     Dieses Verzeichnis wird erst angelegt, wenn Profilbilder hochgeladen werden.
     Man findet hier das Profil der jeweiligen User nach folgenden Bezeichnungsmustern.
-    picture-[4].[Dateiformat-Endung]
+    picture-[UserId].[Dateiformat-Endung]
 * **Projektdokumentation**
 * **Projektdokumentation/Präsentation** - 
     Hier findet man die Präsentationen des diesigen und vergangenen Semesters
