@@ -30,6 +30,27 @@ Chat wurde in finale Fassung übernommen, da diese Funktionen den Ramen gespreng
 * **Molham Al-Khodari** - [Profil](https://github.com/Molham321)
 * **Saskia Wohlers** - [Profil](https://github.com/schnoernja)
 
+In unserem Stammverzeichnis findet man folgendes:
+* Javadoc
+    In diesem Verzeichnis findet man das Javadoc. Diese wird durch Ausführen der index.html Datei gestartet.
+* profile-picture
+    Dieses Verzeichnis wird erst angelegt, wenn Profilbilder hochgeladen werden.
+    Man findet hier das Profil der jeweiligen User nach folgenden Bezeichnungsmustern.
+    picture-[4].[Dateiformat-Endung]
+* Projektdokumentation
+* Projektdokumentation/Präsentation
+    Hier findet man die Präsentationen des diesigen und vergangenen Semesters
+* Projektdokumentation/screenshot
+    Hier findet man die in den Präsentation und in der Dokumentation verwendeten Screenshots
+* src
+* src/main
+* src/main/java
+    hier findet man sämtliche Packages mit den jeweiligen repositories, services und classes
+* src/main/resources
+    hier findet man die *.html, *.css und *.js Dateien
+* test
+    hier findet man sämtlich Tests zum Projekt
+
 ## Installation
 
 ### 1. Repository klonen
