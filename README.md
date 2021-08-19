@@ -219,6 +219,7 @@ Die Klasse **GuestbookEntry**  enthält den Speicherort für die Einträge im G�
 Über *registerUser* im **UserService** werden neue User angelegt. 
 	
 </details>
+</details>
 
 ## Codestyle
 
