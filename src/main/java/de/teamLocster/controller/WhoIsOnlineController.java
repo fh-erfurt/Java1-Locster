@@ -19,6 +19,7 @@ public class WhoIsOnlineController {
 
     /**
      * Calls the whoisonline page
+     *
      * @param model
      * @return view
      */

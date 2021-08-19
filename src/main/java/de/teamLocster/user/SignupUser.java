@@ -11,14 +11,13 @@ import javax.validation.constraints.*;
  */
 @Getter
 @Setter
-public class SignupUser
-{
+public class SignupUser {
     @NotNull
-    @Size(min=1, message = "Vorname darf nicht leer sein!")
+    @Size(min = 1, message = "Vorname darf nicht leer sein!")
     private String firstName;
 
     @NotNull
-    @Size(min=1, message = "Nachname darf nicht leer sein!")
+    @Size(min = 1, message = "Nachname darf nicht leer sein!")
     private String lastName;
 
     @NotNull
@@ -31,12 +30,12 @@ public class SignupUser
 
     @Email
     @NotNull
-    @Size(min=1, message = "Bitte eine gültige Email-Adresse angeben!")
+    @Size(min = 1, message = "Bitte eine gültige Email-Adresse angeben!")
     private String emailAddress;
 
-    @Pattern(regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#^!'§$%&/()=*\\-+,.;:_<>?|]).{8,}$", message = "Passwort unsicher!")
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@#^!'§$%&/()=*\\-+,.;:_<>?|]).{8,}$", message = "Passwort unsicher!")
     @NotNull
-    @Size(min=1, message = "Passwort darf nicht leer sein!")
+    @Size(min = 1, message = "Passwort darf nicht leer sein!")
     private String password;
     private String passwordRepeat;
 

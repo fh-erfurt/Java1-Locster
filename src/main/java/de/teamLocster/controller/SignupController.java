@@ -26,12 +26,13 @@ public class SignupController {
 
     /**
      * Calls the signup page
+     *
      * @param model
      * @return view
      */
     @GetMapping("/signup")
     @ResponseStatus(HttpStatus.OK)
-    public ModelAndView showSignupForm (
+    public ModelAndView showSignupForm(
             Model model
     ) {
         model.addAttribute("title", "Locster.de.SignUp");
@@ -41,6 +42,7 @@ public class SignupController {
 
     /**
      * Calls function in {@link UserService} to register new user
+     *
      * @param userDto
      * @param errors
      * @param model
@@ -55,15 +57,14 @@ public class SignupController {
     ) {
         if (errors.hasErrors()) {
             return new ModelAndView("signup");
-        }
-        else {
+        } else {
             try {
                 userService.registerNewUser(userDto);
                 return new ModelAndView("login");
-            } catch (Exception uaeEx) { // TODO UserAlreadyExistException
+            } catch (Exception uaeEx) {
                 ModelAndView mav = new ModelAndView("signup");
                 mav.addObject("message", "Für diese Email-Adresse existiert bereits ein Profil.");
-                System.out.println(uaeEx); // TODO LOGGING
+                System.out.println(uaeEx);
                 return mav;
             }
         }

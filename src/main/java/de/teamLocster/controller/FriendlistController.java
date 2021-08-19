@@ -25,23 +25,22 @@ public class FriendlistController {
 
     /**
      * Calls the friendlist page
+     *
      * @param model
      * @return view
      */
     @Autowired
     UserService userService;
+
     @GetMapping("/friendlist")
-    public ModelAndView profilePage (Model model, Authentication authentication)
-    {
-        try
-        {
+    public ModelAndView profilePage(Model model, Authentication authentication) {
+        try {
             User user = userService.getUserByEmailAddress(authentication.getName());
             model.addAttribute("title", "Meine Freunde");
             model.addAttribute("friendRequests", actionService.getReceivedFriendRequests(user));
             model.addAttribute("friends", actionService.getFriends(user));
             return new ModelAndView("friendlist");
-        }
-        catch (UserNotFoundException unfEx) {
+        } catch (UserNotFoundException unfEx) {
             return new ModelAndView("redirect:/error/404");
         }
     }
@@ -54,8 +53,7 @@ public class FriendlistController {
                 actionService.sendFriendRequest(requestingUser, userService.getUserById(id));
             }
             return new ModelAndView("redirect:/profilepage/" + id);
-        }
-        catch (UserNotFoundException unfEx) {
+        } catch (UserNotFoundException unfEx) {
             return new ModelAndView("redirect:/error/404");
         }
     }
@@ -66,8 +64,7 @@ public class FriendlistController {
             User requestingUser = userService.getUserByEmailAddress(authentication.getName());
             actionService.removeFriend(requestingUser, userService.getUserById(id));
             return new ModelAndView("redirect:/friendlist");
-        }
-        catch (UserNotFoundException | UsersAreNotFriendsException ex) {
+        } catch (UserNotFoundException | UsersAreNotFriendsException ex) {
             return new ModelAndView("redirect:/error/404");
         }
     }

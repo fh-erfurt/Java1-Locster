@@ -22,7 +22,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
         if (directoryName.startsWith("../")) directoryName = directoryName.replace("../", "");
 
-        registry.addResourceHandler("/" + directoryName + "/**").addResourceLocations("file:/"+ uploadPath + "/");
+        registry.addResourceHandler("/" + directoryName + "/**").addResourceLocations("file:/" + uploadPath + "/");
     }
 
 }

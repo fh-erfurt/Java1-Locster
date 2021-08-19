@@ -1,25 +1,12 @@
 package de.teamLocster.user;
 
-import de.teamLocster.enums.OnlineStatus;
-import de.teamLocster.enums.PrivacyStatus;
-import de.teamLocster.enums.Sex;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import de.teamLocster.enums.OnlineStatus;
-import de.teamLocster.enums.PrivacyStatus;
-import de.teamLocster.enums.RelationshipStatus;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import de.teamLocster.enums.Sex;
-
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.time.LocalDate;
 
 public class UITest {
     private WebDriver driver;
@@ -35,7 +22,9 @@ public class UITest {
     }
 
     @AfterEach
-    void tearDown() {driver.quit();}
+    void tearDown() {
+        driver.quit();
+    }
 
     @Autowired
     UserRepository userRepository;

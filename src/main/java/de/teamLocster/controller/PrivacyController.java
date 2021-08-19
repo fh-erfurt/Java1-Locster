@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * @author Jakob Gensel
+ * @author Molham Al-khodari
  * @version 1.0
  */
 @Controller
@@ -14,12 +14,12 @@ public class PrivacyController {
     /**
      * Calls the privacy page
      * Privacy is a static page
+     *
      * @param model
      * @return view
      */
     @GetMapping("/datenschutz")
-    public ModelAndView getImpressum(Model model)
-    {
+    public ModelAndView getImpressum(Model model) {
         model.addAttribute("title", "Locster.de.Datenschutz");
         return new ModelAndView("privacy");
     }

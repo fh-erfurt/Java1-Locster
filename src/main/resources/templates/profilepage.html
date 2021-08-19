@@ -62,13 +62,13 @@
                                 <button th:if="${openRequest}" type="submit"
                                         class="FAsenden">Freundschaftsanfrage annehmen</button>
                                 <button th:if="${!openRequest}" type="submit"
-                                        class="FAsenden">Freundschaftsanfrage senden</button>
+                                        class="FAsenden" onclick="alert('Freundschaftsanfrage gesendet!')">Freundschaftsanfrage senden</button>
                             </span>
                 </form>
             </div>
 
-            <div th:if="${isFriend}">
-                ihr seid befreundet
+            <div th:if="${isFriend}" class="youAreFriends">
+                Ihr seid befreundet!
             </div>
         </div>
 
@@ -109,13 +109,13 @@
                 </div>
                 <div class="buttons">
                     <div class="submit">
-                        <button type="button" class="submitBtn" onclick="displayprofileInfo()"><i
+                        <button type="button" class="submitBtnProfiletext" onclick="displayprofileInfo()"><i
                                 class="fas fa-trash-alt"></i>
                             Abbrechen
                         </button>
                     </div>
                     <div class="submit">
-                        <button type="submit" class="submitBtn" onclick="displayprofileInfo()"><i
+                        <button type="submit" class="submitBtnProfiletext" onclick="displayprofileInfo()"><i
                                 class="far fa-check-circle"></i>
                             Speichern
                         </button>
@@ -133,14 +133,12 @@
                 <div class="new post">
                     <div class="message">
                         <label>
-                            <textarea name="content" placeholder="was geht up!"
-                                      autofocus="autofocus"
-                                      rows="8" cols="75" maxlength="255">
-                            </textarea>
+                            <textarea name="content" placeholder="was geht up!" autofocus="autofocus" rows="8"
+                                      cols="75" maxlength="255"></textarea>
                         </label>
                     </div>
                     <div class="submit">
-                        <button class="submitBtn"><i class="far fa-check-circle"></i> Senden</button>
+                        <button class="submitBtnGästebuch"><i class="far fa-check-circle"></i> Senden</button>
                     </div>
                 </div>
             </form>

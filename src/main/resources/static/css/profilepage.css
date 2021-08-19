@@ -1,208 +1,256 @@
 /* profileInfo & profileEdit */
 .profiltextEdit {
-  display: none;
+    display: none;
 }
 
 .profiltextEdit .title {
-  padding: 20px;
+    padding: 20px;
 }
 
 .profiltextEdit form input {
-  font-size: 14px;
-  padding: 5px;
-  display: block;
-  width: 600px;
-  border: none;
-  border-bottom: 1px solid #757575;
+    font-size: 14px;
+    padding: 5px;
+    display: block;
+    width: 600px;
+    border: none;
+    border-bottom: 1px solid #757575;
 }
 
 .profileText {
-  resize: none;
+    resize: none;
 }
 
 .buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
 }
+
 .submitBtn {
-  font-size: 20px;
-  cursor: pointer;
-  height: 30px;
-  border-radius: 50px;
-  border-color: #2988ce;
-  background-color: #0088ff;
-  color: white;
-  box-shadow: 1px 1px 4px #000000;
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    border-color: #2988ce;
+    background-color: #0088ff;
+    color: white;
+    box-shadow: 1px 1px 4px #000000;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .submit {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .submit img {
-  width: 70px;
-  height: 70px;
-}
-.post {
-  border: 2px solid #fed700;
-  border-radius: 15px;
-  margin-bottom: 15px;
+    width: 70px;
+    height: 70px;
 }
 
-.pic img{
-  width: 200px; /* width of container */
-  height: 200px; /* height of container */
-  object-fit: cover;
-  border-radius: 50%;
+.post {
+    border: 2px solid #fed700;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.pic img {
+    width: 200px; /* width of container */
+    height: 200px; /* height of container */
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 /* profile structure */
 
 .ProfileInfosHeader {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
 }
 
 .content .group {
-  display: flex;
-  flex-direction: row;
-  padding-left: 5px;
-  width: 200px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 5px;
+    width: 200px;
 }
 
 .content .row {
-  display: flex;
-  flex-direction: row;
-  padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
 }
 
 .content .profileInfo {
-  padding: 2px;
-  margin: 8px;
+    padding: 2px;
+    margin: 8px;
 }
 
 .content .profileInfoIcons {
-  width: 35px;
+    width: 35px;
 }
 
 .content .profileinfo p {
-  margin: 3px;
-  padding: 3px;
-  text-align: center;
+    margin: 3px;
+    padding: 3px;
+    text-align: center;
 }
 
 .profileInfosFooter {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .profileInfosFooter p {
-  padding: 5px;
-  margin: 5px;
+    padding: 5px;
+    margin: 5px;
 }
 
 .profile_pic {
-  width: 150px;
-  /* margin-left: 10px; */
-  margin-top: 10px;
-  margin-bottom: 10px;
+    width: 150px;
+    /* margin-left: 10px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .profile-info-wrapper {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .info {
-  margin-left: 40px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+    margin-left: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .profile_name {
-  padding: 10px;
+    padding: 10px;
 }
 
 .profile_city {
-  padding: 10px;
+    padding: 10px;
 }
 
 .profile_personal_status {
-  padding: 10px;
+    padding: 10px;
 }
 
 .profile_online_status {
-  padding: 10px;
+    padding: 10px;
 }
 
 .more_info {
-  margin-left: 10px;
-  text-decoration: none;
+    margin-left: 10px;
+    text-decoration: none;
 }
+
 .icon-edit-content {
-  align-self: flex-end;
-  margin: 0 15px 10px 0;
-  cursor: pointer;
+    align-self: flex-end;
+    margin: 0 15px 10px 0;
+    cursor: pointer;
 }
 
 .icon-edit-content img {
-  width: 20px;
+    width: 20px;
 }
 
 /* status */
 .status {
-  padding: 10px;
+    padding: 10px;
 }
 
 /* guestbook */
 
 .guestbook,
 .guestbook h2 {
-  padding: 6px;
+    padding: 6px;
 }
 
 .post {
-  border: 2px solid #fed700;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  width: 700px;
-  padding: 10px;
-  background-color: cornsilk;
+    border: 2px solid #fed700;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    width: 700px;
+    padding: 10px;
+    background-color: cornsilk;
 }
 
 .sender {
-  padding: 5px;
+    padding: 5px;
 }
 
 .message {
-  padding: 5px;
-  display: grid;
+    padding: 5px;
+    display: grid;
 }
 
 textarea {
-resize: none;
-width: 600px;
-height: 100px;
-border: none;
-outline: none;
-background-color: cornsilk;
-font-size: 16px;
+    resize: none;
+    width: 600px;
+    height: 100px;
+    border: none;
+    outline: none;
+    background-color: cornsilk;
+    font-size: 16px;
 }
 
 .FAsenden {
-height: 30px;
-width: 200px;
-border-radius: 50px;
-border-color: #2988ce;
-background-color: #0088ff;
-color: white;
-box-shadow: 1px 1px 4px #000000;
-position: relative;
-left: 250px;
-margin-bottom: 20px;
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    border-color: #2988ce;
+    background-color: #0088ff;
+    color: white;
+    box-shadow: 1px 1px 4px #000000;
+    position: relative;
+    left: 250px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.submitBtnProfiletext {
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    border-color: #2988ce;
+    background-color: #0088ff;
+    color: white;
+    box-shadow: 1px 1px 4px #000000;
+    position: relative;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.submitBtnGästebuch {
+    height: 30px;
+    width: 200px;
+    border-radius: 50px;
+    border-color: #2988ce;
+    background-color: #0088ff;
+    color: white;
+    box-shadow: 1px 1px 4px #000000;
+    position: relative;
+    left: 250px;
+    top: 10px;
+    margin-bottom: 20px;
+}
+
+.youAreFriends {
+    text-align: center;
+    height: 30px;
+    width: 200px;
+    padding-top: 6px;
+    border: 5px;
+    border-radius: 50px;
+    background-color: #ff96b2;
+    color: white;
+    position: relative;
+    left: 250px;
+    margin-bottom: 20px;
 }

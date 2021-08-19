@@ -19,7 +19,6 @@ import java.util.*;
 @SpringBootTest
 public class UserTest {
 
-    // TODO: was wollen wir vom User testen?
 
     @Autowired
     UserService userService;
@@ -76,7 +75,7 @@ public class UserTest {
 
         RelationshipStatus rs = RelationshipStatus.SINGLE;
 
-        LocalDate birthDay = LocalDate.ofYearDay(1990,200);
+        LocalDate birthDay = LocalDate.ofYearDay(1990, 200);
 
         User testUser = new User(
                 "monika@normal.de",

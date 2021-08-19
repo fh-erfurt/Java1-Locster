@@ -13,12 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
  * @version 1.0
  */
 @Controller
-public class  SearchController {
+public class SearchController {
     @Autowired
     private UserService userService;
 
     /**
      * Calls function in {@link UserService} to search for the given characters
+     *
      * @param model
      * @param query to be searched characters
      * @return view with search results

@@ -1,61 +1,61 @@
-<link th:href = "@{/css/navigation.css}" rel="stylesheet">
+<link th:href="@{/css/navigation.css}" rel="stylesheet">
 
 <nav th:fragment="nav" class="navigation">
     <div class="navContainer">
 
-    <div class="logo-wrapper">
-        <a href="#">
-            <img src="/images/locsterLogo_Weiss.png" class="logo" />
-        </a>
-    </div>
+        <div class="logo-wrapper">
+            <a href="#">
+                <img src="/images/locsterLogo_Weiss.png" class="logo"/>
+            </a>
+        </div>
 
-    <!-- search -->
+        <!-- search -->
 
-    <form action="/search" method="get">
-        <div class="input-group">
-            <input id="searchBar" type="text" name="q" placeholder="Search"/>
-            <div class="input-group-btn">
-                <button type="submit">
-                    <img src="/icons/glass.png" class="search-icon" />
+        <form action="/search" method="get">
+            <div class="input-group">
+                <input id="searchBar" type="text" name="q" placeholder="Search"/>
+                <div class="input-group-btn">
+                    <button type="submit">
+                        <img src="/icons/glass.png" class="search-icon"/>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="icon-wrapper">
+            <a href="/chat">
+                <img src="/icons/speechbubble.png" class="icon"/>
+            </a>
+            <a href="/whoisonline">
+                <img src="/icons/group.png" class="icon"/>
+            </a>
+            <a href="/friendlist">
+                <img src="/icons/people.png" class="icon"/>
+            </a>
+
+            <!-- dropdown -->
+
+            <div class="dropdown">
+                <button class="dropbtn">
+                    <a href="#">
+                        <img src="/icons/person.png" class="icon"/>
+                    </a>
                 </button>
+                <div class="dropdown-content sb1">
+                    <a href="/profilepage">
+                        <img src="/icons/person.png" class="icon_dropbtn"/>
+                        <p>Profil</p>
+                    </a>
+                    <a href="/settings">
+                        <img src="/icons/gear.png" class="icon_dropbtn"/>
+                        <p>Einstellungen</p>
+                    </a>
+                    <a href="/logout">
+                        <img src="/icons/logout.png" class="icon_dropbtn"/>
+                        <p>Logout</p>
+                    </a>
+                </div>
             </div>
         </div>
-    </form>
-
-    <div class="icon-wrapper">
-        <a href="/chat">
-            <img src="/icons/speechbubble.png" class="icon" />
-        </a>
-        <a href="/whoisonline">
-            <img src="/icons/group.png" class="icon" />
-        </a>
-        <a href="/friendlist">
-            <img src="/icons/people.png" class="icon" />
-        </a>
-
-        <!-- dropdown -->
-
-        <div class="dropdown">
-            <button class="dropbtn">
-                <a href="#">
-                    <img src="/icons/person.png" class="icon" />
-                </a>
-            </button>
-            <div class="dropdown-content sb1">
-                <a href="/profilepage">
-                    <img src="/icons/person.png" class="icon_dropbtn" />
-                    <p>Profil</p>
-                </a>
-                <a href="/settings">
-                    <img src="/icons/gear.png" class="icon_dropbtn" />
-                    <p>Einstellungen</p>
-                </a>
-                <a href="/logout">
-                    <img src="/icons/logout.png" class="icon_dropbtn" />
-                    <p>Logout</p>
-                </a>
-            </div>
-        </div>
-    </div>
     </div>
 </nav>

@@ -16,15 +16,14 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Chat extends BaseEntity
-{
+public class Chat extends BaseEntity {
 
     private String name;
     @ManyToMany
     @JoinTable(
             name = "users_in_chats",
-            joinColumns = @JoinColumn(name="chat"),
-            inverseJoinColumns = @JoinColumn(name="user")
+            joinColumns = @JoinColumn(name = "chat"),
+            inverseJoinColumns = @JoinColumn(name = "user")
     )
     private Set<User> users = new HashSet<>();
     @OneToMany(mappedBy = "chat")

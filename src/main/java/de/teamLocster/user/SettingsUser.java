@@ -43,7 +43,6 @@ public class SettingsUser
     String region;
 
     @NotNull
-    // @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd") didn't work!
     @Pattern(regexp = "^([0-9]{4})-([0-1][0-9])-([0-3][0-9])$", message = "Bitte gültiges Datum eingeben!")
     private String birthday;
 

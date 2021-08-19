@@ -21,14 +21,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * - page access configuration
  * - configuration where logout should be handled
  *
- * @author  Jakob Gensel
- * @see     de.teamLocster.security.auth.AuthProvider
- * @see     de.teamLocster.user.LocsterUserDetailsService
+ * @author Jakob Gensel
+ * @see de.teamLocster.security.auth.AuthProvider
+ * @see de.teamLocster.user.LocsterUserDetailsService
  */
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter
-{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final int EXPIRATION_TIME_OF_COOKIE = 3600 * 24 * 7 * 2;
 
     @Autowired
@@ -70,30 +69,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 )
                 .permitAll()
                 .antMatchers("/**")
-                    .fullyAuthenticated()
-                    .anyRequest()
-                    .authenticated()
+                .fullyAuthenticated()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .usernameParameter("emailAddress")
-                    .passwordParameter("password")
-                    .failureUrl("/login?error")
-                    .defaultSuccessUrl("/whoisonline")
+                .loginPage("/login")
+                .usernameParameter("emailAddress")
+                .passwordParameter("password")
+                .failureUrl("/login?error")
+                .defaultSuccessUrl("/whoisonline")
                 .permitAll()
                 .and()
                 .rememberMe()
-                    .rememberMeParameter("remember-login")
-                    .tokenValiditySeconds(EXPIRATION_TIME_OF_COOKIE)
-                    .userDetailsService(userDetailsService)
+                .rememberMeParameter("remember-login")
+                .tokenValiditySeconds(EXPIRATION_TIME_OF_COOKIE)
+                .userDetailsService(userDetailsService)
                 .and()
                 .logout()
-                    .deleteCookies("JSESSIONID")
-                    .invalidateHttpSession(true)
-                    .clearAuthentication(true)
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/login?logout")
-                    .addLogoutHandler(logoutHandler)
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .addLogoutHandler(logoutHandler)
                 .permitAll()
                 .and()
                 .exceptionHandling().accessDeniedHandler(accessDeniedHandler)

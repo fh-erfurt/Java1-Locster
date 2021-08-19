@@ -9,12 +9,15 @@
   border-radius: 30px;
   background-color: #fff3b1;
   border: 2px solid #fed700;
+  display: flex;
+  flex-direction: column;
 
 }
 
 .listWith6ChildContent ul li,
 .contentFriend ul li {
   display: flex;
+  justify-content: space-between;
   padding: 10px 20px;
   margin: 5px 0;
   transition: 0.5s;
@@ -47,7 +50,7 @@
 }
 
 .contentFriend ul li span:nth-child(1) {
-  width: 140px;
+  width: 100px;
 }
 .contentFriend ul li span:nth-child(2) {
   width: 200px;
@@ -56,7 +59,7 @@
   width: 140px;
 }
 .contentFriend ul li span:nth-child(4) {
-  width: 200px;
+  width: 150px;
 }
 
 .listWith6ChildContent li span,
@@ -64,9 +67,54 @@
   text-align: center;
 }
 
+.unfriendBtn {
+  width: 42px;
+  background-color: #ff0000;
+  border-color: #cc0000;
+  height: 42px;
+  position: relative;
+  border-radius: 50px;
+  left: 25px;
+    margin-left: 20px;
+    margin-right: 80px;
+    cursor: pointer;
+    box-shadow: 1px 1px 4px #000000;
+}
+
+.submit {
+  width: 42px;
+  background-color: #ff0000;
+  border-color: #cc0000;
+  height: 42px;
+  position: relative;
+  border-radius: 50px;
+  left: 25px;
+  margin-left: 20px;
+  margin-right: 80px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #000000;
+}
+
+.submitBtn {
+  font-size: 40px;
+  border-radius: 50px;
+  border-color: #2988ce;
+  background-color: #0088ff;
+  color: white;
+  box-shadow: 1px 1px 4px #000000;
+  bottom: 15px;
+  cursor: pointer;
+}
+
 .icon img {
   width: 30px;
   height: 30px;
+  border: none;
+  margin-left: 11px;
+  margin-right: 20px;
+  margin-bottom: 7px;
+  position: relative;
+  cursor: pointer;
 }
 
 .onlinestatus-ONLINE {

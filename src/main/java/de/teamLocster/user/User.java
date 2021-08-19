@@ -12,16 +12,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 
-//@Table?????
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BaseEntity
-{
+public class User extends BaseEntity {
     @Column(unique = true)
     private String emailAddress;
     private String passwordHash;
@@ -36,12 +34,7 @@ public class User extends BaseEntity
     @Enumerated(EnumType.ORDINAL)
     private Sex sex;
 
-    /*
-    @Lob
-    private Byte[] profilePicture; // TODO client muss Dateityp kennen
-    */
     private String profilePicture = "/images/profilePic.png";
-    // @Lob CLOB in DB für Kodierung von Umlauten bzw. deutschen Zeichen
     private String profileText;
     private String personalStatus;
     @Enumerated(EnumType.ORDINAL)

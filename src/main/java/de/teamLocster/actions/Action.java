@@ -15,8 +15,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Action extends BaseEntity
-{
+public class Action extends BaseEntity {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private User actor;
     @ManyToOne(fetch = FetchType.LAZY)

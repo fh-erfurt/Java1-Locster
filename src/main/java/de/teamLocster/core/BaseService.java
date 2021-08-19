@@ -5,6 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class BaseService<E extends BaseEntity>
-{
+public class BaseService<E extends BaseEntity> {
 }
