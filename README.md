@@ -49,7 +49,7 @@ git clone git@github.com:fh-erfurt/Java1-Locster.git
 
 ### Alternative: 1. Git initialisieren und Remote-Branch hinzufügen
 
-#### 1.1 Projektordner erstellen und cmd öffnen
+#### 1. Projektordner erstellen und cmd öffnen
 
 ```
 git init
@@ -61,7 +61,7 @@ git pull origin main
 
 Erstellen Sie eine Datenbank auf Ihrem MySQL-Server. Bspw. ``locster``
 
-### 5. Datenbank-Schema importieren
+### 3. Datenbank-Schema importieren
 
 Um das aktuelle Datenbankschema zu importieren machen Sie folgenden:
 
@@ -74,7 +74,7 @@ Um das aktuelle Datenbankschema zu importieren machen Sie folgenden:
 Sie müssen nun project test laufen lassen: mit dem rechte taste maus auf java (unter test) drücken -> Run All Tests
 ```
 
-### 6. Starten des Servers
+### 4. Starten des Servers
 
 Um den Server zu starten geben Sie bitte folgenden machen
 
@@ -83,8 +83,10 @@ Um den Server zu starten geben Sie bitte folgenden machen
 
 3. gehen sie zu src -> test -> dummy_data -> InsertDataForSimulatingAndTesting
 4. Sie müssen InsertDataForSimulatingAndTesting lausen lassen "Run"
-
+5. 
 Sie Dürfen auf ihrem Browser localhost:8080/ rufen 
+
+5. email: dirk@hofmann.de	Passwort:DIRK
 	
 ## Workflow
 
