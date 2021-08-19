@@ -60,7 +60,6 @@ public class LocsterUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        // TODO
         return true;
     }
 }
