@@ -174,11 +174,11 @@ Link zum [2.Präsentation - finale_java_presentation](https://github.com/fh-erfu
 
 </details>
 
-## Diagramme
+## Klassendiagramm
 
 <details>
 	
-<summary>Diagramme</summary><br>
+<summary>Klassendiagramm</summary><br>
 	
 ## Klassendiagramm <br>
 	
