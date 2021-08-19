@@ -414,7 +414,8 @@ Am Schluss und nur für einen selbst sichtbar sind die eigen verfassten Gästebu
 Man gelangt hier hin entweder über das Stift-Icon im ersten Abschnitt oder über Einstellungen.
 Hier kann man seine persönlichen Daten ändern, einen Status einstellen, seinen online Status ändern, sein Passwort ändern und ein Profilbild hochladen.
 Ganz unten lässt sich das Profil aich löschen.
-
+	
+![User Einstellungen](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/UserEinstellungen.png)
 </details>
 
 <details>
