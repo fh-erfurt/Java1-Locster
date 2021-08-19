@@ -234,6 +234,7 @@ Die Klasse **GuestbookEntry**  enthält den Speicherort für die Einträge im G�
 <ul>
 	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
 <li>Beispiel: ClassName.java</li>
+</ul>
 
 3. Methoden<br>
 <br>
