@@ -29,8 +29,7 @@ import java.util.Set;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
-public class InsertDataForSimulatingAndTesting
-{
+public class InsertDataForSimulatingAndTesting {
     @Autowired
     UserRepository userRepository;
 
@@ -51,8 +50,7 @@ public class InsertDataForSimulatingAndTesting
     private final LocalDate birthDay = LocalDate.ofYearDay(1990, 200);
 
     @Test
-    void a_createTeam()
-    {
+    void a_createTeam() {
         User jakob = new User(
                 "jakob@gensel.de",
                 encoder.encode("JAKOB"),
@@ -144,15 +142,13 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User[] testUsers = {jakob, dirk, saskia, matze, molham};
-        for(User testUser : testUsers)
-        {
+        for (User testUser : testUsers) {
             userRepository.save(testUser);
         }
     }
 
     @Test
-    void b_createAdditionalUsers()
-    {
+    void b_createAdditionalUsers() {
 
         User dummy1 = new User(
                 "dummy1@dummy.de",
@@ -317,15 +313,13 @@ public class InsertDataForSimulatingAndTesting
         );
 
         User[] testUsers = {dummy1, dummy2, dummy3, dummy4, dummy5, dummy6, dummy7, dummy8, dummy9};
-        for (User testUser : testUsers)
-        {
+        for (User testUser : testUsers) {
             userRepository.save(testUser);
         }
     }
 
     @Test
-    void c_createActions()
-    {
+    void c_createActions() {
         Action action1 = new Action(
                 userRepository.findByEmailAddress("matthias@gabel.de").get(),
                 userRepository.findByEmailAddress("dirk@hofmann.de").get(),
@@ -351,8 +345,7 @@ public class InsertDataForSimulatingAndTesting
         );
 
         Action[] testActions = {action1, action2, action3, action4};
-        for(Action testAction : testActions)
-        {
+        for (Action testAction : testActions) {
             actionRepository.save(testAction);
         }
     }
@@ -465,12 +458,11 @@ public class InsertDataForSimulatingAndTesting
         }
     }
 
-    void e_createChats()
-    {
+    void e_createChats() {
         Set<User> users1 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dirk@hofmann.de").get());
         users1.add(userRepository.findByEmailAddress("dummy6@gensel.de").get());
-        Chat chat1 = new Chat( "Chat1",
+        Chat chat1 = new Chat("Chat1",
                 users1,
                 new HashSet<Message>()
         );
@@ -478,7 +470,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users2 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("matthias@gabel.de").get());
         users1.add(userRepository.findByEmailAddress("saskia@wohlers.de").get());
-        Chat chat2 = new Chat( "Chat2",
+        Chat chat2 = new Chat("Chat2",
                 users1,
                 new HashSet<Message>()
         );
@@ -486,7 +478,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users3 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dirk@hofmann.de").get());
         users1.add(userRepository.findByEmailAddress("saskia@wohlers.de").get());
-        Chat chat3 = new Chat( "Chat3",
+        Chat chat3 = new Chat("Chat3",
                 users1,
                 new HashSet<Message>()
         );
@@ -494,7 +486,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users4 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dummy7@gensel.de").get());
         users1.add(userRepository.findByEmailAddress("dummy6@gensel.de").get());
-        Chat chat4 = new Chat( "Chat4",
+        Chat chat4 = new Chat("Chat4",
                 users1,
                 new HashSet<Message>()
         );
@@ -502,7 +494,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users5 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("saskia@wohlers.de").get());
         users1.add(userRepository.findByEmailAddress("dummy6@gensel.de").get());
-        Chat chat5 = new Chat( "Chat5",
+        Chat chat5 = new Chat("Chat5",
                 users1,
                 new HashSet<Message>()
         );
@@ -510,7 +502,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users6 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dummy7@gensel.de").get());
         users1.add(userRepository.findByEmailAddress("molham@gabel.de").get());
-        Chat chat6 = new Chat( "Chat6",
+        Chat chat6 = new Chat("Chat6",
                 users1,
                 new HashSet<Message>()
         );
@@ -518,7 +510,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users7 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dirk@hofmann.de").get());
         users1.add(userRepository.findByEmailAddress("molham@gabel.de").get());
-        Chat chat7 = new Chat( "Chat7",
+        Chat chat7 = new Chat("Chat7",
                 users1,
                 new HashSet<Message>()
         );
@@ -526,7 +518,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users8 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("dirk@hofmann.de").get());
         users1.add(userRepository.findByEmailAddress("jakob@gensel.de").get());
-        Chat chat8 = new Chat( "Chat8",
+        Chat chat8 = new Chat("Chat8",
                 users1,
                 new HashSet<Message>()
         );
@@ -534,7 +526,7 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users9 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("jakob@gensel.de").get());
         users1.add(userRepository.findByEmailAddress("saskia@wohlers.de").get());
-        Chat chat9 = new Chat( "Chat9",
+        Chat chat9 = new Chat("Chat9",
                 users1,
                 new HashSet<Message>()
         );
@@ -542,15 +534,14 @@ public class InsertDataForSimulatingAndTesting
         Set<User> users10 = new HashSet<User>();
         users1.add(userRepository.findByEmailAddress("jakob@gensel.de").get());
         users1.add(userRepository.findByEmailAddress("dummy7@gensel.de").get());
-        Chat chat10 = new Chat( "Chat10",
+        Chat chat10 = new Chat("Chat10",
                 users1,
                 new HashSet<Message>()
         );
 
 
         Chat[] testChats = {chat1, chat2, chat3, chat4, chat5, chat6, chat7, chat8, chat9, chat10};
-        for(Chat testChat : testChats)
-        {
+        for (Chat testChat : testChats) {
             chatRepository.save(testChat);
         }
     }
@@ -562,7 +553,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
                 readBy11, // READ BY
                 "1 geile Nachricht LOL!!!!11!!!1", // MESSAGE
-                new Date(2021,5,10)  // SENT AT
+                new Date(2021, 5, 10)  // SENT AT
         );
 
         Set<User> readBy12 = new HashSet<User>();
@@ -571,7 +562,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
                 readBy12, // READ BY
                 "Na Klar!", // MESSAGE
-                new Date(2021,5,10) // SENT AT
+                new Date(2021, 5, 10) // SENT AT
         );
 
         Set<User> readBy13 = new HashSet<User>();
@@ -580,7 +571,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
                 readBy13,
                 "HAHHAHAHA DOPPELTEXXXXXXXXXTE lololo bot bot bot",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy14 = new HashSet<User>();
@@ -589,7 +580,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("dirk@hofmann.de").get()).get(0),//CHAT
                 readBy14,
                 "tripple text!!!!!!!!! ",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy21 = new HashSet<User>();
@@ -598,7 +589,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("saskia@wohlers.de").get()).get(0),//CHAT
                 readBy21,
                 "Moin du Lachs",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy22 = new HashSet<User>();
@@ -607,7 +598,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("molham@gabel.de").get()).get(0),//CHAT
                 readBy22,
                 "Lachsnacken ",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy31 = new HashSet<User>();
@@ -616,7 +607,7 @@ public class InsertDataForSimulatingAndTesting
                 chatRepository.findChatsByUsersContains(userRepository.findByEmailAddress("matthias@gabel.de").get()).get(1),//CHAT
                 readBy31,
                 "Hi Matze",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy32 = new HashSet<User>();
@@ -626,7 +617,7 @@ public class InsertDataForSimulatingAndTesting
                 readBy32,
                 "Bin ich wirklich der Sender" +
                         "",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy33 = new HashSet<User>();
@@ -636,7 +627,7 @@ public class InsertDataForSimulatingAndTesting
                 readBy33,
                 "Das weiß wohl keiner, bis wir das gleich getestet haben o_o" +
                         "",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Set<User> readBy41 = new HashSet<User>();
@@ -646,12 +637,11 @@ public class InsertDataForSimulatingAndTesting
                 readBy41,
                 "TEST TEST TEST" +
                         "",
-                new Date(2021,5,10)
+                new Date(2021, 5, 10)
         );
 
         Message[] testMessages = {message11};
-        for(Message testMessage : testMessages)
-        {
+        for (Message testMessage : testMessages) {
             messageRepository.save(testMessage);
         }
 

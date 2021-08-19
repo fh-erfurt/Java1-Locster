@@ -20,14 +20,12 @@ import org.springframework.stereotype.Component;
 /**
  * "AuthenticationProvider" implementation to authenticate requests and logins.
  *
- *
- * @author  Jakob Gensel
- * @see     de.teamLocster.security.config.SecurityConfig
+ * @author Jakob Gensel
+ * @see de.teamLocster.security.config.SecurityConfig
  */
 
 @Component
-public class AuthProvider implements AuthenticationProvider
-{
+public class AuthProvider implements AuthenticationProvider {
     @Autowired
     private UserService userService;
 
@@ -37,13 +35,12 @@ public class AuthProvider implements AuthenticationProvider
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String email = authentication.getName();
-        String password = (String)authentication.getCredentials();
-        try
-        {
+        String password = (String) authentication.getCredentials();
+        try {
             // get user from DB, if exists (otherwise UserNotFoundException is thrown and converted)
             User user = userService.getUserByEmailAddress(email);
             // check if the passwords match and throw BadCredentialsException otherwise
-            if(!passwordEncoder.matches(password, user.getPasswordHash())) {
+            if (!passwordEncoder.matches(password, user.getPasswordHash())) {
                 throw new BadCredentialsException("Passwords didn't match!");
             }
 
@@ -56,8 +53,7 @@ public class AuthProvider implements AuthenticationProvider
 
             // create and return the authentication
             return new UsernamePasswordAuthenticationToken(email, password, authorities);
-        }
-        catch (UserNotFoundException unfEx) {
+        } catch (UserNotFoundException unfEx) {
             throw new UsernameNotFoundException(unfEx.getMessage(), unfEx);
         }
     }

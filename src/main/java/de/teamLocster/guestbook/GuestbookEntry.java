@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.Date;
 
@@ -18,8 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class GuestbookEntry extends BaseEntity
-{
+public class GuestbookEntry extends BaseEntity {
 
     @ManyToOne
     private User creator;

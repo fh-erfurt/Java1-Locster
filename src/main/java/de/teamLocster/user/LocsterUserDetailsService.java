@@ -12,21 +12,20 @@ import java.util.Optional;
 /**
  * "UserDetailsService" implementation to handle user details in sessions.
  *
- * @author  Jakob Gensel
- * @see     de.teamLocster.security.config.SecurityConfig
+ * @author Jakob Gensel
+ * @see de.teamLocster.security.config.SecurityConfig
  */
 
 @Slf4j
 @Service
-public class LocsterUserDetailsService implements UserDetailsService
-{
+public class LocsterUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> data = userRepository.findByEmailAddress(username);
-        if(data.isPresent()) return new LocsterUserDetails(data.get());
+        if (data.isPresent()) return new LocsterUserDetails(data.get());
         throw new UsernameNotFoundException("No user with this email address was found in the database!");
     }
 }

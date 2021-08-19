@@ -1,6 +1,5 @@
 package de.teamLocster.user;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -15,13 +14,13 @@ public class FileUploadUtilities {
     public static void saveFile(String fileName, MultipartFile multipartFile) throws IOException {
         Path uploadPath = Paths.get("profile-picture");
 
-        if(!Files.exists(uploadPath))
+        if (!Files.exists(uploadPath))
             Files.createDirectories(uploadPath);
 
         try (InputStream inputStream = multipartFile.getInputStream()) {
             Path filePath = uploadPath.resolve(fileName);
             Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-        } catch(IOException ioException) {
+        } catch (IOException ioException) {
             throw new IOException("Could not save image file: " + fileName, ioException);
         }
     }

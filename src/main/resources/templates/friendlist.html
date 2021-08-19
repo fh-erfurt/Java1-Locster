@@ -37,9 +37,9 @@
                     <a th:href="@{/profilepage/{userId}(userId=${fr.id})}">zum Profil</a>
                     <form th:action="@{/friendrequest/{userId}(userId=${fr.id})}" th:method="put">
                         <span class="icon">
-                            <button type="submit">
-                                <img class="acceptFriendIcon" src="icons/accept.svg" alt="icon"/>
-                            </button>
+                    <div class="submit">
+                        <button class="submitBtn"><i class="far fa-check-circle"></i></button>
+                    </div>
                         </span>
                     </form>
                 </li>

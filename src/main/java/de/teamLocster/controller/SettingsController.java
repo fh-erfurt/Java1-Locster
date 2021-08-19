@@ -18,8 +18,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author Molham Al-khodari
@@ -38,6 +36,7 @@ public class SettingsController {
 
     /**
      * Calls the settings page
+     *
      * @param authentication user must be logged in
      * @param model
      * @return view
@@ -58,10 +57,11 @@ public class SettingsController {
 
     /**
      * Calls function in {@link UserService} to update the profile text of user
-     * @param userDto profile text
+     *
+     * @param userDto            profile text
      * @param errors
      * @param redirectAttributes
-     * @param authentication user must be logged in
+     * @param authentication     user must be logged in
      * @return view
      */
     @PostMapping("/settings")
@@ -69,26 +69,18 @@ public class SettingsController {
                              @RequestParam("profilePicture") MultipartFile multipartFile,
                              Errors errors,
                              RedirectAttributes redirectAttributes,
-                             Authentication authentication)
-    {
+                             Authentication authentication) {
         if (errors.hasErrors()) {
             return "settings";
-        }
-        else
-        {
+        } else {
             String oldEmail = authentication.getName();
-            try
-            {
+            try {
                 userService.updateUser(oldEmail, userDto, multipartFile);
                 return "redirect:/profilepage";
-            }
-            catch (UserNotFoundException e1)
-            {
+            } catch (UserNotFoundException e1) {
                 redirectAttributes.addFlashAttribute("message", "USER NOT FOUND"); // TODO
                 return "redirect:/";
-            }
-            catch (UserAlreadyExistException e2)
-            {
+            } catch (UserAlreadyExistException e2) {
                 redirectAttributes.addFlashAttribute("message", "EMAIL ALREADY EXISTS");
                 return "redirect:/";
             }
@@ -97,6 +89,7 @@ public class SettingsController {
 
     /**
      * Calls function in {@link UserService} to delete the user
+     *
      * @param user
      * @param redirectAttributes
      * @param authentication
@@ -105,20 +98,17 @@ public class SettingsController {
      */
     @PostMapping("delete")
     public String deleteUser(@ModelAttribute User user,
-                                   RedirectAttributes redirectAttributes,
-                                   Authentication authentication) throws UserNotFoundException, IOException {
+                             RedirectAttributes redirectAttributes,
+                             Authentication authentication) throws UserNotFoundException, IOException {
 
-            String email = authentication.getName();
-            try
-            {
-                userService.deleteUser(email);
-                return "redirect:/login";
-            }
-            catch (UserNotFoundException e1)
-            {
-                redirectAttributes.addFlashAttribute("message", "USER NOT FOUND");
-                return "redirect:/";
-            }
+        String email = authentication.getName();
+        try {
+            userService.deleteUser(email);
+            return "redirect:/login";
+        } catch (UserNotFoundException e1) {
+            redirectAttributes.addFlashAttribute("message", "USER NOT FOUND");
+            return "redirect:/";
+        }
 
     }
 }

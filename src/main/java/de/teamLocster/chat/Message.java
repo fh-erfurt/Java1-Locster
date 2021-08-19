@@ -17,20 +17,19 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message extends BaseEntity
-{
+public class Message extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name="sender", referencedColumnName = "id")
+    @JoinColumn(name = "sender", referencedColumnName = "id")
     private User sender;
     @ManyToOne
-    @JoinColumn(name="chat", referencedColumnName = "id")
+    @JoinColumn(name = "chat", referencedColumnName = "id")
     private Chat chat;
     @ManyToMany
     @JoinTable(
             name = "read_by",                           // TODO time of read
-            joinColumns = @JoinColumn(name="message"),
-            inverseJoinColumns = @JoinColumn(name="user")
+            joinColumns = @JoinColumn(name = "message"),
+            inverseJoinColumns = @JoinColumn(name = "user")
     )
     private Set<User> readBy;
     private String text;

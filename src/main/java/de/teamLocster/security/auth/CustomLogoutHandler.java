@@ -10,21 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Service
-public class CustomLogoutHandler implements LogoutHandler
-{
+public class CustomLogoutHandler implements LogoutHandler {
     @Autowired
     private UserService userService;
 
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response,
                        Authentication authentication) {
-        try
-        {
+        try {
             String email = authentication.getName();
             userService.logout(email);
-        }
-        catch (NullPointerException npEx)
-        {
+        } catch (NullPointerException npEx) {
             System.out.println("User was already logged out");
         }
     }

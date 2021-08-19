@@ -12,13 +12,12 @@ import java.util.List;
 /**
  * "UserDetails" implementation to handle user authorities and data.
  *
- * @author  Jakob Gensel
- * @see     de.teamLocster.user.LocsterUserDetailsService
+ * @author Jakob Gensel
+ * @see de.teamLocster.user.LocsterUserDetailsService
  */
 
 @Getter
-public class LocsterUserDetails implements UserDetails
-{
+public class LocsterUserDetails implements UserDetails {
     private final User user;
 
     private final List<GrantedAuthority> authorities;
@@ -30,7 +29,7 @@ public class LocsterUserDetails implements UserDetails
     }
 
     @Override
-    public String getPassword(){
+    public String getPassword() {
         return this.user.getPasswordHash();
     }
 
@@ -45,22 +44,22 @@ public class LocsterUserDetails implements UserDetails
     }
 
     @Override
-    public boolean isAccountNonExpired(){
+    public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
-    public boolean isAccountNonLocked(){
+    public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
-    public boolean isCredentialsNonExpired(){
+    public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
-    public boolean isEnabled(){
+    public boolean isEnabled() {
         // TODO
         return true;
     }

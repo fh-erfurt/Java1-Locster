@@ -1,6 +1,5 @@
 package de.teamLocster.actions;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import de.teamLocster.core.errors.NoFriendRequestPresentException;
@@ -57,15 +56,14 @@ public class ActionTest {
 
         List<User> requests = actionService.getReceivedFriendRequests(user2);
         List<Long> ids = new ArrayList<>();
-        for(User fr : requests) ids.add(fr.getId());
+        for (User fr : requests) ids.add(fr.getId());
 
         assertTrue("User1 should appear in User2's friend requests", ids.contains(user1.getId()));
         assertTrue("User3 should appear in User2's friend requests", ids.contains(user3.getId()));
     }
 
     @Test
-    void acceptFriendRequest() throws NoFriendRequestPresentException
-    {
+    void acceptFriendRequest() throws NoFriendRequestPresentException {
         actionService.sendFriendRequest(user1, user2);
         actionService.sendFriendRequest(user3, user1);
 
@@ -97,7 +95,7 @@ public class ActionTest {
 
         List<User> blockedUsers = actionService.getBlockedUsers(user1);
         List<Long> ids = new ArrayList<>();
-        for(User fr : blockedUsers) ids.add(fr.getId());
+        for (User fr : blockedUsers) ids.add(fr.getId());
 
         assert ids.contains(user2.getId());
         assert ids.contains(user3.getId());

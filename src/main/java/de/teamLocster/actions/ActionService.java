@@ -15,8 +15,7 @@ import java.util.Optional;
 
 @Slf4j
 @Service
-public class ActionService extends BaseService<Action>
-{
+public class ActionService extends BaseService<Action> {
     @Autowired
     ActionRepository actionRepository;
 
@@ -24,16 +23,16 @@ public class ActionService extends BaseService<Action>
      * method used to send friend request
      * if there is already a request present in the opposite direction, it just gets accepted
      * if there is already a request present in the same direction, nothing is done
-     * @param actor the user sending the request
+     *
+     * @param actor    the user sending the request
      * @param affected the user that gets requested
      */
     public void sendFriendRequest(User actor, User affected) {
         try {
             acceptFriendRequest(actor, affected);
-        }
-        catch (NoFriendRequestPresentException nfrEx) {
+        } catch (NoFriendRequestPresentException nfrEx) {
             Optional<Action> sentRequest = actionRepository.findByActionTypeAndActorIdAndAffectedId(ActionType.FRIEND_REQUEST, actor.getId(), affected.getId());
-            if(sentRequest.isEmpty()) actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
+            if (sentRequest.isEmpty()) actionRepository.save(new Action(actor, affected, ActionType.FRIEND_REQUEST));
         }
     }
 
@@ -44,7 +43,6 @@ public class ActionService extends BaseService<Action>
     }
 
     /**
-     *
      * @param actor
      * @param affected
      * @throws NoFriendRequestPresentException if there is no friend request
@@ -80,7 +78,7 @@ public class ActionService extends BaseService<Action>
 
     public void removeFriend(User actor, User affected) throws UsersAreNotFriendsException {
         Optional<Action> friendship = getFriendshipAcknowledgementAction(actor.getId(), affected.getId());
-        if(isFriend(actor, affected) && friendship.isPresent()) {
+        if (isFriend(actor, affected) && friendship.isPresent()) {
             actionRepository.delete(friendship.get());
         }
     }
@@ -91,7 +89,7 @@ public class ActionService extends BaseService<Action>
 
     public List<User> getBlockedUsers(User user) {
         List<User> blockedUsers = new ArrayList<>();
-        actionRepository.findByActionTypeAndActorId(ActionType.BLOCK,user.getId()).forEach(r -> blockedUsers.add(r.getAffected()));
+        actionRepository.findByActionTypeAndActorId(ActionType.BLOCK, user.getId()).forEach(r -> blockedUsers.add(r.getAffected()));
         return blockedUsers;
     }
 }

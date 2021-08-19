@@ -12,8 +12,7 @@ import java.util.Set;
 
 @Slf4j
 @Service
-public class ChatService extends BaseService<Chat>
-{
+public class ChatService extends BaseService<Chat> {
     ChatRepository chatRepository;
 
     @Autowired

@@ -121,7 +121,6 @@ public class UserService extends BaseService<User> {
                 FileUploadUtilities.saveFile(filename, multipartFile);
                 user.setProfilePicture("/profile-picture/" + filename);
             } catch (IOException ioException) {
-                //TODO Do whatever you want :P
             }
         }
 

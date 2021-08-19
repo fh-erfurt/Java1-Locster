@@ -9,12 +9,15 @@
   border-radius: 30px;
   background-color: #fff3b1;
   border: 2px solid #fed700;
+  display: flex;
+  flex-direction: column;
 
 }
 
 .listWith6ChildContent ul li,
 .contentFriend ul li {
   display: flex;
+  justify-content: space-between;
   padding: 10px 20px;
   margin: 5px 0;
   transition: 0.5s;
@@ -76,6 +79,31 @@
     margin-right: 80px;
     cursor: pointer;
     box-shadow: 1px 1px 4px #000000;
+}
+
+.submit {
+  width: 42px;
+  background-color: #ff0000;
+  border-color: #cc0000;
+  height: 42px;
+  position: relative;
+  border-radius: 50px;
+  left: 25px;
+  margin-left: 20px;
+  margin-right: 80px;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px #000000;
+}
+
+.submitBtn {
+  font-size: 40px;
+  border-radius: 50px;
+  border-color: #2988ce;
+  background-color: #0088ff;
+  color: white;
+  box-shadow: 1px 1px 4px #000000;
+  bottom: 15px;
+  cursor: pointer;
 }
 
 .icon img {

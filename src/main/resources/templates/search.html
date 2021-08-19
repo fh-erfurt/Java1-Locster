@@ -3,7 +3,7 @@
 <head th:replace="fragments/head"></head>
 
 <head>
-    <link th:href="@{/css/friendlist.css}" rel="stylesheet" />
+    <link th:href="@{/css/friendlist.css}" rel="stylesheet"/>
 </head>
 <body>
 <!-- navbar -->
@@ -29,13 +29,13 @@
                     <span th:text="#{'labels.sex.'+${u.sex}}" class="gender"></span>
                     <span th:text="#{'labels.relationshipStatus.'+${u.relationshipStatus}}" class="relationship"></span>
                     <span th:text="${u.region}" class="region"></span>
-                    <div th:if="${u.isOnline && u.onlineStatus != T(de.teamLocster.enums.OnlineStatus).INVISIBLE}" th:class="'onlinestatus-' + ${u.onlineStatus}"></div>
-                    <div th:if="${!u.isOnline || u.onlineStatus == T(de.teamLocster.enums.OnlineStatus).INVISIBLE}" th:class="onlinestatus-OFFLINE"></div>
+                    <div th:if="${u.isOnline && u.onlineStatus != T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
+                         th:class="'onlinestatus-' + ${u.onlineStatus}"></div>
+                    <div th:if="${!u.isOnline || u.onlineStatus == T(de.teamLocster.enums.OnlineStatus).INVISIBLE}"
+                         th:class="onlinestatus-OFFLINE"></div>
                     <a th:href="@{/profilepage/{userId}(userId=${u.id})}">zum Profil</a>
                 </li>
-
             </ul>
-
         </div>
     </div>
 </div>

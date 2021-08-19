@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ActionRepository extends BaseRepository<Action>
-{
+public interface ActionRepository extends BaseRepository<Action> {
     List<Action> findByActionTypeAndActorId(ActionType actionType, Long actorId);
 
     List<Action> findByActionTypeAndAffectedId(ActionType actionType, Long affectedId);

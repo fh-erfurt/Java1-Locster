@@ -1,6 +1,5 @@
 package de.teamLocster.chat;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import de.teamLocster.user.User;
@@ -15,8 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 @SpringBootTest
-public class ChatTest
-{
+public class ChatTest {
     @Autowired
     ChatService chatService;
 
