@@ -14,11 +14,11 @@ Das Projekt Locster wird ein soziales Netzwerk in dem verschiedene Nutzer sich k
 
 ### Aktueller Stand
 
-Wir haben ein kleines soziales Netzwerk erstellt, auf dem sich Users registrieren und anmelden können.
-Grundlegende Funktionen, wie Erstellen von Beiträgen, suche nach User, Freundschaftsanfrage senden bzw. empfangen, Konto verwaltung ist komplett integriert und funktioniert.
+Wir haben ein kleines soziales Netzwerk erstellt, auf dem sich User registrieren und anmelden können.
+Grundlegende Funktionen, wie Erstellen von Beiträgen, suche nach User, Freundschaftsanfrage senden bzw. empfangen, Kontoverwaltung sind komplett integriert und funktionstüchtig.
 Dazu kann man sein eigenes Profil frei gestalten und anpassen.
 
-Chat wurde in finale Fassung übernommen, da diese Funktionen den Ramen gesprengt hätten.
+Chat wurde NICHT in die finale Fassung übernommen, da diese Funktionen den Rahmen gesprengt hätten.
 
 
 
