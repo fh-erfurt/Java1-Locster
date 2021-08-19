@@ -159,116 +159,43 @@ Link zum [2.Präsentation - finale_java_presentation](https://github.com/fh-erfu
 ## Klassendiagramm <br>
 	
 Das Klassendiagramm enthält die logische Struktur der Klassen und unterteilt diese in farblich gekennzeichnete Packages.
-User werden bewusst als ganzer User abgespeichert, im nächsten Semester werden User per UserID referenziert.
 	
-![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/JAVA1%20-%20Klassendiagramm_NEW.png) <br>
+![Klassendiagramm](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/KlassendiagrammJava2.png) <br>
 
+Jedes Klasse in einem Package hat ein Repository das mit der Datenbank kommuniziert, einen Service indem sich die Logik befindet und ein Controller der die Anfragen entgegen nimmt.
 
 <details>
 <summary>Chat Package</summary><br>
 
-Die Klasse **Chat**  enthält den Speicherort - eine ArrayList in diesem Fall - für die im Chat gesendeten Nachrichten. Die Klasse **Message** bewahrt die Informationen über den Verfasser der Nachricht, den Inhalt dieser, sowie die Uhrzeit wann sie abgeschickt worden ist.
-Mithilfe der Funktion **sendToChat** wird die Nachricht über die Funktion **recieveMessage** an die **ArrayList<Messages>** in der **Chat-Klasse** übergeben.
-
-![chat](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/chat.png) <br>
+Die Klasse **Chat**  enthält die Informationen welche User in einem Chat sind. Die Klasse **Message** bewahrt die Informationen über den Verfasser der Nachricht, den Inhalt dieser, sowie die Uhrzeit wann sie abgeschickt worden ist.
+Die Funktionalität wurde in diesem Projekt nicht umgesetzt.
 
 </details>
 
 <details>
-<summary>Friend Package</summary><br>
+<summary>Action Package</summary><br>
 	
-Die Klasse **FriendList** ist der Mittelpunkt. Hier ist die komplette Funktionalität zu finden.
-Jeder User hat eine ArrayList **acceptedFriends**, in der die bestätigten Freundschaften hinterlegt sind und eine ArrayList **waitingFriends**, in der gesendete und empfangene Freundschaftsanfragen zu finden sind.
-* **FriendListItem** dient als Eintrag in der ArrayList "acceptedFriends". Dort ist der befreundete User mit einer LocalDateTime seit Beginn der Freundschaft hinterlegt.
-* **FriendRequest** dient als Eintrag in der ArrayList "waitingFriends". Dort sind der Absender und der Empfänger der Anfrage gespeichert.
-* User haben die Grundlegenden Fähigkeiten, anderen Usern **Freundschaftsanfragen zu schicken**, **Freundschaftsanfragen zu akzeptieren oder zu verweigern** und **bestätigte Freunde zu entfernen**.
-* Freundschaftsanfragen werden beim **Absender und beim Empfänger gespeichert**. User können selbst geschickte Anfragen nicht annehmen, diese aber zurückziehen (ablehnen). Empfangene Freundschaftsanfragen können angenommen oder abgelehnt werden. 
-* Die beiden Exceptions **CannotSendFriendRequestException** und **CannotAcceptFriendRequestException** werden in Methoden in der FriendList verwendet.
-	
-![friend](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/friend.png) <br>
+Die Klasse **Action** ist der Mittelpunkt. Hier werden verschiedene Aktionen des Users durch das Enum ActionType aufgelistet, z.B. *VISIT*, *FRIEND_REQUEST*, *FRIEND_ACKNOWLEDGEMENT* und *BLOCK*.
+Mittels der FRIEND-Aktionen werden Freundschaften realisiert.
+Die Aktionen sind leicht erweiterbar.
 
 </details>
 
 <details>
 <summary>Guestbook Package</summary><br>
 
-Die Klasse **Guestbook**  enthält den Speicherort - eine ArrayList in diesem Fall - für die Einträge im Gästebuch. Die Klasse **GuestbookEntry** bewahrt die Informationen über den Verfasser des Eintrages, den Inhalt, sowie die Uhrzeit wann der Eintrag bearbeitet worden ist. 
-Mithilfe der Funktion **addEntry** wird ein Eintrag erstellt, **editEntry** lässt einen Eintrag bearbeiten und updaten und **deleteEntry** gibt die Möglichkeit, diesen zu löschen.
-	
-![guestbook](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/guestbook.png) <br>
+Die Klasse **GuestbookEntry**  enthält den Speicherort für die Einträge im Gästebuch. Die Klasse bewahrt die Informationen über den Verfasser und Empfänger des Eintrages, den Inhalt, sowie die Uhrzeit wann der Eintrag bearbeitet worden ist.
 
 </details>
 
 <details>
 <summary>User Package</summary><br>
 	
-In unserem **UserContainer** werden alle User abgespeichert. Über diese Klasse kann man User anlegen, entfernen und gewisse Attribute ändern. Letztere Funktionalität (changeUsername, changeMailadress, changePassword) wird zu einem späteren Zeitpunkt in die AccountDetails Klasse verschoben.
-
-* Über die **User Klasse** kann man auf alle Attribute zugreifen und gegebenenfalls verändern. 
-* In der **ProfilText** Klasse findet man den Content des ProfilTextes.
-* **AccountDetails** enthält alle Informationen zum Login.
-* **PersonalInfo** enthält alle Daten, die die Person betreffen.
-* **ProfileStatistic** hier werden die statistischen Daten des Profils gehalten und aktualisiert.
-* **TestUtility** hier findet man Hilfsfunktionen für die Tests.
-* **ValidationUtility** hier findet man Hilfsfunktionen für das Überprüfen verschiedener Werte.
-
-
-![user1](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user1.png) <br>
-![user2](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/user2.png) <br>
-
-</details>
-
-<details>
-<summary>Exceptions & ValidationUtility package</summary><br>
-
-Die Klasse **ValidationUtilty** enthält alle Funktionen, die zur Validierung eines neuen Users benötigt werden. Die Funktion **stringAlreadyExistsInArray** zum Beispiel überprüft in der **ArrayList<User>** ob die E-mail-Addresse schon zu einem anderen User gehört. 
-	
-Die Klasse **TestUtility** enthält eine Hilfsfunktion (getNewUserForTesting) um Standart-User für Testfälle einfacher anlegen zu können.
-	
-Die Klasse **Exceptions** enthält die Exceptions die ausgeworfen werden, wenn ein Problem während der Ausführung einer Funktion auftritt; beispielsweise, dass das vom User gewählte Passwort den Anforderungen nicht entspricht.
-	
-![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/exception.png) <br>
-![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/ValidationUtility.png) <br>
-![rest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/TestUtility.png) <br>
-
-</details>
-	
-## Aktivitätsdiagramme
-
-<details>
-<summary>registerUser</summary><br>
-
-Die Funktion <strong>registerUser</strong> legt einen User an. Hierfür ruft sie weitere Funktionen auf, damit die Eingaben des neuen Nutzers auch den gültigen Anforderungen entsprechen.
-
-<strong>checkEmail</strong> überprüft die E-Mail-Adresse auf "@"-Zeichen und Eindeutigkeit.
-![registerUsercheckemail](https://cdn.discordapp.com/attachments/783318437384552521/805088682809098250/Screenshot_143.png) <br>
-
-<strong>checkPassword</strong> überprüft das Passwort auf die benötigten Zeichen/-Anzahl und Sonderzeichen.
-![validemail](https://cdn.discordapp.com/attachments/783318437384552521/805088723191988224/Screenshot_148.png) <br>
-
-<strong>checkUsername</strong> überprüft den Benutzernamen auf genügend Zeichen.
-![validusername](https://cdn.discordapp.com/attachments/783318437384552521/805088754536284180/Screenshot_149.png) <br>
-
+Über unseren **User** werden alle User abgespeichert. Hier werden alle relevanten Userdaten gespeichert.
+Über *registerUser* im **UserService** werden neue User angelegt. 
 	
 </details>
 
-<details>
-<summary>acceptFriendRequest</summary><br>
-	
-Die Methode <strong>acceptFriendRequest</strong> akzeptiert eine Freundschaftsanfrage. Sie ruft weitere Methoden auf: 
-* um einen Eintrag in 'acceptedFriends' bei beiden Usern anzulegen
-* um den Eintrag (die abzuarbeitende Freundschaftsanfrage) aus 'waitingFriends' bei beiden Usern zu entfernen
-* um in ProfileStatistic latest- und oldestFriend bei beiden Usern zu aktualisieren
-![acceptFriendRequest](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/acceptFriendRequest.png) <br>
-
-Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFriends' solange, bis der Eintrag mit dem übergebenen User gefunden wurde und entfernt diesen. Es ist wichtig zu wissen, ob der übergebene User als 'sender' oder 'receiver' abgespeichert ist.
-![removeEntryFromWaitingFriends](https://github.com/fh-erfurt/Java1-Locster/blob/main/Projektdokumentation/screenshot/removeEntryFromWaitingFriends.png) <br>
-
-</details>
-<hr>
-</details>
-
-	
 ## Codestyle
 
 1. Sprache<br>
@@ -280,32 +207,9 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 2. Klassen<br>
 <br>
 <ul>
-	<li>Klassen werden in der Ordnerstruktur unter <strong>src/main...</strong> angelegt</li>
 	<li>Klassenname sowie Dateiname werden in <strong>UpperCamelCase</strong> geschrieben</li>
 <li>Beispiel: ClassName.java</li>
-<li>Die Strukturierungen der Klassen sehen wie folgt:</li>
-</ul>
 
- <br>
- 
-    1. Enum
-    2. Konstanten und Klassenvariablen 
-    3. Variablen
-    4. Konstruktor
-    5. abstrakte Methoden
-    6. Methoden
-    7. Getter & Setter
-    
- - Die Sektionen werden jeweilig mit folgendem Kommentar initiiert:
-<br>
- 
-    /*
-    ===================================
-    == Sektionsname
-    ===================================
-    */
-
-<br>
 3. Methoden<br>
 <br>
 <ul>
@@ -327,20 +231,7 @@ Die Methode <strong>removeEntryFromWaitingFriends</strong> durchsucht 'waitingFr
 Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
 </ul>
 <br>
-5. Kommentar<br>
-<br>
-<ul>
-<li>Am Anfang einer jeder Datei hinterlässt der Bearbeiter eine Signatur die wie folgt aussieht.</li>
-</ul>
-<br>
- 
-    /*
-    ===================================
-    == Max Mustermann
-    ===================================
-    */
 
-<br>
 <ul>
 	<li>Methoden und Klassen werden über den Bezeichner kommentiert und wie folgt initiiert</li>
  </ul>
@@ -363,7 +254,7 @@ Mit einem triftigen Grund kann von der Regelung abgewichen werden.</li>
 <br>
 die IDE IntelliJ sollte hier den Anwender unterstützen.
 <br>
-6. Tests<br>
+5. Tests<br>
 <br>
 <ul>
 	<li>Test-Klassen werden in der Ordnerstrukter unter <strong>src/test...</strong> angelegt.</li>
@@ -385,34 +276,13 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
     }
 
 <br>
-7. Enum<br>
+6. Enum<br>
 <br>
 <ul>
 	<li>Enums werden in <strong>UpperCamelCase</strong> geschrieben</li>
-	<li>Beispiel für Enum:</li>
 </ul>
-<br>
-
-    /*
-    ===================================
-    == ENUM
-    ===================================
-    */
-      enum Example
-      {
-             value1,
-             value2,
-             value3
-      }
-    /*
-    ===================================
-    == VARIABLE
-    ===================================
-    */
-    
-    private Example example = Example.value1;
-     
-<br>
+	
+</details>
 	
 ## Funktionalitäten
 
