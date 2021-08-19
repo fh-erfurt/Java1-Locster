@@ -83,7 +83,7 @@ Um den Server zu starten geben Sie bitte folgenden machen
 
 3. gehen sie zu src -> test -> dummy_data -> InsertDataForSimulatingAndTesting
 4. Sie müssen InsertDataForSimulatingAndTesting lausen lassen "Run"
-5. 
+
 Sie Dürfen auf ihrem Browser localhost:8080/ rufen 
 
 5. email: dirk@hofmann.de	Passwort:DIRK
