@@ -12,6 +12,9 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 
+/**
+ * has not yet been implemented
+ */
 @Entity
 @Getter
 @Setter

@@ -11,6 +11,9 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * has not yet been implemented
+ */
 @Entity
 @Getter
 @Setter

@@ -10,6 +10,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * has not yet been implemented
+ */
 @Slf4j
 @Service
 public class ChatService extends BaseService<Chat> {
