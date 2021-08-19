@@ -1,6 +1,5 @@
 ![alt text]( https://cdn.discordapp.com/attachments/783318437384552521/793117042214567946/locsterw3_2.png "Logo Title Text 1")
 
-[![Build Status](https://github.com/fh-erfurt/Java1-Locster/workflows/build/badge.svg)](https://github.com/fh-erfurt/Java1-Locster/actions)
 ![Vercel](https://vercelbadge.vercel.app/api/Vogeslu/webaufbau-twanimal)
 ![5 Kommilitonen](https://img.shields.io/badge/Kommilitonen-5-yellow)
 
