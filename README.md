@@ -308,6 +308,7 @@ die IDE IntelliJ sollte hier den Anwender unterstützen.
 </ul>
 	
 </details>
+</details>
 	
 ## Funktionalitäten
 
